@@ -1,10 +1,10 @@
 const Footer = () => {
   return (
-    <footer>
+    <footer className="footer-wf">
       <div>
-        <h4>
+        <div className="copyright-wf">
           &#169; 2023 Workflow App. All Rights Reserved.
-        </h4>
+        </div>
       </div>
     </footer>
   );

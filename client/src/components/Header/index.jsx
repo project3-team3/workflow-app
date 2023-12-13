@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const Header = () => {
   const logout = (event) => {
@@ -9,31 +9,52 @@ const Header = () => {
   };
   return (
     <header>
-      <div>
-        <div>
+      <div className="navbar-fixed">
+      <nav className="navbar-wf">
+        <div className="nav-wrapper">
           <Link to="/">
-            <h1>Workflow</h1>
+            <img src="/logo_transparent.png" alt="logo" className="logo-wf" />
+            <a className="brandname-wf">WORKFLOW</a>
           </Link>
+          <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+            <i className="material-icons">menu</i>
+          </a>
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
+            {Auth.loggedIn() ? (
+              <>
+                <li>Hello {Auth.getProfile().data.username}</li>
+                <li>
+                  <button
+                    onClick={logout}
+                    className="waves-effect waves-light btn"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link
+                    to="/login"
+                    className="waves-effect waves-light btn button-wf"
+                  >
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/signup"
+                    className="waves-effect waves-light btn button-wf"
+                  >
+                    Signup
+                  </Link>
+                </li>
+              </>
+            )}
+          </ul>
         </div>
-        <div>
-          {Auth.loggedIn() ? (
-            <>
-              <span>Hello {Auth.getProfile().data.username}</span>
-              <button onClick={logout}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link to="/login">
-                Login
-              </Link>
-              <Link to="/signup">
-                Signup
-              </Link>
-            </>
-          )}
-        </div>
+      </nav>
       </div>
     </header>
   );
