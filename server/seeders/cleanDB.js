@@ -3,14 +3,23 @@ const db = require('../config/connection');
 
 module.exports = async (modelName, collectionName) => {
   try {
-    let modelExists = await models[modelName].db.db.listCollections({
-      name: collectionName
-    }).toArray()
+    const model = models[modelName];
+    if (!model) {
+      console.error(`Model '${modelName}' not found.`);
+      return;
+    }
 
-    if (modelExists.length) {
-      await db.dropCollection(collectionName);
+    const collections = await db.db.listCollections().toArray();
+    const existingCollection = collections.find(c => c.name === collectionName);
+
+    if (existingCollection) {
+      await db.collections[collectionName].drop();
+      console.log(`Collection '${collectionName}' dropped.`);
+    } else {
+      console.log(`Collection '${collectionName}' not found.`);
     }
   } catch (err) {
+    console.error(err);
     throw err;
   }
-}
+};

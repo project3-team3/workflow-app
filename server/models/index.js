@@ -1,4 +1,5 @@
 const Quote = require('./Quote');
 const BalanceTip = require('./BalanceTip');
+const User = require('./User');
 
-module.exports = { Quote, BalanceTip };
+module.exports = { User, Quote, BalanceTip };
