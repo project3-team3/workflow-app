@@ -46,6 +46,7 @@ function App() {
               </li>
             </ul>
           </div>
+          <div className="col s2"></div>
           <div className="col s10">
             <Outlet />
           </div>

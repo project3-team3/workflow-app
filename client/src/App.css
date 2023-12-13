@@ -57,6 +57,36 @@ html {
   padding-left: 10px;
 }
 
+.login-signup-container-wf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-signup-box-wf {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background-color: #FAF9F6;
+  color: #344966;
+  text-align: center;
+  border: 1px solid #4C6A94;
+  border-radius: 20px;
+  padding: 40px 40px 60px 40px;
+}
+
+.login-signup-button-wf {
+  margin-top: 20px;
+}
+
+.login-signup-error-wf {
+  margin-top: 20px;
+  color: #DA627D;
+  font-weight: bold;
+  font-size: 18px;
+}
+
 .copyright-wf {
   text-align: right;
   margin-top: 20px;
