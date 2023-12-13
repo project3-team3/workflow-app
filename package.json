@@ -1,7 +1,7 @@
 {
-  "name": "programming-thoughts",
+  "name": "Workflow",
   "version": "1.0.0",
-  "description": "",
+  "description": "A productivity app with an emphasis on keeping a healthy work/life balance.",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -10,9 +10,7 @@
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "concurrently": "^8.2.0"
   }
