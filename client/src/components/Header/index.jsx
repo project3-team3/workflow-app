@@ -22,7 +22,7 @@ const Header = () => {
           <ul id="nav-mobile" className="right hide-on-med-and-down navbar-right-container-wf">
             {Auth.loggedIn() ? (
               <>
-                <li className="loggedin-text-wf">Hello {Auth.getProfile().data.username}</li>
+                <li className="loggedin-text-wf">{Auth.getProfile().data.username}</li>
                 <li>
                   <button
                     onClick={logout}

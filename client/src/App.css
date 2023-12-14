@@ -127,6 +127,27 @@ html {
   font-size: 18px;
 }
 
+.dashboard-title-wf {
+  margin-top: 35px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.widget-container-wf {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.widget-wf {
+  background-color: #faf9f6;
+  border: #4c6a94 1px solid;
+  border-radius: 20px;
+  width: 20%;
+  aspect-ratio: 1 / 1;
+  margin: 30px;
+}
+
 .copyright-wf {
   text-align: right;
   margin-top: 20px;
