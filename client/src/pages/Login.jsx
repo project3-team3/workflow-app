@@ -6,7 +6,7 @@ import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 const Login = (props) => {
-  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [formState, setFormState] = useState({ username: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
   const handleChange = (event) => {
@@ -32,7 +32,7 @@ const Login = (props) => {
     }
 
     setFormState({
-      email: "",
+      username: "",
       password: "",
     });
   };
@@ -51,10 +51,10 @@ const Login = (props) => {
             <form onSubmit={handleFormSubmit}>
               <input
                 className="input-field login-signup-input-wf"
-                placeholder="Your email"
-                name="email"
-                type="email"
-                value={formState.email}
+                placeholder="Your username"
+                name="username"
+                type="text"
+                value={formState.username}
                 onChange={handleChange}
               />
               <input

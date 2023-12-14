@@ -35,8 +35,8 @@ const resolvers = {
         throw error; // Ensure errors are thrown so they can be captured by the client
       }
     },
-    login: async (__, { email, password }) => {
-      const user = await User.findOne({ email });
+    login: async (__, { username, password }) => {
+      const user = await User.findOne({ username });
 
       if (!user) {
         throw AuthenticationError;
