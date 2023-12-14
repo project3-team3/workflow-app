@@ -11,6 +11,8 @@ import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+import Auth from "./utils/auth";
+
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -35,6 +37,8 @@ function App() {
     <ApolloProvider client={client}>
       <div>
         <Header />
+        {Auth.loggedIn() ? (
+          <>
         <main className="main-wf row">
           <div className="col s2 sidenav-wf">
             <ul>
@@ -51,6 +55,11 @@ function App() {
             <Outlet />
           </div>
         </main>
+        </> ) : ( <>
+          <main className="main-wf row">
+          <Outlet />
+          </main>
+        </> ) }
         <Footer />
       </div>
     </ApolloProvider>

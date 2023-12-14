@@ -1,7 +1,7 @@
 html {
-  font-family: 'Lexend', sans-serif;
+  font-family: "Lexend", sans-serif;
   background-color: #00c2cb;
-  color: #FAF9F6;
+  color: #faf9f6;
 }
 
 .logo-wf {
@@ -13,13 +13,13 @@ html {
 
 .brandname-wf {
   font-size: 35px;
-  color: #FAF9F6;
+  color: #faf9f6;
   vertical-align: top;
 }
 
 .navbar-wf {
   background-color: #344966;
-  color: #FAF9F6;
+  color: #faf9f6;
 }
 
 .navbar-right-container-wf {
@@ -33,12 +33,12 @@ html {
 
 .button-wf {
   background-color: #00c2cb;
-  color: #FAF9F6;
+  color: #faf9f6;
   font-weight: bold;
 }
 
 .button-wf:hover {
-  background-color: #4C6A94;
+  background-color: #4c6a94;
 }
 
 .main-wf {
@@ -47,23 +47,54 @@ html {
 
 .sidenav-wf {
   background-color: #344966;
-  color: #FAF9F6;
+  color: #faf9f6;
   top: 64px;
   height: 100vh;
   position: fixed;
 }
 
-.sidenav-wf li>a {
-  color: #FAF9F6;
+.sidenav-wf li > a {
+  color: #faf9f6;
 }
 
-.sidenav-wf li>a:hover {
+.sidenav-wf li > a:hover {
   color: #00c2cb;
 }
 
 .sidenav-item-wf {
   padding-top: 20px;
   padding-left: 10px;
+}
+
+.logo-home-wf {
+  height: 7em;
+}
+
+.welcome-wf {
+  margin-top: 10%;
+  text-align: center;
+}
+
+.flow-text-wf {
+  color: rgba(76, 106, 148, 0);
+  transition: color 2.5s ease-in-out;
+}
+
+.flow-text-wf.active {
+  color: rgba(76, 106, 148, 1);
+}
+
+.flow-text-wf.regular {
+  color: #faf9f6;
+}
+
+.blurb-text-wf {
+  color: rgba(250, 249, 246, 0);
+  transition: color 2.5s ease-in-out;
+}
+
+.blurb-text-wf.fade-in-wf {
+  color: rgba(250, 249, 246, 1);
 }
 
 .login-signup-container-wf {
@@ -77,10 +108,10 @@ html {
   display: flex;
   flex-direction: column;
   width: 60%;
-  background-color: #FAF9F6;
+  background-color: #faf9f6;
   color: #344966;
   text-align: center;
-  border: 1px solid #4C6A94;
+  border: 1px solid #4c6a94;
   border-radius: 20px;
   padding: 40px 40px 60px 40px;
 }
@@ -91,7 +122,7 @@ html {
 
 .login-signup-error-wf {
   margin-top: 20px;
-  color: #DA627D;
+  color: #da627d;
   font-weight: bold;
   font-size: 18px;
 }
