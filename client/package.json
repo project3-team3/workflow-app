@@ -1,5 +1,5 @@
 {
-  "name": "Workflow",
+  "name": "workflow",
   "description": "A productivity app with an emphasis on keeping a healthy work/life balance.",
   "private": true,
   "version": "1.0.0",
@@ -15,6 +15,7 @@
     "graphql": "^16.6.0",
     "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
+    "react-calendar": "^4.7.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.1"
   },
