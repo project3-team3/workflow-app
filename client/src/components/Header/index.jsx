@@ -19,14 +19,14 @@ const Header = () => {
           <a href="#" data-target="mobile-demo" className="sidenav-trigger">
             <i className="material-icons">menu</i>
           </a>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
+          <ul id="nav-mobile" className="right hide-on-med-and-down navbar-right-container-wf">
             {Auth.loggedIn() ? (
               <>
-                <li>Hello {Auth.getProfile().data.username}</li>
+                <li className="loggedin-text-wf">Hello {Auth.getProfile().data.username}</li>
                 <li>
                   <button
                     onClick={logout}
-                    className="waves-effect waves-light btn"
+                    className="waves-effect waves-light btn button-wf"
                   >
                     Logout
                   </button>

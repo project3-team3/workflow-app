@@ -1,4 +1,4 @@
-const { Quote, BalanceTip } = require("../models");
+const { User, Quote, BalanceTip } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
@@ -6,8 +6,8 @@ const resolvers = {
     quotes: async () => {
       return Quote.find().populate("quotes");
     },
-    tips: async () => {
-      return BalanceTip.find().populate("tips");
+    balancetips: async () => {
+      return BalanceTip.find().populate("balancetips");
     },
     randomQuote: async () => {
       const quotes = await Quote.find();
@@ -23,9 +23,17 @@ const resolvers = {
 
   Mutation: {
     addUser: async (__, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
-      const token = signToken(user);
-      return { token, user };
+      try {
+        const user = await User.create({ username, email, password });
+        const token = signToken(user);
+  
+        console.log("Server Response:", { token, user });
+  
+        return { token, user };
+      } catch (error) {
+        console.error("Server Error:", error);
+        throw error; // Ensure errors are thrown so they can be captured by the client
+      }
     },
     login: async (__, { email, password }) => {
       const user = await User.findOne({ email });

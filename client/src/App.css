@@ -22,6 +22,15 @@ html {
   color: #FAF9F6;
 }
 
+.navbar-right-container-wf {
+  margin-right: 15px;
+}
+
+.loggedin-text-wf {
+  margin-right: 20px;
+  font-size: 18px;
+}
+
 .button-wf {
   background-color: #00c2cb;
   color: #FAF9F6;
