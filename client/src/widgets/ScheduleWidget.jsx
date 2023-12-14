@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import "../styles/widget.css";
+import { FaTrash, FaCheck, FaUndo } from 'react-icons/fa';
 
 //Temporary placeholder for the schedule. Once the database are all set, then delete this code."
 const ScheduleWidget = () => {
@@ -49,11 +50,13 @@ const ScheduleWidget = () => {
         {events.map((event) => (
           <div key={event.id} className={`event ${event.completed ? 'completed' : ''}`}>
             <p>{event.title} - {event.time}</p>
-            <div>
-              <button onClick={() => deleteEvent(event.id)}>Delete</button>
-              <button onClick={() => toggleComplete(event.id)}>
-                {event.completed ? 'Undo' : 'Complete'}
-              </button>
+            <div className="event-icons">
+              <FaTrash onClick={() => deleteEvent(event.id)} className="icon" />
+              {event.completed ? (
+                <FaUndo onClick={() => toggleComplete(event.id)} className="icon" />
+              ) : (
+                <FaCheck onClick={() => toggleComplete(event.id)} className="icon" />
+              )}
             </div>
           </div>
         ))}
