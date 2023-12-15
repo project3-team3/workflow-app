@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from "react";
 import "../../styles/widget.css";
 
 const StickyNoteWidget = () => {
-const [note, setNote] = useState('');
+  const [note, setNote] = useState("");
 
   const handleNoteChange = (e) => {
     setNote(e.target.value);
@@ -14,7 +14,7 @@ const [note, setNote] = useState('');
         className="sticky-note-textarea"
         value={note}
         onChange={handleNoteChange}
-        placeholder="Type your reminder here..."
+        placeholder="Type your sticky note here..."
       ></textarea>
     </div>
   );

@@ -40,7 +40,7 @@ const Login = (props) => {
   return (
     <div className="login-signup-container-wf">
       <div className="login-signup-box-wf z-depth-4">
-        <h4>Login</h4>
+        <h4>Log In</h4>
         <div>
           {data ? (
             <p>

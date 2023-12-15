@@ -40,6 +40,8 @@
   color: #31435E;
   font-weight: bold;
   height: 100%;
+  width: 100%;
+  padding: 25px;
 }
 
 /* days of the week */
@@ -79,7 +81,7 @@
 .notepad-textarea {
   width: 100%;
   height: 100%;
-  padding: 15px;
+  padding: 25px;
   border-radius: 20px;
   resize: vertical;
   outline: none;
@@ -89,6 +91,9 @@
 
 /*Style for the Sticky Note Widget*/
 .sticky-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #99FAFF;
   border: 1px solid #4c6a94;
   border-radius: 20px;
@@ -101,14 +106,18 @@
   resize: none;
   outline: none;
   box-sizing: border-box;
-  font-size: 20px;
+  font-size: 30px;
   color: #344966;
   background-color: transparent;
-  padding: 15px;
+  padding: 30px;
+  font-family: 'Shadows Into Light', cursive;
+  text-align: center;
+  vertical-align: center;
 }
 
 .sticky-note-textarea::placeholder {
   color: #869EC1;
+  font-family: 'Shadows Into Light', cursive;
 }
 
 /*Style for the Schedule Widget*/
@@ -117,7 +126,7 @@
   border-radius: 20px;
   background-color: #EEE1B3;
   color: #4c6a94;
-  padding: 15px;
+  padding: 25px;
 }
 
 .schedule-widget h4 {
@@ -203,7 +212,7 @@
   border-radius: 20px;
   background-color: #C5C695;
   color: #0D1821;
-  padding-left: 20px;
+  padding-left: 25px;
 }
 
 .file-management-widget h2 {
@@ -244,7 +253,7 @@
   background-color: #D5CAD6;
   border: 1px solid #4c6a94;
   border-radius: 20px;
-  padding: 15px;
+  padding: 25px;
 }
 
 .kanban-board h4 {
@@ -345,10 +354,13 @@ h2 {
 .meditation-dropdown {
   width: 90%;
   align-self: center;
+  background-color: #F2F4F8;
 }
 
 .meditation-dropdown select {
   height: 2em;
+  border-radius: 10px;
+  background-color: #F2F4F8;
 }
 
 .react-audio-player .rp-controls {
@@ -361,7 +373,7 @@ h2 {
   border-radius: 20px;
   background-color: #FFCFAD;
   color: #35495e;
-  padding: 0px 20px;
+  padding: 0px 28px;
   display: flex;
   align-items: center;
 }
@@ -380,9 +392,8 @@ h2 {
   border-radius: 20px;
   background-color: #E3C8B5;
   color: #233043;
-  padding: 0px 20px;
+  padding: 20px 30px;
   display: flex;
-  align-items: center;
 }
 
 .balance-tip-widget h2 {

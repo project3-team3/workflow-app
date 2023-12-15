@@ -26,7 +26,7 @@ const MeditationWidget = () => {
       />
       <div className="input-field meditation-dropdown">
         <select
-          className="browser-default"
+          className="browser-default meditation-dropdown-align-wf"
           value={currentTrack}
           onChange={handleTrackChange}
         >

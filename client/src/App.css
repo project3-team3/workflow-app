@@ -160,16 +160,23 @@ html {
   display: flex;
   flex-direction: column;
   width: 60%;
-  background-color: #faf9f6;
-  color: #344966;
+  background-color: #344966;
+  color: #faf9f6;
   text-align: center;
   border: 1px solid #4c6a94;
   border-radius: 20px;
   padding: 40px 40px 60px 40px;
 }
 
+.login-signup-input-wf {
+  color: #faf9f6;
+  font-family: "Lexend", sans-serif;
+}
+
 .login-signup-button-wf {
   margin-top: 20px;
+  font-weight: bold;
+  
 }
 
 .login-signup-error-wf {
