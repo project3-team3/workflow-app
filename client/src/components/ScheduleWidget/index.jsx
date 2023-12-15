@@ -45,7 +45,7 @@ const ScheduleWidget = () => {
 
   return (
     <div className="schedule-widget widget-content-wf">
-      <h3>Schedule</h3>
+      <h4>Schedule</h4>
       <div className="event-list">
         {events.map((event) => (
           <div key={event.id} className={`event ${event.completed ? 'completed' : ''}`}>
@@ -62,7 +62,7 @@ const ScheduleWidget = () => {
         ))}
       </div>
       <div className="new-event">
-        <h4>Add New Event</h4>
+        <h6>Add New Event</h6>
         <input
           type="text"
           placeholder="Event Title"
@@ -75,7 +75,7 @@ const ScheduleWidget = () => {
           value={newEventTime}
           onChange={(e) => setNewEventTime(e.target.value)}
         />
-        <button onClick={addEvent}>Add Event</button>
+        <button onClick={addEvent}>ADD EVENT</button>
       </div>
     </div>
   );

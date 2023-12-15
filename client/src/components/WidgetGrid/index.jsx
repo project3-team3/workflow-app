@@ -21,7 +21,7 @@ function getResponsiveLayouts() {
         { i: "clock", x: 0, y: 0, w: 1, h: 2, minH: 2, autosize: true },
         { i: "filemanagement", x: 1, y: 11, w: 1, h: 1, autosize: true },
         { i: "notepad", x: 0, y: 6, w: 2, h: 4, minH: 2, minW: 1, autosize: true },
-        { i: "schedule", x: 2, y: 6, w: 2, h: 4, minW: 2, minH: 4, autosize: true },
+        { i: "schedule", x: 2, y: 6, w: 2, h: 4, minH: 4, minW: 2, autosize: true },
         { i: "stickynote", x: 0, y: 2, w: 1, h: 2, minH: 2, autosize: true },
         { i: "todolist", x: 2, y: 3, w: 3, h: 3, minH: 3, minW: 3, autosize: true },
         { i: "meditation", x: 0, y: 5, w: 1, h: 1, autosize: true },
@@ -33,7 +33,7 @@ function getResponsiveLayouts() {
         { i: "clock", x: 0, y: 0, w: 1, h: 2, minH: 2, autosize: true },
         { i: "filemanagement", x: 1, y: 11, w: 1, h: 1, autosize: true },
         { i: "notepad", x: 0, y: 6, w: 2, h: 4, minH: 2, minW: 1, autosize: true },
-        { i: "schedule", x: 2, y: 6, w: 2, h: 4, minW: 2, minH: 4, autosize: true },
+        { i: "schedule", x: 2, y: 6, w: 2, h: 4, minH: 4, minW: 2, autosize: true },
         { i: "stickynote", x: 0, y: 2, w: 1, h: 2, minH: 2, autosize: true },
         { i: "todolist", x: 2, y: 3, w: 3, h: 3, minH: 3, minW: 3, autosize: true },
         { i: "meditation", x: 0, y: 5, w: 1, h: 1, autosize: true },
@@ -43,39 +43,27 @@ function getResponsiveLayouts() {
       sm: [
         { i: "calendar", x: 1, y: 0, w: 1, h: 2, minH: 2, autosize: true },
         { i: "clock", x: 0, y: 0, w: 1, h: 2, minH: 2, autosize: true },
-        { i: "filemanagement", x: 1, y: 11, w: 1, h: 1, autosize: true },
-        { i: "notepad", x: 0, y: 6, w: 2, h: 4, minH: 2, minW: 1, autosize: true },
-        { i: "schedule", x: 2, y: 6, w: 2, h: 4, minW: 2, minH: 4, autosize: true },
-        { i: "stickynote", x: 0, y: 2, w: 1, h: 2, minH: 2, autosize: true },
-        { i: "todolist", x: 2, y: 3, w: 3, h: 3, minH: 3, minW: 3, autosize: true },
-        { i: "meditation", x: 0, y: 5, w: 1, h: 1, autosize: true },
+        { i: "filemanagement", x: 1, y: 5, w: 1, h: 1, autosize: true },
+        { i: "notepad", x: 0, y: 17, w: 2, h: 4, minH: 2, minW: 1, autosize: true },
+        { i: "schedule", x: 0, y: 7, w: 2, h: 4, minH: 4, minW: 2, autosize: true },
+        { i: "stickynote", x: 0, y: 5, w: 1, h: 2, minH: 2, autosize: true },
+        { i: "todolist", x: 0, y: 13, w: 2, h: 3, minH: 3, minW: 2, autosize: true },
+        { i: "meditation", x: 1, y: 11, w: 1, h: 1, autosize: true },
         { i: "inspiringquote", x: 0, y: 11, w: 1, h: 2, autosize: true },
-        { i: "balancetip", x: 3, y: 0, w: 2, h: 2, autosize: true }
+        { i: "balancetip", x: 0, y: 3, w: 2, h: 2, autosize: true }
       ],
       xs: [
-        { i: "calendar", x: 1, y: 0, w: 1, h: 2, minH: 2, autosize: true },
+        { i: "calendar", x: 0, y: 11, w: 1, h: 2, minH: 2, autosize: true },
         { i: "clock", x: 0, y: 0, w: 1, h: 2, minH: 2, autosize: true },
-        { i: "filemanagement", x: 1, y: 11, w: 1, h: 1, autosize: true },
-        { i: "notepad", x: 0, y: 6, w: 2, h: 4, minH: 2, minW: 1, autosize: true },
-        { i: "schedule", x: 2, y: 6, w: 2, h: 4, minW: 2, minH: 4, autosize: true },
-        { i: "stickynote", x: 0, y: 2, w: 1, h: 2, minH: 2, autosize: true },
-        { i: "todolist", x: 2, y: 3, w: 3, h: 3, minH: 3, minW: 3, autosize: true },
-        { i: "meditation", x: 0, y: 5, w: 1, h: 1, autosize: true },
-        { i: "inspiringquote", x: 0, y: 11, w: 1, h: 2, autosize: true },
-        { i: "balancetip", x: 3, y: 0, w: 2, h: 2, autosize: true }
-      ],
-      xxs: [
-        { i: "calendar", x: 1, y: 0, w: 1, h: 2, minH: 2, autosize: true },
-        { i: "clock", x: 0, y: 0, w: 1, h: 2, minH: 2, autosize: true },
-        { i: "filemanagement", x: 1, y: 11, w: 1, h: 1, autosize: true },
-        { i: "notepad", x: 0, y: 6, w: 2, h: 4, minH: 2, minW: 1, autosize: true },
-        { i: "schedule", x: 2, y: 6, w: 2, h: 4, minW: 2, minH: 4, autosize: true },
-        { i: "stickynote", x: 0, y: 2, w: 1, h: 2, minH: 2, autosize: true },
-        { i: "todolist", x: 2, y: 3, w: 3, h: 3, minH: 3, minW: 3, autosize: true },
-        { i: "meditation", x: 0, y: 5, w: 1, h: 1, autosize: true },
-        { i: "inspiringquote", x: 0, y: 11, w: 1, h: 2, autosize: true },
-        { i: "balancetip", x: 3, y: 0, w: 2, h: 2, autosize: true }
-      ],
+        { i: "filemanagement", x: 0, y: 14, w: 1, h: 1, autosize: true },
+        { i: "notepad", x: 0, y: 21, w: 1, h: 4, minH: 2, autosize: true },
+        { i: "schedule", x: 0, y: 3, w: 1, h: 4, minH: 4, autosize: true },
+        { i: "stickynote", x: 0, y: 9, w: 1, h: 2, minH: 2, autosize: true },
+        { i: "todolist", x: 0, y: 15, w: 1, h: 3, minH: 3, autosize: true },
+        { i: "meditation", x: 0, y: 13, w: 1, h: 1, autosize: true },
+        { i: "inspiringquote", x: 0, y: 7, w: 1, h: 2, autosize: true },
+        { i: "balancetip", x: 0, y: 19, w: 1, h: 2, autosize: true }
+      ]
     };
   }
 
@@ -87,8 +75,8 @@ class WidgetGrid extends React.Component {
       <ResponsiveGridLayout
         className="layout"
         layouts={layouts}
-        breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-        cols={{ lg: 4, md: 4, sm: 4, xs: 2, xxs: 1 }}
+        breakpoints={{ lg: 1200, md: 992, sm: 600, xs: 360 }}
+        cols={{ lg: 4, md: 4, sm: 2, xs: 1 }}
       >
         <div key="calendar" className="widget-wf z-depth-4"><CalendarWidget /></div>
         <div key="clock" className="widget-wf z-depth-4"><ClockWidget /></div>

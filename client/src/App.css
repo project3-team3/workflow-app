@@ -26,6 +26,24 @@ html {
   margin-right: 15px;
 }
 
+.mobile-sidenav-wf {
+  background-color: #344966;
+}
+
+.mobile-sidenav-wf li a {
+  color: #faf9f6;
+}
+
+.sidenav-username-wf {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 32px;
+  color: #00c2cb;
+}
+
 .loggedin-text-wf {
   margin-right: 20px;
   font-size: 18px;
@@ -35,10 +53,15 @@ html {
   background-color: #00c2cb;
   color: #faf9f6;
   font-weight: bold;
+  border-radius: 10px;
 }
 
 .button-wf:hover {
   background-color: #4c6a94;
+}
+
+.login-button-wf {
+  margin-bottom: 8px;
 }
 
 .error-back-btn-wf {
@@ -49,6 +72,10 @@ html {
 
 .error-back-btn-wf:hover {
   background-color: #4c6a94;
+}
+
+.mobile-display-wf {
+  display: none;
 }
 
 .main-wf {
@@ -81,7 +108,7 @@ html {
 }
 
 .welcome-wf {
-  margin-top: 10%;
+  margin-top: 15vh;
   text-align: center;
 }
 
@@ -129,7 +156,7 @@ html {
 }
 
 .login-signup-box-wf {
-  margin-top: 10%;
+  margin-top: 15vh;
   display: flex;
   flex-direction: column;
   width: 60%;
@@ -147,7 +174,7 @@ html {
 
 .login-signup-error-wf {
   margin-top: 20px;
-  color: #da627d;
+  color: #A51712;
   font-weight: bold;
   font-size: 18px;
 }
@@ -194,4 +221,22 @@ html {
   margin-top: 20px;
   margin-bottom: 20px;
   margin-right: 15px;
+}
+
+@media screen and (max-width: 992px) {
+  .desktop-display-wf {
+    display: none;
+  }
+
+  .mobile-display-wf {
+    display: block;
+  }
+
+  .sidenav-display-wf {
+    display: none;
+  }
+
+  .desktop-logo-display-wf {
+    display: none;
+  }
 }

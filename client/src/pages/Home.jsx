@@ -47,7 +47,6 @@ const Home = () => {
   }, []);
 
   return (
-    // TODO: Temporary placeholder code - replace with dynamically generated widgets
     <div>
       {Auth.loggedIn() ? (
         <>

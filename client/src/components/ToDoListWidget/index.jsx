@@ -62,7 +62,7 @@ const ToDoList = () => {
   return (
     <div className="kanban-board widget-content-wf">
       <h4>Kanban Board</h4>
-      <button onClick={openModal}>Add Task</button>
+      <button onClick={openModal}>ADD TASK</button>
       <DragDropContext onDragEnd={handleDragEnd}>
         <div className="kanban-row">
           {['Tasks', 'In Progress', 'Done', 'On Hold'].map((status) => (

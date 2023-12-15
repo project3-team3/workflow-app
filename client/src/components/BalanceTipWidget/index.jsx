@@ -13,7 +13,7 @@ const BalanceTipWidget = () => {
   return (
     <div className="balance-tip-widget widget-content-wf">
       <div className="balance-tip-flex-container">
-        <h6>Tip of the day:</h6>
+        <h2>Tip of the day</h2>
         <p className="balance-tip-random">{balanceTip}</p>
       </div>
     </div>

@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import ErrorPage from './pages/ErrorPage';
+import Chat from './pages/Chat';
+import VideoChat from './pages/VideoChat';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,12 @@ const router = createBrowserRouter([
       }, {
         path: '/signup',
         element: <Signup />
+      }, {
+        path: '/chat',
+        element: <Chat />
+      }, {
+        path: '/videochat',
+        element: <VideoChat />
       }
     ]
   },

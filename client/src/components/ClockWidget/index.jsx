@@ -51,7 +51,7 @@ const ClockWidget = () => {
 };
 
 ClockWidget.propTypes = {
-  dateTime: PropTypes.instanceOf(Date).isRequired,
+  dateTime: PropTypes.instanceOf(Date),
 };
 
 const AnalogClock = ({ dateTime }) => {
