@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import ErrorPage from './pages/ErrorPage';
-// TODO: Add imports for all other pages
 
 const router = createBrowserRouter([
   {
@@ -24,7 +23,6 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup />
       }
-      // TODO: Add routes for all other pages
     ]
   },
 ]);
