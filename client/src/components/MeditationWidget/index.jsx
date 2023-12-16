@@ -3,11 +3,11 @@ import ReactAudioPlayer from "react-audio-player";
 
 const MeditationWidget = () => {
   const trackList = [
-    { label: "Meditation (5 minutes)", value: "/med_track_1.mp3" },
-    { label: "Meditation (10 minutes)", value: "/med_track_2.mp3" },
-    { label: "Meditation (15 minutes)", value: "/med_track_3.mp3" },
-    { label: "Meditation (20 minutes)", value: "/med_track_4.mp3" },
-    { label: "Meditation (25 minutes)", value: "/med_track_5.m4a" },
+    { label: "Meditation (5 minutes)", value: "/med_track_1.ogg" },
+    { label: "Meditation (10 minutes)", value: "/med_track_2.ogg" },
+    { label: "Meditation (15 minutes)", value: "/med_track_3.ogg" },
+    { label: "Meditation (20 minutes)", value: "/med_track_4.ogg" },
+    { label: "Meditation (25 minutes)", value: "/med_track_5.ogg" },
   ];
 
   const [currentTrack, setCurrentTrack] = useState(trackList[0].value);

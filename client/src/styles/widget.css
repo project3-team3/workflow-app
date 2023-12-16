@@ -1,20 +1,26 @@
 /*Style for the Clock widgets*/
 .clock-widget {
   text-align: center;
-  border: 2px solid #4c6a94;
   border-radius: 20px;
   background-color: #4c6a94;
-  color: #0D1821;
+}
+
+.clock-container-wf {
+  padding-top: 10%;
+  height: 80%;
 }
 
 .clock-time {
-  font-size: 30px;
+  margin-top: 0px;
+  padding-top: 15%;
+  font-size: 45px;
   font-weight: bold;
   color: #F2F4F8;
 }
 
 .clock-date {
   color: #F2F4F8;
+  font-size: 18px;
 }
 
 .clock-face {
@@ -29,12 +35,15 @@
   fill: #0D1821;
 }
 
+.dark-button-wf {
+  background-color: #31435E;
+}
+
 /*Style for the Calendar widget*/
 .custom-calendar {
   font-family: "Lexend", sans-serif;
   display: flex;
   flex-direction: column;
-  border: 1px solid #4c6a94;
   border-radius: 20px;
   background-color: #F5F0F6;
   color: #31435E;
@@ -74,7 +83,6 @@
 /*Style for the Notepad Widget*/
 .notepad-widget {
   background-color: #F2F4F8;
-  border: 1px solid #4c6a94;
   border-radius: 20px;
 }
 
@@ -95,7 +103,6 @@
   justify-content: center;
   align-items: center;
   background-color: #99FAFF;
-  border: 1px solid #4c6a94;
   border-radius: 20px;
 }
 
@@ -122,11 +129,11 @@
 
 /*Style for the Schedule Widget*/
 .schedule-widget {
-  border: 1px solid #4c6a94;
   border-radius: 20px;
   background-color: #EEE1B3;
   color: #4c6a94;
   padding: 25px;
+  overflow: auto;
 }
 
 .schedule-widget h4 {
@@ -208,11 +215,11 @@
 
 /* Style for the File Management Widget */
 .file-management-widget {
-  border: 1px solid #4c6a94;
   border-radius: 20px;
   background-color: #C5C695;
   color: #0D1821;
   padding-left: 25px;
+  border: 1px solid #C5C695;
 }
 
 .file-management-widget h2 {
@@ -251,7 +258,6 @@
 /* Style for the To Do List Widget */
 .kanban-board {
   background-color: #D5CAD6;
-  border: 1px solid #4c6a94;
   border-radius: 20px;
   padding: 25px;
 }
@@ -333,7 +339,6 @@ h2 {
 /* Style for the Meditation Widget */
 .meditation-widget {
   width: 90%;
-  border: 1px solid #4c6a94;
   border-radius: 20px;
   background-color: #F2F4F8;
   color: #4c6a94;
@@ -369,7 +374,6 @@ h2 {
 
 /* Style for the Inspiring Quotes Widget */
 .inspiring-quote-widget {
-  border: 1px solid #4c6a94;
   border-radius: 20px;
   background-color: #FFCFAD;
   color: #35495e;
@@ -388,7 +392,6 @@ h2 {
 
 /* Style for the Work/Life Balance Tips Widget */
 .balance-tip-widget {
-  border: 1px solid #4c6a94;
   border-radius: 20px;
   background-color: #E3C8B5;
   color: #233043;

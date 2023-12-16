@@ -14,11 +14,14 @@ const ClockWidget = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const formattedTime = dateTime.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-  });
+  const hours = dateTime.getHours() % 12 || 12; // Get hours and convert 0 to 12
+  const minutes = dateTime.getMinutes();
+  const seconds = dateTime.getSeconds();
+
+  const formattedTime = `${hours}:${minutes.toLocaleString("en-US", {
+    minimumIntegerDigits: 2,
+  })}:${seconds.toLocaleString("en-US", { minimumIntegerDigits: 2 })}`;
+
   const formattedDate = dateTime.toLocaleDateString();
   const dayOfWeek = dateTime.toLocaleDateString(undefined, { weekday: "long" });
 
@@ -29,23 +32,23 @@ const ClockWidget = () => {
   return (
     <div className="clock-widget widget-content-wf">
       {isAnalog ? (
-        <AnalogClock dateTime={dateTime} />
+        <div className="clock-container-wf">
+          <AnalogClock dateTime={dateTime} />
+        </div>
       ) : (
-        <>
+        <div className="clock-container-wf">
           <p className="clock-time">{formattedTime}</p>
           <p className="clock-date">
             {dayOfWeek}, {formattedDate}
           </p>
-        </>
+        </div>
       )}
-      <div className="switch">
-        <label className="switch-container-wf">
-          <i className="small material-icons">access_time</i>
-          <input type="checkbox" onChange={handleToggleClock} checked={isAnalog} />
-          <span className="lever"></span>
-        </label>
-      </div>
-
+      <button
+        onClick={handleToggleClock}
+        className="waves-effect waves-light btn button-wf dark-button-wf"
+      >
+        {isAnalog ? "Digital" : "Analog"}
+      </button>
     </div>
   );
 };
@@ -96,11 +99,7 @@ const AnalogClock = ({ dateTime }) => {
   const minuteHandRotation = `rotate(${minuteRotation})`;
 
   return (
-    <svg
-      width="200"
-      height="200"
-      viewBox="-100 -100 200 200"
-    >
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
       {/* Clock face or the circle */}
       <circle cx="0" cy="0" r="90" className="clock-face" />
 
