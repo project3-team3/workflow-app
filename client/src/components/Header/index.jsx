@@ -21,15 +21,15 @@ const Header = () => {
       <div className="navbar-fixed">
         <nav className="navbar-wf">
           <div className="nav-wrapper">
+            <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+              <i className="material-icons">menu</i>
+            </a>
             <a href="#!" className="desktop-logo-display-wf">
               <img src="/logo_transparent.png" alt="logo" className="logo-wf" />
             </a>
             <Link to="/" className="brandname-wf">
               WORKFLOW
             </Link>
-            <a href="#" data-target="mobile-demo" className="sidenav-trigger">
-              <i className="material-icons">menu</i>
-            </a>
             <ul className="right hide-on-med-and-down navbar-right-container-wf">
               {Auth.loggedIn() ? (
                 <>
@@ -71,7 +71,9 @@ const Header = () => {
       </div>
       {Auth.loggedIn() ? (
         <ul className="sidenav mobile-sidenav-wf" id="mobile-demo">
-          <li className="sidenav-username-wf">{Auth.getProfile().data.username}</li>
+          <li className="sidenav-username-wf">
+            {Auth.getProfile().data.username}
+          </li>
           <li>
             <a href="/">Home</a>
           </li>
@@ -82,7 +84,9 @@ const Header = () => {
             <a href="/videochat">Video Chat</a>
           </li>
           <li>
-            <a href="#!" onClick={logout}>Logout</a>
+            <a href="#!" onClick={logout}>
+              Logout
+            </a>
           </li>
         </ul>
       ) : (

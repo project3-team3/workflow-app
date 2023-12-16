@@ -431,3 +431,9 @@ h2 {
 .balance-tip-random {
   text-align: justify;
 }
+
+@media screen and (max-width: 992px) {
+  .clock-time {
+    padding-top: 5%;
+  }  
+}
