@@ -71,23 +71,27 @@ class WidgetGrid extends React.Component {
     
   render() {
     const layouts = getResponsiveLayouts();
+    const margin = [18, 18];
     return (
       <ResponsiveGridLayout
         className="layout"
         layouts={layouts}
         breakpoints={{ lg: 1200, md: 992, sm: 600, xs: 360 }}
         cols={{ lg: 4, md: 4, sm: 2, xs: 1 }}
+        margin={margin}
+        draggableHandle=".widget-wf"
+        draggableCancel=".widget-prevent-drag-wf"
       >
-        <div key="calendar" className="widget-wf z-depth-4"><CalendarWidget /></div>
-        <div key="clock" className="widget-wf z-depth-4"><ClockWidget /></div>
-        <div key="filemanagement" className="widget-wf z-depth-4"><FileManagementWidget /></div>
-        <div key="notepad" className="widget-wf z-depth-4"><NotepadWidget /></div>
-        <div key="schedule" className="widget-wf z-depth-4"><ScheduleWidget /></div>
-        <div key="stickynote" className="widget-wf z-depth-4"><StickyNoteWidget /></div>
-        <div key="todolist" className="widget-wf z-depth-4"><ToDoListWidget /></div>
-        <div key="meditation" className="widget-wf z-depth-4"><MeditationWidget /></div>
-        <div key="inspiringquote" className="widget-wf z-depth-4"><InspiringQuoteWidget /></div>
-        <div key="balancetip" className="widget-wf z-depth-4"><BalanceTipWidget /></div>
+        <div key="calendar" className="widget-wf widget-box-shadow-wf"><CalendarWidget /></div>
+        <div key="clock" className="widget-wf widget-box-shadow-wf"><ClockWidget /></div>
+        <div key="filemanagement" className="widget-wf widget-box-shadow-wf"><FileManagementWidget /></div>
+        <div key="notepad" className="widget-wf widget-box-shadow-wf"><NotepadWidget /></div>
+        <div key="schedule" className="widget-wf widget-box-shadow-wf"><ScheduleWidget /></div>
+        <div key="stickynote" className="widget-wf widget-box-shadow-wf"><StickyNoteWidget /></div>
+        <div key="todolist" className="widget-wf widget-box-shadow-wf"><ToDoListWidget /></div>
+        <div key="meditation" className="widget-wf widget-box-shadow-wf"><MeditationWidget /></div>
+        <div key="inspiringquote" className="widget-wf widget-box-shadow-wf"><InspiringQuoteWidget /></div>
+        <div key="balancetip" className="widget-wf widget-box-shadow-wf"><BalanceTipWidget /></div>
       </ResponsiveGridLayout>
     );
   }

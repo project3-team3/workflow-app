@@ -62,9 +62,9 @@ const ToDoList = () => {
   return (
     <div className="kanban-board widget-content-wf">
       <h4>Kanban Board</h4>
-      <button onClick={openModal}>ADD TASK</button>
+      <button onClick={openModal} className='widget-prevent-drag-wf'>ADD TASK</button>
       <DragDropContext onDragEnd={handleDragEnd}>
-        <div className="kanban-row">
+        <div className="kanban-row widget-prevent-drag-wf">
           {['Tasks', 'In Progress', 'Done', 'On Hold'].map((status) => (
             <Droppable droppableId={status} key={status}>
               {(provided) => (

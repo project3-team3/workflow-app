@@ -45,7 +45,7 @@ const ClockWidget = () => {
       )}
       <button
         onClick={handleToggleClock}
-        className="waves-effect waves-light btn button-wf dark-button-wf"
+        className="waves-effect waves-light btn button-wf dark-button-wf widget-prevent-drag-wf"
       >
         {isAnalog ? "Digital" : "Analog"}
       </button>

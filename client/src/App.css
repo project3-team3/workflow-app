@@ -11,7 +11,7 @@ html {
 
 /* Track (the area on which the thumb sits) */
 ::-webkit-scrollbar-track {
-  background-color: transparent;
+  background-color: #344966;
 }
 
 /* Handle (the draggable scrolling element) */
@@ -22,7 +22,7 @@ html {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #344966;
+  background-color: #6B89B3;
 }
 
 .logo-wf {
@@ -191,6 +191,7 @@ html {
   border: 1px solid #4c6a94;
   border-radius: 20px;
   padding: 40px 40px 60px 40px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .login-signup-input-wf {
@@ -224,6 +225,28 @@ html {
 .widget-wf {
   aspect-ratio: 1 / 1;
   border-radius: 20px;
+  border: 2px solid #344966;
+  cursor: grab;
+}
+
+.widget-wf:hover {
+  border: 3px groove #4c6a94;
+}
+
+/* Width of the scrollbar */
+.widget-content-wf::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track (the area on which the thumb sits) */
+.widget-content-wf::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 6px;
+}
+
+
+.widget-box-shadow-wf {
+  box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.5);
 }
 
 .widget-content-wf {

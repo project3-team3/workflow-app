@@ -45,17 +45,17 @@ const ScheduleWidget = () => {
 
   return (
     <div className="schedule-widget widget-content-wf">
-      <h4>Schedule</h4>
+      <h4>Daily Schedule</h4>
       <div className="event-list">
         {events.map((event) => (
           <div key={event.id} className={`event ${event.completed ? 'completed' : ''}`}>
             <p>{event.title} - {event.time}</p>
             <div className="event-icons">
-              <FaTrash onClick={() => deleteEvent(event.id)} className="icon" />
+              <FaTrash onClick={() => deleteEvent(event.id)} className="icon schedule-icon-wf widget-prevent-drag-wf" />
               {event.completed ? (
-                <FaUndo onClick={() => toggleComplete(event.id)} className="icon" />
+                <FaUndo onClick={() => toggleComplete(event.id)} className="icon schedule-icon-wf widget-prevent-drag-wf" />
               ) : (
-                <FaCheck onClick={() => toggleComplete(event.id)} className="icon" />
+                <FaCheck onClick={() => toggleComplete(event.id)} className="icon schedule-icon-wf widget-prevent-drag-wf" />
               )}
             </div>
           </div>
@@ -68,14 +68,16 @@ const ScheduleWidget = () => {
           placeholder="Event Title"
           value={newEventTitle}
           onChange={(e) => setNewEventTitle(e.target.value)}
+          className='widget-prevent-drag-wf'
         />
         <input
           type="text"
           placeholder="Event Time"
           value={newEventTime}
           onChange={(e) => setNewEventTime(e.target.value)}
+          className='widget-prevent-drag-wf'
         />
-        <button onClick={addEvent}>ADD EVENT</button>
+        <button onClick={addEvent} className='widget-prevent-drag-wf'>ADD EVENT</button>
       </div>
     </div>
   );

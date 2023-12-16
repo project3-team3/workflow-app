@@ -41,7 +41,7 @@ const Signup = () => {
 
   return (
     <div className="login-signup-container-wf">
-      <div className="login-signup-box-wf z-depth-4">
+      <div className="login-signup-box-wf">
         <h4>Sign Up</h4>
         <div>
           {data ? (
