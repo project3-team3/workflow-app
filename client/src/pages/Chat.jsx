@@ -20,6 +20,14 @@ const Chat = () => {
       setActivity('');
     });
 
+    socket.on('activity', (activityName) => {
+      setActivity(`${activityName} is typing...`);
+      const timer = setTimeout(() => {
+        setActivity('');
+      }, 3000);
+      return () => clearTimeout(timer);
+    });
+    
     socket.on('userList', ({ users }) => {
       setUsers(users);
     });
