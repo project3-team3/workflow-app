@@ -19,3 +19,16 @@ const Chat = () => {
       setChatMessages(prevMessages => [...prevMessages, data]);
       setActivity('');
     });
+
+    socket.on('userList', ({ users }) => {
+      setUsers(users);
+    });
+
+    socket.on('roomList', ({ rooms }) => {
+      setRooms(rooms);
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, [socket]);
