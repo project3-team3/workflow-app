@@ -27,7 +27,7 @@ const Chat = () => {
       }, 3000);
       return () => clearTimeout(timer);
     });
-    
+
     socket.on('userList', ({ users }) => {
       setUsers(users);
     });
@@ -40,3 +40,21 @@ const Chat = () => {
       socket.disconnect();
     };
   }, [socket]);
+
+  return () => {
+    socket.disconnect();
+  };
+}, [socket]);
+
+function newMessage(name, room, text) {
+  return {
+    name,
+    room,
+    text,
+    time: new Intl.DateTimeFormat("default", {
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+    }).format(new Date()),
+  };
+}
