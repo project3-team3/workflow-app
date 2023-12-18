@@ -20,3 +20,21 @@
   height: 50vh;
   gap: 10px;
 }
+
+.sidebar {
+  width: 30%;
+  padding: 20px;
+  background-color: #344966;
+  padding: 20px;
+}
+
+.userList {
+  color: #ffff;
+  height: 30%;
+  margin-bottom: 10px;
+}
+
+.room-list {
+  color: #ffff;
+  margin-bottom: 10px;
+}
