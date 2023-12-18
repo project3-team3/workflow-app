@@ -58,3 +58,28 @@ function newMessage(name, room, text) {
     }).format(new Date()),
   };
 }
+
+const sendMessage = (e) => {
+  e.preventDefault();
+  if (name && message && room && socket) {
+    const constructedMsg = newMessage(name, message);
+    console.log('Sending Message:', constructedMsg);
+    socket.emit('message', {
+      name: name,
+      room: room,
+      ...constructedMsg,
+    });
+    setMessage('');
+  }
+};
+
+const enterRoom = (e) => {
+  e.preventDefault();
+  if (name && room && socket) {
+    console.log('Entering Room:', { name, room });
+    socket.emit('enterRoom', {
+      name: name,
+      room: room,
+    });
+  }
+};
