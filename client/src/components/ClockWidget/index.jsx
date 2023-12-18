@@ -1,10 +1,36 @@
 import { useState, useEffect } from "react";
+import { useQuery, useMutation } from "@apollo/client";
 import PropTypes from "prop-types";
 import "../../styles/widget.css";
 
+import { QUERY_USER_SETTINGS } from "../../utils/queries.js";
+import { UPDATE_CLOCK_SETTINGS } from "../../utils/mutations.js";
+import AuthService from "../../utils/auth.js";
+
 const ClockWidget = () => {
+  const userProfile = AuthService.getProfile();
+
+  const [updateClockSettings] = useMutation(UPDATE_CLOCK_SETTINGS);
+  const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
+    variables: { userId: userProfile?._id || userProfile?.user?._id },
+  });
+
+  const userSettings = data?.getUserSettings;
+
+  if (!userSettings) {
+    // Handle the case where userSettings is undefined or null
+    console.error("User settings not found in query result.");
+    return <p>Error loading user settings. Please try again later.</p>;
+  }
+
+  console.log("userSettings: ", userSettings);
+
+  console.log("Saved isAnalog: ", userSettings.isAnalog);
+
   const [dateTime, setDateTime] = useState(new Date());
-  const [isAnalog, setIsAnalog] = useState(false);
+  const [isAnalog, setIsAnalog] = useState(userSettings.isAnalog);
+
+  console.log("State isAnalog: ", isAnalog);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,8 +52,26 @@ const ClockWidget = () => {
   const dayOfWeek = dateTime.toLocaleDateString(undefined, { weekday: "long" });
 
   const handleToggleClock = () => {
-    setIsAnalog(!isAnalog);
-  };
+    const userId = userProfile._id || userProfile.user._id;
+  
+    // Toggle isAnalog in the local state immediately
+    setIsAnalog((prevIsAnalog) => {
+      const newIsAnalog = !prevIsAnalog;
+      console.log("Local state updated. New isAnalog:", newIsAnalog);
+      return newIsAnalog;
+    });
+  
+    // Call the updateClockSettings mutation with the updated value of isAnalog
+    updateClockSettings({
+      variables: { userId, isAnalog: !isAnalog },
+    })
+      .then((result) => {
+        console.log("Mutation result:", result);
+      })
+      .catch((error) => {
+        console.error("Mutation error:", error);
+      });
+  };  
 
   return (
     <div className="clock-widget widget-content-wf">

@@ -24,9 +24,9 @@ export const ADD_USER = gql`
   }
 `;
 
-export const UPDATE_USER_SETTINGS = gql`
-  mutation updateUserSettings($userId: ID!, $layouts: String!) {
-    updateUserSettings(userId: $userId, layouts: $layouts) {
+export const UPDATE_GRID_SETTINGS = gql`
+  mutation updateGridSettings($userId: ID!, $layouts: String!) {
+    updateGridSettings(userId: $userId, layouts: $layouts) {
       gridLayout {
         lg {
           i
@@ -69,6 +69,30 @@ export const UPDATE_USER_SETTINGS = gql`
           autosize
         }
       }
+    }
+  }
+`;
+
+export const UPDATE_CLOCK_SETTINGS = gql`
+  mutation updateClockSettings($userId: ID!, $isAnalog: Boolean!) {
+    updateClockSettings(userId: $userId, isAnalog: $isAnalog) {
+      isAnalog
+    }
+  }
+`;
+
+export const UPDATE_STICKY_SETTINGS = gql`
+  mutation updateStickySettings($userId: ID!, $stickyText: String!) {
+    updateStickySettings(userId: $userId, stickyText: $stickyText) {
+      stickyText
+    }
+  }
+`;
+
+export const UPDATE_NOTEPAD_SETTINGS = gql`
+  mutation updateNotepadSettings($userId: ID!, $notepadText: String!) {
+    updateNotepadSettings(userId: $userId, notepadText: $notepadText) {
+      notepadText
     }
   }
 `;

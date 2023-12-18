@@ -18,6 +18,9 @@ export const QUERY_USER_SETTINGS = gql`
   query getUserSettings($userId: ID!) {
     getUserSettings(userId: $userId) {
       _id
+      isAnalog
+      stickyText
+      notepadText
       gridLayout {
         lg {
           i

@@ -89,9 +89,7 @@ const resolvers = {
 
       return { token, user };
     },
-    updateUserSettings: async (__, { userId, layouts }) => {
-      console.log("In updateUserSettings");
-      console.log("User ID:", userId);
+    updateGridSettings: async (__, { userId, layouts }) => {
       try {
 
         const user = await User.findById(userId);
@@ -103,14 +101,8 @@ const resolvers = {
         // Parse the layouts string
         const parsedLayouts = JSON.parse(layouts);
 
-        //console.log("Parsed layouts:", parsedLayouts);
-
         // Get the UserSettings document
         const userSettings = await UserSettings.findById(user.settings);
-
-        const beforeUserSetting = userSettings.gridLayout;
-
-        //console.log("Layouts before UserSettings:", beforeUserSetting);
 
         // Update the gridLayout property in UserSettings
         userSettings.gridLayout = parsedLayouts;
@@ -118,22 +110,10 @@ const resolvers = {
         // Save changes to UserSettings
         await userSettings.save();
 
-        const afterUserSetting = userSettings.gridLayout;
-
-        //console.log("Layouts after UserSettings:", afterUserSetting);
-
-        console.log("Did the gridLayout change (after UserSettings)?", beforeUserSetting === afterUserSetting ? "No" : "Yes");
-
-        const beforeUser = user.settings.gridLayout;
-
         user.settings = userSettings;
 
         // Save the user
         await user.save();
-
-        const afterUser = user.settings.gridLayout;
-
-        console.log("Did the gridLayout change (after User)?", beforeUser === afterUser ? "No" : "Yes");
 
         return user.settings;
       } catch (error) {
@@ -141,6 +121,93 @@ const resolvers = {
         throw new Error("Error updating user settings");
       }
     },
+    updateClockSettings: async (__, { userId, isAnalog }) => {
+      try {
+
+        const user = await User.findById(userId);
+
+        if (!user) {
+          throw new Error("User not found");
+        }
+
+        // Get the UserSettings document
+        const userSettings = await UserSettings.findById(user.settings);
+
+        // Update the gridLayout property in UserSettings
+        userSettings.isAnalog = isAnalog;
+
+        // Save changes to UserSettings
+        await userSettings.save();
+
+        user.settings = userSettings;
+
+        // Save the user
+        await user.save();
+
+        return user.settings;
+      } catch (error) {
+        console.error("Error updating user settings:", error);
+        throw new Error("Error updating user settings");
+      }
+    },
+    updateStickySettings: async (__, { userId, stickyText }) => {
+      try {
+
+        const user = await User.findById(userId);
+
+        if (!user) {
+          throw new Error("User not found");
+        }
+
+        // Get the UserSettings document
+        const userSettings = await UserSettings.findById(user.settings);
+
+        // Update the gridLayout property in UserSettings
+        userSettings.stickyText = stickyText;
+
+        // Save changes to UserSettings
+        await userSettings.save();
+
+        user.settings = userSettings;
+
+        // Save the user
+        await user.save();
+
+        return user.settings;
+      } catch (error) {
+        console.error("Error updating user settings:", error);
+        throw new Error("Error updating user settings");
+      }
+    },
+    updateNotepadSettings: async (__, { userId, notepadText }) => {
+      try {
+
+        const user = await User.findById(userId);
+
+        if (!user) {
+          throw new Error("User not found");
+        }
+
+        // Get the UserSettings document
+        const userSettings = await UserSettings.findById(user.settings);
+
+        // Update the gridLayout property in UserSettings
+        userSettings.notepadText = notepadText;
+
+        // Save changes to UserSettings
+        await userSettings.save();
+
+        user.settings = userSettings;
+
+        // Save the user
+        await user.save();
+
+        return user.settings;
+      } catch (error) {
+        console.error("Error updating user settings:", error);
+        throw new Error("Error updating user settings");
+      }
+    }
   },
 };
 

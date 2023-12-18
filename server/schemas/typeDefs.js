@@ -38,6 +38,9 @@ const typeDefs = `
   type UserSettings {
     _id: ID!
     gridLayout: GridLayout
+    isAnalog: Boolean
+    stickyText: String
+    notepadText: String
   }
 
   type Auth {
@@ -58,7 +61,10 @@ const typeDefs = `
   type Mutation {
     addUser(username: String!, email: String!, password: String!, gridLayout: String!): Auth
     login(username: String!, password: String!): Auth
-    updateUserSettings(userId: ID!, layouts: String!): UserSettings
+    updateGridSettings(userId: ID!, layouts: String!): UserSettings
+    updateClockSettings(userId: ID!, isAnalog: Boolean!): UserSettings
+    updateStickySettings(userId: ID!, stickyText: String!): UserSettings
+    updateNotepadSettings(userId: ID!, notepadText: String!): UserSettings
   }
 `;
 

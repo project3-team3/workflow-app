@@ -6,6 +6,18 @@ const userSettingsSchema = new Schema({
     type: Schema.Types.Mixed, // Store the layout as a JSON object
     default: {}, // Default to an empty object
   },
+  isAnalog: {
+    type: Boolean,
+    default: false,
+  },
+  stickyText: {
+    type: String,
+    default: "",
+  },
+  notepadText: {
+    type: String,
+    default: "",
+  },
 });
 
 const UserSettings = model('UserSettings', userSettingsSchema);

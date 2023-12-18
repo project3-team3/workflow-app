@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Responsive, WidthProvider } from "react-grid-layout";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER_SETTINGS } from "../../utils/queries.js";
-import { UPDATE_USER_SETTINGS } from "../../utils/mutations.js";
+import { UPDATE_GRID_SETTINGS } from "../../utils/mutations.js";
 import AuthService from "../../utils/auth.js";
 
 import CalendarWidget from "../CalendarWidget/index.jsx";
@@ -279,7 +279,7 @@ export const defaultLayout = {
 const WidgetGrid = () => {
   const userProfile = AuthService.getProfile();
 
-  const [updateUserSettings] = useMutation(UPDATE_USER_SETTINGS);
+  const [updateGridSettings] = useMutation(UPDATE_GRID_SETTINGS);
   const [initialLayout, setInitialLayout] = useState(defaultLayout);
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
     variables: { userId: userProfile?._id || userProfile?.user?._id },
@@ -312,14 +312,12 @@ const WidgetGrid = () => {
 
     const layoutsString = JSON.stringify(layouts);
 
-    updateUserSettings({
+    updateGridSettings({
       variables: { userId: userId, layouts: layoutsString },
     });
   };
 
   const userSettings = data?.getUserSettings;
-
-  console.log("userSettings:", userSettings);
 
   if (!userSettings) {
     // Handle the case where userSettings is undefined or null
@@ -343,9 +341,6 @@ const WidgetGrid = () => {
     sm: userSettings.gridLayout.sm.map(convertGridItem),
     xs: userSettings.gridLayout.xs.map(convertGridItem),
   };
-
-  console.log("gridLayout:", gridLayout);
-  console.log("gridLayout (stringified):", JSON.stringify(gridLayout));
 
   const margin = [18, 18];
 
