@@ -41,10 +41,9 @@ const Chat = () => {
     };
   }, [socket]);
 
-  function newMessage(name, room, text) {
+  function newMessage(name, text) {
     return {
       name,
-      room,
       text,
       time: new Intl.DateTimeFormat("default", {
         hour: "numeric",
