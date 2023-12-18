@@ -5,6 +5,8 @@ import { ADD_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
+import { defaultLayout } from "../components/WidgetGrid/index.jsx";
+
 const Signup = () => {
   const [formState, setFormState] = useState({
     username: "",
@@ -24,16 +26,24 @@ const Signup = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+
+    console.log(defaultLayout);
 
     try {
-      const { data } = await addUser({
-        variables: { ...formState },
+      console.log(JSON.stringify(defaultLayout));
+
+      const { data: userData } = await addUser({
+        variables: {
+          ...formState,
+          gridLayout: JSON.stringify(defaultLayout),
+        },
       });
 
-      console.log(data);
+      const { user, token } = userData.addUser;
 
-      Auth.login(data.addUser.token);
+      console.log("Created user:", user);
+
+      Auth.login(token);
     } catch (e) {
       console.error(e);
     }
@@ -56,7 +66,7 @@ const Signup = () => {
                 placeholder="Your username"
                 name="username"
                 type="text"
-                value={formState.name}
+                value={formState.username}
                 onChange={handleChange}
               />
               <input
@@ -85,7 +95,9 @@ const Signup = () => {
             </form>
           )}
 
-          {error && <div className="login-signup-error-wf">{error.message}</div>}
+          {error && (
+            <div className="login-signup-error-wf">{error.message}</div>
+          )}
         </div>
       </div>
     </div>

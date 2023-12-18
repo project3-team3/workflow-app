@@ -18,7 +18,11 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minlength: 8,
-  }
+  },
+  settings: {
+    type: Schema.Types.ObjectId,
+    ref: 'UserSettings',
+  },
 });
 
 userSchema.pre('save', async function (next) {

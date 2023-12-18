@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
   query user($username: String!) {
@@ -6,10 +6,59 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
+      settings {
         _id
-        thoughtText
-        createdAt
+        gridLayout
+      }
+    }
+  }
+`;
+
+export const QUERY_USER_SETTINGS = gql`
+  query getUserSettings($userId: ID!) {
+    getUserSettings(userId: $userId) {
+      _id
+      gridLayout {
+        lg {
+          i
+          x
+          y
+          w
+          h
+          minH
+          minW
+          autosize
+        }
+        md {
+          i
+          x
+          y
+          w
+          h
+          minH
+          minW
+          autosize
+        }
+        sm {
+          i
+          x
+          y
+          w
+          h
+          minH
+          minW
+          autosize
+        }
+        xs {
+          i
+          x
+          y
+          w
+          h
+          minH
+          minW
+          autosize
+        }
       }
     }
   }

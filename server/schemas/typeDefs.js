@@ -11,10 +11,33 @@ const typeDefs = `
   }
 
   type User {
-    _id: ID
-    username: String
-    email: String
-    password: String
+    _id: ID!
+    username: String!
+    email: String!
+    settings: UserSettings
+  }
+
+  type GridItem {
+    i: String
+    x: Int
+    y: Int
+    w: Int
+    h: Int
+    minH: Int
+    minW: Int
+    autosize: Boolean
+  }
+
+  type GridLayout {
+    lg: [GridItem]
+    md: [GridItem]
+    sm: [GridItem]
+    xs: [GridItem]
+  }
+
+  type UserSettings {
+    _id: ID!
+    gridLayout: GridLayout
   }
 
   type Auth {
@@ -27,13 +50,15 @@ const typeDefs = `
     balancetips: [BalanceTip]
     users: [User]
     user(username: String!): User
+    getUserSettings(userId: ID!): UserSettings
     randomQuote: Quote
     randomTip: BalanceTip
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!, gridLayout: String!): Auth
     login(username: String!, password: String!): Auth
+    updateUserSettings(userId: ID!, layouts: String!): UserSettings
   }
 `;
 

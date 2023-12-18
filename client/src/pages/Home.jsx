@@ -52,7 +52,7 @@ const Home = () => {
         <>
           <div className="dashboard-widgets-wf">
             <h4 className="dashboard-title-wf">
-              Welcome back, {Auth.getProfile().data.username}
+              Welcome back, {Auth.getProfile().user.username}
             </h4>
             <div className="widget-container-wf">
               <WidgetGrid />

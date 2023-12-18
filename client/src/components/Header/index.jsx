@@ -16,6 +16,7 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
   };
+
   return (
     <header>
       <div className="navbar-fixed">
@@ -34,7 +35,7 @@ const Header = () => {
               {Auth.loggedIn() ? (
                 <>
                   <li className="loggedin-text-wf">
-                    {Auth.getProfile().data.username}
+                    {Auth.getProfile().user.username}
                   </li>
                   <li>
                     <button
@@ -72,7 +73,7 @@ const Header = () => {
       {Auth.loggedIn() ? (
         <ul className="sidenav mobile-sidenav-wf" id="mobile-demo">
           <li className="sidenav-username-wf">
-            {Auth.getProfile().data.username}
+            {Auth.getProfile().user.username}
           </li>
           <li>
             <a href="/">Home</a>
