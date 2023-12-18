@@ -83,3 +83,22 @@ const enterRoom = (e) => {
     });
   }
 };
+
+const handleInputChange = (e) => {
+  const { id, value } = e.target;
+  if (id === 'name') setName(value);
+  else if (id === 'room') setRoom(value);
+  else if (id === 'message') setMessage(value);
+};
+
+const renderMessages = () => {
+  return chatMessages.map((msg, index) => (
+    <div className={`message ${msg.name === name ? 'sent' : 'received'}`} key={index}>
+      <div className="message-info">
+        <span className="message-sender">{msg.name}</span>
+        <span className="message-time">{msg.time}</span>
+      </div>
+      <div className="message-content">{msg.text}</div>
+    </div>
+  ));
+};
