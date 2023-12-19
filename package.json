@@ -1,5 +1,5 @@
 {
-  "name": "Workflow",
+  "name": "workflow",
   "version": "1.0.0",
   "description": "A productivity app with an emphasis on keeping a healthy work/life balance.",
   "main": "server/server.js",

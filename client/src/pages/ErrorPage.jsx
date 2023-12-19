@@ -8,14 +8,14 @@ export default function ErrorPage() {
 
   return (
     <div className="container">
-    <div className="error-page-wf">
-      <h1>This one is on us...</h1>
-      <p>Sorry, there was an error processing your request.</p>
-      <p>
-        <i>{error.statusText || error.message}</i>
-      </p>
-      <BackButton />
-    </div>
+      <div className="error-page-wf">
+        <h1>This one is on us...</h1>
+        <p>Sorry, there was an error processing your request.</p>
+        <p>
+          <i>{error.statusText || error.message}</i>
+        </p>
+        <BackButton />
+      </div>
     </div>
   );
 }

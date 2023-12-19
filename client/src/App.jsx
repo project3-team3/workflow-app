@@ -6,7 +6,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -33,6 +33,10 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const location = useLocation();
+
+  const isFooterHidden = location.pathname === "/chat" || location.pathname === "/videochat";
+
   return (
     <ApolloProvider client={client}>
       <div>
@@ -71,7 +75,7 @@ function App() {
             </main>
           </>
         )}
-        <Footer />
+        {!isFooterHidden && <Footer />}
       </div>
     </ApolloProvider>
   );

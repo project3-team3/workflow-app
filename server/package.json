@@ -12,11 +12,14 @@
     "@apollo/server": "^4.7.1",
     "apollo-server-express": "^3.6.2",
     "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
+    "firebase": "^10.7.1",
     "graphql": "^16.8.1",
     "graphql-upload": "^16.0.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^7.0.2"
+    "mongoose": "^7.0.2",
+    "socket.io": "^4.7.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"

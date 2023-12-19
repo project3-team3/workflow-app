@@ -61,37 +61,39 @@ const Signup = () => {
             </p>
           ) : (
             <form onSubmit={handleFormSubmit}>
-              <input
-                className="input-field login-signup-input-wf"
-                placeholder="Your username"
-                name="username"
-                type="text"
-                value={formState.username}
-                onChange={handleChange}
-              />
-              <input
-                className="input-field login-signup-input-wf"
-                placeholder="Your email"
-                name="email"
-                type="email"
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className="input-field login-signup-input-wf"
-                placeholder="Your password"
-                name="password"
-                type="password"
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button
-                style={{ cursor: "pointer" }}
-                type="submit"
-                className="waves-effect waves-light btn button-wf login-signup-button-wf"
-              >
-                Submit
-              </button>
+              <div className="login-signup-inner-container-wf">
+                <input
+                  className="input-field login-signup-input-wf"
+                  placeholder="Your username"
+                  name="username"
+                  type="text"
+                  value={formState.username}
+                  onChange={handleChange}
+                />
+                <input
+                  className="input-field login-signup-input-wf"
+                  placeholder="Your email"
+                  name="email"
+                  type="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+                <input
+                  className="input-field login-signup-input-wf"
+                  placeholder="Your password"
+                  name="password"
+                  type="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+                <button
+                  style={{ cursor: "pointer" }}
+                  type="submit"
+                  className="waves-effect waves-light btn button-wf login-signup-button-wf"
+                >
+                  Submit
+                </button>
+              </div>
             </form>
           )}
 

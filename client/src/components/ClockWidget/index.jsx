@@ -23,14 +23,8 @@ const ClockWidget = () => {
     return <p>Error loading user settings. Please try again later.</p>;
   }
 
-  console.log("userSettings: ", userSettings);
-
-  console.log("Saved isAnalog: ", userSettings.isAnalog);
-
   const [dateTime, setDateTime] = useState(new Date());
   const [isAnalog, setIsAnalog] = useState(userSettings.isAnalog);
-
-  console.log("State isAnalog: ", isAnalog);
 
   useEffect(() => {
     const interval = setInterval(() => {

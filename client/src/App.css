@@ -85,6 +85,15 @@ html {
   background-color: #4c6a94;
 }
 
+.textbox-wf {
+  background-color: #faf9f6 !important;
+  border: 1px solid #344966 !important;
+  border-radius: 10px !important;
+  padding: 5px 10px !important;
+  height: 1.5em !important;
+  margin: 10px 0px !important;
+}
+
 .login-button-wf {
   margin-bottom: 8px;
 }
@@ -104,7 +113,7 @@ html {
 }
 
 .main-wf {
-  min-height: 100vh;
+  min-height: 87vh;
 }
 
 .sidenav-wf {
@@ -133,7 +142,7 @@ html {
 }
 
 .welcome-wf {
-  margin-top: 15vh;
+  margin-top: 10vh;
   text-align: center;
 }
 
@@ -184,7 +193,7 @@ html {
   margin-top: 15vh;
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 40%;
   background-color: #344966;
   color: #faf9f6;
   text-align: center;
@@ -194,15 +203,28 @@ html {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
+.login-signup-inner-container-wf {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .login-signup-input-wf {
-  color: #faf9f6;
+  color: #344966;
   font-family: "Lexend", sans-serif;
+  background-color: #faf9f6 !important;
+  border: 1px solid #344966 !important;
+  border-radius: 10px !important;
+  padding: 5px 10px !important;
+  height: 1.5em !important;
+  margin: 10px 0px !important;
+  width: 70% !important;
 }
 
 .login-signup-button-wf {
   margin-top: 20px;
   font-weight: bold;
-  
 }
 
 .login-signup-error-wf {
