@@ -1,5 +1,4 @@
 import { useQuery } from "@apollo/client";
-import "../../styles/widget.css";
 import { QUERY_RANDOM_QUOTE } from "../../utils/queries.js";
 
 const InspiringQuoteWidget = () => {

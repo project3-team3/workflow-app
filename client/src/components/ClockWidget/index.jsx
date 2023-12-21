@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import PropTypes from "prop-types";
-import "../../styles/widget.css";
 
 import { QUERY_USER_SETTINGS } from "../../utils/queries.js";
 import { UPDATE_CLOCK_SETTINGS } from "../../utils/mutations.js";
@@ -83,7 +82,7 @@ const ClockWidget = () => {
       )}
       <button
         onClick={handleToggleClock}
-        className="waves-effect waves-light btn button-wf dark-button-wf widget-prevent-drag-wf"
+        className="waves-effect waves-light btn button-wf button-wf widget-prevent-drag-wf"
       >
         {isAnalog ? "Digital" : "Analog"}
       </button>

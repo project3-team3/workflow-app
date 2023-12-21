@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import "../../styles/widget.css";
 import { QUERY_USER_SETTINGS } from "../../utils/queries.js";
 import { UPDATE_STICKY_SETTINGS } from "../../utils/mutations.js";
 import AuthService from "../../utils/auth.js";

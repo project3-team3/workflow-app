@@ -38,8 +38,8 @@ const Login = (props) => {
   };
 
   return (
-    <div className="login-signup-container-wf">
-      <div className="login-signup-box-wf">
+    <div className="box-container-wf">
+      <div className="box-wf">
         <h4>Log In</h4>
         <div>
           {data ? (
@@ -51,7 +51,7 @@ const Login = (props) => {
             <form onSubmit={handleFormSubmit}>
               <div className="login-signup-inner-container-wf">
                 <input
-                  className="input-field login-signup-input-wf"
+                  className="input-field input-wf"
                   placeholder="Your username"
                   name="username"
                   type="text"
@@ -59,7 +59,7 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <input
-                  className="input-field login-signup-input-wf"
+                  className="input-field input-wf"
                   placeholder="Your password"
                   name="password"
                   type="password"
@@ -78,7 +78,7 @@ const Login = (props) => {
           )}
 
           {error && (
-            <div className="login-signup-error-wf">{error.message}</div>
+            <div className="error-message-wf login-signup-error-wf">{error.message}</div>
           )}
         </div>
       </div>

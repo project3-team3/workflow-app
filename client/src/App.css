@@ -1,62 +1,288 @@
-html {
-  font-family: "Lexend", sans-serif;
-  background-color: #00c2cb;
-  color: #faf9f6;
+:root {
+  --main-background-color: rgba(0, 194, 203, 1);
+  --darkest-accent-color: rgba(49, 67, 94, 1);
+  --darker-accent-color: rgba(53, 73, 94, 1);
+  --dark-accent-color: rgba(52, 73, 102, 1);
+  --light-accent-color: rgba(76, 106, 148, 1);
+  --light-accent-transparent: rgba(76, 106, 148, 0);
+  --lighter-accent-color: rgba(107, 137, 179, 1);
+  --main-text-color: rgba(250, 249, 246, 1);
+  --main-text-transparent: rgba(250, 249, 246, 0);
+  --secondary-text-color: rgba(13, 24, 33, 1);
+  --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
+  --error-text-color: rgba(252, 63, 56, 1);
+  --box-shadow-color: rgba(0, 0, 0, 0.5);
+  --textbox-background-color: rgba(250, 249, 246, 1);
+  --clock-background-color: rgba(53, 73, 94, 1);
+  --calendar-background-color: rgba(250, 249, 246, 1);
+  --file-management-background-color: rgba(197, 198, 149, 1);
+  --sticky-note-background-color: rgba(153, 250, 255, 1);
+  --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --schedule-background-color: rgba(238, 225, 179, 1);
+  --schedule-darker-background-color: rgba(198, 174, 128, 1);
+  --kanban-board-background-color: rgba(213, 202, 214, 1);
+  --kanban-board-darker-background-color: rgba(192, 174, 194, 1);
+  --meditation-background-color: rgba(250, 249, 246, 1);
+  --inspiring-quote-background-color: rgba(255, 207, 173, 1);
+  --balance-tip-background-color: rgba(227, 200, 181, 1);
 }
 
-/* Width of the scrollbar */
+.default-mode-wf {
+  --main-background-color: rgba(0, 194, 203, 1);
+  --darkest-accent-color: rgba(49, 67, 94, 1);
+  --darker-accent-color: rgba(53, 73, 94, 1);
+  --dark-accent-color: rgba(52, 73, 102, 1);
+  --light-accent-color: rgba(76, 106, 148, 1);
+  --light-accent-transparent: rgba(76, 106, 148, 0);
+  --lighter-accent-color: rgba(107, 137, 179, 1);
+  --main-text-color: rgba(250, 249, 246, 1);
+  --main-text-transparent: rgba(250, 249, 246, 0);
+  --secondary-text-color: rgba(13, 24, 33, 1);
+  --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
+  --error-text-color: rgba(252, 63, 56, 1);
+  --box-shadow-color: rgba(0, 0, 0, 0.5);
+  --textbox-background-color: rgba(250, 249, 246, 1);
+  --clock-background-color: rgba(53, 73, 94, 1);
+  --calendar-background-color: rgba(250, 249, 246, 1);
+  --file-management-background-color: rgba(197, 198, 149, 1);
+  --sticky-note-background-color: rgba(153, 250, 255, 1);
+  --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --schedule-background-color: rgba(238, 225, 179, 1);
+  --schedule-darker-background-color: rgba(198, 174, 128, 1);
+  --kanban-board-background-color: rgba(213, 202, 214, 1);
+  --kanban-board-darker-background-color: rgba(192, 174, 194, 1);
+  --meditation-background-color: rgba(250, 249, 246, 1);
+  --inspiring-quote-background-color: rgba(255, 207, 173, 1);
+  --balance-tip-background-color: rgba(227, 200, 181, 1);
+}
+
+.blue-mode-wf {
+  --main-background-color: rgba(53, 73, 94, 1);
+  --darkest-accent-color: rgba(49, 67, 94, 1);
+  --darker-accent-color: rgba(53, 73, 94, 1);
+  --dark-accent-color: rgba(0, 194, 203, 1);
+  --light-accent-color: rgba(76, 106, 148, 1);
+  --light-accent-transparent: rgba(76, 106, 148, 0);
+  --lighter-accent-color: rgba(107, 137, 179, 1);
+  --main-text-color: rgba(250, 249, 246, 1);
+  --main-text-transparent: rgba(250, 249, 246, 0);
+  --secondary-text-color: rgba(13, 24, 33, 1);
+  --main-text-light-on-dark-color: rgba(49, 67, 94, 1);
+  --error-text-color: rgba(252, 63, 56, 1);
+  --box-shadow-color: rgba(0, 0, 0, 0.5);
+  --textbox-background-color: rgba(250, 249, 246, 1);
+  --clock-background-color: rgba(0, 194, 203, 1);
+  --calendar-background-color: rgba(250, 249, 246, 1);
+  --file-management-background-color: rgba(197, 198, 149, 1);
+  --sticky-note-background-color: rgba(153, 250, 255, 1);
+  --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --schedule-background-color: rgba(238, 225, 179, 1);
+  --schedule-darker-background-color: rgba(198, 174, 128, 1);
+  --kanban-board-background-color: rgba(213, 202, 214, 1);
+  --kanban-board-darker-background-color: rgba(192, 174, 194, 1);
+  --meditation-background-color: rgba(250, 249, 246, 1);
+  --inspiring-quote-background-color: rgba(255, 207, 173, 1);
+  --balance-tip-background-color: rgba(227, 200, 181, 1);
+}
+
+.white-mode-wf {
+  --main-background-color: rgba(250, 249, 246, 1);
+  --darkest-accent-color: rgba(49, 67, 94, 1);
+  --darker-accent-color: rgba(53, 73, 94, 1);
+  --dark-accent-color: rgba(0, 194, 203, 1);
+  --light-accent-color: rgba(76, 106, 148, 1);
+  --light-accent-transparent: rgba(76, 106, 148, 0);
+  --lighter-accent-color: rgba(107, 137, 179, 1);
+  --main-text-color: rgba(49, 67, 94, 1);
+  --main-text-transparent: rgba(250, 249, 246, 0);
+  --secondary-text-color: rgba(13, 24, 33, 1);
+  --main-text-light-on-dark-color: rgba(49, 67, 94, 1);
+  --error-text-color: rgba(252, 63, 56, 1);
+  --box-shadow-color: rgba(0, 0, 0, 0.5);
+  --textbox-background-color: rgba(241, 238, 229, 1);
+  --clock-background-color: rgba(0, 194, 203, 1);
+  --calendar-background-color: rgba(250, 249, 246, 1);
+  --file-management-background-color: rgba(197, 198, 149, 1);
+  --sticky-note-background-color: rgba(153, 250, 255, 1);
+  --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --schedule-background-color: rgba(238, 225, 179, 1);
+  --schedule-darker-background-color: rgba(198, 174, 128, 1);
+  --kanban-board-background-color: rgba(164, 140, 166, 1);
+  --kanban-board-darker-background-color: rgba(136, 105, 140, 1);
+  --meditation-background-color: rgba(250, 249, 246, 1);
+  --inspiring-quote-background-color: rgba(255, 207, 173, 1);
+  --balance-tip-background-color: rgba(227, 200, 181, 1);
+}
+
+.dark-mode-wf {
+  --main-background-color: rgba(30, 30, 30, 1);
+  --darkest-accent-color: rgba(250, 249, 246, 1);
+  --darker-accent-color: rgba(62, 62, 66, 1);
+  --dark-accent-color: rgba(45, 45, 48, 1);
+  --light-accent-color: rgba(102, 102, 106, 1);
+  --light-accent-transparent: rgba(76, 106, 148, 0);
+  --lighter-accent-color: rgba(132, 132, 136, 1);
+  --main-text-color: rgba(250, 249, 246, 1);
+  --main-text-transparent: rgba(250, 249, 246, 0);
+  --secondary-text-color: rgba(13, 24, 33, 1);
+  --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
+  --error-text-color: rgba(252, 63, 56, 1);
+  --box-shadow-color: rgba(255, 255, 255, 0.2);
+  --textbox-background-color: rgba(62, 62, 66, 1);
+  --clock-background-color: rgba(53, 73, 94, 1);
+  --calendar-background-color: rgba(62, 62, 66, 1);
+  --file-management-background-color: rgba(79, 80, 43, 1);
+  --sticky-note-background-color: rgba(201, 204, 0, 1);
+  --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --schedule-background-color: rgba(133, 111, 30, 1);
+  --schedule-darker-background-color: rgba(83, 69, 19, 1);
+  --kanban-board-background-color: rgba(136, 105, 140, 1);
+  --kanban-board-darker-background-color: rgba(90, 70, 93, 1);
+  --meditation-background-color: rgba(71, 71, 71, 1);
+  --inspiring-quote-background-color: rgba(102, 43, 0, 1);
+  --balance-tip-background-color: rgba(99, 99, 105, 1);
+}
+
+/* General rules */
+html {
+  font-family: "Lexend", sans-serif;
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+}
+
+.main-wf {
+  min-height: 87vh;
+}
+
+.box-container-wf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-wf {
+  margin-top: 15vh;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  background-color: var(--dark-accent-color);
+  color: var(--main-text-color);
+  text-align: center;
+  border: 1px solid var(--light-accent-color);
+  border-radius: 20px;
+  padding: 40px 40px 60px 40px;
+  box-shadow: 5px 5px 10px var(--box-shadow-color);
+}
+
+.button-wf {
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.button-wf:hover {
+  background-color: var(--light-accent-color);
+}
+
+.button-wf:focus {
+  background-color: var(--lighter-accent-color);
+}
+
+.input-wf {
+  color: var(--darkest-accent-color);
+  font-family: "Lexend", sans-serif;
+  background-color: var(--textbox-background-color) !important;
+  border: 1px solid var(--dark-accent-color) !important;
+  border-radius: 10px !important;
+  padding: 5px 10px !important;
+  height: 1.5em !important;
+  margin: 10px 0px !important;
+  width: 70% !important;
+}
+
+.error-message-wf {
+  color: var(--error-text-color);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Main page side scroll bar rules */
 ::-webkit-scrollbar {
   width: 12px;
 }
 
-/* Track (the area on which the thumb sits) */
 ::-webkit-scrollbar-track {
-  background-color: #344966;
+  background-color: var(--darker-accent-color);
 }
 
-/* Handle (the draggable scrolling element) */
 ::-webkit-scrollbar-thumb {
-  background-color: #4c6a94;
+  background-color: var(--light-accent-color);
   border-radius: 6px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #6B89B3;
+  background-color: var(--lighter-accent-color);
 }
 
-.logo-wf {
+/* Navbar rules */
+.navbar-wf {
+  background-color: var(--dark-accent-color);
+  color: var(--main-text-light-on-dark-color);
+}
+
+.sidenav-trigger {
+  display: block !important;
+  position: absolute;
+}
+
+.navbar-logo-wf {
   height: 2.5em;
   margin-left: 20px;
   margin-right: 20px;
-  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 12px;
+  max-width: 2.5em;
 }
 
 .brandname-wf {
-  font-size: 35px;
-  color: #faf9f6;
+  font-size: 30px;
+  color: var(--main-text-light-on-dark-color);
   vertical-align: top;
-}
-
-.navbar-fixed {
-  background-color: #344966;
-}
-
-.navbar-wf {
-  background-color: #344966;
-  color: #faf9f6;
 }
 
 .navbar-right-container-wf {
   margin-right: 15px;
 }
 
-.mobile-sidenav-wf {
-  background-color: #344966;
+.loggedin-text-wf {
+  margin-right: 20px;
+  font-size: 18px;
 }
 
-.mobile-sidenav-wf li a {
-  color: #faf9f6;
+.login-button-wf {
+  margin-bottom: 8px;
+}
+
+/* Sidenav rules */
+.sidenav-wf {
+  background-color: var(--dark-accent-color);
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+
+.sidenav-wf li a {
+  color: var(--main-text-light-on-dark-color);
+}
+
+.logo-wf {
+  height: 2.5em;
+  margin-left: 27px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  max-width: 2.5em;
 }
 
 .sidenav-username-wf {
@@ -66,78 +292,15 @@ html {
   height: 48px;
   line-height: 48px;
   padding: 0 32px;
-  color: #00c2cb;
+  color: var(--main-background-color);
 }
 
-.loggedin-text-wf {
-  margin-right: 20px;
-  font-size: 18px;
+.menu-space-filler-wf {
+  flex-grow: 1;
 }
 
-.button-wf {
-  background-color: #00c2cb;
-  color: #faf9f6;
-  font-weight: bold;
-  border-radius: 10px;
-}
-
-.button-wf:hover {
-  background-color: #4c6a94;
-}
-
-.textbox-wf {
-  background-color: #faf9f6 !important;
-  border: 1px solid #344966 !important;
-  border-radius: 10px !important;
-  padding: 5px 10px !important;
-  height: 1.5em !important;
-  margin: 10px 0px !important;
-}
-
-.login-button-wf {
-  margin-bottom: 8px;
-}
-
-.error-back-btn-wf {
-  margin-top: 20px;
-  background-color: #344966;
-  align-self: flex-start;
-}
-
-.error-back-btn-wf:hover {
-  background-color: #4c6a94;
-}
-
-.mobile-display-wf {
-  display: none;
-}
-
-.main-wf {
-  min-height: 87vh;
-}
-
-.sidenav-wf {
-  background-color: #344966;
-  color: #faf9f6;
-  top: 64px;
-  height: 100vh;
-  position: fixed;
-}
-
-.sidenav-wf li > a {
-  color: #faf9f6;
-}
-
-.sidenav-wf li > a:hover {
-  color: #00c2cb;
-}
-
-.sidenav-item-wf {
-  padding-top: 20px;
-  padding-left: 10px;
-}
-
-.logo-home-wf {
+/* Welcome page rules */
+.logo-welcome-wf {
   height: 7em;
 }
 
@@ -147,62 +310,55 @@ html {
 }
 
 .welcome-wf h1 {
-  color: #faf9f6;
+  color: var(--main-text-color);
 }
 
-.flow-text-wf {
-  color: rgba(76, 106, 148, 0);
+.welcome-to-work-wf {
+  position: static;
+  transition: margin-left 1s ease-in-out;
+  transition-delay: 1s;
+}
+
+.welcome-to-work-wf.active {
+  margin-left: 0px;  
+}
+
+#flow-span-wf {
+  position: absolute;
+  color: var(--light-accent-transparent);
   transition: color 2.5s ease-in-out;
 }
 
-.flow-text-wf.active {
-  color: rgba(76, 106, 148, 1);
+#flow-span-wf.active {
+  color: var(--light-accent-color);
 }
 
-.flow-text-wf.regular {
-  color: #faf9f6;
+#flow-span-wf.regular {
+  color: var(--main-text-color);
 }
 
 .blurb-text-wf {
-  color: rgba(250, 249, 246, 0);
+  color: black;
+  color: var(--main-text-transparent);
   transition: color 2.5s ease-in-out;
 }
 
 .blurb-text-wf.fade-in-wf {
-  color: rgba(250, 249, 246, 1);
+  color: var(--main-text-color);
 }
 
 .blurb-link1-wf a,
 .blurb-link2-wf a {
-  color: rgba(76, 106, 148, 0);
+  color: var(--light-accent-transparent);
   transition: color 2.5s ease-in-out;
 }
 
 .blurb-link1-wf.fade-in-link-wf a,
 .blurb-link2-wf.fade-in-link-wf a {
-  color: #344966;
+  color: var(--dark-accent-color);
 }
 
-.login-signup-container-wf {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-signup-box-wf {
-  margin-top: 15vh;
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  background-color: #344966;
-  color: #faf9f6;
-  text-align: center;
-  border: 1px solid #4c6a94;
-  border-radius: 20px;
-  padding: 40px 40px 60px 40px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-}
-
+/* Login and signup page rules */
 .login-signup-inner-container-wf {
   display: flex;
   flex-direction: column;
@@ -210,65 +366,49 @@ html {
   align-items: center;
 }
 
-.login-signup-input-wf {
-  color: #344966;
-  font-family: "Lexend", sans-serif;
-  background-color: #faf9f6 !important;
-  border: 1px solid #344966 !important;
-  border-radius: 10px !important;
-  padding: 5px 10px !important;
-  height: 1.5em !important;
-  margin: 10px 0px !important;
-  width: 70% !important;
-}
-
 .login-signup-button-wf {
   margin-top: 20px;
-  font-weight: bold;
 }
 
 .login-signup-error-wf {
   margin-top: 20px;
-  color: #fc3f38;
-  font-weight: bold;
-  font-size: 18px;
 }
 
-.dashboard-title-wf {
-  margin-top: 35px;
-  margin-bottom: 25px;
-  text-align: center;
-}
-
+/* Dashboard rules */
 .widget-container-wf {
   max-width: 100%;
+}
+
+.react-grid-item {
+  transition: left 200ms ease, top 200ms ease, width 200ms ease,
+    height 200ms ease, box-shadow 0.3s ease-in-out !important;
 }
 
 .widget-wf {
   aspect-ratio: 1 / 1;
   border-radius: 20px;
-  border: 2px solid #344966;
+  border: 2px solid var(--darker-accent-color);
   cursor: grab;
+  transition: transform 0.3s ease-in-out;
 }
 
-.widget-wf:hover {
-  border: 3px groove #4c6a94;
+.widget-box-shadow-wf {
+  box-shadow: 10px 10px 7px 5px var(--box-shadow-color);
+  transition: box-shadow 0.5s, transform 0.3s ease-in-out;
 }
 
-/* Width of the scrollbar */
+.widget-box-shadow-wf:hover {
+  box-shadow: 10px 10px 7px 0px var(--box-shadow-color);
+  transform: scale(0.98);
+}
+
 .widget-content-wf::-webkit-scrollbar {
   width: 8px;
 }
 
-/* Track (the area on which the thumb sits) */
 .widget-content-wf::-webkit-scrollbar-track {
   background-color: transparent;
   border-radius: 6px;
-}
-
-
-.widget-box-shadow-wf {
-  box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.5);
 }
 
 .widget-content-wf {
@@ -278,14 +418,509 @@ html {
   min-height: 100%;
 }
 
-.switch-container-wf {
+/* Clock widget rules */
+.clock-widget {
+  text-align: center;
+  border-radius: 20px;
+  background-color: var(--clock-background-color);
+}
+
+.clock-container-wf {
+  padding-top: 10%;
+  height: 80%;
+}
+
+.clock-time {
+  margin-top: 0px;
+  padding-top: 15%;
+  font-size: 45px;
+  font-weight: bold;
+  color: var(--main-text-light-on-dark-color);
+}
+
+.clock-date {
+  color: var(--main-text-light-on-dark-color);
+  font-size: 18px;
+}
+
+.clock-face {
+  fill: var(--main-text-color);
+  stroke: var(--secondary-text-color);
+  stroke-width: 4;
+}
+
+.clock-number {
+  font-size: 12px;
+  font-weight: bold;
+  fill: var(--secondary-text-color);
+}
+
+.dark-button-wf {
+  background-color: var(--darkest-accent-color);
+}
+
+.dark-button-wf:focus {
+  background-color: var(--darkest-accent-color);
+}
+
+/* Calendar widget rules */
+.custom-calendar {
+  font-family: "Lexend", sans-serif;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: var(--calendar-background-color);
+  color: var(--darkest-accent-color);
+  font-weight: bold;
+  height: 100%;
+  width: 100%;
+  padding: 25px;
+}
+
+.custom-calendar .daysOfWeek {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+.custom-calendar .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  padding: 5px 0;
+  color: var(--darkest-accent-color);
+}
+
+.custom-calendar .days div {
+  border: 1px solid var(--secondary-text-color);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 10px;
-  color: #faf9f6;
 }
 
+/* Notepad Widget rules */
+.notepad-widget {
+  background-color: var(--textbox-background-color);
+  border-radius: 20px;
+  overflow: auto;
+}
+
+.notepad-textarea {
+  width: 100%;
+  height: 98%;
+  padding: 25px;
+  border-radius: 20px;
+  resize: vertical;
+  outline: none;
+  font-size: 20px;
+  color: var(--darkest-accent-color);
+  border: none;
+  resize: none;
+}
+
+.notepad-textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.notepad-textarea::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 6px;
+}
+
+/* Sticky Note Widget rules */
+.sticky-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--sticky-note-background-color);
+  border-radius: 20px;
+}
+
+.sticky-note-textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 30px;
+  color: var(--darkest-accent-color);
+  background-color: transparent;
+  padding: 30px;
+  font-family: "Shadows Into Light", cursive;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+  vertical-align: center;
+}
+
+.sticky-note-textarea::placeholder {
+  color: var(--sticky-note-placeholder-text-color);
+  font-family: "Shadows Into Light", cursive;
+}
+
+/* Schedule Widget rules */
+.schedule-widget {
+  border-radius: 20px;
+  background-color: var(--schedule-background-color);
+  color: var(--darkest-accent-color);
+  padding: 25px;
+  overflow: auto;
+}
+
+.schedule-widget h4 {
+  margin-bottom: 20px;
+  color: var(--darkest-accent-color);
+}
+
+.schedule-icon-wf {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.event-list {
+  margin-bottom: 20px;
+}
+
+.event {
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--schedule-background-color);
+  border: 1px solid var(--darker-accent-color);
+}
+
+.event.completed {
+  background-color: var(--schedule-darker-background-color);
+  color: var(--main-text-color);
+  text-decoration: line-through;
+}
+
+.event button {
+  padding: 10px 20px;
+  max-width: 125px;
+  display: flex;
+  align-items: center;
+}
+
+.new-event {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-event h4 {
+  margin-bottom: 12px;
+  color: var(--darker-accent-color);
+}
+
+.new-event button {
+  padding: 10px 20px;
+  max-width: 125px;
+  display: flex;
+  align-items: center;
+}
+
+/* File Management Widget rules */
+.file-management-widget {
+  border-radius: 20px;
+  background-color: var(--file-management-background-color);
+  color: var(--darkest-accent-color);
+  padding-left: 25px;
+  border: 1px solid var(--file-management-background-color);
+}
+
+.file-management-widget h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: var(--darkest-accent-color);
+  text-align: left;
+}
+
+.file-list {
+  margin-bottom: 20px;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.file-name {
+  flex-grow: 1;
+  color: var(--light-accent-color);
+  font-size: 16px;
+}
+
+.file-options {
+  color: var(--light-accent-color);
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.file-options:hover {
+  color: var(--dark-accent-color);
+}
+
+/* To Do List Widget rules */
+.kanban-board {
+  background-color: var(--kanban-board-background-color);
+  border-radius: 20px;
+  padding: 25px;
+}
+
+.kanban-board h4 {
+  text-align: left;
+  margin-bottom: 20px;
+  color: var(--darkest-accent-color);
+}
+
+.kanban-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+}
+
+.kanban-column {
+  flex: 1;
+  background-color: var(--kanban-board-darker-background-color);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: var(--darkest-accent-color);
+  text-align: center;
+}
+
+.task-list {
+  min-height: 100px;
+}
+
+.task-card {
+  background-color: var(--textbox-background-color);
+  color: var(--darkest-accent-color);
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.task-icons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.task-icons button {
+  padding: 5px 10px;
+  margin-left: 5px;
+  background-color: var(--darker-accent-color);
+  color: var(--main-text-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.task-icons button:hover {
+  background-color: var(--dark-accent-color);
+}
+
+/* Meditation Widget rules */
+.meditation-widget {
+  width: 90%;
+  border-radius: 20px;
+  background-color: var(--meditation-background-color);
+  color: var(--darkest-accent-color);
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding-top: 5px;
+}
+
+.meditation-widget h5 {
+  margin-left: 20px;
+}
+
+.meditation-audio-player {
+  width: 90%;
+  align-self: center;
+}
+
+.meditation-dropdown {
+  width: 90%;
+  align-self: center;
+  background-color: var(--meditation-background-color);
+}
+
+.meditation-dropdown select {
+  height: 2em;
+  border-radius: 10px;
+  background-color: var(--meditation-background-color);
+  color: var(--darkest-accent-color);
+}
+
+.react-audio-player .rp-controls {
+  display: none;
+}
+
+/* Inspiring Quotes Widget rules */
+.inspiring-quote-widget {
+  border-radius: 20px;
+  background-color: var(--inspiring-quote-background-color);
+  color: var(--darkest-accent-color);
+  padding: 0px 28px;
+  display: flex;
+  align-items: center;
+  overflow: auto;
+}
+
+.inspiring-quote-random {
+  text-align: left;
+}
+
+.inspiring-quote-author {
+  text-align: right;
+}
+
+/* Work/Life Balance Tips Widget rules */
+.balance-tip-widget {
+  border-radius: 20px;
+  background-color: var(--balance-tip-background-color);
+  color: var(--darkest-accent-color);
+  padding: 20px 30px;
+  display: flex;
+}
+
+.balance-tip-widget h2 {
+  text-align: left;
+  color: var(--darkest-accent-color);
+}
+
+.balance-tip-random {
+  text-align: justify;
+}
+
+/* Chat page rules */
+.chat-container-wf {
+  display: flex;
+  height: 85vh;
+}
+
+.chat-sidebar-wf {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: hidden;
+  width: 12%;
+  background-color: var(--dark-accent-color);
+  color: var(--main-text-color);
+}
+
+.chat-display {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  width: 88%;
+}
+
+.message-container-wf {
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 94%;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  background-color: var(--main-text-color);
+  border: 1px solid var(--dark-accent-color);
+  border-radius: 10px;
+  overflow-y: auto;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.message-container-wf::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--dark-accent-color);
+}
+
+.message-container-wf::-webkit-scrollbar-track {
+  background-color: var(--light-accent-color);
+  border-radius: 8px;
+}
+
+.chat-bottom-container-wf {
+  width: 92%;
+  margin-left: 15px;
+}
+
+.text-half-size-wf {
+  width: 50% !important;
+  margin-top: 0px !important;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.box-shadow-wf {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.chat-lower-form-wf {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.chat-button-wf {
+  background-color: var(--dark-accent-color);
+}
+
+.chat-button-wf:hover {
+  background-color: var(--light-accent-color);
+}
+
+.form-join-button-wf {
+  max-width: 75px;
+}
+
+.sidebar-inner-container-wf {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px 20px;
+}
+
+.user-list-wf {
+  margin-top: 12vh;
+  flex-grow: 0.5;
+}
+
+.active-users-heading-wf {
+  color: var(--main-text-color);
+  text-align: left;
+}
+
+.available-rooms-heading-wf {
+  color: var(--main-text-color);
+  text-align: left;
+}
+
+/* Settings page rules */
+.settings-dropdown-wf {
+  border-radius: 10px;
+  height: 2.5em;
+  padding: 0px 10px;
+  background-color: var(--textbox-background-color);
+}
+
+/* Error page rules */
 .error-page-wf {
   margin-top: 10%;
   display: flex;
@@ -294,6 +929,17 @@ html {
   justify-content: left;
 }
 
+.error-back-btn-wf {
+  margin-top: 20px;
+  background-color: var(--dark-accent-color);
+  align-self: flex-start;
+}
+
+.error-back-btn-wf:hover {
+  background-color: var(--light-accent-color);
+}
+
+/* Footer rules */
 .copyright-wf {
   text-align: right;
   margin-top: 20px;
@@ -301,28 +947,19 @@ html {
   margin-right: 15px;
 }
 
+/* Media Queries for responsiveness */
 @media screen and (max-width: 992px) {
-  .desktop-display-wf {
+  .sidenav-trigger {
+    display: block !important;
+    position: absolute;
+  }
+
+  .welcome-wf h1 {
+    font-size: 30px;
+  }
+
+  .navbar-right-container-wf {
     display: none;
-  }
-
-  .mobile-display-wf {
-    display: block;
-  }
-
-  .sidenav-display-wf {
-    display: none;
-  }
-
-  .desktop-logo-display-wf {
-    display: none;
-  }
-
-  nav .nav-wrapper {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    position: relative;
   }
 
   .brandname-wf {
@@ -330,10 +967,14 @@ html {
     margin: 0;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+
+  .clock-time {
+    padding-top: 5%;
   }
 }

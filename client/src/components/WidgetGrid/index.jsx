@@ -342,7 +342,7 @@ const WidgetGrid = () => {
     xs: userSettings.gridLayout.xs.map(convertGridItem),
   };
 
-  const margin = [18, 18];
+  const margin = [25, 25];
 
   return (
     <ResponsiveGridLayout

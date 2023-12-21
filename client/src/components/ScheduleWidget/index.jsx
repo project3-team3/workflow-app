@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import "../../styles/widget.css";
 import { FaTrash, FaCheck, FaUndo } from 'react-icons/fa';
 
 //Temporary placeholder for the schedule. Once the database are all set, then delete this code."
@@ -68,16 +67,16 @@ const ScheduleWidget = () => {
           placeholder="Event Title"
           value={newEventTitle}
           onChange={(e) => setNewEventTitle(e.target.value)}
-          className='widget-prevent-drag-wf'
+          className='input-wf widget-prevent-drag-wf'
         />
         <input
           type="text"
           placeholder="Event Time"
           value={newEventTime}
           onChange={(e) => setNewEventTime(e.target.value)}
-          className='widget-prevent-drag-wf'
+          className='input-wf widget-prevent-drag-wf'
         />
-        <button onClick={addEvent} className='widget-prevent-drag-wf'>ADD EVENT</button>
+        <button onClick={addEvent} className='waves-effect waves-light btn button-wf button-wf widget-prevent-drag-wf'>ADD EVENT</button>
       </div>
     </div>
   );

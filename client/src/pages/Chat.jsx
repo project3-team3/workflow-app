@@ -1,6 +1,5 @@
-import "../styles/chat.css";
 import AuthService from "../utils/auth.js";
-import ChatComponent from "../components/ChatComponent/ChatComponent.jsx";
+// import ChatComponent from "../components/ChatComponent/ChatComponent.jsx";
 
 
 const Chat = () => {

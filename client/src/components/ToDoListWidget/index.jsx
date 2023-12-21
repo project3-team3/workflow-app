@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { FaTrash, FaEdit, FaTimes } from 'react-icons/fa';
-import "../../styles/widget.css";
 
 //Temporary placeholder for the schedule. Once the database are all set, then delete this code."//
 const initialTasks = [
@@ -62,7 +61,7 @@ const ToDoList = () => {
   return (
     <div className="kanban-board widget-content-wf">
       <h4>Kanban Board</h4>
-      <button onClick={openModal} className='widget-prevent-drag-wf'>ADD TASK</button>
+      <button onClick={openModal} className='widget-prevent-drag-wf waves-effect waves-light btn login-button-wf button-wf'>ADD TASK</button>
       <DragDropContext onDragEnd={handleDragEnd}>
         <div className="kanban-row widget-prevent-drag-wf">
           {['Tasks', 'In Progress', 'Done', 'On Hold'].map((status) => (
@@ -138,8 +137,8 @@ const ToDoList = () => {
                <option value="Done">Done</option>
                <option value="On Hold">On Hold</option>
              </select>
-             <button onClick={handleAddTask}>Add</button>
-             <button onClick={closeModal}>Cancel</button>
+             <button className="waves-effect waves-light btn login-button-wf button-wf" onClick={handleAddTask}>Add</button>
+             <button className='waves-effect waves-light btn login-button-wf button-wf' onClick={closeModal}>Cancel</button>
            </div>
          </div>
        </div>

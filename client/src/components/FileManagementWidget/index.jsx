@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { RiDeleteBinLine, RiEyeLine } from 'react-icons/ri';
-import '../../styles/widget.css';
 
 const FileManagementWidget = () => {
   const [files, setFiles] = useState([]);

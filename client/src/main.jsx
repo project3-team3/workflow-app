@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import ErrorPage from './pages/ErrorPage';
 import Chat from './pages/Chat';
 import VideoChat from './pages/VideoChat';
+import Settings from './pages/Settings';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,9 @@ const router = createBrowserRouter([
       }, {
         path: '/videochat',
         element: <VideoChat />
+      }, {
+        path: '/settings',
+        element: <Settings />
       }
     ]
   },
