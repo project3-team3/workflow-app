@@ -1,10 +1,14 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
+
+const widgetTupleSchema = new Schema({
+  name: String,
+  active: Boolean,
+});
 
 const userSettingsSchema = new Schema({
-  // Other settings fields can be added here
   gridLayout: {
-    type: Schema.Types.Mixed, // Store the layout as a JSON object
-    default: {}, // Default to an empty object
+    type: Schema.Types.Mixed,
+    default: {},
   },
   isAnalog: {
     type: Boolean,
@@ -18,8 +22,16 @@ const userSettingsSchema = new Schema({
     type: String,
     default: "",
   },
+  currentTheme: {
+    type: String,
+    default: "default-mode-wf",
+  },
+  widgets: {
+    type: [Schema.Types.Mixed],
+    default: [],
+  },
 });
 
-const UserSettings = model('UserSettings', userSettingsSchema);
+const UserSettings = model("UserSettings", userSettingsSchema);
 
 module.exports = UserSettings;

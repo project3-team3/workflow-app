@@ -35,12 +35,19 @@ const typeDefs = `
     xs: [GridItem]
   }
 
+  type WidgetTuple {
+    name: String
+    active: Boolean
+  }
+
   type UserSettings {
     _id: ID!
     gridLayout: GridLayout
     isAnalog: Boolean
     stickyText: String
     notepadText: String
+    currentTheme: String
+    widgets: [WidgetTuple]
   }
 
   type Auth {
@@ -56,15 +63,18 @@ const typeDefs = `
     getUserSettings(userId: ID!): UserSettings
     randomQuote: Quote
     randomTip: BalanceTip
+    widgets: [WidgetTuple]
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!, gridLayout: String!): Auth
+    addUser(username: String!, email: String!, password: String!, gridLayout: String!, widgets: String!): Auth
     login(username: String!, password: String!): Auth
     updateGridSettings(userId: ID!, layouts: String!): UserSettings
     updateClockSettings(userId: ID!, isAnalog: Boolean!): UserSettings
     updateStickySettings(userId: ID!, stickyText: String!): UserSettings
     updateNotepadSettings(userId: ID!, notepadText: String!): UserSettings
+    updateThemeSettings(userId: ID!, currentTheme: String!): UserSettings
+    updateWidgetSettings(userId: ID!, widgets: String!): UserSettings
   }
 `;
 

@@ -21,6 +21,11 @@ export const QUERY_USER_SETTINGS = gql`
       isAnalog
       stickyText
       notepadText
+      currentTheme
+      widgets {
+        name
+        active
+      }
       gridLayout {
         lg {
           i

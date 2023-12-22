@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { Responsive, WidthProvider } from "react-grid-layout";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER_SETTINGS } from "../../utils/queries.js";
@@ -280,22 +280,15 @@ const WidgetGrid = () => {
   const userProfile = AuthService.getProfile();
 
   const [updateGridSettings] = useMutation(UPDATE_GRID_SETTINGS);
-  const [initialLayout, setInitialLayout] = useState(defaultLayout);
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
     variables: { userId: userProfile?._id || userProfile?.user?._id },
   });
 
-  useEffect(() => {
-    const userProfile = AuthService.getProfile();
-    const userLayout = userProfile?.settings?.gridLayout;
-
-    if (userLayout) {
-      setInitialLayout(userLayout);
-    }
-  }, []);
-
   const handleLayoutChange = (__, layouts) => {
+    console.log("In handleLayoutChange.");
     const userProfile = AuthService.getProfile();
+
+    // console.log("Layouts changed:", layouts);
 
     if (!userProfile) {
       console.error("User profile not found. Please log in.");
@@ -312,9 +305,12 @@ const WidgetGrid = () => {
 
     const layoutsString = JSON.stringify(layouts);
 
+    // console.log("Layouts:", layoutsString);
+
     updateGridSettings({
       variables: { userId: userId, layouts: layoutsString },
     });
+    console.log("Leaving handleLayoutChange.");
   };
 
   const userSettings = data?.getUserSettings;
@@ -344,6 +340,8 @@ const WidgetGrid = () => {
 
   const margin = [25, 25];
 
+  const widgetStatus = userSettings.widgets;
+
   return (
     <ResponsiveGridLayout
       className="layout"
@@ -355,37 +353,75 @@ const WidgetGrid = () => {
       draggableCancel=".widget-prevent-drag-wf"
       onLayoutChange={handleLayoutChange}
     >
-      <div key="calendar" className="widget-wf widget-box-shadow-wf">
-        <CalendarWidget />
-      </div>
-      <div key="clock" className="widget-wf widget-box-shadow-wf">
-        <ClockWidget />
-      </div>
-      <div key="filemanagement" className="widget-wf widget-box-shadow-wf">
-        <FileManagementWidget />
-      </div>
-      <div key="notepad" className="widget-wf widget-box-shadow-wf">
-        <NotepadWidget />
-      </div>
-      <div key="schedule" className="widget-wf widget-box-shadow-wf">
-        <ScheduleWidget />
-      </div>
-      <div key="stickynote" className="widget-wf widget-box-shadow-wf">
-        <StickyNoteWidget />
-      </div>
-      <div key="todolist" className="widget-wf widget-box-shadow-wf">
-        <ToDoListWidget />
-      </div>
-      <div key="meditation" className="widget-wf widget-box-shadow-wf">
-        <MeditationWidget />
-      </div>
-      <div key="inspiringquote" className="widget-wf widget-box-shadow-wf">
-        <InspiringQuoteWidget />
-      </div>
-      <div key="balancetip" className="widget-wf widget-box-shadow-wf">
-        <BalanceTipWidget />
-      </div>
-    </ResponsiveGridLayout>
+      {userSettings.widgets.map((widget) => {
+      // Check if the widget is active before rendering
+      if (widget.active) {
+        if (widget.name === 'calendar') {
+          return (
+            <div key={widget.name} className="widget-wf widget-box-shadow-wf">
+              <CalendarWidget />
+            </div>
+          );
+        } else if (widget.name === 'clock') {
+          return (
+            <div key={widget.name} className="widget-wf widget-box-shadow-wf">
+              <ClockWidget />
+            </div>
+          );
+        } else if (widget.name === 'filemanagement') {
+          return (
+            <div key={widget.name} className="widget-wf widget-box-shadow-wf">
+              <FileManagementWidget />
+            </div>
+          );
+        } else if (widget.name === 'notepad') {
+          return (
+            <div key={widget.name} className="widget-wf widget-box-shadow-wf">
+              <NotepadWidget />
+            </div>
+          );
+        } else if (widget.name === 'schedule') {
+          return (
+            <div key={widget.name} className="widget-wf widget-box-shadow-wf">
+              <ScheduleWidget />
+            </div>
+          );
+        } else if (widget.name === 'stickynote') {
+          return (
+            <div key={widget.name} className="widget-wf widget-box-shadow-wf">
+              <StickyNoteWidget />
+            </div>
+          );
+        } else if (widget.name === 'todolist') {
+          return (
+            <div key={widget.name} className="widget-wf widget-box-shadow-wf">
+              <ToDoListWidget />
+            </div>
+          );
+        } else if (widget.name === 'meditation') {
+          return (
+            <div key={widget.name} className="widget-wf widget-box-shadow-wf">
+              <MeditationWidget />
+            </div>
+          );
+        } else if (widget.name === 'inspiringquote') {
+          return (
+            <div key={widget.name} className="widget-wf widget-box-shadow-wf">
+              <InspiringQuoteWidget />
+            </div>
+          );
+        } else if (widget.name === 'balancetip') {
+          return (
+            <div key={widget.name} className="widget-wf widget-box-shadow-wf">
+              <BalanceTipWidget />
+            </div>
+          );
+        }
+      }
+      return null;
+    })}
+  </ResponsiveGridLayout>
   );
-};
+}
+
 export default WidgetGrid;

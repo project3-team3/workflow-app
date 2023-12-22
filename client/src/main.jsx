@@ -1,8 +1,11 @@
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import Auth from './utils/auth.js';
+
 import App from './App.jsx'
 import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import ErrorPage from './pages/ErrorPage';
@@ -18,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: Auth.loggedIn() ? <Dashboard /> : <Home />
       }, {
         path: '/login',
         element: <Login />

@@ -8,6 +8,37 @@ import Auth from "../utils/auth";
 import { defaultLayout } from "../components/WidgetGrid/index.jsx";
 
 const Signup = () => {
+  const defaultWidgets = [{
+    name: "calendar",
+    active: true
+  }, {
+    name: "clock",
+    active: true
+   },{
+    name: "filemanagement",
+    active: true
+   }, {
+    name: "notepad",
+    active: true
+   }, {
+    name: "schedule",
+    active: true
+   }, {
+    name: "stickynote",
+    active: true
+   }, {
+    name: "todolist",
+    active: true
+   }, {
+    name: "meditation",
+    active: true
+   }, {
+    name: "inspiringquote",
+    active: true
+   }, {
+    name: "balancetip",
+    active: true
+   }];
   const [formState, setFormState] = useState({
     username: "",
     email: "",
@@ -29,13 +60,18 @@ const Signup = () => {
 
     console.log(defaultLayout);
 
+    console.log(defaultWidgets);
+
     try {
       console.log(JSON.stringify(defaultLayout));
+
+      console.log(JSON.stringify(defaultWidgets));
 
       const { data: userData } = await addUser({
         variables: {
           ...formState,
           gridLayout: JSON.stringify(defaultLayout),
+          widgets: JSON.stringify(defaultWidgets),
         },
       });
 

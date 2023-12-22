@@ -46,14 +46,14 @@ const ClockWidget = () => {
 
   const handleToggleClock = () => {
     const userId = userProfile._id || userProfile.user._id;
-  
+
     // Toggle isAnalog in the local state immediately
     setIsAnalog((prevIsAnalog) => {
       const newIsAnalog = !prevIsAnalog;
       console.log("Local state updated. New isAnalog:", newIsAnalog);
       return newIsAnalog;
     });
-  
+
     // Call the updateClockSettings mutation with the updated value of isAnalog
     updateClockSettings({
       variables: { userId, isAnalog: !isAnalog },
@@ -64,7 +64,7 @@ const ClockWidget = () => {
       .catch((error) => {
         console.error("Mutation error:", error);
       });
-  };  
+  };
 
   return (
     <div className="clock-widget widget-content-wf">

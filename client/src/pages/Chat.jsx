@@ -1,9 +1,28 @@
 import AuthService from "../utils/auth.js";
+import { useQuery } from "@apollo/client";
 // import ChatComponent from "../components/ChatComponent/ChatComponent.jsx";
+import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 
 
 const Chat = () => {
   const userProfile = AuthService.getProfile();
+  const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
+    variables: { userId: userProfile._id || userProfile.user._id },
+  });
+
+  // Wait for data to load
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  const colorTheme = data.getUserSettings.currentTheme || "default-wf";
+
+  const setMode = (mode) => {
+    const htmlElement = document.querySelector("html");
+    htmlElement.className = "";
+    htmlElement.classList.add(mode);
+  };
+
+  setMode(colorTheme);
 
   /*
   const [name, setName] = useState("");
@@ -121,10 +140,12 @@ const Chat = () => {
     <div className="chat-container-wf">
       <h1>Chat App</h1>
       {/* Pass the user information to the ChatComponent */}
-      <ChatComponent user={userProfile?.username} />
+
     </div>
   );
 };
+
+//      <ChatComponent user={userProfile?.username} />
 
 export default Chat;
 

@@ -1,8 +1,11 @@
-import AuthService from "../utils/auth.js";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 
-const VideoChat = () => {
+import AuthService from "../utils/auth.js";
+
+import WidgetGrid from "../components/WidgetGrid";
+
+const Home = () => {
   const userProfile = AuthService.getProfile();
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
     variables: { userId: userProfile._id || userProfile.user._id },
@@ -23,11 +26,16 @@ const VideoChat = () => {
   setMode(colorTheme);
 
   return (
-    <div className="videochat-container-wf">
-      <h1>Video Chat</h1>
-      <p>Coming soon!</p>
+    <div>
+        <>
+          <div className="dashboard-widgets-wf">
+            <div className="widget-container-wf">
+              <WidgetGrid />
+            </div>
+          </div>
+        </>
     </div>
   );
 };
 
-export default VideoChat;
+export default Home;

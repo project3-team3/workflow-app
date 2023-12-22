@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import Auth from "../../utils/auth";
 
 const Header = () => {
-  
+  const location = useLocation();
+
   useEffect(() => {
     const elems = document.querySelectorAll(".sidenav");
     const instances = M.Sidenav.init(elems);
@@ -79,16 +80,16 @@ const Header = () => {
         <li className="sidenav-username-wf">
           {Auth.loggedIn() ? Auth.getProfile().user.username : null}
         </li>
-        <li>
-          <a href="/">Home</a>
+        <li className={`sidenav-item-wf ${location.pathname === '/' ? 'disabled' : ''}`}>
+          <a href="/">Dashboard</a>
         </li>
-        <li>
+        <li className={`sidenav-item-wf ${location.pathname === '/chat' ? 'disabled' : ''}`}>
           <a href="/chat">Chat</a>
         </li>
-        <li>
+        <li className={`sidenav-item-wf ${location.pathname === '/videochat' ? 'disabled' : ''}`}>
           <a href="/videochat">Video Chat</a>
         </li>
-        <li>
+        <li className={`sidenav-item-wf ${location.pathname === '/settings' ? 'disabled' : ''}`}>
           <a href="/settings">Settings</a>
         </li>
         <li className="menu-space-filler-wf"></li>

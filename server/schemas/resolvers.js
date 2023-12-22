@@ -33,7 +33,7 @@ const resolvers = {
           throw new Error("User not found");
         }
 
-        const userSettingsID = user.settings; // Assuming settings is the ID of UserSettings
+        const userSettingsID = user.settings;
         const userSettings = await UserSettings.findById(userSettingsID);
 
         console.log("User settings:", userSettings);
@@ -45,13 +45,14 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (__, { username, email, password, gridLayout }) => {
+    addUser: async (__, { username, email, password, gridLayout, widgets }) => {
       try {
         console.log(gridLayout);
 
         // Create a new UserSettings document
         const userSettings = await UserSettings.create({
           gridLayout: JSON.parse(gridLayout),
+          widgets: JSON.parse(widgets),
         });
 
         // Create the user with the reference to the UserSettings document
@@ -207,7 +208,73 @@ const resolvers = {
         console.error("Error updating user settings:", error);
         throw new Error("Error updating user settings");
       }
-    }
+    },
+    updateThemeSettings: async (__, { userId, currentTheme }) => {
+      try {
+
+        const user = await User.findById(userId);
+
+        if (!user) {
+          throw new Error("User not found");
+        }
+
+        // Get the UserSettings document
+        const userSettings = await UserSettings.findById(user.settings);
+
+        // Update the gridLayout property in UserSettings
+        userSettings.currentTheme = currentTheme;
+
+        // Save changes to UserSettings
+        await userSettings.save();
+
+        user.settings = userSettings;
+
+        // Save the user
+        await user.save();
+
+        return user.settings;
+      } catch (error) {
+        console.error("Error updating user settings:", error);
+        throw new Error("Error updating user settings");
+      }
+    },
+    updateWidgetSettings: async (__, { userId, widgets }) => {
+      try {
+
+        console.log("In updateWidgetSettings resolver!");
+
+        const user = await User.findById(userId);
+
+        if (!user) {
+          throw new Error("User not found");
+        }
+
+        const parsedWidgets = JSON.parse(widgets);
+
+        // Get the UserSettings document
+        const userSettings = await UserSettings.findById(user.settings);
+
+        // Update the gridLayout property in UserSettings
+        userSettings.widgets = parsedWidgets;
+
+        // Save changes to UserSettings
+        await userSettings.save();
+
+        user.settings = userSettings;
+
+        // Save the user
+        await user.save();
+
+        const newUserSettings = await UserSettings.findById(user.settings);
+
+        console.log("Updated userSettings in resolver?", JSON.stringify(newUserSettings.widgets));
+
+        return user.settings;
+      } catch (error) {
+        console.error("Error updating user settings:", error);
+        throw new Error("Error updating user settings");
+      }
+    },      
   },
 };
 

@@ -13,15 +13,22 @@
   --error-text-color: rgba(252, 63, 56, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
   --textbox-background-color: rgba(250, 249, 246, 1);
+  --input-border-color: rgba(52, 73, 102, 1);
+  --checkbox-border-color: rgba(250, 249, 246, 1);
+  --sidenav-disabled-text-color: rgba(0, 194, 203, 1);
+  --sidenav-hover-color: rgba(76, 106, 148, 1);
   --clock-background-color: rgba(53, 73, 94, 1);
+  --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(250, 249, 246, 1);
   --file-management-background-color: rgba(197, 198, 149, 1);
   --sticky-note-background-color: rgba(153, 250, 255, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --sticky-note-text-color: rgba(49, 67, 94, 1);
   --schedule-background-color: rgba(238, 225, 179, 1);
   --schedule-darker-background-color: rgba(198, 174, 128, 1);
   --kanban-board-background-color: rgba(213, 202, 214, 1);
   --kanban-board-darker-background-color: rgba(192, 174, 194, 1);
+  --kanban-column-heading-color: rgba(49, 67, 94, 1);
   --meditation-background-color: rgba(250, 249, 246, 1);
   --inspiring-quote-background-color: rgba(255, 207, 173, 1);
   --balance-tip-background-color: rgba(227, 200, 181, 1);
@@ -42,15 +49,22 @@
   --error-text-color: rgba(252, 63, 56, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
   --textbox-background-color: rgba(250, 249, 246, 1);
+  --input-border-color: rgba(52, 73, 102, 1);
+  --checkbox-border-color: rgba(250, 249, 246, 1);
+  --sidenav-disabled-text-color: rgba(0, 194, 203, 1);
+  --sidenav-hover-color: rgba(76, 106, 148, 1);
   --clock-background-color: rgba(53, 73, 94, 1);
+  --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(250, 249, 246, 1);
   --file-management-background-color: rgba(197, 198, 149, 1);
   --sticky-note-background-color: rgba(153, 250, 255, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --sticky-note-text-color: rgba(49, 67, 94, 1);
   --schedule-background-color: rgba(238, 225, 179, 1);
   --schedule-darker-background-color: rgba(198, 174, 128, 1);
   --kanban-board-background-color: rgba(213, 202, 214, 1);
   --kanban-board-darker-background-color: rgba(192, 174, 194, 1);
+  --kanban-column-heading-color: rgba(49, 67, 94, 1);
   --meditation-background-color: rgba(250, 249, 246, 1);
   --inspiring-quote-background-color: rgba(255, 207, 173, 1);
   --balance-tip-background-color: rgba(227, 200, 181, 1);
@@ -71,15 +85,22 @@
   --error-text-color: rgba(252, 63, 56, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
   --textbox-background-color: rgba(250, 249, 246, 1);
+  --input-border-color: rgba(45, 45, 48, 1);
+  --checkbox-border-color: rgba(250, 249, 246, 1);
+  --sidenav-disabled-text-color: rgba(250, 249, 246, 1);
+  --sidenav-hover-color: rgba(107, 137, 179, 1);
   --clock-background-color: rgba(0, 194, 203, 1);
+  --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(250, 249, 246, 1);
   --file-management-background-color: rgba(197, 198, 149, 1);
   --sticky-note-background-color: rgba(153, 250, 255, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --sticky-note-text-color: rgba(49, 67, 94, 1);
   --schedule-background-color: rgba(238, 225, 179, 1);
   --schedule-darker-background-color: rgba(198, 174, 128, 1);
   --kanban-board-background-color: rgba(213, 202, 214, 1);
   --kanban-board-darker-background-color: rgba(192, 174, 194, 1);
+  --kanban-column-heading-color: rgba(49, 67, 94, 1);
   --meditation-background-color: rgba(250, 249, 246, 1);
   --inspiring-quote-background-color: rgba(255, 207, 173, 1);
   --balance-tip-background-color: rgba(227, 200, 181, 1);
@@ -100,15 +121,22 @@
   --error-text-color: rgba(252, 63, 56, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
   --textbox-background-color: rgba(241, 238, 229, 1);
+  --input-border-color: rgba(45, 45, 48, 1);
+  --checkbox-border-color: rgba(49, 67, 94, 1);
+  --sidenav-disabled-text-color: rgba(250, 249, 246, 1);
+  --sidenav-hover-color: rgba(250, 249, 246, 1);
   --clock-background-color: rgba(0, 194, 203, 1);
+  --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(250, 249, 246, 1);
   --file-management-background-color: rgba(197, 198, 149, 1);
   --sticky-note-background-color: rgba(153, 250, 255, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --sticky-note-text-color: rgba(49, 67, 94, 1);
   --schedule-background-color: rgba(238, 225, 179, 1);
   --schedule-darker-background-color: rgba(198, 174, 128, 1);
   --kanban-board-background-color: rgba(164, 140, 166, 1);
   --kanban-board-darker-background-color: rgba(136, 105, 140, 1);
+  --kanban-column-heading-color: rgba(250, 249, 246, 1);
   --meditation-background-color: rgba(250, 249, 246, 1);
   --inspiring-quote-background-color: rgba(255, 207, 173, 1);
   --balance-tip-background-color: rgba(227, 200, 181, 1);
@@ -129,15 +157,22 @@
   --error-text-color: rgba(252, 63, 56, 1);
   --box-shadow-color: rgba(255, 255, 255, 0.2);
   --textbox-background-color: rgba(62, 62, 66, 1);
+  --input-border-color: rgba(45, 45, 48, 1);
+  --checkbox-border-color: rgba(250, 249, 246, 1);
+  --sidenav-disabled-text-color: rgba(172, 172, 176, 1);
+  --sidenav-hover-color: rgba(172, 172, 176, 1);
   --clock-background-color: rgba(53, 73, 94, 1);
+  --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(62, 62, 66, 1);
   --file-management-background-color: rgba(79, 80, 43, 1);
-  --sticky-note-background-color: rgba(201, 204, 0, 1);
-  --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --sticky-note-background-color: rgba(172, 172, 176, 1);
+  --sticky-note-placeholder-text-color: rgba(102, 102, 106, 1);
+  --sticky-note-text-color: rgba(13, 24, 33, 1);
   --schedule-background-color: rgba(133, 111, 30, 1);
   --schedule-darker-background-color: rgba(83, 69, 19, 1);
   --kanban-board-background-color: rgba(136, 105, 140, 1);
   --kanban-board-darker-background-color: rgba(90, 70, 93, 1);
+  --kanban-column-heading-color: rgba(250, 249, 246, 1);
   --meditation-background-color: rgba(71, 71, 71, 1);
   --inspiring-quote-background-color: rgba(102, 43, 0, 1);
   --balance-tip-background-color: rgba(99, 99, 105, 1);
@@ -193,7 +228,7 @@ html {
   color: var(--darkest-accent-color);
   font-family: "Lexend", sans-serif;
   background-color: var(--textbox-background-color) !important;
-  border: 1px solid var(--dark-accent-color) !important;
+  border: 1px solid var(--input-border-color) !important;
   border-radius: 10px !important;
   padding: 5px 10px !important;
   height: 1.5em !important;
@@ -273,8 +308,23 @@ html {
   padding-bottom: 80px;
 }
 
+.sidenav li:hover {
+  background-color: var(--sidenav-hover-color);
+}
+
+.sidenav li.sidenav-username-wf:hover,
+.sidenav li.menu-space-filler-wf:hover {
+  background-color: var(--dark-accent-color);
+}
+
 .sidenav-wf li a {
   color: var(--main-text-light-on-dark-color);
+}
+
+.sidenav-item-wf.disabled {
+  pointer-events: none;
+  color: var(--sidenav-disabled-text-color);
+  opacity: 0.5;
 }
 
 .logo-wf {
@@ -292,7 +342,7 @@ html {
   height: 48px;
   line-height: 48px;
   padding: 0 32px;
-  color: var(--main-background-color);
+  color: var(--sidenav-disabled-text-color);
 }
 
 .menu-space-filler-wf {
@@ -444,7 +494,7 @@ html {
 }
 
 .clock-face {
-  fill: var(--main-text-color);
+  fill: var(--clock-face-color);
   stroke: var(--secondary-text-color);
   stroke-width: 4;
 }
@@ -548,7 +598,7 @@ html {
   outline: none;
   box-sizing: border-box;
   font-size: 30px;
-  color: var(--darkest-accent-color);
+  color: var(--sticky-note-text-color);
   background-color: transparent;
   padding: 30px;
   font-family: "Shadows Into Light", cursive;
@@ -698,7 +748,7 @@ html {
 h2 {
   font-size: 20px;
   margin-bottom: 15px;
-  color: var(--darkest-accent-color);
+  color: var(--kanban-column-heading-color);
   text-align: center;
 }
 
@@ -913,11 +963,41 @@ h2 {
 }
 
 /* Settings page rules */
+.settings-header-wf {
+  margin-top: 5vh;
+  font-size: 18px;
+}
+
 .settings-dropdown-wf {
   border-radius: 10px;
   height: 2.5em;
   padding: 0px 10px;
   background-color: var(--textbox-background-color);
+  color: var(--darkest-accent-color);
+}
+
+.checkbox-container-wf {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 30px;
+}
+
+.checkbox-container-wf p {
+  width: 50%;
+  text-align: left;
+}
+
+.checkbox-container-wf p label {
+  color: var(--main-text-color);
+}
+
+[type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
+  border: 2px solid var(--checkbox-border-color);
+}
+
+[type="checkbox"]:checked+span:not(.lever):before {
+  border-right: 2px solid var(--checkbox-border-color);
+  border-bottom: 2px solid var(--checkbox-border-color);
 }
 
 /* Error page rules */
