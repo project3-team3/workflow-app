@@ -1,8 +1,7 @@
 const db = require("../config/connection");
-const { User, Quote, BalanceTip } = require("../models");
+const { User, UserSettings, Quote, BalanceTip } = require("../models");
 const inspiringQuoteSeeds = require("./inspiringQuoteSeeds.json");
 const balanceTipSeeds = require("./balanceTipSeeds.json");
-const userSeeds = require("./userSeeds.json");
 const cleanDB = require("./cleanDB");
 
 db.once("open", async () => {
@@ -13,11 +12,15 @@ db.once("open", async () => {
 
     await cleanDB("User", "users");
 
+    await cleanDB("UserSettings", "usersettings");
+
     await Quote.create(inspiringQuoteSeeds);
 
     await BalanceTip.create(balanceTipSeeds);
 
-    await User.create(userSeeds);
+    await User.insertMany([]);
+
+    await UserSettings.insertMany([]);
   } catch (err) {
     console.error(err);
     process.exit(1);

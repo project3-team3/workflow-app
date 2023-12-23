@@ -1,6 +1,7 @@
 const express = require("express");
 const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
+// const { graphqlUploadExpress } = require("graphql-upload");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
 
@@ -19,6 +20,8 @@ const startApolloServer = async () => {
 
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
+
+  // app.use("/graphql", graphqlUploadExpress());
 
   app.use(
     "/graphql",

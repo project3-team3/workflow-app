@@ -2,6 +2,7 @@ import AuthService from "../utils/auth.js";
 import { useQuery } from "@apollo/client";
 // import ChatComponent from "../components/ChatComponent/ChatComponent.jsx";
 import { QUERY_USER_SETTINGS } from "../utils/queries.js";
+import BackButton from "../components/BackButton";
 
 
 const Chat = () => {
@@ -137,10 +138,12 @@ const Chat = () => {
   };
 */
   return (
-    <div className="chat-container-wf">
-      <h1>Chat App</h1>
-      {/* Pass the user information to the ChatComponent */}
-
+    <div className="container">
+      <div className="admin-message-wf">
+        <h1>Chat</h1>
+        <p>Coming soon!</p>
+        <BackButton />
+      </div>
     </div>
   );
 };

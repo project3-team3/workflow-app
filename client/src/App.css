@@ -21,6 +21,7 @@
   --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(250, 249, 246, 1);
   --file-management-background-color: rgba(197, 198, 149, 1);
+  --file-management-inner-background-color: rgba(177, 178, 129, 1);
   --sticky-note-background-color: rgba(153, 250, 255, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
@@ -57,6 +58,7 @@
   --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(250, 249, 246, 1);
   --file-management-background-color: rgba(197, 198, 149, 1);
+  --file-management-inner-background-color: rgba(177, 178, 129, 1);
   --sticky-note-background-color: rgba(153, 250, 255, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
@@ -93,6 +95,7 @@
   --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(250, 249, 246, 1);
   --file-management-background-color: rgba(197, 198, 149, 1);
+  --file-management-inner-background-color: rgba(177, 178, 129, 1);
   --sticky-note-background-color: rgba(153, 250, 255, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
@@ -129,6 +132,7 @@
   --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(250, 249, 246, 1);
   --file-management-background-color: rgba(197, 198, 149, 1);
+  --file-management-inner-background-color: rgba(177, 178, 129, 1);
   --sticky-note-background-color: rgba(153, 250, 255, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
@@ -165,6 +169,7 @@
   --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(62, 62, 66, 1);
   --file-management-background-color: rgba(79, 80, 43, 1);
+  --file-management-inner-background-color: rgba(177, 178, 129, 1);
   --sticky-note-background-color: rgba(172, 172, 176, 1);
   --sticky-note-placeholder-text-color: rgba(102, 102, 106, 1);
   --sticky-note-text-color: rgba(13, 24, 33, 1);
@@ -693,30 +698,24 @@ html {
   text-align: left;
 }
 
-.file-list {
-  margin-bottom: 20px;
+.drag-drop-wf {
+  width: 93%;
 }
 
-.file-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5%;
+.drag-drop-wf .uppy-DragDrop-container {
+  border-radius: 15px; /* Add your desired border-radius */
+  height: 40%;
+  background-color: var(--file-management-inner-background-color);
 }
 
-.file-name {
-  flex-grow: 1;
-  color: var(--light-accent-color);
-  font-size: 16px;
+.drag-drop-wf .uppy-DragDrop-label {
+  font-size: 16px; /* Add your desired font size */
 }
 
-.file-options {
-  color: var(--light-accent-color);
-  cursor: pointer;
-  transition: color 0.3s ease-in-out;
-}
-
-.file-options:hover {
-  color: var(--dark-accent-color);
+.drag-drop-wf .uppy-DragDrop-arrow {
+  fill: var(--light-accent-color);
+  height: 2em;
+  width: 2em;
 }
 
 /* To Do List Widget rules */
@@ -1001,7 +1000,7 @@ h2 {
 }
 
 /* Error page rules */
-.error-page-wf {
+.admin-message-wf {
   margin-top: 10%;
   display: flex;
   flex-direction: column;

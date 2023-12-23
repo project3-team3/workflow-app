@@ -27,7 +27,7 @@ export const defaultLayout = {
       x: 1,
       y: 11,
       w: 1,
-      h: 1,
+      h: 2,
       minH: 1,
       minW: 1,
       autosize: true,

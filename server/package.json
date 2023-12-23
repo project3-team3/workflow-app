@@ -9,13 +9,16 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@apollo/server": "^4.7.1",
+    "@apollo/server": "^4.9.5",
     "apollo-server-express": "^3.6.2",
     "bcrypt": "^5.0.0",
+    "dotenv": "^16.3.1",
     "express": "^4.17.2",
     "graphql": "^16.8.1",
+    "graphql-upload": "^16.0.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^7.0.2"
+    "mongoose": "^7.0.2",
+    "transloadit": "^3.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"

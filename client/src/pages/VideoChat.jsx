@@ -1,6 +1,7 @@
 import AuthService from "../utils/auth.js";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER_SETTINGS } from "../utils/queries.js";
+import BackButton from "../components/BackButton";
 
 const VideoChat = () => {
   const userProfile = AuthService.getProfile();
@@ -23,9 +24,12 @@ const VideoChat = () => {
   setMode(colorTheme);
 
   return (
-    <div className="videochat-container-wf">
-      <h1>Video Chat</h1>
-      <p>Coming soon!</p>
+    <div className="container">
+      <div className="admin-message-wf">
+        <h1>Video Chat</h1>
+        <p>Coming soon!</p>
+        <BackButton />
+      </div>
     </div>
   );
 };

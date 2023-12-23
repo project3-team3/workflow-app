@@ -13,8 +13,20 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!, $gridLayout: String!, $widgets: String!) {
-    addUser(username: $username, email: $email, password: $password, gridLayout: $gridLayout, widgets: $widgets) {
+  mutation addUser(
+    $username: String!
+    $email: String!
+    $password: String!
+    $gridLayout: String!
+    $widgets: String!
+  ) {
+    addUser(
+      username: $username
+      email: $email
+      password: $password
+      gridLayout: $gridLayout
+      widgets: $widgets
+    ) {
       token
       user {
         _id
@@ -160,5 +172,11 @@ export const UPDATE_WIDGET_SETTINGS = gql`
         active
       }
     }
+  }
+`;
+
+export const UPLOAD_FILE = gql`
+  mutation uploadFile($file: Upload!) {
+    uploadFile(file: $file)
   }
 `;

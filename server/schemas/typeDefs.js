@@ -14,6 +14,7 @@ const typeDefs = `
     _id: ID!
     username: String!
     email: String!
+    password: String!
     settings: UserSettings
   }
 
@@ -66,6 +67,8 @@ const typeDefs = `
     widgets: [WidgetTuple]
   }
 
+  scalar Upload
+
   type Mutation {
     addUser(username: String!, email: String!, password: String!, gridLayout: String!, widgets: String!): Auth
     login(username: String!, password: String!): Auth
@@ -75,6 +78,7 @@ const typeDefs = `
     updateNotepadSettings(userId: ID!, notepadText: String!): UserSettings
     updateThemeSettings(userId: ID!, currentTheme: String!): UserSettings
     updateWidgetSettings(userId: ID!, widgets: String!): UserSettings
+    uploadFile(file: Upload!): String
   }
 `;
 

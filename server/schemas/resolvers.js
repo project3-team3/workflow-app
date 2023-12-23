@@ -1,5 +1,6 @@
 const { User, UserSettings, Quote, BalanceTip } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
+const { uploadTransloaditFile } = require("../utils/transloadit");
 
 const resolvers = {
   Query: {
@@ -47,13 +48,16 @@ const resolvers = {
   Mutation: {
     addUser: async (__, { username, email, password, gridLayout, widgets }) => {
       try {
-        console.log(gridLayout);
+        console.log('Received data:', { username, email, password });
+        // console.log(gridLayout);
 
         // Create a new UserSettings document
         const userSettings = await UserSettings.create({
           gridLayout: JSON.parse(gridLayout),
           widgets: JSON.parse(widgets),
         });
+
+        console.log('Created userSettings:', userSettings);
 
         // Create the user with the reference to the UserSettings document
         const user = await User.create({
@@ -62,6 +66,8 @@ const resolvers = {
           password,
           settings: userSettings._id,
         });
+
+        console.log('Created user:', user);
 
         const token = signToken(user);
 
@@ -274,7 +280,20 @@ const resolvers = {
         console.error("Error updating user settings:", error);
         throw new Error("Error updating user settings");
       }
-    },      
+    }, 
+    uploadFile: async (__, { file }) => {
+      console.log("In uploadFile resolver!");
+      try {
+        console.log("file:", file);
+        // Call the Transloadit function to upload and process the file
+        await uploadTransloaditFile(file);
+
+        return 'File uploaded and Transloadit processing initiated.';
+      } catch (error) {
+        console.error('Error handling file upload:', error);
+        throw new Error('Internal server error.');
+      }
+    }     
   },
 };
 

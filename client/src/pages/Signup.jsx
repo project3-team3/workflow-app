@@ -8,37 +8,48 @@ import Auth from "../utils/auth";
 import { defaultLayout } from "../components/WidgetGrid/index.jsx";
 
 const Signup = () => {
-  const defaultWidgets = [{
-    name: "calendar",
-    active: true
-  }, {
-    name: "clock",
-    active: true
-   },{
-    name: "filemanagement",
-    active: true
-   }, {
-    name: "notepad",
-    active: true
-   }, {
-    name: "schedule",
-    active: true
-   }, {
-    name: "stickynote",
-    active: true
-   }, {
-    name: "todolist",
-    active: true
-   }, {
-    name: "meditation",
-    active: true
-   }, {
-    name: "inspiringquote",
-    active: true
-   }, {
-    name: "balancetip",
-    active: true
-   }];
+  const defaultWidgets = [
+    {
+      name: "calendar",
+      active: true,
+    },
+    {
+      name: "clock",
+      active: true,
+    },
+    {
+      name: "filemanagement",
+      active: true,
+    },
+    {
+      name: "notepad",
+      active: true,
+    },
+    {
+      name: "schedule",
+      active: true,
+    },
+    {
+      name: "stickynote",
+      active: true,
+    },
+    {
+      name: "todolist",
+      active: true,
+    },
+    {
+      name: "meditation",
+      active: true,
+    },
+    {
+      name: "inspiringquote",
+      active: true,
+    },
+    {
+      name: "balancetip",
+      active: true,
+    },
+  ];
   const [formState, setFormState] = useState({
     username: "",
     email: "",
@@ -58,15 +69,9 @@ const Signup = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(defaultLayout);
-
-    console.log(defaultWidgets);
+    console.log("Form State:", formState);
 
     try {
-      console.log(JSON.stringify(defaultLayout));
-
-      console.log(JSON.stringify(defaultWidgets));
-
       const { data: userData } = await addUser({
         variables: {
           ...formState,
@@ -75,13 +80,22 @@ const Signup = () => {
         },
       });
 
+      console.log(userData);
+
+      debugger;
+
       const { user, token } = userData.addUser;
 
       console.log("Created user:", user);
 
+      debugger;
+
       Auth.login(token);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error("Mutation Error:", error.message);
+      console.error("GraphQLErrors:", error.graphQLErrors);
+      console.error("NetworkError:", error.networkError);
+      console.error("Extra Info:", error.extraInfo);
     }
   };
 
@@ -134,7 +148,15 @@ const Signup = () => {
           )}
 
           {error && (
-            <div className="error-message-wf login-signup-error-wf">{error.message}</div>
+            <div className="error-message-wf login-signup-error-wf">
+              {error.message}
+            </div>
+          )}
+
+          {addUser.error && (
+            <div className="error-message-wf login-signup-error-wf">
+              {addUser.error.message}
+            </div>
           )}
         </div>
       </div>
