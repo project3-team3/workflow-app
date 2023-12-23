@@ -26,6 +26,18 @@ export const QUERY_USER_SETTINGS = gql`
         name
         active
       }
+      scheduleEvents {
+        id
+        title
+        date
+        time
+        completed
+      }
+      kanbanTasks {
+        id
+        content
+        status
+      }
       gridLayout {
         lg {
           i

@@ -14,6 +14,7 @@
   --box-shadow-color: rgba(0, 0, 0, 0.5);
   --textbox-background-color: rgba(250, 249, 246, 1);
   --input-border-color: rgba(52, 73, 102, 1);
+  --input-placeholder-color: rgba(0, 0, 0, 0.42);
   --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(0, 194, 203, 1);
   --sidenav-hover-color: rgba(76, 106, 148, 1);
@@ -50,6 +51,7 @@
   --box-shadow-color: rgba(0, 0, 0, 0.5);
   --textbox-background-color: rgba(250, 249, 246, 1);
   --input-border-color: rgba(52, 73, 102, 1);
+  --input-placeholder-color: rgba(0, 0, 0, 0.42);
   --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(0, 194, 203, 1);
   --sidenav-hover-color: rgba(76, 106, 148, 1);
@@ -86,6 +88,7 @@
   --box-shadow-color: rgba(0, 0, 0, 0.5);
   --textbox-background-color: rgba(250, 249, 246, 1);
   --input-border-color: rgba(45, 45, 48, 1);
+  --input-placeholder-color: rgba(0, 0, 0, 0.42);
   --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(250, 249, 246, 1);
   --sidenav-hover-color: rgba(107, 137, 179, 1);
@@ -122,6 +125,7 @@
   --box-shadow-color: rgba(0, 0, 0, 0.5);
   --textbox-background-color: rgba(241, 238, 229, 1);
   --input-border-color: rgba(45, 45, 48, 1);
+  --input-placeholder-color: rgba(0, 0, 0, 0.42);
   --checkbox-border-color: rgba(49, 67, 94, 1);
   --sidenav-disabled-text-color: rgba(250, 249, 246, 1);
   --sidenav-hover-color: rgba(250, 249, 246, 1);
@@ -155,7 +159,7 @@
   --secondary-text-color: rgba(13, 24, 33, 1);
   --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
   --error-text-color: rgba(252, 63, 56, 1);
-  --box-shadow-color: rgba(255, 255, 255, 0.2);
+  --box-shadow-color: rgba(255, 255, 255, 0.1);
   --textbox-background-color: rgba(62, 62, 66, 1);
   --input-border-color: rgba(45, 45, 48, 1);
   --checkbox-border-color: rgba(250, 249, 246, 1);
@@ -670,7 +674,36 @@ html {
   color: var(--darker-accent-color);
 }
 
+.schedule-dropdown-container-wf {
+  display: flex;
+  align-items: center;
+  margin: 5px 0px;
+}
+
+.schedule-dropdown-wf {
+  color: var(--darkest-accent-color);
+  font-family: "Lexend", sans-serif;
+  background-color: var(--textbox-background-color) !important;
+  border: 1px solid var(--input-border-color) !important;
+  border-radius: 10px !important;
+  padding: 5px 10px !important;
+  height: 2.4em !important;
+  margin: 0px !important;
+  margin-right: 2% !important;
+  width: 27% !important;
+}
+
+.schedule-dropdown-disabled-wf {
+  color: var(--input-placeholder-color) !important;
+}
+
+.schedule-input-wf {
+  margin: 0px !important;
+  width: 80% !important;
+}
+
 .new-event button {
+  margin-top: 12px;
   padding: 10px 20px;
   max-width: 125px;
   display: flex;

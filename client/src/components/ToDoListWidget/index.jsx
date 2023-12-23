@@ -1,15 +1,49 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useQuery, useMutation } from '@apollo/client';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { FaTrash, FaEdit, FaTimes } from 'react-icons/fa';
 
-//Temporary placeholder for the schedule. Once the database are all set, then delete this code."//
-const initialTasks = [
-  { id: 'task1', content: 'Task 1', status: 'Tasks' },
+import { QUERY_USER_SETTINGS } from "../../utils/queries.js";
+import { UPDATE_KANBAN_SETTINGS } from "../../utils/mutations.js";
 
-];
+import AuthService from "../../utils/auth.js";
 
 const ToDoList = () => {
-  const [tasks, setTasks] = useState(initialTasks);
+  const userProfile = AuthService.getProfile();
+
+  const [updateKanbanSettings] = useMutation(UPDATE_KANBAN_SETTINGS);
+  const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
+    variables: { userId: userProfile?._id || userProfile?.user?._id },
+  });
+
+  const userSettings = data?.getUserSettings;
+
+  if (!userSettings) {
+    // Handle the case where userSettings is undefined or null
+    console.error("User settings not found in query result.");
+    return <p>Error loading user settings. Please try again later.</p>;
+  }
+
+  console.log("userSettings:", userSettings);
+
+  let tasksWithoutTypename;
+
+  if (userSettings.kanbanTasks.length === 0) {
+    tasksWithoutTypename = [];
+  } else {
+    const { __typename: mainTypename, ...taskData } =
+      userSettings.kanbanTasks[0];
+    tasksWithoutTypename = [taskData];
+  }
+
+  console.log(
+    "tasksWithoutTypename:",
+    tasksWithoutTypename,
+    typeof tasksWithoutTypename
+  );
+
+  const [tasks, setTasks] = useState(tasksWithoutTypename);
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [newTask, setNewTask] = useState({ content: '', status: 'Tasks' });
 
@@ -33,7 +67,6 @@ const ToDoList = () => {
     setTasks(updatedTasks);
     closeModal();
   };
-  
 
   const handleDeleteTask = (taskId) => {
     const updatedTasks = tasks.filter((task) => task.id !== taskId);

@@ -274,7 +274,81 @@ const resolvers = {
         console.error("Error updating user settings:", error);
         throw new Error("Error updating user settings");
       }
-    },      
+    },
+    updateScheduleSettings: async (__, { userId, scheduleEvents }) => {
+      try {
+
+        console.log("In updateScheduleSettings resolver!");
+
+        const user = await User.findById(userId);
+
+        if (!user) {
+          throw new Error("User not found");
+        }
+
+        const parsedScheduleEvents = JSON.parse(scheduleEvents);
+
+        // Get the UserSettings document
+        const userSettings = await UserSettings.findById(user.settings);
+
+        // Update the gridLayout property in UserSettings
+        userSettings.scheduleEvents = parsedScheduleEvents;
+
+        // Save changes to UserSettings
+        await userSettings.save();
+
+        user.settings = userSettings;
+
+        // Save the user
+        await user.save();
+
+        const newUserSettings = await UserSettings.findById(user.settings);
+
+        console.log("Updated userSettings in resolver?", JSON.stringify(newUserSettings.scheduleEvents));
+
+        return user.settings;
+      } catch (error) {
+        console.error("Error updating user settings:", error);
+        throw new Error("Error updating user settings");
+      }
+    },
+    updateKanbanSettings: async (__, { userId, kanbanTasks }) => {
+      try {
+          
+          console.log("In updateKanbanSettings resolver!");
+  
+          const user = await User.findById(userId);
+  
+          if (!user) {
+            throw new Error("User not found");
+          }
+  
+          const parsedKanbanTasks = JSON.parse(kanbanTasks);
+  
+          // Get the UserSettings document
+          const userSettings = await UserSettings.findById(user.settings);
+  
+          // Update the gridLayout property in UserSettings
+          userSettings.kanbanTasks = parsedKanbanTasks;
+  
+          // Save changes to UserSettings
+          await userSettings.save();
+  
+          user.settings = userSettings;
+  
+          // Save the user
+          await user.save();
+  
+          const newUserSettings = await UserSettings.findById(user.settings);
+  
+          console.log("Updated userSettings in resolver?", JSON.stringify(newUserSettings.kanbanTasks));
+  
+          return user.settings;
+      } catch (error) {
+          console.error("Error updating user settings:", error);
+          throw new Error("Error updating user settings");
+      }
+    }
   },
 };
 

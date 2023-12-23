@@ -40,6 +40,20 @@ const typeDefs = `
     active: Boolean
   }
 
+  type ScheduleEvent {
+    id: Int
+    title: String
+    date: String
+    time: String
+    completed: Boolean
+  }
+
+  type KanbanTask {
+    id: Int
+    content: String
+    status: String
+  }
+
   type UserSettings {
     _id: ID!
     gridLayout: GridLayout
@@ -48,6 +62,8 @@ const typeDefs = `
     notepadText: String
     currentTheme: String
     widgets: [WidgetTuple]
+    scheduleEvents: [ScheduleEvent]
+    kanbanTasks: [KanbanTask]
   }
 
   type Auth {
@@ -75,6 +91,8 @@ const typeDefs = `
     updateNotepadSettings(userId: ID!, notepadText: String!): UserSettings
     updateThemeSettings(userId: ID!, currentTheme: String!): UserSettings
     updateWidgetSettings(userId: ID!, widgets: String!): UserSettings
+    updateScheduleSettings(userId: ID!, scheduleEvents: String!): UserSettings
+    updateKanbanSettings(userId: ID!, kanbanTasks: String!): UserSettings
   }
 `;
 

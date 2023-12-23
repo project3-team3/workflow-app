@@ -162,3 +162,29 @@ export const UPDATE_WIDGET_SETTINGS = gql`
     }
   }
 `;
+
+export const UPDATE_SCHEDULE_SETTINGS = gql`
+  mutation updateScheduleSettings($userId: ID!, $scheduleEvents: String!) {
+    updateScheduleSettings(userId: $userId, scheduleEvents: $scheduleEvents) {
+      scheduleEvents {
+        id
+        title
+        date
+        time
+        completed
+      }
+    }
+  }
+`;
+
+export const UPDATE_KANBAN_SETTINGS = gql`
+  mutation updateKanbanSettings($userId: ID!, $kanbanTasks: String!) {
+    updateKanbanSettings(userId: $userId, kanbanTasks: $kanbanTasks) {
+      kanbanTasks {
+        id
+        content
+        status
+      }
+    }
+  }
+`;

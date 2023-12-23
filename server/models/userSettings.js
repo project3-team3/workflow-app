@@ -1,10 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-const widgetTupleSchema = new Schema({
-  name: String,
-  active: Boolean,
-});
-
 const userSettingsSchema = new Schema({
   gridLayout: {
     type: Schema.Types.Mixed,
@@ -27,6 +22,14 @@ const userSettingsSchema = new Schema({
     default: "default-mode-wf",
   },
   widgets: {
+    type: [Schema.Types.Mixed],
+    default: [],
+  },
+  scheduleEvents: {
+    type: [Schema.Types.Mixed],
+    default: [],
+  },
+  kanbanTasks: {
     type: [Schema.Types.Mixed],
     default: [],
   },
