@@ -49,7 +49,6 @@ const Settings = (props) => {
 
       htmlElement.className = "";
       htmlElement.classList.add(currentMode);
-      setCurrentMode(currentMode);
 
       console.log("Color scheme changed to:", currentMode);
 
@@ -102,6 +101,7 @@ const Settings = (props) => {
         const htmlElement = document.querySelector("html");
         htmlElement.className = "";
         htmlElement.classList.add(userSettings?.currentTheme || "default-wf");
+        setCurrentMode(userSettings?.currentTheme || "default-wf");
       } else {
         console.log("No color theme found in user settings.");
       }

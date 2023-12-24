@@ -33,9 +33,9 @@ const Header = () => {
                 className="navbar-logo-wf"
               />
             )}
-            <Link to="/" className="brandname-wf">
+            <a href="/" className="brandname-wf">
               WORKFLOW
-            </Link>
+            </a>
             <ul className="right navbar-right-container-wf">
               {Auth.loggedIn() ? (
                 <>
