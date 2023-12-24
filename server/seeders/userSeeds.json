@@ -5,47 +5,47 @@
     "password": "WorkflowAdmin@1213"
   },
   {
-    "username": "Grace Hopper",
+    "username": "ghopper",
     "email": "ghopper@techfriends.dev",
     "password": "password02"
   },
   {
-    "username": "Linus Torvalds",
+    "username": "ltorvalds",
     "email": "ltorvalds@techfriends.dev",
     "password": "password03"
   },
   {
-    "username": "Ada Lovelace",
+    "username": "alovelace",
     "email": "alovelace@techfriends.dev",
     "password": "password04"
   },
   {
-    "username": "Alan Turing",
+    "username": "aturing",
     "email": "aturing@techfriends.dev",
     "password": "password05"
   },
   {
-    "username": "Margaret Hamilton",
+    "username": "mhamilton",
     "email": "mhamilton@techfriends.dev",
     "password": "password06"
   },
   {
-    "username": "Tim Berners-Lee",
+    "username": "tbernerslee",
     "email": "tbernerslee@techfriends.dev",
     "password": "password07"
   },
   {
-    "username": "Shafi Goldwasser",
+    "username": "sgoldwasser",
     "email": "sgoldwasser@techfriends.dev",
     "password": "password08"
   },
   {
-    "username": "John McCarthy",
+    "username": "jmccarthy",
     "email": "jmccarthy@techfriends.dev",
     "password": "password09"
   },
   {
-    "username": "Barbara Liskov",
+    "username": "bliskov",
     "email": "bliskov@techfriends.dev",
     "password": "password10"
   }

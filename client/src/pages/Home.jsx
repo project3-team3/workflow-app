@@ -158,14 +158,12 @@ const Home = () => {
           </h1>
           <p ref={textBlockEl} className="blurb-text-wf container">
             Strike a balance with Workflow, your personal zen productivity hub.
-            <br />
-            <br />
+            <div className="welcome-p-separator-wf"></div>
             Unleash your potential with a number of widgets to boost your
             efficiency (from organizers to video conferencing), while
             maintaining a healthy work/life balance through meditation,
             inspiring quotes and tips for improving your quality of life.
-            <br />
-            <br />
+            <div className="welcome-p-separator-wf"></div>
             Ready to begin?{" "}
             <span ref={blurbLink1El} className="blurb-link1-wf">
               <Link to="/signup">Sign up</Link>
