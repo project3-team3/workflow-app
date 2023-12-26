@@ -29,11 +29,19 @@ const SupportUs = () => {
     <div className="container">
       <div className="admin-message-wf">
         <div className="support-wf">
-          <img
-            className="logo-welcome-wf"
-            src="/tea_cup.png"
-            alt="Buy us a Cup of Tea"
-          />
+          {colorTheme === "white-mode-wf" ? (
+                      <img
+                      className="logo-welcome-wf"
+                      src="/tea_cup_dark.png"
+                      alt="Buy us a Cup of Tea"
+                    />
+                  ) : (
+                    <img
+                    className="logo-welcome-wf"
+                    src="/tea_cup.png"
+                    alt="Buy us a Cup of Tea"
+                  />
+                  )}
           <h1>Support Us</h1>
           <p className="support-blurb-text-wf container">
             Found the perfect harmony in Workflow? Support our mission by buying
