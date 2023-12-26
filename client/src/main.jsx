@@ -12,6 +12,7 @@ import ErrorPage from './pages/ErrorPage';
 import Chat from './pages/Chat';
 import VideoChat from './pages/VideoChat';
 import Settings from './pages/Settings';
+import SupportUs from './pages/SupportUs';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,9 @@ const router = createBrowserRouter([
       }, {
         path: '/settings',
         element: <Settings />
+      }, {
+        path: '/supportus',
+        element: <SupportUs />
       }
     ]
   },

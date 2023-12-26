@@ -419,7 +419,6 @@ html {
 
 .blurb-text-wf {
   font-size: 18px;
-  color: black;
   color: var(--main-text-transparent);
   width: 61%;
   transition: color 2.5s ease-in-out;
@@ -1209,6 +1208,29 @@ h2 {
 [type="checkbox"]:checked+span:not(.lever):before {
   border-right: 2px solid var(--checkbox-border-color);
   border-bottom: 2px solid var(--checkbox-border-color);
+}
+
+/* Support Us page rules */
+.support-wf {
+  margin-top: 14vh;
+  text-align: center;
+}
+
+.support-wf h1 {
+  margin-top: 7vh;
+}
+
+.support-blurb-text-wf {
+  font-size: 18px;
+  color: var(--main-text-color);
+  width: 61%;
+  margin-top: 7vh;
+}
+
+.support-btn-wf {
+  margin-top: 20px;
+  background-color: var(--dark-accent-color);
+  margin-top: 7vh;
 }
 
 /* Error page rules */

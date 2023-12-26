@@ -92,6 +92,9 @@ const Header = () => {
         <li className={`sidenav-item-wf ${location.pathname === '/settings' ? 'disabled' : ''}`}>
           <a href="/settings">Settings</a>
         </li>
+        <li className={`sidenav-item-wf ${location.pathname === '/supportus' ? 'disabled' : ''}`}>
+          <a href="/supportus">Support Us</a>
+        </li>
         <li className="menu-space-filler-wf"></li>
         <li>
           <a href="#!" onClick={logout}>
