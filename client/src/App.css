@@ -1172,6 +1172,67 @@ h2 {
   text-align: left;
 }
 
+/* Video Chat page rules */
+.video-chat-title-wf {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  color: var(--main-text-color);
+}
+
+.video-player-form-wf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vh;
+}
+
+.video-main-wf {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 30px;
+}
+
+.video-outer-container-wf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-container-wf {
+  display: flex;
+  width: 35vw;
+  height: 60vh;
+}
+
+.video-player-wf {
+  width: 35vw;
+  height: 60vh;
+  border: 3px solid var(--dark-accent-color);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.arrow-container-wf {
+  display: flex;
+  flex-direction: column;
+}
+
+.arrow-wf {
+  margin: 10px;
+  color: var(--dark-accent-color);
+}
+
+.video-player-input-wf {
+  width: 30% !important;
+}
+
+.video-player-button-container-wf {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+
 /* Settings page rules */
 .settings-header-wf {
   margin-top: 5vh;
