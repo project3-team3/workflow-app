@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { RiDeleteBinLine, RiEyeLine } from 'react-icons/ri';
+// File Management Widget component
+import { useState } from "react";
+import { RiDeleteBinLine, RiEyeLine } from "react-icons/ri";
 
 const FileManagementWidget = () => {
   const [files, setFiles] = useState([]);
@@ -21,12 +22,21 @@ const FileManagementWidget = () => {
       <div className="file-list">
         {files.map((file, index) => (
           <div className="file-item" key={index}>
-            <span className="file-name">{file.name ? file.name : 'Unnamed File'}</span>
+            <span className="file-name">
+              {file.name ? file.name : "Unnamed File"}
+            </span>
             <div className="file-options">
-              <button className="waves-effect waves-light btn button-wf" onClick={() => handleDeleteFile(index)}>
+              <button
+                className="waves-effect waves-light btn button-wf"
+                onClick={() => handleDeleteFile(index)}
+              >
                 <RiDeleteBinLine />
               </button>
-              <a href={URL.createObjectURL(file)} target="_blank" rel="noreferrer">
+              <a
+                href={URL.createObjectURL(file)}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <RiEyeLine />
               </a>
             </div>

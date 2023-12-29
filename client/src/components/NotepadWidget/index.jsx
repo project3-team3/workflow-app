@@ -1,13 +1,17 @@
-import { useState, useEffect } from 'react';
+// Notepad Widget component
+import { useState, useEffect } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_USER_SETTINGS } from "../../utils/queries.js";
 import { UPDATE_NOTEPAD_SETTINGS } from "../../utils/mutations.js";
 import AuthService from "../../utils/auth.js";
 
 const NotepadWidget = () => {
+  // Get the user profile
   const userProfile = AuthService.getProfile();
 
   const [updateNotepadSettings] = useMutation(UPDATE_NOTEPAD_SETTINGS);
+
+  // Get the user's settings from the database
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
     variables: { userId: userProfile?._id || userProfile?.user?._id },
   });
@@ -33,7 +37,7 @@ const NotepadWidget = () => {
 
     const userId = userProfile._id || userProfile.user._id;
 
-    // Call the updateNotepadSettings mutation with the updated value of notepadText
+    // Update the user's notepad text in the database
     updateNotepadSettings({
       variables: { userId, notepadText: newText },
     });

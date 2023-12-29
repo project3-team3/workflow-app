@@ -1,15 +1,20 @@
+// Daily Schedule Widget component
 import { useEffect, useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { FaTrash, FaCheck, FaUndo } from "react-icons/fa";
 
 import { QUERY_USER_SETTINGS } from "../../utils/queries.js";
 import { UPDATE_SCHEDULE_SETTINGS } from "../../utils/mutations.js";
+
 import AuthService from "../../utils/auth.js";
 
 const ScheduleWidget = () => {
+  // Get the user profile
   const userProfile = AuthService.getProfile();
 
   const [updateScheduleSettings] = useMutation(UPDATE_SCHEDULE_SETTINGS);
+
+  // Get the user's settings from the database
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
     variables: { userId: userProfile?._id || userProfile?.user?._id },
   });
@@ -22,23 +27,17 @@ const ScheduleWidget = () => {
     return <p>Error loading user settings. Please try again later.</p>;
   }
 
-  console.log("userSettings:", userSettings);
-
+  // Remove the __typename property from the scheduleEvents array for database update
   let scheduleWithoutTypename;
 
   if (userSettings.scheduleEvents.length === 0) {
     scheduleWithoutTypename = [];
   } else {
-    const { __typename: mainTypename, ...scheduleData } =
-      userSettings.scheduleEvents[0];
-    scheduleWithoutTypename = [scheduleData];
+    scheduleWithoutTypename = userSettings.scheduleEvents.map((event) => {
+      const { __typename, ...eventData } = event;
+      return eventData;
+    });
   }
-
-  console.log(
-    "scheduleWithoutTypename:",
-    scheduleWithoutTypename,
-    typeof scheduleWithoutTypename
-  );
 
   const [events, setEvents] = useState(scheduleWithoutTypename);
 
@@ -49,7 +48,7 @@ const ScheduleWidget = () => {
   const [newEventTime, setNewEventTime] = useState("");
 
   useEffect(() => {
-    console.log("Events variable changed (useEffect triggered):", events);
+    // Update the user's schedule events in the database
     updateScheduleSettings({
       variables: {
         userId: userProfile._id || userProfile.user._id,
@@ -60,13 +59,8 @@ const ScheduleWidget = () => {
     });
   }, [events]);
 
-  useEffect(() => {
-    var elems = document.querySelectorAll(".datepicker");
-    var instances = M.Datepicker.init(elems);
-    console.log("Event listeners added to datepicker elements.");
-  }, []);
-
   const addEvent = () => {
+    // Add a new event to the schedule
     if (
       newEventTitle &&
       newEventDay &&
@@ -97,17 +91,20 @@ const ScheduleWidget = () => {
   };
 
   const deleteEvent = (id) => {
+    // Delete an event from the schedule
     const updatedEvents = events.filter((event) => event.id !== id);
     setEvents(updatedEvents);
   };
 
   const toggleComplete = (id) => {
+    // Mark an event as completed or not completed
     const updatedEvents = events.map((event) => {
       if (event.id === id) {
         return Object.assign({}, event, { completed: !event.completed });
       }
       return event;
     });
+
     setEvents(updatedEvents);
   };
 
@@ -155,58 +152,64 @@ const ScheduleWidget = () => {
         <div className="input-field schedule-dropdown-container-wf">
           <select
             className="browser-default schedule-dropdown-wf widget-prevent-drag-wf"
-            placeholder="Day"
             value={newEventDay}
             onChange={(e) => setNewEventDay(e.target.value)}
           >
-            <option selected className="schedule-dropdown-disabled-wf">
+            <option value="" disabled>
               Day
             </option>
             {Array.from(Array(31).keys()).map((day) => (
-              <option value={day + 1}>{day + 1}</option>
+              <option key={day + 1} value={day + 1}>
+                {day + 1}
+              </option>
             ))}
           </select>
           <select
             className="browser-default schedule-dropdown-wf widget-prevent-drag-wf"
-            placeholder="Month"
             value={newEventMonth}
             onChange={(e) => setNewEventMonth(e.target.value)}
           >
-            <option selected className="schedule-dropdown-disabled-wf">
+            <option value="" disabled>
               Month
             </option>
             {Array.from(Array(12).keys()).map((month) => (
-              <option value={month + 1}>{month + 1}</option>
+              <option key={month + 1} value={month + 1}>
+                {month + 1}
+              </option>
             ))}
           </select>
           <select
             className="browser-default schedule-dropdown-wf widget-prevent-drag-wf"
-            placeholder="Year"
             value={newEventYear}
             onChange={(e) => setNewEventYear(e.target.value)}
           >
-            <option selected className="schedule-dropdown-disabled-wf">
+            <option value="" disabled>
               Year
             </option>
             {Array.from(Array(20).keys()).map((year) => (
-              <option value={year + 2024}>{year + 2024}</option>
+              <option key={year + 2024} value={year + 2024}>
+                {year + 2024}
+              </option>
             ))}
           </select>
         </div>
         <select
           className="browser-default schedule-dropdown-wf widget-prevent-drag-wf"
-          placeholder="Time"
           value={newEventTime}
           onChange={(e) => setNewEventTime(e.target.value)}
         >
-          <option selected className="schedule-dropdown-disabled-wf">
+          <option value="" disabled>
             Time
           </option>
           {Array.from(Array(48).keys()).map((index) => {
             const hour = Math.floor(index / 2);
             const minutes = index % 2 === 0 ? "00" : "30";
             const time = `${hour}:${minutes}`;
-            return <option value={time}>{time}</option>;
+            return (
+              <option key={index} value={time}>
+                {time}
+              </option>
+            );
           })}
         </select>
         <button

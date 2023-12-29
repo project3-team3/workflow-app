@@ -1,3 +1,4 @@
+// Sticky Note Widget component
 import { useState, useEffect } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_USER_SETTINGS } from "../../utils/queries.js";
@@ -5,9 +6,12 @@ import { UPDATE_STICKY_SETTINGS } from "../../utils/mutations.js";
 import AuthService from "../../utils/auth.js";
 
 const stickyTextWidget = () => {
+  // Get the user profile
   const userProfile = AuthService.getProfile();
 
   const [updateStickySettings] = useMutation(UPDATE_STICKY_SETTINGS);
+
+  // Get the user's settings from the database
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
     variables: { userId: userProfile?._id || userProfile?.user?._id },
   });
@@ -33,7 +37,7 @@ const stickyTextWidget = () => {
 
     const userId = userProfile._id || userProfile.user._id;
 
-    // Call the updateStickySettings mutation with the updated value of stickyText
+    // Update the user's sticky note text in the database
     updateStickySettings({
       variables: { userId, stickyText: newNote },
     });

@@ -49,7 +49,7 @@ const typeDefs = `
   }
 
   type KanbanTask {
-    id: Int
+    id: String
     content: String
     status: String
   }

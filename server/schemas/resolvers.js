@@ -3,6 +3,7 @@ const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    // Regular queries for the User, Quote, and BalanceTip models
     user: async (__, { username }) => {
       return User.findOne({ username }).populate("settings.gridLayout");
     },
@@ -12,6 +13,7 @@ const resolvers = {
     balancetips: async () => {
       return BalanceTip.find().populate("balancetips");
     },
+    // Queries for random quotes and tips
     randomQuote: async () => {
       const quotes = await Quote.find();
       const randomIndex = Math.floor(Math.random() * quotes.length);
@@ -22,6 +24,7 @@ const resolvers = {
       const randomIndex = Math.floor(Math.random() * tips.length);
       return tips[randomIndex];
     },
+    // Main query for user settings
     getUserSettings: async (_, { userId }) => {
       try {
         const user = await User.findById(userId);
@@ -37,19 +40,19 @@ const resolvers = {
       } catch (error) {
         throw new Error(`Error fetching user settings: ${error.message}`);
       }
-    }
+    },
   },
 
   Mutation: {
+    // Create a new user
     addUser: async (__, { username, email, password, gridLayout, widgets }) => {
       try {
-        // Create a new UserSettings document
+        // Create a new UserSettings field with default values
         const userSettings = await UserSettings.create({
           gridLayout: JSON.parse(gridLayout),
           widgets: JSON.parse(widgets),
         });
 
-        // Create the user with the reference to the UserSettings document
         const user = await User.create({
           username,
           email,
@@ -65,6 +68,7 @@ const resolvers = {
         throw error;
       }
     },
+    // Login a user
     login: async (__, { username, password }) => {
       const user = await User.findOne({ username });
 
@@ -82,30 +86,25 @@ const resolvers = {
 
       return { token, user };
     },
+    // Save new grid layout to user settings
     updateGridSettings: async (__, { userId, layouts }) => {
       try {
-
         const user = await User.findById(userId);
 
         if (!user) {
           throw new Error("User not found");
         }
 
-        // Parse the layouts string
         const parsedLayouts = JSON.parse(layouts);
 
-        // Get the UserSettings document
         const userSettings = await UserSettings.findById(user.settings);
 
-        // Update the gridLayout property in UserSettings
         userSettings.gridLayout = parsedLayouts;
 
-        // Save changes to UserSettings
         await userSettings.save();
 
         user.settings = userSettings;
 
-        // Save the user
         await user.save();
 
         return user.settings;
@@ -114,27 +113,23 @@ const resolvers = {
         throw new Error("Error updating user settings");
       }
     },
+    // Save clock analog/digital status to user settings
     updateClockSettings: async (__, { userId, isAnalog }) => {
       try {
-
         const user = await User.findById(userId);
 
         if (!user) {
           throw new Error("User not found");
         }
 
-        // Get the UserSettings document
         const userSettings = await UserSettings.findById(user.settings);
 
-        // Update the gridLayout property in UserSettings
         userSettings.isAnalog = isAnalog;
 
-        // Save changes to UserSettings
         await userSettings.save();
 
         user.settings = userSettings;
 
-        // Save the user
         await user.save();
 
         return user.settings;
@@ -143,27 +138,23 @@ const resolvers = {
         throw new Error("Error updating user settings");
       }
     },
+    // Save sticky note text to user settings
     updateStickySettings: async (__, { userId, stickyText }) => {
       try {
-
         const user = await User.findById(userId);
 
         if (!user) {
           throw new Error("User not found");
         }
 
-        // Get the UserSettings document
         const userSettings = await UserSettings.findById(user.settings);
 
-        // Update the gridLayout property in UserSettings
         userSettings.stickyText = stickyText;
 
-        // Save changes to UserSettings
         await userSettings.save();
 
         user.settings = userSettings;
 
-        // Save the user
         await user.save();
 
         return user.settings;
@@ -172,27 +163,23 @@ const resolvers = {
         throw new Error("Error updating user settings");
       }
     },
+    // Save notepad text to user settings
     updateNotepadSettings: async (__, { userId, notepadText }) => {
       try {
-
         const user = await User.findById(userId);
 
         if (!user) {
           throw new Error("User not found");
         }
 
-        // Get the UserSettings document
         const userSettings = await UserSettings.findById(user.settings);
 
-        // Update the gridLayout property in UserSettings
         userSettings.notepadText = notepadText;
 
-        // Save changes to UserSettings
         await userSettings.save();
 
         user.settings = userSettings;
 
-        // Save the user
         await user.save();
 
         return user.settings;
@@ -201,27 +188,23 @@ const resolvers = {
         throw new Error("Error updating user settings");
       }
     },
+    // Save color theme to user settings
     updateThemeSettings: async (__, { userId, currentTheme }) => {
       try {
-
         const user = await User.findById(userId);
 
         if (!user) {
           throw new Error("User not found");
         }
 
-        // Get the UserSettings document
         const userSettings = await UserSettings.findById(user.settings);
 
-        // Update the gridLayout property in UserSettings
         userSettings.currentTheme = currentTheme;
 
-        // Save changes to UserSettings
         await userSettings.save();
 
         user.settings = userSettings;
 
-        // Save the user
         await user.save();
 
         return user.settings;
@@ -230,9 +213,9 @@ const resolvers = {
         throw new Error("Error updating user settings");
       }
     },
+    // Save widgets' active/inactive statuses to user settings
     updateWidgetSettings: async (__, { userId, widgets }) => {
       try {
-
         const user = await User.findById(userId);
 
         if (!user) {
@@ -241,18 +224,14 @@ const resolvers = {
 
         const parsedWidgets = JSON.parse(widgets);
 
-        // Get the UserSettings document
         const userSettings = await UserSettings.findById(user.settings);
 
-        // Update the gridLayout property in UserSettings
         userSettings.widgets = parsedWidgets;
 
-        // Save changes to UserSettings
         await userSettings.save();
 
         user.settings = userSettings;
 
-        // Save the user
         await user.save();
 
         const newUserSettings = await UserSettings.findById(user.settings);
@@ -263,9 +242,9 @@ const resolvers = {
         throw new Error("Error updating user settings");
       }
     },
+    // Save schedule events to user settings
     updateScheduleSettings: async (__, { userId, scheduleEvents }) => {
       try {
-
         const user = await User.findById(userId);
 
         if (!user) {
@@ -274,21 +253,15 @@ const resolvers = {
 
         const parsedScheduleEvents = JSON.parse(scheduleEvents);
 
-        // Get the UserSettings document
         const userSettings = await UserSettings.findById(user.settings);
 
-        // Update the gridLayout property in UserSettings
         userSettings.scheduleEvents = parsedScheduleEvents;
 
-        // Save changes to UserSettings
         await userSettings.save();
 
         user.settings = userSettings;
 
-        // Save the user
         await user.save();
-
-        const newUserSettings = await UserSettings.findById(user.settings);
 
         return user.settings;
       } catch (error) {
@@ -296,43 +269,33 @@ const resolvers = {
         throw new Error("Error updating user settings");
       }
     },
+    // Save kanban tasks to user settings
     updateKanbanSettings: async (__, { userId, kanbanTasks }) => {
       try {
-          
-          console.log("In updateKanbanSettings resolver!");
-  
-          const user = await User.findById(userId);
-  
-          if (!user) {
-            throw new Error("User not found");
-          }
-  
-          const parsedKanbanTasks = JSON.parse(kanbanTasks);
-  
-          // Get the UserSettings document
-          const userSettings = await UserSettings.findById(user.settings);
-  
-          // Update the gridLayout property in UserSettings
-          userSettings.kanbanTasks = parsedKanbanTasks;
-  
-          // Save changes to UserSettings
-          await userSettings.save();
-  
-          user.settings = userSettings;
-  
-          // Save the user
-          await user.save();
-  
-          const newUserSettings = await UserSettings.findById(user.settings);
-  
-          console.log("Updated userSettings in resolver?", JSON.stringify(newUserSettings.kanbanTasks));
-  
-          return user.settings;
+        const user = await User.findById(userId);
+
+        if (!user) {
+          throw new Error("User not found");
+        }
+
+        const parsedKanbanTasks = JSON.parse(kanbanTasks);
+
+        const userSettings = await UserSettings.findById(user.settings);
+
+        userSettings.kanbanTasks = parsedKanbanTasks;
+
+        await userSettings.save();
+
+        user.settings = userSettings;
+
+        await user.save();
+
+        return user.settings;
       } catch (error) {
-          console.error("Error updating user settings:", error);
-          throw new Error("Error updating user settings");
+        console.error("Error updating user settings:", error);
+        throw new Error("Error updating user settings");
       }
-    }
+    },
   },
 };
 

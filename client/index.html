@@ -61,6 +61,15 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Workflow</title>
+    <script>
+      // Check for stored theme preference and apply it before loading the html element
+      const storedTheme = localStorage.getItem("colorTheme");
+      if (storedTheme) {
+        const htmlElement = document.querySelector("html");
+        htmlElement.className = "";
+        htmlElement.classList.add(storedTheme);
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

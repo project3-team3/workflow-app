@@ -1,8 +1,7 @@
 // Back button component for error pages and pages under construction
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const BackButton = () => {
-
   const navigate = useNavigate();
 
   // Returns user to previous page
@@ -11,11 +10,13 @@ const BackButton = () => {
   };
 
   return (
-    <button onClick={goBack} className="waves-effect waves-light btn button-wf error-back-btn-wf">
+    <button
+      onClick={goBack}
+      className="waves-effect waves-light btn button-wf error-back-btn-wf"
+    >
       Go Back
     </button>
   );
-  
 };
 
 export default BackButton;

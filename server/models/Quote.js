@@ -1,3 +1,4 @@
+// Quote model
 const { Schema, model } = require('mongoose');
 
 const quoteSchema = new Schema({

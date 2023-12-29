@@ -11,10 +11,12 @@ import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+// Create main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
+// Create request middleware to add JWT token to every request
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
   return {
@@ -25,6 +27,7 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+// Create Apollo client
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),

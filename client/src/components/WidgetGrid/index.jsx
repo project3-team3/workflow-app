@@ -1,3 +1,4 @@
+// Main component for the Widget Grid
 import { Responsive, WidthProvider } from "react-grid-layout";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER_SETTINGS } from "../../utils/queries.js";
@@ -17,6 +18,7 @@ import BalanceTipWidget from "../BalanceTipWidget/index.jsx";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
+// Default layout values for the widget grid
 export const defaultLayout = {
   lg: [
     {
@@ -178,7 +180,16 @@ export const defaultLayout = {
     },
   ],
   sm: [
-    { i: "calendar", x: 0, y: 13, w: 3, h: 2, minH: 2, minW: 3, autosize: true },
+    {
+      i: "calendar",
+      x: 0,
+      y: 13,
+      w: 3,
+      h: 2,
+      minH: 2,
+      minW: 3,
+      autosize: true,
+    },
     { i: "clock", x: 0, y: 0, w: 2, h: 2, minH: 2, minW: 2, autosize: true },
     {
       i: "filemanagement",
@@ -321,19 +332,22 @@ export const defaultLayout = {
 };
 
 const WidgetGrid = () => {
+  // Get the user profile
   const userProfile = AuthService.getProfile();
 
   const [updateGridSettings] = useMutation(UPDATE_GRID_SETTINGS);
+
+  // Get the user's settings from the database
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
     variables: { userId: userProfile?._id || userProfile?.user?._id },
   });
 
   const handleLayoutChange = (__, layouts) => {
+    // Get the user profile
     const userProfile = AuthService.getProfile();
 
     if (!userProfile) {
       console.error("User profile not found. Please log in.");
-      // Handle this case, e.g., redirect to login page
       return;
     }
 
@@ -346,6 +360,7 @@ const WidgetGrid = () => {
 
     const layoutsString = JSON.stringify(layouts);
 
+    // Update the user's grid layout in the database
     updateGridSettings({
       variables: { userId: userId, layouts: layoutsString },
     });
@@ -393,7 +408,7 @@ const WidgetGrid = () => {
       onLayoutChange={handleLayoutChange}
     >
       {userSettings.widgets.map((widget) => {
-        // Check if the widget is active before rendering
+        // Check if the widgets are active before rendering
         if (widget.active) {
           if (widget.name === "calendar") {
             return (

@@ -415,6 +415,7 @@ html {
 
 .welcome-p-separator-wf {
   height: 5vh;
+  display: block;
 }
 
 .blurb-text-wf {

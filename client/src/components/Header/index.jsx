@@ -1,17 +1,21 @@
+// Header component
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import Auth from "../../utils/auth";
 
 const Header = () => {
+  // Get the current location so it's shaded out in the sidenav
   const location = useLocation();
 
   useEffect(() => {
+    // Initialize the Materialize CSS sidenav
     const elems = document.querySelectorAll(".sidenav");
     const instances = M.Sidenav.init(elems);
   }, []);
 
   const logout = (event) => {
+    // Log user out and return them to welcome page
     event.preventDefault();
     Auth.logout();
     window.location.href = "/";
@@ -22,6 +26,7 @@ const Header = () => {
       <div className="navbar-fixed">
         <nav className="navbar-wf">
           <div className="nav-wrapper">
+            {/* Check for logged in status to show burger menu */}
             {Auth.loggedIn() ? (
               <a href="#" data-target="menu-wf" className="sidenav-trigger">
                 <i className="material-icons">menu</i>
@@ -37,6 +42,7 @@ const Header = () => {
               WORKFLOW
             </a>
             <ul className="right navbar-right-container-wf">
+              {/* Check for logged in status to show either login/signup or logout buttons */}
               {Auth.loggedIn() ? (
                 <>
                   <li className="loggedin-text-wf">
@@ -75,24 +81,45 @@ const Header = () => {
           </div>
         </nav>
       </div>
+      {/* Materialize CSS Sidenav */}
       <ul className="sidenav sidenav-wf" id="menu-wf">
         <img src="/logo_transparent.png" alt="logo" className="logo-wf" />
         <li className="sidenav-username-wf">
           {Auth.loggedIn() ? Auth.getProfile().user.username : null}
         </li>
-        <li className={`sidenav-item-wf ${location.pathname === '/' ? 'disabled' : ''}`}>
+        <li
+          className={`sidenav-item-wf ${
+            location.pathname === "/" ? "disabled" : ""
+          }`}
+        >
           <a href="/">Dashboard</a>
         </li>
-        <li className={`sidenav-item-wf ${location.pathname === '/chat' ? 'disabled' : ''}`}>
+        <li
+          className={`sidenav-item-wf ${
+            location.pathname === "/chat" ? "disabled" : ""
+          }`}
+        >
           <a href="/chat">Chat</a>
         </li>
-        <li className={`sidenav-item-wf ${location.pathname === '/videochat' ? 'disabled' : ''}`}>
+        <li
+          className={`sidenav-item-wf ${
+            location.pathname === "/videochat" ? "disabled" : ""
+          }`}
+        >
           <a href="/videochat">Video Chat</a>
         </li>
-        <li className={`sidenav-item-wf ${location.pathname === '/settings' ? 'disabled' : ''}`}>
+        <li
+          className={`sidenav-item-wf ${
+            location.pathname === "/settings" ? "disabled" : ""
+          }`}
+        >
           <a href="/settings">Settings</a>
         </li>
-        <li className={`sidenav-item-wf ${location.pathname === '/supportus' ? 'disabled' : ''}`}>
+        <li
+          className={`sidenav-item-wf ${
+            location.pathname === "/supportus" ? "disabled" : ""
+          }`}
+        >
           <a href="/supportus">Support Us</a>
         </li>
         <li className="menu-space-filler-wf"></li>

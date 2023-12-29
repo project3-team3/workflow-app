@@ -1,3 +1,4 @@
+// Signup page
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
@@ -5,47 +6,63 @@ import { ADD_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
+// Import default layout for new users
 import { defaultLayout } from "../components/WidgetGrid/index.jsx";
 
 const Signup = () => {
-  const defaultWidgets = [{
-    name: "calendar",
-    active: true
-  }, {
-    name: "clock",
-    active: true
-   },{
-    name: "filemanagement",
-    active: true
-   }, {
-    name: "notepad",
-    active: true
-   }, {
-    name: "schedule",
-    active: true
-   }, {
-    name: "stickynote",
-    active: true
-   }, {
-    name: "todolist",
-    active: true
-   }, {
-    name: "meditation",
-    active: true
-   }, {
-    name: "inspiringquote",
-    active: true
-   }, {
-    name: "balancetip",
-    active: true
-   }];
+  // Set default widget statuses for new users
+  const defaultWidgets = [
+    {
+      name: "calendar",
+      active: true,
+    },
+    {
+      name: "clock",
+      active: true,
+    },
+    {
+      name: "filemanagement",
+      active: true,
+    },
+    {
+      name: "notepad",
+      active: true,
+    },
+    {
+      name: "schedule",
+      active: true,
+    },
+    {
+      name: "stickynote",
+      active: true,
+    },
+    {
+      name: "todolist",
+      active: true,
+    },
+    {
+      name: "meditation",
+      active: true,
+    },
+    {
+      name: "inspiringquote",
+      active: true,
+    },
+    {
+      name: "balancetip",
+      active: true,
+    },
+  ];
+
   const [formState, setFormState] = useState({
     username: "",
     email: "",
     password: "",
   });
+
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
+  // Update the form state when the user types into the input fields
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -55,10 +72,12 @@ const Signup = () => {
     });
   };
 
+  // Handle the form submission
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
+      // Add new user to database with default layout and widgets
       const { data: userData } = await addUser({
         variables: {
           ...formState,
@@ -75,12 +94,23 @@ const Signup = () => {
     }
   };
 
+  // Generate relevant error messages for user
   const getErrorMessage = (error) => {
-    if (error.message.includes("E11000 duplicate key error collection: workflow-db.users index: username_1 dup key")) {
+    if (
+      error.message.includes(
+        "E11000 duplicate key error collection: workflow-db.users index: username_1 dup key"
+      )
+    ) {
       return "This username is already taken, please choose a different one.";
-    } else if (error.message.includes("E11000 duplicate key error collection: workflow-db.users index: email_1 dup key")) {
+    } else if (
+      error.message.includes(
+        "E11000 duplicate key error collection: workflow-db.users index: email_1 dup key"
+      )
+    ) {
       return "There is already an account for that e-mail address, please log in instead.";
-    } else if (error.message.includes("is shorter than the minimum allowed length (8)")) {
+    } else if (
+      error.message.includes("is shorter than the minimum allowed length (8)")
+    ) {
       return "Your password must be at least 8 characters long.";
     } else {
       return "An error occurred. Please try again.";
@@ -136,7 +166,9 @@ const Signup = () => {
           )}
 
           {error && (
-            <div className="error-message-wf login-signup-error-wf">{getErrorMessage(error)}</div>
+            <div className="error-message-wf login-signup-error-wf">
+              {getErrorMessage(error)}
+            </div>
           )}
         </div>
       </div>

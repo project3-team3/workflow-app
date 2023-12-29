@@ -1,3 +1,4 @@
+// UserSettings model
 const { Schema, model } = require("mongoose");
 
 const userSettingsSchema = new Schema({

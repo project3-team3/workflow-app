@@ -1,3 +1,4 @@
+// Video Chat page
 // Credit: https://docs.agora.io/en/video-calling/get-started/get-started-uikit?platform=web#display-the-user-interface
 
 import { useState } from "react";
@@ -8,34 +9,43 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 
 const VideoChat = () => {
+  // Get user profile
   const userProfile = AuthService.getProfile();
+
   const [videoCall, setVideoCall] = useState(false);
   const [channelName, setChannelName] = useState("");
 
+  // Agora video call props
   const rtcProps = {
-    appId: "10ad7a8f7b844ecc940092cd18c07f47",
-    channel: channelName,
+    appId: "10ad7a8f7b844ecc940092cd18c07f47", // App ID not secret
+    channel: channelName, // User's chosen channel name
     token: null,
   };
 
+  // Agora video call callbacks
   const callbacks = {
     EndCall: () => setVideoCall(false),
   };
 
+  // Get user settings
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
     variables: { userId: userProfile._id || userProfile.user._id },
   });
 
-  // Wait for data to load
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
+  // Get user's current theme
   const colorTheme = data.getUserSettings.currentTheme || "default-wf";
 
+  // Set the color theme
   const setMode = (mode) => {
     const htmlElement = document.querySelector("html");
     htmlElement.className = "";
     htmlElement.classList.add(mode);
+
+    // Store theme preference in localStorage
+    localStorage.setItem("colorTheme", mode);
   };
 
   setMode(colorTheme);

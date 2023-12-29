@@ -1,10 +1,9 @@
-// Work/Life Balance Tip Widget
+// Work/Life Balance Tip Widget component
 import { useQuery } from "@apollo/client";
 import { QUERY_RANDOM_TIP } from "../../utils/queries.js";
 
 const BalanceTipWidget = () => {
-
-  // Query database for random tip
+  // Get a random tip from the database
   const { loading, error, data } = useQuery(QUERY_RANDOM_TIP);
 
   if (loading) return "Loading...";
@@ -20,7 +19,6 @@ const BalanceTipWidget = () => {
       </div>
     </div>
   );
-  
 };
 
 export default BalanceTipWidget;

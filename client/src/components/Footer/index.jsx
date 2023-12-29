@@ -1,3 +1,4 @@
+// Footer component
 const Footer = () => {
   return (
     <footer className="footer-wf">

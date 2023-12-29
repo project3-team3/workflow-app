@@ -9,12 +9,11 @@ import {
 import AuthService from "../utils/auth.js";
 
 const Settings = (props) => {
-  // Declare userSettings state variable
   const [userSettings, setUserSettings] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // useEffect hook triggered after User Settings query is done
   useEffect(() => {
+    // Set widget checkboxes to match user settings after component mounts
     if (data?.getUserSettings && data.getUserSettings.widgets) {
       const checkboxes = document.querySelectorAll(".checkbox-item-wf");
 
@@ -31,11 +30,13 @@ const Settings = (props) => {
     }
   }, [isLoaded]);
 
+  // Get user profile
   const userProfile = AuthService.getProfile();
 
   const [currentMode, setCurrentMode] = useState();
 
   useEffect(() => {
+    // Set color theme to match user settings when a new theme is selected by the user
     if (currentMode) {
       const userId = userProfile._id || userProfile.user._id;
       const htmlElement = document.querySelector("html");
@@ -43,6 +44,7 @@ const Settings = (props) => {
       htmlElement.className = "";
       htmlElement.classList.add(currentMode);
 
+      // Update user settings with new color theme
       updateThemeSettings({
         variables: { userId, currentTheme: currentMode },
       })
@@ -52,6 +54,9 @@ const Settings = (props) => {
         .catch((error) => {
           console.error("Mutation error:", error);
         });
+
+      // Store theme preference in localStorage
+      localStorage.setItem("colorTheme", currentMode);
     } else {
     }
   }, [currentMode]);
@@ -59,22 +64,24 @@ const Settings = (props) => {
   const [updateThemeSettings] = useMutation(UPDATE_THEME_SETTINGS);
   const [updateWidgetSettings] = useMutation(UPDATE_WIDGET_SETTINGS);
 
+  // Get user settings
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
     variables: { userId: userProfile?._id || userProfile?.user?._id },
   });
 
   useEffect(() => {
     if (!loading && data) {
+      // Update user settings and current theme after component mounts
       setUserSettings(data.getUserSettings || null);
-  
+
       if (userSettings && userSettings.widgets) {
         const checkboxes = document.querySelectorAll(".checkbox-item-wf");
-  
+
         userSettings.widgets.forEach((widget) => {
           const checkbox = Array.from(checkboxes).find(
             (checkbox) => checkbox.id === widget.name
           );
-  
+
           if (checkbox) {
             checkbox.checked = widget.active;
           }
@@ -82,7 +89,7 @@ const Settings = (props) => {
       } else {
         console.log("No widgets found in user settings.");
       }
-  
+
       if (userSettings && userSettings.currentTheme) {
         const htmlElement = document.querySelector("html");
         htmlElement.className = "";
@@ -91,11 +98,12 @@ const Settings = (props) => {
       } else {
         console.log("No color theme found in user settings.");
       }
-  
+
       setIsLoaded(true);
     }
   }, [loading, data, userSettings]);
 
+  // Handle widget checkbox changes
   const handleWidgetChange = (e) => {
     const userId = userProfile._id || userProfile.user._id;
     const widgetName = e.target.id;
@@ -118,12 +126,12 @@ const Settings = (props) => {
 
     const newWidgetsString = JSON.stringify(newWidgetsFormatted);
 
+    // Update user settings with new widget settings
     updateWidgetSettings({
       variables: { userId: userId, widgets: newWidgetsString },
     })
       .then((result) => {
-        // Assuming the mutation result contains the updated userSettings
-        const updatedUserSettings = result.data.updateWidgetSettings; // Update accordingly
+        const updatedUserSettings = result.data.updateWidgetSettings;
         setUserSettings(updatedUserSettings);
       })
       .catch((error) => {

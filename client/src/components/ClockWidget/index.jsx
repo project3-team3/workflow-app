@@ -1,3 +1,4 @@
+// Clock Widget component
 import { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import PropTypes from "prop-types";
@@ -7,9 +8,12 @@ import { UPDATE_CLOCK_SETTINGS } from "../../utils/mutations.js";
 import AuthService from "../../utils/auth.js";
 
 const ClockWidget = () => {
+  // Get the user profile
   const userProfile = AuthService.getProfile();
 
   const [updateClockSettings] = useMutation(UPDATE_CLOCK_SETTINGS);
+
+  // Get the user's settings from the database
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
     variables: { userId: userProfile?._id || userProfile?.user?._id },
   });
@@ -22,10 +26,14 @@ const ClockWidget = () => {
     return <p>Error loading user settings. Please try again later.</p>;
   }
 
+  // Set clock to now
   const [dateTime, setDateTime] = useState(new Date());
+
+  // Set the initial value of isAnalog to the value from the database
   const [isAnalog, setIsAnalog] = useState(userSettings.isAnalog);
 
   useEffect(() => {
+    // Update the clock every second
     const interval = setInterval(() => {
       setDateTime(new Date());
     }, 1000);
@@ -33,7 +41,8 @@ const ClockWidget = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const hours = dateTime.getHours() % 12 || 12; // Get hours and convert 0 to 12
+  // Obtain and format current date and time
+  const hours = dateTime.getHours() % 12 || 12;
   const minutes = dateTime.getMinutes();
   const seconds = dateTime.getSeconds();
 
@@ -47,13 +56,13 @@ const ClockWidget = () => {
   const handleToggleClock = () => {
     const userId = userProfile._id || userProfile.user._id;
 
-    // Toggle isAnalog in the local state immediately
+    // Toggle the clock type between analog and digital
     setIsAnalog((prevIsAnalog) => {
       const newIsAnalog = !prevIsAnalog;
       return newIsAnalog;
     });
 
-    // Call the updateClockSettings mutation with the updated value of isAnalog
+    // Update analog status in the database
     updateClockSettings({
       variables: { userId, isAnalog: !isAnalog },
     })
@@ -65,6 +74,7 @@ const ClockWidget = () => {
       });
   };
 
+  // Return selected clock type
   return (
     <div className="clock-widget widget-content-wf">
       {isAnalog ? (
@@ -93,6 +103,7 @@ ClockWidget.propTypes = {
   dateTime: PropTypes.instanceOf(Date),
 };
 
+// Build analog clock
 const AnalogClock = ({ dateTime }) => {
   const [hourRotation, setHourRotation] = useState(0);
   const [minuteRotation, setMinuteRotation] = useState(0);
@@ -113,6 +124,7 @@ const AnalogClock = ({ dateTime }) => {
   }, [dateTime]);
 
   const numbers = [];
+
   for (let i = 1; i <= 12; i++) {
     const angle = ((i * 30 - 90) * Math.PI) / 180;
     const x = 80 * Math.cos(angle);

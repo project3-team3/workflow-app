@@ -1,3 +1,4 @@
+// Error page
 import { useRouteError } from "react-router-dom";
 
 import BackButton from "../components/BackButton";

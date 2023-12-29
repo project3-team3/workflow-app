@@ -4,7 +4,6 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 import BackButton from "../components/BackButton";
 
-
 const Chat = () => {
   const userProfile = AuthService.getProfile();
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
@@ -21,6 +20,9 @@ const Chat = () => {
     const htmlElement = document.querySelector("html");
     htmlElement.className = "";
     htmlElement.classList.add(mode);
+
+    // Store theme preference in localStorage
+    localStorage.setItem("colorTheme", mode);
   };
 
   setMode(colorTheme);

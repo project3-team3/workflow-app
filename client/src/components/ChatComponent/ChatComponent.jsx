@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 const firebase = require("../../../../server/utils/firebase");
 */
 
-
 /*
 const ChatComponent = ({ user }) => {
 
@@ -24,7 +23,7 @@ const ChatComponent = ({ user }) => {
   
   const username = prompt("Please Tell Us Your Name");
   */
-  /*
+/*
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
 

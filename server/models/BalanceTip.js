@@ -1,3 +1,4 @@
+// BalanceTip model
 const { Schema, model } = require('mongoose');
 
 const tipSchema = new Schema({

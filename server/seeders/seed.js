@@ -1,3 +1,4 @@
+// Seed the database with data from JSON files
 const db = require("../config/connection");
 const { User, Quote, BalanceTip } = require("../models");
 const inspiringQuoteSeeds = require("./inspiringQuoteSeeds.json");

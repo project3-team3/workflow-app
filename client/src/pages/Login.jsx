@@ -1,3 +1,4 @@
+// Login page
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
@@ -9,6 +10,7 @@ const Login = (props) => {
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
+  // Update the form state when the user types into the input fields
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -18,8 +20,10 @@ const Login = (props) => {
     });
   };
 
+  // Handle the form submission
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
     try {
       const { data } = await login({
         variables: { ...formState },
@@ -30,12 +34,14 @@ const Login = (props) => {
       console.error(e);
     }
 
+    // Clear the form values
     setFormState({
       username: "",
       password: "",
     });
   };
 
+  // Generate relevant error messages for user
   const getErrorMessage = (error) => {
     if (error.message.includes("UserNotFoundError")) {
       return "Username not found. Please sign up to create a new account.";
@@ -45,7 +51,7 @@ const Login = (props) => {
       return "An error occurred. Please try again.";
     }
   };
-  
+
   return (
     <div className="box-container-wf">
       <div className="box-wf">

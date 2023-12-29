@@ -14,6 +14,7 @@ import VideoChat from './pages/VideoChat';
 import Settings from './pages/Settings';
 import SupportUs from './pages/SupportUs';
 
+// Initialize router and set basic routes
 const router = createBrowserRouter([
   {
     path: "/",

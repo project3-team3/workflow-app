@@ -1,7 +1,9 @@
+// Meditation Widget component
 import { useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
 
 const MeditationWidget = () => {
+  // Set list of audio tracks for dropdown
   const trackList = [
     { label: "Meditation (5 minutes)", value: "/med_track_1.ogg" },
     { label: "Meditation (10 minutes)", value: "/med_track_2.ogg" },
@@ -10,9 +12,11 @@ const MeditationWidget = () => {
     { label: "Meditation (25 minutes)", value: "/med_track_5.ogg" },
   ];
 
+  // Set the initial value of currentTrack to the first track in the list
   const [currentTrack, setCurrentTrack] = useState(trackList[0].value);
 
   const handleTrackChange = (event) => {
+    // Update the current track when the user selects a new track from the dropdown
     setCurrentTrack(event.target.value);
   };
 

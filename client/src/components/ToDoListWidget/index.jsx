@@ -1,7 +1,8 @@
+// Kanban Board Widget component
 import { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { FaTrash, FaEdit, FaTimes } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 import { QUERY_USER_SETTINGS } from "../../utils/queries.js";
 import { UPDATE_KANBAN_SETTINGS } from "../../utils/mutations.js";
@@ -9,9 +10,12 @@ import { UPDATE_KANBAN_SETTINGS } from "../../utils/mutations.js";
 import AuthService from "../../utils/auth.js";
 
 const ToDoList = () => {
+  // Get the user profile
   const userProfile = AuthService.getProfile();
 
   const [updateKanbanSettings] = useMutation(UPDATE_KANBAN_SETTINGS);
+
+  // Get the user's settings from the database
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
     variables: { userId: userProfile?._id || userProfile?.user?._id },
   });
@@ -24,29 +28,23 @@ const ToDoList = () => {
     return <p>Error loading user settings. Please try again later.</p>;
   }
 
-  console.log("userSettings:", userSettings);
-
+  // Remove the __typename property from the kanbanTasks array for database update
   let tasksWithoutTypename;
 
   if (userSettings.kanbanTasks.length === 0) {
     tasksWithoutTypename = [];
   } else {
-    const { __typename: mainTypename, ...taskData } =
-      userSettings.kanbanTasks[0];
-    tasksWithoutTypename = [taskData];
+    tasksWithoutTypename = userSettings.kanbanTasks.map((task) => {
+      const { __typename, ...taskData } = task;
+      return taskData;
+    });
   }
-
-  console.log(
-    "tasksWithoutTypename:",
-    tasksWithoutTypename,
-    typeof tasksWithoutTypename
-  );
 
   const [tasks, setTasks] = useState(tasksWithoutTypename);
   const [newTask, setNewTask] = useState({ content: "", status: "Tasks" });
 
   useEffect(() => {
-    console.log("Tasks variable changed (useEffect triggered):", tasks);
+    // Update the user's kanban board tasks in the database
     updateKanbanSettings({
       variables: {
         userId: userProfile._id || userProfile.user._id,
@@ -58,13 +56,16 @@ const ToDoList = () => {
   }, [tasks]);
 
   const handleInputChange = (e) => {
+    // Update the new task object with the new input value
     const updatedTask = Object.assign({}, newTask, {
       [e.target.name]: e.target.value,
     });
+
     setNewTask(updatedTask);
   };
 
   const handleAddTask = () => {
+    // Add the new task to the tasks array
     if (newTask.content !== "") {
       const updatedTask = Object.assign({}, newTask, {
         id: `task${tasks.length + 1}`,
@@ -76,11 +77,13 @@ const ToDoList = () => {
   };
 
   const handleDeleteTask = (taskId) => {
+    // Delete the task with the given ID from the tasks array
     const updatedTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(updatedTasks);
   };
 
   const handleDragEnd = (result) => {
+    // Handle the drag and drop event
     if (!result.destination) return;
 
     const { source, destination } = result;

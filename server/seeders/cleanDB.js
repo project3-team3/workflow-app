@@ -1,3 +1,4 @@
+// Clean the database before seeding it with new data
 const models = require('../models');
 const mongoose = require('mongoose');
 
