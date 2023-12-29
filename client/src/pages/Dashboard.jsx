@@ -16,7 +16,24 @@ const Home = () => {
     variables: { userId: userProfile._id || userProfile.user._id },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className="spinner-container-wf">
+        <div className="preloader-wrapper big active">
+          <div className="spinner-layer">
+            <div className="circle-clipper left">
+              <div className="circle"></div>
+            </div>
+            <div className="gap-patch">
+              <div className="circle"></div>
+            </div>
+            <div className="circle-clipper right">
+              <div className="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   if (error) {
     Auth.logout();
     window.location.href = "/";

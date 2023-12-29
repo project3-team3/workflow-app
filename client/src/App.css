@@ -11,7 +11,10 @@
   --secondary-text-color: rgba(13, 24, 33, 1);
   --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
   --error-text-color: rgba(252, 63, 56, 1);
+  --box-border-color: rgba(49, 67, 94, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
+  --inset-box-shadow-color: rgba(0, 0, 0, 1);
+  --inset-box-shadow-raise: rgba(255, 255, 255, 0.5);
   --textbox-background-color: rgba(250, 249, 246, 1);
   --input-border-color: rgba(52, 73, 102, 1);
   --input-placeholder-color: rgba(0, 0, 0, 0.42);
@@ -52,7 +55,10 @@
   --secondary-text-color: rgba(13, 24, 33, 1);
   --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
   --error-text-color: rgba(252, 63, 56, 1);
+  --box-border-color: rgba(49, 67, 94, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
+  --inset-box-shadow-color: rgba(0, 0, 0, 1);
+  --inset-box-shadow-raise: rgba(255, 255, 255, 0.5);
   --textbox-background-color: rgba(250, 249, 246, 1);
   --input-border-color: rgba(52, 73, 102, 1);
   --input-placeholder-color: rgba(0, 0, 0, 0.42);
@@ -93,7 +99,10 @@
   --secondary-text-color: rgba(13, 24, 33, 1);
   --main-text-light-on-dark-color: rgba(49, 67, 94, 1);
   --error-text-color: rgba(252, 63, 56, 1);
+  --box-border-color: rgba(49, 67, 94, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
+  --inset-box-shadow-color: rgba(0, 0, 0, 1);
+  --inset-box-shadow-raise: rgba(255, 255, 255, 1);
   --textbox-background-color: rgba(250, 249, 246, 1);
   --input-border-color: rgba(45, 45, 48, 1);
   --input-placeholder-color: rgba(0, 0, 0, 0.42);
@@ -134,7 +143,10 @@
   --secondary-text-color: rgba(13, 24, 33, 1);
   --main-text-light-on-dark-color: rgba(49, 67, 94, 1);
   --error-text-color: rgba(252, 63, 56, 1);
+  --box-border-color: rgba(0, 184, 193, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
+  --inset-box-shadow-color: rgba(0, 0, 0, 1);
+  --inset-box-shadow-raise: rgba(255, 255, 255, 1);
   --textbox-background-color: rgba(241, 238, 229, 1);
   --input-border-color: rgba(45, 45, 48, 1);
   --input-placeholder-color: rgba(0, 0, 0, 0.42);
@@ -163,7 +175,7 @@
 }
 
 .dark-mode-wf {
-  --main-background-color: rgba(30, 30, 30, 1);
+  --main-background-color: rgba(25, 25, 25, 1);
   --darkest-accent-color: rgba(250, 249, 246, 1);
   --darker-accent-color: rgba(62, 62, 66, 1);
   --dark-accent-color: rgba(45, 45, 48, 1);
@@ -175,8 +187,11 @@
   --secondary-text-color: rgba(13, 24, 33, 1);
   --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
   --error-text-color: rgba(252, 63, 56, 1);
-  --box-shadow-color: rgba(255, 255, 255, 0.1);
-  --textbox-background-color: rgba(62, 62, 66, 1);
+  --box-border-color: rgba(15, 15, 15, 1);
+  --box-shadow-color: rgba(105, 105, 105, 0.1);
+  --inset-box-shadow-color: rgba(0, 0, 0, 1);
+  --inset-box-shadow-raise: rgba(255, 255, 255, 0.5);
+  --textbox-background-color: rgba(82, 82, 86, 1);
   --input-border-color: rgba(45, 45, 48, 1);
   --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(172, 172, 176, 1);
@@ -227,7 +242,7 @@ html {
   background-color: var(--dark-accent-color);
   color: var(--main-text-color);
   text-align: center;
-  border: 1px solid var(--light-accent-color);
+  border: 1px solid var(--box-border-color);
   border-radius: 20px;
   padding: 40px 40px 60px 40px;
   box-shadow: 5px 5px 10px var(--box-shadow-color);
@@ -238,14 +253,28 @@ html {
   color: var(--main-text-color);
   font-weight: bold;
   border-radius: 10px;
+  box-shadow: inset 0.9px 0.9px 10px -4px var(--inset-box-shadow-raise),
+    inset -2px -2px 7px var(--inset-box-shadow-color);
 }
 
 .button-wf:hover {
   background-color: var(--lighter-accent-color);
+  box-shadow: inset 0.5px 0.5px 10px -4px var(--inset-box-shadow-raise),
+    inset -2px -2px 7px var(--inset-box-shadow-color);
 }
 
 .button-wf:focus {
   background-color: var(--light-accent-color);
+  box-shadow: inset 0.5px 0.5px 10px -4px var(--inset-box-shadow-raise),
+    inset -2px -2px 7px var(--inset-box-shadow-color);
+}
+
+.dark-button-wf {
+  background-color: var(--darkest-accent-color);
+}
+
+.dark-button-wf:focus {
+  background-color: var(--darkest-accent-color);
 }
 
 .input-wf {
@@ -258,6 +287,20 @@ html {
   height: 1.5em !important;
   margin: 10px 0px !important;
   width: 70% !important;
+  box-shadow: inset 1px 1px 3px var(--inset-box-shadow-color),
+    inset -1px -1px 3px var(--inset-box-shadow-raise) !important;
+}
+
+.spinner-container-wf {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner-layer {
+  border-color: var(--main-text-color);
 }
 
 .error-message-wf {
@@ -288,6 +331,7 @@ html {
 .navbar-wf {
   background-color: var(--dark-accent-color);
   color: var(--main-text-light-on-dark-color);
+  box-shadow: 0px 5px 5px -1px var(--box-shadow-color);
 }
 
 .sidenav-trigger {
@@ -330,6 +374,7 @@ html {
   flex-direction: column;
   padding-top: 20px;
   padding-bottom: 80px;
+  box-shadow: 10px 0px 10px var(--box-shadow-color);
 }
 
 .sidenav li:hover {
@@ -396,7 +441,7 @@ html {
 }
 
 .welcome-to-work-wf.active {
-  margin-left: 0px;  
+  margin-left: 0px;
 }
 
 #flow-span-wf {
@@ -472,6 +517,7 @@ html {
   border: 2px solid var(--darker-accent-color);
   cursor: grab;
   transition: transform 0.3s ease-in-out;
+  overflow: hidden;
 }
 
 .widget-box-shadow-wf {
@@ -485,7 +531,7 @@ html {
 }
 
 .widget-content-wf::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 .widget-content-wf::-webkit-scrollbar-track {
@@ -494,30 +540,49 @@ html {
 }
 
 .widget-content-wf {
-  width: 100%;
-  height: 100%;
+  width: 100.5%;
+  height: 100.5%;
   min-width: 100%;
   min-height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: inset 3px 3px 10px -2px var(--inset-box-shadow-raise),
+    inset -3px -3px 7px -1px var(--inset-box-shadow-color);
 }
 
 /* Clock widget rules */
 .clock-widget {
   text-align: center;
-  border-radius: 20px;
   background-color: var(--clock-background-color);
 }
 
 .clock-container-wf {
-  padding-top: 10%;
+  padding-top: 17%;
   height: 80%;
+}
+
+.clock-digital-container-wf {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 15%;
+  padding-top: 15%;
+}
+
+.clock-digit-container-wf {
+  width: 15%;
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--main-text-light-on-dark-color);
+}
+
+.colon-wf {
+  width: -5%;
 }
 
 .clock-time {
   margin-top: 0px;
   padding-top: 15%;
-  font-size: 45px;
-  font-weight: bold;
-  color: var(--main-text-light-on-dark-color);
 }
 
 .clock-date {
@@ -537,23 +602,31 @@ html {
   fill: var(--secondary-text-color);
 }
 
-.dark-button-wf {
-  background-color: var(--darkest-accent-color);
+.clock-switch-wf label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.dark-button-wf:focus {
-  background-color: var(--darkest-accent-color);
+.clock-icon-wf {
+  color: var(--main-text-light-on-dark-color);
+}
+
+.clock-switch-wf label .lever {
+  margin: 0 8px;
 }
 
 /* Calendar widget rules */
 .custom-calendar {
-  border-radius: 20px;
   background-color: var(--calendar-background-color);
   color: var(--darkest-accent-color);
   font-weight: bold;
   height: 100%;
   width: 100%;
   padding: 25px;
+  border-radius: 18px;
+  box-shadow: inset 3px 3px 10px -2px var(--inset-box-shadow-raise),
+    inset -3px -3px 7px -1px var(--inset-box-shadow-color);
 }
 
 .react-calendar {
@@ -647,19 +720,19 @@ html {
 .react-calendar__tile--now {
   background: var(--main-background-color);
   border-radius: 50px;
-  color: var(--main-text-color)
+  color: var(--main-text-color);
 }
 
 .react-calendar__tile--hasActive {
   background: var(--light-accent-color);
   border-radius: 50px;
-  color: var(--main-text-color)
+  color: var(--main-text-color);
 }
 
 .react-calendar__tile--active {
   background: var(--light-accent-color);
   border-radius: 50px;
-  color: var(--main-text-color)
+  color: var(--main-text-color);
 }
 
 /* Notepad Widget rules */
@@ -683,7 +756,7 @@ html {
 }
 
 .notepad-textarea::-webkit-scrollbar {
-  width: 8px;
+  width: 13px;
 }
 
 .notepad-textarea::-webkit-scrollbar-track {
@@ -723,6 +796,15 @@ html {
   font-family: "Shadows Into Light", cursive;
 }
 
+.sticky-note-textarea::-webkit-scrollbar {
+  width: 10px;
+}
+
+.sticky-note-textarea::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 6px;
+}
+
 /* Schedule Widget rules */
 .schedule-widget {
   border-radius: 20px;
@@ -737,8 +819,12 @@ html {
   color: var(--darkest-accent-color);
 }
 
+.event-icons {
+  min-width: 13%;
+}
+
 .schedule-icon-wf {
-  margin: 5px;
+  margin: 3px;
   cursor: pointer;
 }
 
@@ -797,6 +883,8 @@ html {
   margin: 0px !important;
   margin-right: 2% !important;
   width: 27% !important;
+  box-shadow: inset 1px 1px 3px var(--inset-box-shadow-color),
+    inset -1px -1px 3px var(--inset-box-shadow-raise) !important;
 }
 
 .schedule-dropdown-disabled-wf {
@@ -908,6 +996,8 @@ html {
   margin-left: 10px !important;
   width: auto !important;
   margin-right: 15px !important;
+  box-shadow: inset 1px 1px 3px var(--inset-box-shadow-color),
+    inset -1px -1px 3px var(--inset-box-shadow-raise) !important;
 }
 
 .modal-replacer-content-wf .kanban-dropdown-wf {
@@ -922,6 +1012,8 @@ html {
   margin: 0px !important;
   width: auto !important;
   margin-right: 15px !important;
+  box-shadow: inset 1px 1px 3px var(--inset-box-shadow-color),
+    inset -1px -1px 3px var(--inset-box-shadow-raise) !important;
 }
 
 .kanban-button-wf {
@@ -937,8 +1029,19 @@ html {
   flex-grow: 1;
 }
 
+.kanban-row::-webkit-scrollbar {
+  width: 8px;
+}
+
+.kanban-row::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 6px;
+}
+
 .kanban-column {
-  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
   background-color: var(--kanban-board-darker-background-color);
   border-radius: 15px;
   padding: 5px;
@@ -966,6 +1069,8 @@ h2 {
   margin-left: 5px;
   margin-right: 5px;
   border-radius: 10px;
+  box-shadow: inset 0.5px 0.5px 10px -2px var(--inset-box-shadow-raise),
+    inset -2px -2px 7px -1px var(--inset-box-shadow-color);
 }
 
 .task-icons {
@@ -1004,29 +1109,36 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: left;
-  padding-top: 5px;
+  padding: 2px 0px;
 }
 
 .meditation-widget h5 {
-  margin-left: 20px;
+  margin-left: 25px;
+  font-size: 20px;
 }
 
 .meditation-audio-player {
   width: 90%;
+  height: 50%;
   align-self: center;
+  background-color: var(--meditation-background-color) !important;
 }
 
 .meditation-dropdown {
+  margin-top: 9px;
   width: 90%;
   align-self: center;
   background-color: var(--meditation-background-color);
 }
 
 .meditation-dropdown select {
-  height: 2em;
+  padding-left: 10px;
+  height: 2.5em;
   border-radius: 10px;
   background-color: var(--meditation-background-color);
   color: var(--darkest-accent-color);
+  box-shadow: inset 1px 1px 3px var(--inset-box-shadow-color),
+    inset -1px -1px 3px var(--inset-box-shadow-raise) !important;
 }
 
 .react-audio-player .rp-controls {
@@ -1042,6 +1154,10 @@ h2 {
   display: flex;
   align-items: center;
   overflow: auto;
+}
+
+.inspiring-quote-flex-container {
+  flex-grow: 1;
 }
 
 .inspiring-quote-random {
@@ -1061,12 +1177,22 @@ h2 {
   display: flex;
 }
 
+.balance-tip-flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 2.4%;
+}
+
 .balance-tip-widget h2 {
+  margin: 0px;
   text-align: left;
   color: var(--darkest-accent-color);
 }
 
 .balance-tip-random {
+  margin: 0px;
+  margin-top: 17px;
   text-align: justify;
 }
 
@@ -1174,17 +1300,18 @@ h2 {
 }
 
 /* Video Chat page rules */
-.video-chat-title-wf {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-  color: var(--main-text-color);
+.video-chat-box-wf {
+  align-items: center;
 }
 
-.video-player-form-wf {
+.video-player-input-wf {
+  width: 60% !important;
+}
+
+.video-player-button-container-wf {
+  margin-top: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 5vh;
+  justify-content: center;
 }
 
 .video-main-wf {
@@ -1241,26 +1368,6 @@ h2 {
   margin: 0 1% !important;
 }
 
-.arrow-container-wf {
-  display: flex;
-  flex-direction: column;
-}
-
-.arrow-wf {
-  margin: 10px;
-  color: var(--dark-accent-color);
-}
-
-.video-player-input-wf {
-  width: 30% !important;
-}
-
-.video-player-button-container-wf {
-  margin-top: 35px;
-  display: flex;
-  justify-content: center;
-}
-
 /* Settings page rules */
 .settings-header-wf {
   margin-top: 5vh;
@@ -1268,11 +1375,14 @@ h2 {
 }
 
 .settings-dropdown-wf {
+  border-color: var(--dark-accent-color);
   border-radius: 10px;
   height: 2.5em;
   padding: 0px 10px;
   background-color: var(--textbox-background-color);
   color: var(--darkest-accent-color);
+  box-shadow: inset 1px 1px 3px var(--inset-box-shadow-color),
+    inset -1px -1px 3px var(--inset-box-shadow-raise) !important;
 }
 
 .checkbox-container-wf {
@@ -1290,11 +1400,12 @@ h2 {
   color: var(--main-text-color);
 }
 
-[type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
+[type="checkbox"] + span:not(.lever):before,
+[type="checkbox"]:not(.filled-in) + span:not(.lever):after {
   border: 2px solid var(--checkbox-border-color);
 }
 
-[type="checkbox"]:checked+span:not(.lever):before {
+[type="checkbox"]:checked + span:not(.lever):before {
   border-right: 2px solid var(--checkbox-border-color);
   border-bottom: 2px solid var(--checkbox-border-color);
 }
@@ -1350,13 +1461,35 @@ h2 {
 }
 
 /* Media Queries for responsiveness */
+@media screen and (max-width: 1500px) {
+  .clock-digital-container-wf {
+    padding: 0 10%;
+    padding-top: 15%;
+  }
+}
+
+@media screen and (max-width: 1380px) {
+  .clock-analog-container-wf svg {
+    width: 165px;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .brandname-wf {
     font-size: 20px;
   }
 
+  .clock-digital-container-wf {
+    padding: 0 18%;
+    padding-top: 13%;
+  }
+  
   .clock-time {
     padding-top: 5%;
+  }
+
+  .clock-analog-container-wf svg {
+    width: 200px;
   }
 
   .welcome-wf {
@@ -1377,7 +1510,6 @@ h2 {
     font-size: 17px;
     width: 75%;
   }
-
 }
 
 @media screen and (max-width: 992px) {
@@ -1420,8 +1552,27 @@ h2 {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 830px) {
+  .clock-digital-container-wf {
+    padding: 0 12%;
+  }
+  
+  .clock-time {
+    font-size: 35px;
+  }
 
+  .clock-date {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .clock-analog-container-wf svg {
+    width: 160px;
+  }
+}
+
+@media screen and (max-width: 600px) {
   .input-wf {
     height: 1em !important;
   }
@@ -1436,7 +1587,7 @@ h2 {
   .welcome-wf {
     margin-top: 7vh;
   }
-  
+
   .welcome-to-work-wf {
     font-size: 27px;
   }
@@ -1497,21 +1648,35 @@ h2 {
     margin-top: 6vh;
   }
 
-  .widget-wf {
-    overflow-y: auto;
-  }
-
   .widget-wf::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   .widget-wf::-webkit-scrollbar-track {
     background-color: var(--kanban-board-background-color);
     border-radius: 10px;
   }
 
+  .clock-container-wf {
+    padding-top: 13%;
+    height: 80%;
+  }
+
+  .clock-digital-container-wf {
+    padding: 0 30%;
+  }
+
   .clock-time {
-    margin-top: 1vh;
+    font-size: 45px;
+  }
+
+  .clock-date {
+    font-size: 18px;
+  }
+
+  .clock-analog-container-wf svg {
+    margin-top: -10%;
+    width: 200px;
   }
 
   .widget-content-wf {
@@ -1563,6 +1728,14 @@ h2 {
   }
 
   .calendar-widget {
+    padding: 0px;
+  }
+
+  .sticky-note {
+    padding: 0px;
+  }
+
+  .notepad-widget {
     padding: 0px;
   }
 
@@ -1653,7 +1826,7 @@ h2 {
     margin: 0px;
     margin-left: 17px;
   }
-  
+
   .checkbox-container-wf p {
     width: 80%;
     text-align: left;
@@ -1678,5 +1851,26 @@ h2 {
 
   .video-player-input-wf {
     width: 50% !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .clock-digital-container-wf {
+    padding: 0 27%;
+    padding-top: 6%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .clock-digital-container-wf {
+    padding: 0 20%;
+    padding-top: 7%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .clock-digital-container-wf {
+    padding: 0 12%;
+    padding-top: 13%;
   }
 }

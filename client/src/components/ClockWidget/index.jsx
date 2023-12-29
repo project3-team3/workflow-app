@@ -79,22 +79,38 @@ const ClockWidget = () => {
     <div className="clock-widget widget-content-wf">
       {isAnalog ? (
         <div className="clock-container-wf">
-          <AnalogClock dateTime={dateTime} />
+          <div className="clock-analog-container-wf">
+            <AnalogClock dateTime={dateTime} />
+          </div>
         </div>
       ) : (
         <div className="clock-container-wf">
-          <p className="clock-time">{formattedTime}</p>
+          <div className="clock-digital-container-wf">
+          {formattedTime.split("").map((char, index) => (
+            <div
+              key={index}
+              className={`clock-digit-container-wf ${char === ":" ? "colon-wf" : ""}`}
+            >
+              {char}
+            </div>
+          ))}
+          </div>
           <p className="clock-date">
             {dayOfWeek}, {formattedDate}
           </p>
         </div>
       )}
-      <button
-        onClick={handleToggleClock}
-        className="waves-effect waves-light btn button-wf button-wf widget-prevent-drag-wf"
-      >
-        {isAnalog ? "Digital" : "Analog"}
-      </button>
+      <div className="switch clock-switch-wf widget-prevent-drag-wf">
+        <label>
+          <i className="material-icons clock-icon-wf">access_time</i>
+          <input
+            type="checkbox"
+            checked={isAnalog}
+            onChange={() => handleToggleClock()}
+          />
+          <span className="lever"></span>
+        </label>
+      </div>
     </div>
   );
 };

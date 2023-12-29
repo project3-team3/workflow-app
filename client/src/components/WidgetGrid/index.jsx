@@ -394,8 +394,6 @@ const WidgetGrid = () => {
 
   const margin = [25, 25];
 
-  const widgetStatus = userSettings.widgets;
-
   return (
     <ResponsiveGridLayout
       className="layout"
