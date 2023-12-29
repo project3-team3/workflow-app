@@ -329,10 +329,7 @@ const WidgetGrid = () => {
   });
 
   const handleLayoutChange = (__, layouts) => {
-    console.log("In handleLayoutChange.");
     const userProfile = AuthService.getProfile();
-
-    // console.log("Layouts changed:", layouts);
 
     if (!userProfile) {
       console.error("User profile not found. Please log in.");
@@ -349,12 +346,9 @@ const WidgetGrid = () => {
 
     const layoutsString = JSON.stringify(layouts);
 
-    // console.log("Layouts:", layoutsString);
-
     updateGridSettings({
       variables: { userId: userId, layouts: layoutsString },
     });
-    console.log("Leaving handleLayoutChange.");
   };
 
   const userSettings = data?.getUserSettings;

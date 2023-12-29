@@ -50,7 +50,6 @@ const ClockWidget = () => {
     // Toggle isAnalog in the local state immediately
     setIsAnalog((prevIsAnalog) => {
       const newIsAnalog = !prevIsAnalog;
-      console.log("Local state updated. New isAnalog:", newIsAnalog);
       return newIsAnalog;
     });
 

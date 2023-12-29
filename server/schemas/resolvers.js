@@ -24,9 +24,6 @@ const resolvers = {
     },
     getUserSettings: async (_, { userId }) => {
       try {
-        console.log("In getUserSettings");
-        console.log("User ID:", userId);
-
         const user = await User.findById(userId);
 
         if (!user) {
@@ -36,7 +33,6 @@ const resolvers = {
         const userSettingsID = user.settings;
         const userSettings = await UserSettings.findById(userSettingsID);
 
-        console.log("User settings:", userSettings);
         return userSettings;
       } catch (error) {
         throw new Error(`Error fetching user settings: ${error.message}`);
@@ -47,8 +43,6 @@ const resolvers = {
   Mutation: {
     addUser: async (__, { username, email, password, gridLayout, widgets }) => {
       try {
-        console.log(gridLayout);
-
         // Create a new UserSettings document
         const userSettings = await UserSettings.create({
           gridLayout: JSON.parse(gridLayout),
@@ -65,8 +59,6 @@ const resolvers = {
 
         const token = signToken(user);
 
-        console.log("Server Response:", { token, user });
-
         return { token, user };
       } catch (error) {
         console.error("Server Error:", error);
@@ -77,13 +69,13 @@ const resolvers = {
       const user = await User.findOne({ username });
 
       if (!user) {
-        throw AuthenticationError;
+        throw AuthenticationError.UserNotFoundError;
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw AuthenticationError;
+        throw AuthenticationError.IncorrectPasswordError;
       }
 
       const token = signToken(user);
@@ -241,8 +233,6 @@ const resolvers = {
     updateWidgetSettings: async (__, { userId, widgets }) => {
       try {
 
-        console.log("In updateWidgetSettings resolver!");
-
         const user = await User.findById(userId);
 
         if (!user) {
@@ -267,8 +257,6 @@ const resolvers = {
 
         const newUserSettings = await UserSettings.findById(user.settings);
 
-        console.log("Updated userSettings in resolver?", JSON.stringify(newUserSettings.widgets));
-
         return user.settings;
       } catch (error) {
         console.error("Error updating user settings:", error);
@@ -277,8 +265,6 @@ const resolvers = {
     },
     updateScheduleSettings: async (__, { userId, scheduleEvents }) => {
       try {
-
-        console.log("In updateScheduleSettings resolver!");
 
         const user = await User.findById(userId);
 
@@ -303,8 +289,6 @@ const resolvers = {
         await user.save();
 
         const newUserSettings = await UserSettings.findById(user.settings);
-
-        console.log("Updated userSettings in resolver?", JSON.stringify(newUserSettings.scheduleEvents));
 
         return user.settings;
       } catch (error) {

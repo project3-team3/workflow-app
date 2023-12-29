@@ -20,7 +20,6 @@ const Login = (props) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
     try {
       const { data } = await login({
         variables: { ...formState },
@@ -37,6 +36,16 @@ const Login = (props) => {
     });
   };
 
+  const getErrorMessage = (error) => {
+    if (error.message.includes("UserNotFoundError")) {
+      return "Username not found. Please sign up to create a new account.";
+    } else if (error.message.includes("IncorrectPasswordError")) {
+      return "Incorrect password. Please try again.";
+    } else {
+      return "An error occurred. Please try again.";
+    }
+  };
+  
   return (
     <div className="box-container-wf">
       <div className="box-wf">
@@ -78,7 +87,9 @@ const Login = (props) => {
           )}
 
           {error && (
-            <div className="error-message-wf login-signup-error-wf">{error.message}</div>
+            <div className="error-message-wf login-signup-error-wf">
+              {getErrorMessage(error)}
+            </div>
           )}
         </div>
       </div>

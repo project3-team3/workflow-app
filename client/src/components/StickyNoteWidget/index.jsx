@@ -20,13 +20,7 @@ const stickyTextWidget = () => {
     return <p>Error loading user settings. Please try again later.</p>;
   }
 
-  console.log("userSettings: ", userSettings);
-
-  console.log("Saved note: ", userSettings.stickyText);
-
   const [note, setNote] = useState(userSettings.stickyText || "");
-
-  console.log("State note: ", note);
 
   useEffect(() => {
     // Update note when userSettings changes

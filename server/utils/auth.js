@@ -6,14 +6,18 @@ const secret = process.env.JWT_SECRET || 'defaultSecret';
 const expiration = process.env.JWT_EXPIRATION || '2h';
 
 module.exports = {
-  AuthenticationError: new GraphQLError('Username not found. Please sign up to create a new account.', {
+  UserNotFoundError: new GraphQLError('Username not found. Please sign up to create a new account.', {
     extensions: {
-      code: 'UNAUTHENTICATED',
+      code: 'USER_NOT_FOUND',
+    },
+  }),
+  IncorrectPasswordError: new GraphQLError('Incorrect password. Please try again.', {
+    extensions: {
+      code: 'INCORRECT_PASSWORD',
     },
   }),
   signToken: function ({ email, username, _id, settings }) {
     const payload = { email, username, _id, settings };
-    console.log('Payload:', payload);
     return jwt.sign({ user: payload }, secret, { expiresIn: expiration });
   },
 };

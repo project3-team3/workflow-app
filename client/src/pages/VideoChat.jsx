@@ -1,11 +1,7 @@
-// Credit: https://www.agora.io/en/blog/agora-react-sdk-build-a-video-conferencing-app-in-minutes/
+// Credit: https://docs.agora.io/en/video-calling/get-started/get-started-uikit?platform=web#display-the-user-interface
 
 import { useState } from "react";
-import { AgoraRTCProvider, useRTCClient } from "agora-rtc-react";
-import AgoraRTC from "agora-rtc-sdk-ng";
-
-import VideoPlayer from "../components/VideoPlayer/index.jsx";
-import VideoPlayerForm from "../components/VideoPlayerForm/index.jsx";
+import AgoraUIKit from "agora-react-uikit";
 
 import AuthService from "../utils/auth.js";
 import { useQuery } from "@apollo/client";
@@ -13,15 +9,19 @@ import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 
 const VideoChat = () => {
   const userProfile = AuthService.getProfile();
-  console.log("userProfile:", userProfile);
-  const client = useRTCClient(
-    AgoraRTC.createClient({ codec: "vp8", mode: "rtc" })
-  );
-  console.log("client:", client);
-  const [channelName, setChannelName] = useState();
-  console.log("channelName:", channelName);
-  const [inCall, setInCall] = useState(false);
-  console.log("inCall:", inCall);
+  const [videoCall, setVideoCall] = useState(false);
+  const [channelName, setChannelName] = useState("");
+
+  const rtcProps = {
+    appId: "10ad7a8f7b844ecc940092cd18c07f47",
+    channel: channelName,
+    token: null,
+  };
+
+  const callbacks = {
+    EndCall: () => setVideoCall(false),
+  };
+
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
     variables: { userId: userProfile._id || userProfile.user._id },
   });
@@ -43,24 +43,41 @@ const VideoChat = () => {
   return (
     <div>
       <h2 className="video-chat-title-wf">Workflow Video Chat</h2>
-      {!inCall ? (
-        <VideoPlayerForm
-          channelName={channelName}
-          setChannelName={setChannelName}
-          setInCall={setInCall}
-        />
+      {videoCall ? (
+        <div className="video-main-wf">
+          <div className="video-outer-container-wf">
+            <div className="video-container-wf">
+              <AgoraUIKit rtcProps={rtcProps} callbacks={callbacks} />
+            </div>
+          </div>
+        </div>
       ) : (
-        <AgoraRTCProvider client={client}>
-          <VideoPlayer channelName={channelName} localUsername={userProfile.user.username} />
+        <div className="video-player-form-wf">
+          <p>
+            Please enter the name of the channel you'd like to join. If the
+            channel does not exist, a new one will be created.
+          </p>
+          <input
+            id="channel"
+            type="text"
+            className="input-wf video-player-input-wf"
+            value={channelName}
+            onChange={(e) => setChannelName(e.target.value)}
+            placeholder="Channel name"
+          />
           <div className="video-player-button-container-wf">
             <button
               className="waves-effect waves-light btn button-wf video-player-button-wf"
-              onClick={() => setInCall(false)}
+              onClick={() =>
+                channelName
+                  ? setVideoCall(true)
+                  : alert("Please enter Channel Name")
+              }
             >
-              End Call
+              Join
             </button>
           </div>
-        </AgoraRTCProvider>
+        </div>
       )}
     </div>
   );

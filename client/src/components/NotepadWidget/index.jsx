@@ -20,13 +20,7 @@ const NotepadWidget = () => {
     return <p>Error loading user settings. Please try again later.</p>;
   }
 
-  console.log("userSettings: ", userSettings);
-
-  console.log("Saved text: ", userSettings.notepadText);
-
   const [text, setText] = useState(userSettings.notepadText || "");
-
-  console.log("State text: ", text);
 
   useEffect(() => {
     // Update text when userSettings changes

@@ -58,15 +58,7 @@ const Signup = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(defaultLayout);
-
-    console.log(defaultWidgets);
-
     try {
-      console.log(JSON.stringify(defaultLayout));
-
-      console.log(JSON.stringify(defaultWidgets));
-
       const { data: userData } = await addUser({
         variables: {
           ...formState,
@@ -77,11 +69,21 @@ const Signup = () => {
 
       const { user, token } = userData.addUser;
 
-      console.log("Created user:", user);
-
       Auth.login(token);
     } catch (e) {
       console.error(e);
+    }
+  };
+
+  const getErrorMessage = (error) => {
+    if (error.message.includes("E11000 duplicate key error collection: workflow-db.users index: username_1 dup key")) {
+      return "This username is already taken, please choose a different one.";
+    } else if (error.message.includes("E11000 duplicate key error collection: workflow-db.users index: email_1 dup key")) {
+      return "There is already an account for that e-mail address, please log in instead.";
+    } else if (error.message.includes("is shorter than the minimum allowed length (8)")) {
+      return "Your password must be at least 8 characters long.";
+    } else {
+      return "An error occurred. Please try again.";
     }
   };
 
@@ -134,7 +136,7 @@ const Signup = () => {
           )}
 
           {error && (
-            <div className="error-message-wf login-signup-error-wf">{error.message}</div>
+            <div className="error-message-wf login-signup-error-wf">{getErrorMessage(error)}</div>
           )}
         </div>
       </div>

@@ -9,24 +9,19 @@ import {
 import AuthService from "../utils/auth.js";
 
 const Settings = (props) => {
-  console.log("--------- STARTING RENDER ---------");
   // Declare userSettings state variable
   const [userSettings, setUserSettings] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
   // useEffect hook triggered after User Settings query is done
   useEffect(() => {
-    console.log("isLoaded has been changed - Starting widget useEffect hook");
     if (data?.getUserSettings && data.getUserSettings.widgets) {
       const checkboxes = document.querySelectorAll(".checkbox-item-wf");
-      console.log("Checkbox elements selected:", checkboxes);
 
-      console.log("Starting search for checkbox matches...");
       userSettings.widgets.forEach((widget) => {
         const checkbox = Array.from(checkboxes).find(
           (checkbox) => checkbox.id === widget.name
         );
-        console.log("Checkbox found:", checkbox);
         if (checkbox) {
           checkbox.checked = widget.active;
         }
@@ -37,20 +32,16 @@ const Settings = (props) => {
   }, [isLoaded]);
 
   const userProfile = AuthService.getProfile();
-  console.log("User Profile fetched:", userProfile);
 
   const [currentMode, setCurrentMode] = useState();
 
   useEffect(() => {
-    console.log("currentMode has been changed - Starting color theme useEffect hook");
     if (currentMode) {
       const userId = userProfile._id || userProfile.user._id;
       const htmlElement = document.querySelector("html");
 
       htmlElement.className = "";
       htmlElement.classList.add(currentMode);
-
-      console.log("Color scheme changed to:", currentMode);
 
       updateThemeSettings({
         variables: { userId, currentTheme: currentMode },
@@ -62,7 +53,6 @@ const Settings = (props) => {
           console.error("Mutation error:", error);
         });
     } else {
-      console.log("No color scheme yet, skipping theme change.");
     }
   }, [currentMode]);
 
@@ -75,9 +65,7 @@ const Settings = (props) => {
 
   useEffect(() => {
     if (!loading && data) {
-      console.log("User Settings query done!");
       setUserSettings(data.getUserSettings || null);
-      console.log("User Settings are:", userSettings);
   
       if (userSettings && userSettings.widgets) {
         const checkboxes = document.querySelectorAll(".checkbox-item-wf");
@@ -96,8 +84,6 @@ const Settings = (props) => {
       }
   
       if (userSettings && userSettings.currentTheme) {
-        console.log("Setting color theme...", userSettings?.currentTheme);
-  
         const htmlElement = document.querySelector("html");
         htmlElement.className = "";
         htmlElement.classList.add(userSettings?.currentTheme || "default-wf");
@@ -111,14 +97,9 @@ const Settings = (props) => {
   }, [loading, data, userSettings]);
 
   const handleWidgetChange = (e) => {
-    console.log("Box checked:", e.target);
     const userId = userProfile._id || userProfile.user._id;
     const widgetName = e.target.id;
     const widgetStatus = e.target.checked;
-
-    console.log("Widget Name:", widgetName);
-    console.log("Widget Active?", widgetStatus);
-    console.log("userSettings before change:", userSettings);
 
     const newWidgets = userSettings.widgets.map((item) => {
       if (item.name === widgetName) {
@@ -131,25 +112,16 @@ const Settings = (props) => {
       }
     });
 
-    console.log("newWidgets:", newWidgets);
-
     const newWidgetsFormatted = newWidgets.map(
       ({ __typename, ...rest }) => rest
     );
 
     const newWidgetsString = JSON.stringify(newWidgetsFormatted);
 
-    console.log(
-      "newWidgets (to be pushed into userSettings):",
-      newWidgetsString,
-      typeof newWidgetsString
-    );
-
     updateWidgetSettings({
       variables: { userId: userId, widgets: newWidgetsString },
     })
       .then((result) => {
-        console.log("Mutation result:", result);
         // Assuming the mutation result contains the updated userSettings
         const updatedUserSettings = result.data.updateWidgetSettings; // Update accordingly
         setUserSettings(updatedUserSettings);
