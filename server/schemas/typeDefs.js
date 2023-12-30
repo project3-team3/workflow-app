@@ -76,6 +76,8 @@ const typeDefs = `
     token: String!
   }
 
+  scalar Upload
+
   type Query {
     quotes: [Quote]
     balancetips: [BalanceTip]
@@ -99,6 +101,7 @@ const typeDefs = `
     updateScheduleSettings(userId: ID!, scheduleEvents: String!): UserSettings
     updateKanbanSettings(userId: ID!, kanbanTasks: String!): UserSettings
     generateAgoraToken(userChannelName: String!, userUid: Int!): AgoraToken
+    uploadFile(file: Upload!): String
   }
 `;
 

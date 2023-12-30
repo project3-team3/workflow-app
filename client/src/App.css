@@ -935,41 +935,45 @@ html {
   border-radius: 20px;
   background-color: var(--file-management-background-color);
   color: var(--darkest-accent-color);
-  padding-left: 25px;
   border: 1px solid var(--file-management-background-color);
 }
 
 .file-management-widget h2 {
   font-size: 24px;
-  margin-bottom: 15px;
+  margin-bottom: 4%;
+  margin-left: 5%;
   color: var(--darkest-accent-color);
   text-align: left;
 }
 
-.file-list {
-  margin-bottom: 20px;
+.drag-drop-wf {
+  margin-left: 5%;
+  margin-right: 7%;
 }
 
-.file-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5%;
+.drag-drop-wf .uppy-Container {
+  max-height: 30%;
+  height: 30%;
 }
 
-.file-name {
-  flex-grow: 1;
-  color: var(--light-accent-color);
-  font-size: 16px;
+.drag-drop-wf > .uppy-Container > .uppy-Root > .uppy-u-reset {
+  border-radius: 20px;
+  background-color: var(--file-management-inner-background-color);
 }
 
-.file-options {
-  color: var(--light-accent-color);
-  cursor: pointer;
-  transition: color 0.3s ease-in-out;
+.drag-drop-wf .uppy-DragDrop-inner {
+  padding: 20px 0px;
 }
 
-.file-options:hover {
-  color: var(--dark-accent-color);
+.drag-drop-wf .uppy-DragDrop-arrow {
+  fill: var(--lighter-accent-color);
+  height: 2em;
+  width: 2em;
+}
+
+.drag-drop-wf .uppy-DragDrop-label {
+  font-family: "Lexend", sans-serif;
+  font-size: 14px;
 }
 
 /* To Do List Widget rules */
