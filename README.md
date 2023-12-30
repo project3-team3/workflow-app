@@ -4,6 +4,12 @@
   <img src="./client/public/readme_logo.png" height="150px" align="right" />
 </a>
 
+<style>
+  div a {
+    text-decoration: none;
+  }
+</style>
+
 <div style="display: flex; flex-wrap: wrap; width: 35%">
 
 <a href="https://render.com" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
