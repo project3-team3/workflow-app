@@ -1,26 +1,78 @@
 # Workflow
 
-<img src="./client/public/readme_logo.png" height="150px" align="right" />
+<a href="https://workflow-oj8s.onrender.com/">
+  <img src="./client/public/readme_logo.png" height="150px" align="right" />
+</a>
 
 <div style="display: flex; flex-wrap: wrap; width: 35%">
 
-<img alt="Render" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/Render-grey?style=for-the-badge&logo=render&logoColor=46E3B7">
-<img alt="Git" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/Git-grey?style=for-the-badge&logo=git&logoColor=F05032">
-<img alt="Visual Studio Code" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/Visual_Studio_Code-grey?style=for-the-badge&logo=visual-studio-code&logoColor=007ACC">
-<img alt="HTML5" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/HTML5-grey?style=for-the-badge&logo=html5&logoColor=E34F26">
-<img alt="JavaScript" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/JavaScript-grey?style=for-the-badge&logo=javascript">
-<img alt="NodeJS" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/node.js-grey?style=for-the-badge&logo=node.js&logoColor=339933">
-<img alt="NPM" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/NPM-grey?style=for-the-badge&logo=npm&logoColor=CB3837">
-<img alt="Nodemon" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/Nodemon-grey?style=for-the-badge&logo=nodemon&logoColor=76D04B">
-<img alt="Express.js" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/express.js-grey?style=for-the-badge&logo=express&logoColor=000000">
-<img alt="React" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/React-grey?style=for-the-badge&logo=react&logoColor=61DAFB">
-<img alt="Apollo Server" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/apollo-grey?style=for-the-badge&logo=apollo-graphql&logoColor=311C87">
-<img alt="GraphQL" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/graphql-grey?style=for-the-badge&logo=graphql&logoColor=E10098">
-<img alt="MongoDB" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/mongodb-grey?style=for-the-badge&logo=mongodb&logoColor=47A248">
-<img alt="Mongoose" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/mongoose-grey?style=for-the-badge&logo=mongoose&logoColor=880000">
-<img alt="Agora" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/agora-grey?style=for-the-badge&logo=agora&logoColor=099DFD">
-<img alt="Vite" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/vite-grey?style=for-the-badge&logo=vite&logoColor=646CFF">
-<img alt="ESLint" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/ESLint-grey?style=for-the-badge&logo=eslint&logoColor=4B32C3">
+<a href="https://render.com" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="Render" src="https://img.shields.io/badge/Render-grey?style=for-the-badge&logo=render&logoColor=46E3B7">
+</a>
+
+<a href="https://git-scm.com/" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="Git" src="https://img.shields.io/badge/Git-grey?style=for-the-badge&logo=git&logoColor=F05032">
+</a>
+
+<a href="https://code.visualstudio.com/" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="Visual Studio Code" src="https://img.shields.io/badge/Visual_Studio_Code-grey?style=for-the-badge&logo=visual-studio-code&logoColor=007ACC">
+</a>
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="HTML5" src="https://img.shields.io/badge/HTML5-grey?style=for-the-badge&logo=html5&logoColor=E34F26">
+</a>
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-grey?style=for-the-badge&logo=javascript">
+</a>
+
+<a href="https://nodejs.org/" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="NodeJS" src="https://img.shields.io/badge/node.js-grey?style=for-the-badge&logo=node.js&logoColor=339933">
+</a>
+
+<a href="https://www.npmjs.com/" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="NPM" src="https://img.shields.io/badge/NPM-grey?style=for-the-badge&logo=npm&logoColor=CB3837">
+</a>
+
+<a href="https://nodemon.io/" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="Nodemon" src="https://img.shields.io/badge/Nodemon-grey?style=for-the-badge&logo=nodemon&logoColor=76D04B">
+</a>
+
+<a href="https://expressjs.com/" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="Express.js" src="https://img.shields.io/badge/express.js-grey?style=for-the-badge&logo=express&logoColor=000000">
+</a>
+
+<a href="https://reactjs.org/" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="React" src="https://img.shields.io/badge/React-grey?style=for-the-badge&logo=react&logoColor=61DAFB">
+</a>
+
+<a href="https://www.apollographql.com/" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="Apollo Server" src="https://img.shields.io/badge/apollo-grey?style=for-the-badge&logo=apollo-graphql&logoColor=311C87">
+</a>
+
+<a href="https://graphql.org/" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="GraphQL" src="https://img.shields.io/badge/graphql-grey?style=for-the-badge&logo=graphql&logoColor=E10098">
+</a>
+
+<a href="https://www.mongodb.com/" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="MongoDB" src="https://img.shields.io/badge/mongodb-grey?style=for-the-badge&logo=mongodb&logoColor=47A248">
+</a>
+
+<a href="https://mongoosejs.com/" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="Mongoose" src="https://img.shields.io/badge/mongoose-grey?style=for-the-badge&logo=mongoose&logoColor=880000">
+</a>
+
+<a href="https://www.agora.io/en/" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="Agora" src="https://img.shields.io/badge/agora-grey?style=for-the-badge&logo=agora&logoColor=099DFD">
+</a>
+
+<a href="https://vitejs.dev/" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="Vite" src="https://img.shields.io/badge/vite-grey?style=for-the-badge&logo=vite&logoColor=646CFF">
+</a>
+
+<a href="https://eslint.org/" style="margin-right: 1%; margin-bottom: 1%">
+  <img alt="ESLint" src="https://img.shields.io/badge/ESLint-grey?style=for-the-badge&logo=eslint&logoColor=4B32C3">
+</a>
 
 </div>
 
