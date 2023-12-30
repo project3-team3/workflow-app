@@ -4,7 +4,10 @@ class AuthService {
 
   // Retrieve data saved in token
   getProfile() {
-    return decode(this.getToken());
+    // return decode(this.getToken());
+    const decoded = decode(this.getToken());
+    console.log('Decoded Token:', decoded);
+    return decoded;
   }
 
   // Check if the user is still logged in

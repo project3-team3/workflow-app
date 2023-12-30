@@ -16,8 +16,8 @@ module.exports = {
       code: 'INCORRECT_PASSWORD',
     },
   }),
-  signToken: function ({ email, username, _id, settings }) {
-    const payload = { email, username, _id, settings };
+  signToken: function ({ email, username, _id, settings, agoraUid }) {
+    const payload = { email, username, _id, settings, agoraUid };
     return jwt.sign({ user: payload }, secret, { expiresIn: expiration });
   },
 };

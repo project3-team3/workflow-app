@@ -24,6 +24,11 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'UserSettings',
   },
+  agoraUid: {
+    type: Number,
+    required: true,
+    unique: true,
+  },
 });
 
 userSchema.pre('save', async function (next) {

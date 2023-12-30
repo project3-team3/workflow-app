@@ -15,6 +15,7 @@ const typeDefs = `
     username: String!
     email: String!
     settings: UserSettings
+    agoraUid: Int!
   }
 
   type GridItem {
@@ -71,6 +72,10 @@ const typeDefs = `
     user: User
   }
 
+  type AgoraToken {
+    token: String!
+  }
+
   type Query {
     quotes: [Quote]
     balancetips: [BalanceTip]
@@ -83,7 +88,7 @@ const typeDefs = `
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!, gridLayout: String!, widgets: String!): Auth
+    addUser(username: String!, email: String!, password: String!, gridLayout: String!, widgets: String!, agoraUid: Int!): Auth
     login(username: String!, password: String!): Auth
     updateGridSettings(userId: ID!, layouts: String!): UserSettings
     updateClockSettings(userId: ID!, isAnalog: Boolean!): UserSettings
@@ -93,6 +98,7 @@ const typeDefs = `
     updateWidgetSettings(userId: ID!, widgets: String!): UserSettings
     updateScheduleSettings(userId: ID!, scheduleEvents: String!): UserSettings
     updateKanbanSettings(userId: ID!, kanbanTasks: String!): UserSettings
+    generateAgoraToken(userChannelName: String!, userUid: Int!): AgoraToken
   }
 `;
 

@@ -1,5 +1,10 @@
 const { User, UserSettings, Quote, BalanceTip } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
+const generateRtcToken = require("../utils/agoraTokenGen.js");
+console.log(
+  "Resolvers - Importing generateRtcToken from agoraTokenGen:",
+  generateRtcToken
+);
 
 const resolvers = {
   Query: {
@@ -45,7 +50,7 @@ const resolvers = {
 
   Mutation: {
     // Create a new user
-    addUser: async (__, { username, email, password, gridLayout, widgets }) => {
+    addUser: async (__, { username, email, password, gridLayout, widgets, agoraUid }) => {
       try {
         // Create a new UserSettings field with default values
         const userSettings = await UserSettings.create({
@@ -58,11 +63,12 @@ const resolvers = {
           email,
           password,
           settings: userSettings._id,
+          agoraUid: agoraUid,
         });
 
         const token = signToken(user);
 
-        return { token, user };
+        return { token, user: { _id: user._id, username: user.username, agoraUid: user.agoraUid } };
       } catch (error) {
         console.error("Server Error:", error);
         throw error;
@@ -84,7 +90,7 @@ const resolvers = {
 
       const token = signToken(user);
 
-      return { token, user };
+      return { token, user: { _id: user._id, username: user.username, agoraUid: user.agoraUid } };
     },
     // Save new grid layout to user settings
     updateGridSettings: async (__, { userId, layouts }) => {
@@ -294,6 +300,17 @@ const resolvers = {
       } catch (error) {
         console.error("Error updating user settings:", error);
         throw new Error("Error updating user settings");
+      }
+    },
+    // Generate an Agora RTC token for Video Chat
+    generateAgoraToken: async (__, { userChannelName, userUid }) => {
+      try {
+        const token = generateRtcToken(userChannelName, userUid);
+
+        return { token };
+      } catch (error) {
+        console.error("Error generating RTC token:", error.message);
+        throw error;
       }
     },
   },

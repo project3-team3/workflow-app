@@ -13,7 +13,7 @@
   --error-text-color: rgba(252, 63, 56, 1);
   --box-border-color: rgba(49, 67, 94, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
-  --inset-box-shadow-color: rgba(0, 0, 0, 1);
+  --inset-box-shadow-color: rgb(3, 1, 1);
   --inset-box-shadow-raise: rgba(255, 255, 255, 0.5);
   --textbox-background-color: rgba(250, 249, 246, 1);
   --input-border-color: rgba(52, 73, 102, 1);
@@ -21,6 +21,7 @@
   --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(0, 194, 203, 1);
   --sidenav-hover-color: rgba(76, 106, 148, 1);
+  --widget-resize-handle-color: rgba(0, 0, 0, 0.3);
   --clock-background-color: rgba(53, 73, 94, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(250, 249, 246, 1);
@@ -65,6 +66,7 @@
   --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(0, 194, 203, 1);
   --sidenav-hover-color: rgba(76, 106, 148, 1);
+  --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
   --clock-background-color: rgba(53, 73, 94, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(250, 249, 246, 1);
@@ -109,6 +111,7 @@
   --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(250, 249, 246, 1);
   --sidenav-hover-color: rgba(107, 137, 179, 1);
+  --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
   --clock-background-color: rgba(0, 194, 203, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(250, 249, 246, 1);
@@ -153,6 +156,7 @@
   --checkbox-border-color: rgba(49, 67, 94, 1);
   --sidenav-disabled-text-color: rgba(250, 249, 246, 1);
   --sidenav-hover-color: rgba(250, 249, 246, 1);
+  --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
   --clock-background-color: rgba(0, 194, 203, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(250, 249, 246, 1);
@@ -196,6 +200,7 @@
   --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(172, 172, 176, 1);
   --sidenav-hover-color: rgba(172, 172, 176, 1);
+  --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
   --clock-background-color: rgba(53, 73, 94, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(92, 92, 96, 1);
@@ -289,6 +294,10 @@ html {
   width: 70% !important;
   box-shadow: inset 1px 1px 3px var(--inset-box-shadow-color),
     inset -1px -1px 3px var(--inset-box-shadow-raise) !important;
+}
+
+.hidden-wf {
+  display: none;
 }
 
 .spinner-container-wf {
@@ -509,6 +518,23 @@ html {
 .react-grid-item {
   transition: left 200ms ease, top 200ms ease, width 200ms ease,
     height 200ms ease, box-shadow 0.3s ease-in-out !important;
+}
+
+.react-grid-item > .react-resizable-handle::after {
+  right: 6px !important;
+  bottom: 6px !important;
+  width: 12px;
+  height: 12px;
+  border-radius: 0 0 20px 0;
+  border-right: 2px groove var(--widget-resize-handle-color);
+  border-bottom: 2px groove var(--widget-resize-handle-color);
+}
+
+.react-grid-item.react-grid-placeholder {
+  background: var(--box-shadow-color);
+  border: 2px dashed var(--darkest-accent-color);
+  border-radius: 20px;
+  opacity: 0.2;
 }
 
 .widget-wf {
@@ -1300,7 +1326,7 @@ h2 {
 }
 
 /* Video Chat page rules */
-.video-chat-box-wf {
+.video-chat-input-box-wf {
   align-items: center;
 }
 
@@ -1314,11 +1340,30 @@ h2 {
   justify-content: center;
 }
 
+.video-chat-player-box-wf {
+  width: 95%;
+  margin-top: 7vh;
+  padding: 2%;
+}
+
+#video-chat-overlay-spinner-wf {
+  width: 95%;
+  background-color: var(--dark-accent-color);
+}
+
+.video-chat-spinner-container-wf {
+  width: 100%;
+  height: auto;
+  margin-top: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .video-main-wf {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin: 30px;
 }
 
 .video-outer-container-wf {
@@ -1329,13 +1374,8 @@ h2 {
 
 .video-container-wf {
   display: flex;
-  width: 95vw;
+  width: 90vw;
   height: 90vh;
-}
-
-.video-container-wf > div > div:nth-child(1),
-.video-container-wf > div > div:nth-child(2) {
-  background-color: var(--main-background-color) !important;
 }
 
 .video-container-wf > div > div:nth-child(1) > div {
@@ -1343,11 +1383,12 @@ h2 {
 }
 
 .video-container-wf > div > div:nth-child(1) > div:nth-child(1) {
-  border: 3px solid var(--darkest-accent-color);
-  border-radius: 15px;
+  border: 2px solid var(--darkest-accent-color);
+  border-radius: 20px;
   overflow: hidden;
   max-width: 50% !important;
   aspect-ratio: 4 /3 !important;
+  box-shadow: 5px 5px 10px var(--box-shadow-color);
 }
 
 .video-container-wf > div > div:nth-child(1) > div:nth-child(2) {
@@ -1359,13 +1400,63 @@ h2 {
 }
 
 .video-container-wf > div > div:nth-child(1) > div:nth-child(2) > div {
-  border: 3px solid var(--darkest-accent-color);
-  border-radius: 15px;
+  border: 2px solid var(--darkest-accent-color);
+  border-radius: 20px;
   overflow: hidden;
   min-width: 45% !important;
   max-height: 45% !important;
   aspect-ratio: 4 / 3 !important;
   margin: 0 1% !important;
+  box-shadow: 5px 5px 10px var(--box-shadow-color);
+}
+
+.video-container-wf > div > div:nth-child(2) {
+  background-color: var(--dark-accent-color) !important;
+  width: 50% !important;
+}
+
+.video-container-wf > div > div:nth-child(2) > div:nth-child(3) {
+  border: none !important;
+  border-radius: 10px !important;
+  background-color: var(--main-background-color) !important;
+  box-shadow: inset 0.9px 0.9px 10px -4px var(--inset-box-shadow-raise),
+  inset -2px -2px 7px var(--inset-box-shadow-color);
+  width: 80px !important;
+  height: 50px !important;
+}
+
+.video-container-wf > div > div:nth-child(2) > div:nth-child(3):hover {
+  background-color: var(--lighter-accent-color) !important;
+  box-shadow: inset 0.5px 0.5px 10px -4px var(--inset-box-shadow-raise),
+    inset -2px -2px 7px var(--inset-box-shadow-color) !important;
+}
+
+.video-container-wf > div > div:nth-child(2) > div:nth-child(3):focus {
+  background-color: var(--light-accent-color) !important;
+  box-shadow: inset 0.5px 0.5px 10px -4px var(--inset-box-shadow-raise),
+    inset -2px -2px 7px var(--inset-box-shadow-color) !important;
+}
+
+.video-container-wf > div > div:nth-child(2) > div > div {
+  border: none !important;
+  border-radius: 10px !important;
+  background-color: var(--main-background-color) !important;
+  box-shadow: inset 0.9px 0.9px 10px -4px var(--inset-box-shadow-raise),
+  inset -2px -2px 7px var(--inset-box-shadow-color);
+  width: 80px !important;
+  height: 50px !important;
+}
+
+.video-container-wf > div > div:nth-child(2) > div > div:hover {
+  background-color: var(--lighter-accent-color) !important;
+  box-shadow: inset 0.5px 0.5px 10px -4px var(--inset-box-shadow-raise),
+    inset -2px -2px 7px var(--inset-box-shadow-color) !important;
+}
+
+.video-container-wf > div > div:nth-child(2) > div > div:focus {
+  background-color: var(--light-accent-color) !important;
+  box-shadow: inset 0.5px 0.5px 10px -4px var(--inset-box-shadow-raise),
+    inset -2px -2px 7px var(--inset-box-shadow-color) !important;
 }
 
 /* Settings page rules */
@@ -1461,7 +1552,7 @@ h2 {
 }
 
 /* Media Queries for responsiveness */
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1550px) {
   .clock-digital-container-wf {
     padding: 0 10%;
     padding-top: 15%;
@@ -1550,6 +1641,10 @@ h2 {
     width: 80%;
     text-align: center;
   }
+
+  .video-chat-player-box-wf {
+    width: 95%;
+  }
 }
 
 @media screen and (max-width: 830px) {
@@ -1569,6 +1664,13 @@ h2 {
 @media screen and (max-width: 750px) {
   .clock-analog-container-wf svg {
     width: 160px;
+  }
+
+  .video-container-wf > div > div:nth-child(1) > div:nth-child(2) {
+    width: 50% !important;
+    flex-direction: column !important;
+    flex: 0 1 auto !important;
+    overflow-y: auto !important;
   }
 }
 
@@ -1852,6 +1954,30 @@ h2 {
   .video-player-input-wf {
     width: 50% !important;
   }
+
+  .video-chat-player-box-wf {
+    width: 97%;
+    margin-top: 2vh;
+  }
+
+  .video-container-wf > div > div:nth-child(1) > div:nth-child(1) {
+    border: 2px solid var(--darkest-accent-color);
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 70% !important;
+    aspect-ratio: 1 / 2 !important;
+    box-shadow: 5px 5px 10px var(--box-shadow-color);
+  }
+
+  .video-container-wf > div > div:nth-child(1) > div:nth-child(2) {
+    width: 30% !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+  }
+
+  .video-container-wf > div > div:nth-child(2) {
+    width: 100% !important;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -1865,6 +1991,37 @@ h2 {
   .clock-digital-container-wf {
     padding: 0 20%;
     padding-top: 7%;
+  }
+
+  .video-container-wf > div > div:nth-child(1) > div:nth-child(1) {
+    max-width: 100% !important;
+    aspect-ratio: 1 / 2 !important;
+    margin: 1vh 0px !important;
+  }
+
+  .video-container-wf > div > div:nth-child(1) > div:nth-child(2) {
+    position: absolute !important;
+    top: 13vh !important;
+    left: 3vh !important;
+    width: 90% !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+  }
+
+  .video-container-wf > div > div:nth-child(1) > div:nth-child(2) > div {
+    width: 30% !important;
+    min-width: 20% !important;
+    max-width: 30% !important;
+    aspect-ratio: 4 / 3 !important;
+    margin: 3% 3% !important;
+    box-shadow: none !important;
+  }
+
+  .video-container-wf > div > div:nth-child(2) {
+    position: absolute !important;
+    background-color: transparent !important;
+    bottom: 0 !important;
+    left: 0 !important;
   }
 }
 

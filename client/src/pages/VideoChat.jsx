@@ -1,12 +1,14 @@
 // Video Chat page
 // Credit: https://docs.agora.io/en/video-calling/get-started/get-started-uikit?platform=web#display-the-user-interface
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useMutation } from "@apollo/client";
 import AgoraUIKit from "agora-react-uikit";
 
 import AuthService from "../utils/auth.js";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER_SETTINGS } from "../utils/queries.js";
+import { GENERATE_AGORA_TOKEN } from "../utils/mutations.js";
 
 const VideoChat = () => {
   // Get user profile
@@ -14,18 +16,61 @@ const VideoChat = () => {
 
   const [videoCall, setVideoCall] = useState(false);
   const [channelName, setChannelName] = useState("");
+  const [showOverlaySpinner, setShowOverlaySpinner] = useState(false);
+
+  const [generateAgoraToken] = useMutation(GENERATE_AGORA_TOKEN);
+
+  const [generatedToken, setGeneratedToken] = useState("");
+
+  const handleJoinButtonClick = async () => {
+    try {
+      setShowOverlaySpinner(true);
+
+      // Request Agora token
+      // NOTE: "userUid" is set to 0 for now because Agora requires a unique 10-digit UID,
+      // however GraphQL is unable to work with numbers that large. Setting it to 0 prompts
+      // Agora to create a unique ID for the user for this session.
+      const { data } = await generateAgoraToken({
+        variables: { userChannelName: channelName, userUid: 0 },
+      });
+
+      // Extract the token from the response
+      const token = data.generateAgoraToken.token;
+
+      setGeneratedToken(token);
+      setVideoCall(true);
+    } catch (error) {
+      console.error("Error generating Agora token:", error.message);
+      // Handle error (e.g., show an error message to the user)
+    }
+  };
 
   // Agora video call props
   const rtcProps = {
-    appId: "10ad7a8f7b844ecc940092cd18c07f47", // App ID not secret
+    appId: "63ecd10aa2a1486dabd780bcabc0a943", // App ID is not secret
     channel: channelName, // User's chosen channel name
-    token: null,
+    token: generatedToken, // Token generated from Agora.io
   };
 
   // Agora video call callbacks
   const callbacks = {
-    EndCall: () => setVideoCall(false),
+    EndCall: () => {
+      setVideoCall(false);
+    },
   };
+
+  useEffect(() => {
+    console.log("useEffect triggered!");
+    console.log("showOverlaySpinner:", showOverlaySpinner);
+    // Set 3s timeout for overlay spinner to disappear
+    if (showOverlaySpinner) {
+      const timeoutId = setTimeout(() => {
+        setShowOverlaySpinner(false);
+      }, 3000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [showOverlaySpinner]);
 
   // Get user settings
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
@@ -53,40 +98,64 @@ const VideoChat = () => {
   return (
     <div>
       {videoCall ? (
-        <div className="video-main-wf">
-          <div className="video-outer-container-wf">
-            <div className="video-container-wf">
-              <AgoraUIKit rtcProps={rtcProps} callbacks={callbacks} />
+        <div className="box-container-wf">
+          <div className="box-wf video-chat-player-box-wf">
+            <div
+              id="video-chat-overlay-spinner-wf"
+              className={showOverlaySpinner ? "" : "hidden-wf"}
+            >
+              <div className="video-chat-spinner-container-wf">
+                <div className="preloader-wrapper big active">
+                  <div className="spinner-layer">
+                    <div className="circle-clipper left">
+                      <div className="circle"></div>
+                    </div>
+                    <div className="gap-patch">
+                      <div className="circle"></div>
+                    </div>
+                    <div className="circle-clipper right">
+                      <div className="circle"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="video-main-wf">
+              <div className="video-outer-container-wf">
+                <div className="video-container-wf">
+                  <AgoraUIKit rtcProps={rtcProps} callbacks={callbacks} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       ) : (
         <div className="box-container-wf">
-          <div className="box-wf video-chat-box-wf">
+          <div className="box-wf video-chat-input-box-wf">
             <h4>Workflow Video Chat</h4>
-              <p>
-                Please enter the name of the channel you'd like to join. If the
-                channel does not exist, a new one will be created.
-              </p>
-              <input
-                id="channel"
-                type="text"
-                className="input-wf video-player-input-wf"
-                value={channelName}
-                onChange={(e) => setChannelName(e.target.value)}
-                placeholder="Channel name"
-              />
-              <div className="video-player-button-container-wf">
-                <button
-                  className="waves-effect waves-light btn button-wf video-player-button-wf"
-                  onClick={() =>
-                    channelName
-                      ? setVideoCall(true)
-                      : alert("Please enter Channel Name")
-                  }
-                >
-                  Join
-                </button>
+            <p>
+              Please enter the name of the channel you'd like to join. If the
+              channel does not exist, a new one will be created.
+            </p>
+            <input
+              id="channel"
+              type="text"
+              className="input-wf video-player-input-wf"
+              value={channelName}
+              onChange={(e) => setChannelName(e.target.value)}
+              placeholder="Channel name"
+            />
+            <div className="video-player-button-container-wf">
+              <button
+                className="waves-effect waves-light btn button-wf video-player-button-wf"
+                onClick={() =>
+                  channelName
+                    ? handleJoinButtonClick()
+                    : alert("Please enter Channel Name")
+                }
+              >
+                Join
+              </button>
             </div>
           </div>
         </div>
