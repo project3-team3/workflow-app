@@ -4,79 +4,73 @@
   <img src="./client/public/readme_logo.png" height="150px" align="right" />
 </a>
 
-<style>
-  div a {
-    text-decoration: none;
-  }
-</style>
-
 <div style="display: flex; flex-wrap: wrap; width: 35%">
 
-<a href="https://render.com" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://render.com" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="Render" src="https://img.shields.io/badge/Render-grey?style=for-the-badge&logo=render&logoColor=46E3B7">
 </a>
 
-<a href="https://git-scm.com/" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://git-scm.com/" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="Git" src="https://img.shields.io/badge/Git-grey?style=for-the-badge&logo=git&logoColor=F05032">
 </a>
 
-<a href="https://code.visualstudio.com/" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://code.visualstudio.com/" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="Visual Studio Code" src="https://img.shields.io/badge/Visual_Studio_Code-grey?style=for-the-badge&logo=visual-studio-code&logoColor=007ACC">
 </a>
 
-<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="HTML5" src="https://img.shields.io/badge/HTML5-grey?style=for-the-badge&logo=html5&logoColor=E34F26">
 </a>
 
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-grey?style=for-the-badge&logo=javascript">
 </a>
 
-<a href="https://nodejs.org/" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://nodejs.org/" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="NodeJS" src="https://img.shields.io/badge/node.js-grey?style=for-the-badge&logo=node.js&logoColor=339933">
 </a>
 
-<a href="https://www.npmjs.com/" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://www.npmjs.com/" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="NPM" src="https://img.shields.io/badge/NPM-grey?style=for-the-badge&logo=npm&logoColor=CB3837">
 </a>
 
-<a href="https://nodemon.io/" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://nodemon.io/" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="Nodemon" src="https://img.shields.io/badge/Nodemon-grey?style=for-the-badge&logo=nodemon&logoColor=76D04B">
 </a>
 
-<a href="https://expressjs.com/" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://expressjs.com/" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="Express.js" src="https://img.shields.io/badge/express.js-grey?style=for-the-badge&logo=express&logoColor=000000">
 </a>
 
-<a href="https://reactjs.org/" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://reactjs.org/" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="React" src="https://img.shields.io/badge/React-grey?style=for-the-badge&logo=react&logoColor=61DAFB">
 </a>
 
-<a href="https://www.apollographql.com/" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://www.apollographql.com/" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="Apollo Server" src="https://img.shields.io/badge/apollo-grey?style=for-the-badge&logo=apollo-graphql&logoColor=311C87">
 </a>
 
-<a href="https://graphql.org/" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://graphql.org/" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="GraphQL" src="https://img.shields.io/badge/graphql-grey?style=for-the-badge&logo=graphql&logoColor=E10098">
 </a>
 
-<a href="https://www.mongodb.com/" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://www.mongodb.com/" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="MongoDB" src="https://img.shields.io/badge/mongodb-grey?style=for-the-badge&logo=mongodb&logoColor=47A248">
 </a>
 
-<a href="https://mongoosejs.com/" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://mongoosejs.com/" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="Mongoose" src="https://img.shields.io/badge/mongoose-grey?style=for-the-badge&logo=mongoose&logoColor=880000">
 </a>
 
-<a href="https://www.agora.io/en/" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://www.agora.io/en/" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="Agora" src="https://img.shields.io/badge/agora-grey?style=for-the-badge&logo=agora&logoColor=099DFD">
 </a>
 
-<a href="https://vitejs.dev/" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://vitejs.dev/" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="Vite" src="https://img.shields.io/badge/vite-grey?style=for-the-badge&logo=vite&logoColor=646CFF">
 </a>
 
-<a href="https://eslint.org/" style="text-decoration: none; margin-right: 1%; margin-bottom: 1%">
+<a href="https://eslint.org/" style="color: #0d1117; text-decoration: none; margin-right: 1%; margin-bottom: 1%">
   <img alt="ESLint" src="https://img.shields.io/badge/ESLint-grey?style=for-the-badge&logo=eslint&logoColor=4B32C3">
 </a>
 
