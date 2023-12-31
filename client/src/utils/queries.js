@@ -122,3 +122,15 @@ export const QUERY_RANDOM_TIP = gql`
     }
   }
 `;
+
+export const GET_FILE_LIST = gql`
+  query GetFileList($username: String!) {
+    getFileList(username: $username)
+  }
+`;
+
+export const GET_PRESIGNED_URL = gql`
+  query GetPresignedUrl($username: String!, $fileName: String!) {
+    generatePresignedUrl(username: $username, fileName: $fileName)
+  }
+`;

@@ -1,15 +1,108 @@
 // File Management Widget component
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useQuery, useApolloClient } from "@apollo/client";
 import { Uppy } from "@uppy/core";
 import { Dashboard } from "@uppy/react";
 import Transloadit from "@uppy/transloadit";
 import AuthService from "../../utils/auth.js";
+import { GET_FILE_LIST, GET_PRESIGNED_URL } from "../../utils/queries.js";
 
 import "@uppy/core/dist/style.min.css";
-import '@uppy/dashboard/dist/style.min.css';
+import "@uppy/dashboard/dist/style.min.css";
 
 const FileManagementWidget = () => {
+  const client = useApolloClient();
+
   const userProfile = AuthService.getProfile();
+  console.log(
+    "[FileManagementWidget.jsx]: username obtained?",
+    userProfile?.username || userProfile?.user?.username
+  );
+
+  const [loading, setLoading] = useState(true);
+
+  console.log("[FileManagementWidget.jsx]: Starting query for file list...");
+  // Use the useQuery hook to fetch the file list
+  const {
+    loading: listLoading,
+    error: listError,
+    data: listData,
+  } = useQuery(GET_FILE_LIST, {
+    variables: {
+      username: userProfile?.username || userProfile?.user?.username,
+    },
+  });
+
+  const [fileList, setFileList] = useState([]);
+  const [downloadUrls, setDownloadUrls] = useState({});
+
+  useEffect(() => {
+    console.log("[FileManagementWidget.jsx]: In listData useEffect hook");
+    console.log("[FileManagementWidget.jsx]: listData obtained?", listData);
+    // Update the local state with the file list when data is available
+    if (listData?.getFileList && Array.isArray(listData.getFileList)) {
+      console.log(
+        "[FileManagementWidget.jsx]: listData has data, updating fileList..."
+      );
+      // Update the local state with the file list when data is available
+      setFileList(listData.getFileList);
+      console.log(
+        "[FileManagementWidget.jsx]: File list updated?",
+        listData.getFileList
+      );
+    }
+  }, [listData]);
+
+  useEffect(() => {
+    console.log(
+      "[FileManagementWidget.jsx]: In fileList useEffect hook. fileList:",
+      fileList
+    );
+    console.log("[FileManagementWidget.jsx]: listLoading?", listLoading);
+    if (listLoading) {
+      console.log("[FileManagementWidget.jsx]: Still loading file list...");
+      // You can render a loading state here if needed
+      return;
+    }
+
+    // Fetch download URLs for each file in the file list
+    const fetchDownloadUrls = async () => {
+      console.log(
+        "[FileManagementWidget.jsx]: fileList has data, fetching URLs..."
+      );
+      const urls = {};
+      for (const fileName of fileList) {
+        try {
+          console.log(
+            `[FileManagementWidget.jsx]: Fetching presigned URL for ${fileName}...`
+          );
+          const { data } = await client.query({
+            query: GET_PRESIGNED_URL,
+            variables: {
+              username: userProfile?.username || userProfile?.user?.username,
+              fileName,
+            },
+          });
+          console.log(
+            `[FileManagementWidget.jsx]: Presigned URL for ${fileName} obtained?`,
+            data.generatePresignedUrl
+          );
+          urls[fileName] = data.generatePresignedUrl;
+          console.log(`[FileManagementWidget.jsx]: Current URL list:`, urls);
+        } catch (error) {
+          console.error(`Error fetching presigned URL for ${fileName}:`, error);
+          // Handle error as needed
+        }
+      }
+      setDownloadUrls(urls);
+      setLoading(false);
+    };
+
+    // Trigger fetchDownloadUrls when fileList changes
+    if (fileList.length > 0) {
+      fetchDownloadUrls();
+    }
+  }, [fileList, userProfile]);
 
   const [uppy] = useState(
     new Uppy({
@@ -47,9 +140,9 @@ const FileManagementWidget = () => {
           },
         },
       })
-      .on('upload-success', (file, response) => {
-        console.log('File uploaded successfully:', file);
-        console.log('Transloadit response:', response);
+      .on("upload-success", (file, response) => {
+        console.log("File uploaded successfully:", file);
+        console.log("Transloadit response:", response);
       })
   );
 
@@ -59,9 +152,37 @@ const FileManagementWidget = () => {
       <div className="drag-drop-wf widget-prevent-drag-wf">
         {uppy && (
           <>
-            <Dashboard id="Dashboard" target="drag-drop-wf" uppy={uppy} height="100%" />
+            <Dashboard
+              id="Dashboard"
+              target="drag-drop-wf"
+              uppy={uppy}
+              height="100%"
+            />
           </>
         )}
+      </div>
+      <div className="download-list-wf">
+        <p>Your Files</p>
+        <ul>
+          {fileList.map((fileName) => (
+            <li key={fileName}>
+              {fileName} -{" "}
+              {downloadUrls[fileName] ? (
+                // Add a link or button to download the file
+                <a
+                  href={downloadUrls[fileName]}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download
+                </a>
+              ) : (
+                "Fetching URL..."
+              )}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

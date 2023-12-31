@@ -85,6 +85,8 @@ const typeDefs = `
     randomQuote: Quote
     randomTip: BalanceTip
     widgets: [WidgetTuple]
+    getFileList(username: String!): [String]
+    generatePresignedUrl(username: String!, fileName: String!): String
   }
 
   type Mutation {

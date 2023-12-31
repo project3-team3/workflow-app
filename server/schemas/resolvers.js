@@ -1,6 +1,7 @@
 const { User, UserSettings, Quote, BalanceTip } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 const generateRtcToken = require("../utils/agoraTokenGen.js");
+const { fetchFileList, generatePresignedUrl } = require("../utils/awsS3.js");
 
 const resolvers = {
   Query: {
@@ -40,6 +41,27 @@ const resolvers = {
         return userSettings;
       } catch (error) {
         throw new Error(`Error fetching user settings: ${error.message}`);
+      }
+    },
+    getFileList: async (_, { username }) => {
+      console.log("[resolvers.js]: In getFileList(). username:", username);
+      // Fetch file list from S3 for the specified username
+      const fileList = await fetchFileList(username);
+      console.log("[resolvers.js]: fileList obtained?", fileList);
+      return fileList;
+    },
+    generatePresignedUrl: async (_, { username, fileName }) => {
+      console.log(
+        "[resolvers.js]: In generatePresignedUrl(). username/fileName:",
+        `${username}/${fileName}`
+      );
+      try {
+        const url = await generatePresignedUrl(username, fileName);
+        console.log("[resolvers.js]: url obtained?", url);
+        return url;
+      } catch (error) {
+        console.error("Error generating pre-signed URL:", error);
+        throw new Error("Error generating pre-signed URL");
       }
     },
   },
