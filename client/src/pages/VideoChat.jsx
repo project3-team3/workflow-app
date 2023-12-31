@@ -100,6 +100,7 @@ const VideoChat = () => {
       {videoCall ? (
         <div className="box-container-wf">
           <div className="box-wf video-chat-player-box-wf">
+          <h4 className="video-channel-title-wf">Streaming Channel: {channelName}</h4>
             <div
               id="video-chat-overlay-spinner-wf"
               className={showOverlaySpinner ? "" : "hidden-wf"}
@@ -120,6 +121,7 @@ const VideoChat = () => {
                 </div>
               </div>
             </div>
+            
             <div className="video-main-wf">
               <div className="video-outer-container-wf">
                 <div className="video-container-wf">

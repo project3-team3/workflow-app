@@ -42,6 +42,7 @@
   --meditation-background-color: rgba(250, 249, 246, 1);
   --inspiring-quote-background-color: rgba(255, 207, 173, 1);
   --balance-tip-background-color: rgba(227, 200, 181, 1);
+  --video-chat-screen-border: rgba(250, 249, 246, 1);
 }
 
 .default-mode-wf {
@@ -88,6 +89,7 @@
   --meditation-background-color: rgba(250, 249, 246, 1);
   --inspiring-quote-background-color: rgba(255, 207, 173, 1);
   --balance-tip-background-color: rgba(227, 200, 181, 1);
+  --video-chat-screen-border: rgba(250, 249, 246, 1);
 }
 
 .blue-mode-wf {
@@ -134,6 +136,7 @@
   --meditation-background-color: rgba(250, 249, 246, 1);
   --inspiring-quote-background-color: rgba(255, 207, 173, 1);
   --balance-tip-background-color: rgba(227, 200, 181, 1);
+  --video-chat-screen-border: rgba(250, 249, 246, 1);
 }
 
 .white-mode-wf {
@@ -180,6 +183,7 @@
   --meditation-background-color: rgba(250, 249, 246, 1);
   --inspiring-quote-background-color: rgba(255, 207, 173, 1);
   --balance-tip-background-color: rgba(227, 200, 181, 1);
+  --video-chat-screen-border: rgba(49, 67, 94, 1);
 }
 
 .dark-mode-wf {
@@ -225,6 +229,7 @@
   --meditation-background-color: rgba(71, 71, 71, 1);
   --inspiring-quote-background-color: rgba(102, 43, 0, 1);
   --balance-tip-background-color: rgba(99, 99, 105, 1);
+  --video-chat-screen-border: rgba(250, 249, 246, 1);
 }
 
 /* General rules */
@@ -1594,6 +1599,10 @@ h2 {
   align-items: center;
 }
 
+.video-channel-title-wf {
+  margin-bottom: 2%;
+}
+
 .video-container-wf {
   display: flex;
   width: 90vw;
@@ -1605,12 +1614,13 @@ h2 {
 }
 
 .video-container-wf > div > div:nth-child(1) > div:nth-child(1) {
-  border: 2px solid var(--darkest-accent-color);
+  border: 5px solid var(--video-chat-screen-border);
   border-radius: 20px;
   overflow: hidden;
   max-width: 50% !important;
   aspect-ratio: 4 /3 !important;
-  box-shadow: 5px 5px 10px var(--box-shadow-color);
+  box-shadow: 10px 10px 10px var(--box-shadow-color);
+  margin-bottom: 20px;
 }
 
 .video-container-wf > div > div:nth-child(1) > div:nth-child(2) {
@@ -1622,14 +1632,14 @@ h2 {
 }
 
 .video-container-wf > div > div:nth-child(1) > div:nth-child(2) > div {
-  border: 2px solid var(--darkest-accent-color);
+  border: 5px solid var(--video-chat-screen-border);
   border-radius: 20px;
   overflow: hidden;
   min-width: 45% !important;
   max-height: 45% !important;
   aspect-ratio: 4 / 3 !important;
   margin: 0 1% !important;
-  box-shadow: 5px 5px 10px var(--box-shadow-color);
+  box-shadow: 10px 10px 10px var(--box-shadow-color);
 }
 
 .video-container-wf > div > div:nth-child(2) {
