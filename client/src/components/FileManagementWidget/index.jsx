@@ -161,31 +161,35 @@ const FileManagementWidget = () => {
           </>
         )}
       </div>
+      {fileList.length > 0 && (
       <div className="download-list-wf">
         <p>Your Files</p>
         <ul>
           {fileList.map((fileName) => (
-            <li key={fileName}>
-              {fileName} -{" "}
-              {downloadUrls[fileName] ? (
-                // Add a link or button to download the file
-                <a
-                  href={downloadUrls[fileName]}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Download
-                </a>
-              ) : (
-                "Fetching URL..."
-              )}
-            </li>
+            <div className="download-item-container-wf" key={fileName}>
+              <li>
+                {downloadUrls[fileName] ? (
+                  // Add a link or button to download the file
+                  <a
+                    href={downloadUrls[fileName]}
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="material-icons">cloud_download</i>
+                  </a>
+                ) : (
+                  "Fetching URL..."
+                )}
+                {fileName}
+              </li>
+            </div>
           ))}
         </ul>
       </div>
-    </div>
-  );
-};
+    )}
+  </div>
+);
+}
 
 export default FileManagementWidget;

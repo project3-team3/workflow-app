@@ -30,6 +30,7 @@
   --calendar-weekend-day-color: rgba(183, 0, 0, 1);
   --calendar-disabled-day-color: rgba(173, 184, 193, 1);
   --file-management-background-color: rgba(197, 198, 149, 1);
+  --file-management-drop-zone-color: rgba(177, 178, 129, 1);
   --sticky-note-background-color: rgba(153, 250, 255, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
@@ -75,6 +76,7 @@
   --calendar-weekend-day-color: rgba(143, 0, 0, 1);
   --calendar-disabled-day-color: rgba(173, 184, 193, 1);
   --file-management-background-color: rgba(197, 198, 149, 1);
+  --file-management-drop-zone-color: rgba(177, 178, 129, 1);
   --sticky-note-background-color: rgba(153, 250, 255, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
@@ -120,6 +122,7 @@
   --calendar-weekend-day-color: rgba(143, 0, 0, 1);
   --calendar-disabled-day-color: rgba(173, 184, 193, 1);
   --file-management-background-color: rgba(197, 198, 149, 1);
+  --file-management-drop-zone-color: rgba(177, 178, 129, 1);
   --sticky-note-background-color: rgba(153, 250, 255, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
@@ -165,6 +168,7 @@
   --calendar-weekend-day-color: rgba(143, 0, 0, 1);
   --calendar-disabled-day-color: rgba(173, 184, 193, 1);
   --file-management-background-color: rgba(197, 198, 149, 1);
+  --file-management-drop-zone-color: rgba(177, 178, 129, 1);
   --sticky-note-background-color: rgba(153, 250, 255, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
@@ -209,6 +213,7 @@
   --calendar-weekend-day-color: rgb(228, 43, 43);
   --calendar-disabled-day-color: rgba(173, 184, 193, 1);
   --file-management-background-color: rgba(79, 80, 43, 1);
+  --file-management-drop-zone-color: rgba(177, 178, 129, 1);
   --sticky-note-background-color: rgba(172, 172, 176, 1);
   --sticky-note-placeholder-text-color: rgba(102, 102, 106, 1);
   --sticky-note-text-color: rgba(13, 24, 33, 1);
@@ -936,6 +941,7 @@ html {
   background-color: var(--file-management-background-color);
   color: var(--darkest-accent-color);
   border: 1px solid var(--file-management-background-color);
+  overflow-y: auto;
 }
 
 .file-management-widget h2 {
@@ -956,10 +962,73 @@ html {
   height: 30%;
 }
 
-.drag-drop-wf > .uppy-Container > .uppy-Root > .uppy-u-reset {
+.drag-drop-wf > .uppy-Container > .uppy-Root > .uppy-Dashboard {
   border-radius: 20px;
   background-color: var(--file-management-inner-background-color);
 }
+
+.drag-drop-wf > .uppy-Container > .uppy-Root > .uppy-Dashboard > .uppy-Dashboard-inner {
+  background-color: var(--file-management-drop-zone-color);
+  border-radius: 15px;
+  border: 1px dashed var(--textbox-background-color);
+}
+
+.drag-drop-wf > .uppy-Container > .uppy-Root > .uppy-Dashboard > .uppy-Dashboard-inner > .uppy-Dashboard-innerWrap > .uppy-Dashboard-AddFiles {
+  border: none;
+}
+
+.drag-drop-wf > .uppy-Container > .uppy-Root > .uppy-Dashboard > .uppy-Dashboard-inner > .uppy-Dashboard-innerWrap > .uppy-Dashboard-AddFiles > .uppy-Dashboard-AddFiles-title {
+  font-weight: normal;
+}
+
+.drag-drop-wf > .uppy-Container > .uppy-Root > .uppy-Dashboard > .uppy-Dashboard-inner > .uppy-Dashboard-innerWrap > .uppy-Dashboard-AddFiles > .uppy-Dashboard-AddFiles-title button {
+  text-decoration: none;
+  color: var(--light-accent-color);
+}
+
+.drag-drop-wf > .uppy-Container > .uppy-Root > .uppy-Dashboard > .uppy-Dashboard-inner > .uppy-Dashboard-innerWrap > .uppy-Dashboard-AddFiles > .uppy-Dashboard-AddFiles-title button:active {
+  text-decoration: none;
+  background-color: transparent;
+  color: var(--light-accent-color);
+}
+
+.drag-drop-wf > .uppy-Container > .uppy-Root > .uppy-Dashboard > .uppy-Dashboard-inner > .uppy-Dashboard-innerWrap > .uppy-Dashboard-AddFiles > .uppy-Dashboard-AddFiles-title button:focus {
+  text-decoration: none;
+  background-color: transparent;
+  color: var(--light-accent-color);
+}
+
+.download-list-wf {
+  margin-left: 5%;
+  margin-right: 7%;
+  margin-top: 3%;
+  border: 1px solid var(--darker-accent-color);
+  border-radius: 15px;
+  padding: 4% 4% 0 4%;
+}
+
+.download-list-wf p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.download-item-container-wf {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3%;
+}
+
+.download-list-wf a {
+  color: var(--light-accent-color);
+}
+
+.download-list-wf i {
+  vertical-align: middle;
+  margin-right: 8px;
+  margin-top: -3px;
+}
+
+
 
 .drag-drop-wf .uppy-DragDrop-inner {
   padding: 20px 0px;
