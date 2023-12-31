@@ -1,7 +1,7 @@
 # Workflow
 
 <a href="https://workflow-oj8s.onrender.com/">
-  <img src="./client/public/readme_logo.png" height="200px" align="right" style="margin-right: 5%;"/>
+  <img src="./client/public/readme_logo.png" height="150px" align="right" style="margin-right: 5%;"/>
 </a>
 
 <div style="display: flex; flex-wrap: wrap; width: 25%">
