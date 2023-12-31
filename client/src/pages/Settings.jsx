@@ -9,6 +9,39 @@ import {
 import AuthService from "../utils/auth.js";
 
 const Settings = (props) => {
+  let deferredPrompt;
+
+  // Check for PWA installation before showing install button
+  window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+
+    deferredPrompt = event;
+
+    showInstallButton();
+  });
+
+  // Show install button if application hasn't been installed locally
+  function showInstallButton() {
+    document.getElementById("pwa-install-wf").style.display = "block";
+
+    document
+      .getElementById("pwa-install-button")
+      .addEventListener("click", () => {
+        // TODO: Change this to a modal
+        deferredPrompt.prompt();
+
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === "accepted") {
+            console.log("User accepted the install prompt");
+          } else {
+            console.log("User dismissed the install prompt");
+          }
+
+          deferredPrompt = null;
+        });
+      });
+  }
+
   const [userSettings, setUserSettings] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -270,6 +303,14 @@ const Settings = (props) => {
             </p>
           </div>
         </form>
+        <br />
+        <div id="pwa-install-wf">
+          <p className="settings-header-wf">Install Workflow</p>
+          <button
+            id="pwa-install-button"
+            className="waves-effect waves-light btn install-button-wf button-wf"
+          >Install</button>
+        </div>
       </div>
     </div>
   );

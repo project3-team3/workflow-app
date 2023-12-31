@@ -1746,6 +1746,10 @@ h2 {
   margin-top: 7vh;
 }
 
+#pwa-install-wf {
+  display: none;
+}
+
 /* Error page rules */
 .error-page-wf {
   margin-top: 10%;
