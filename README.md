@@ -1,10 +1,10 @@
 # Workflow
 
 <a href="https://workflow-oj8s.onrender.com/">
-  <img src="./client/public/readme_logo.png" height="150px" align="right" />
+  <img src="./client/public/readme_logo.png" height="200px" align="right" style="margin-right: 5%;"/>
 </a>
 
-<div style="display: flex; flex-wrap: wrap; width: 35%">
+<div style="display: flex; flex-wrap: wrap; width: 25%">
 
 <img alt="Render" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/Render-grey?style=for-the-badge&logo=render&logoColor=46E3B7">
 <img alt="Git" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/Git-grey?style=for-the-badge&logo=git&logoColor=F05032">
@@ -23,6 +23,8 @@
 <img alt="Agora" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/agora-grey?style=for-the-badge&logo=agora&logoColor=099DFD">
 <img alt="Vite" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/vite-grey?style=for-the-badge&logo=vite&logoColor=646CFF">
 <img alt="ESLint" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/ESLint-grey?style=for-the-badge&logo=eslint&logoColor=4B32C3">
+<img alt="AWS" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/AWS-grey?style=for-the-badge&logo=amazon-aws&logoColor=4B32C3">
+
 
 </div>
 

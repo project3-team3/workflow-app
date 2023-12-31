@@ -1,7 +1,6 @@
 const { User, UserSettings, Quote, BalanceTip } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 const generateRtcToken = require("../utils/agoraTokenGen.js");
-const { uploadTransloaditFile } = require("../utils/transloadit");
 
 const resolvers = {
   Query: {
@@ -310,20 +309,6 @@ const resolvers = {
         throw error;
       }
     },
-    // Upload files to server
-    uploadFile: async (__, { file }) => {
-      console.log("In uploadFile resolver!");
-      try {
-        console.log("file:", file);
-        // Call the Transloadit function to upload and process the file
-        await uploadTransloaditFile(file);
-
-        return 'File uploaded and Transloadit processing initiated.';
-      } catch (error) {
-        console.error('Error handling file upload:', error);
-        throw new Error('Internal server error.');
-      }
-    }
   },
 };
 

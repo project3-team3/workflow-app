@@ -198,9 +198,3 @@ export const GENERATE_AGORA_TOKEN = gql`
     }
   }
 `;
-
-export const UPLOAD_FILE = gql`
-  mutation uploadFile($file: Upload!) {
-    uploadFile(file: $file)
-  }
-`;
