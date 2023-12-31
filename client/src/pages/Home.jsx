@@ -3,6 +3,9 @@ import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  // Select the HTML element to check for color theme
+  const htmlElement = document.documentElement;
+
   // Select elements to animate
   const flowTextEl = useRef(null);
   const textBlockEl = useRef(null);
@@ -87,7 +90,7 @@ const Home = () => {
       <>
         <div className="welcome-wf">
           <img
-            src="/logo_transparent.png"
+            src={htmlElement.classList.contains("white-mode-wf") ? "/logo_dark_transparent.png" : "/logo_transparent.png"}
             alt="logo"
             className="logo-welcome-wf"
           />
