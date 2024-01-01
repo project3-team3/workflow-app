@@ -102,7 +102,7 @@ const FileManagementWidget = () => {
     if (fileList.length > 0) {
       fetchDownloadUrls();
     }
-  }, [fileList, userProfile]);
+  }, [fileList]);
 
   const [uppy] = useState(
     new Uppy({

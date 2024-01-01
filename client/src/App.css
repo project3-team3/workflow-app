@@ -1692,6 +1692,18 @@ h2 {
 }
 
 /* Settings page rules */
+.settings-container-wf {
+  display: none;
+}
+
+.settings-spinner-container-wf {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .settings-header-wf {
   margin-top: 5vh;
   font-size: 18px;
