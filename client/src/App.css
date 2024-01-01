@@ -1575,16 +1575,11 @@ h2 {
 
 #video-chat-overlay-spinner-wf {
   width: 95%;
-  background-color: var(--dark-accent-color);
-}
-
-.video-chat-spinner-container-wf {
-  width: 100%;
   height: auto;
-  margin-top: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--dark-accent-color);
 }
 
 .video-main-wf {
@@ -1692,18 +1687,6 @@ h2 {
 }
 
 /* Settings page rules */
-.settings-container-wf {
-  display: none;
-}
-
-.settings-spinner-container-wf {
-  width: 100vw;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .settings-header-wf {
   margin-top: 5vh;
   font-size: 18px;

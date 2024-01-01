@@ -8,6 +8,8 @@ import {
 } from "../utils/mutations.js";
 import AuthService from "../utils/auth.js";
 
+import LoadingSpinner from "../components/LoadingSpinner/index.jsx";
+
 const Settings = (props) => {
   console.log("*** NEW RENDER ***");
 
@@ -206,13 +208,6 @@ const Settings = (props) => {
   }, [userSettings]);
 
   useEffect(() => {
-    if (checkboxUpdateComplete && dropdownUpdateComplete) {
-      document.querySelector(".settings-spinner-container-wf").style.display = 'none';
-      document.querySelector(".settings-container-wf").style.display = 'block';
-    }
-  }, [checkboxUpdateComplete, dropdownUpdateComplete]);
-
-  useEffect(() => {
     colorThemeUpdateHookFirstRun
       ? console.log(
           "[COLOR THEME UPDATE USEEFFECT]: useEffect triggered (First run trigger)."
@@ -328,22 +323,18 @@ const Settings = (props) => {
 
   return (
     <>
-      <div className="settings-spinner-container-wf">
-        <div className="preloader-wrapper big active">
-          <div className="spinner-layer">
-            <div className="circle-clipper left">
-              <div className="circle"></div>
-            </div>
-            <div className="gap-patch">
-              <div className="circle"></div>
-            </div>
-            <div className="circle-clipper right">
-              <div className="circle"></div>
-            </div>
-          </div>
-        </div>
+      <div
+        className={
+          checkboxUpdateComplete && dropdownUpdateComplete ? "hidden-wf" : ""
+        }
+      >
+        <LoadingSpinner />
       </div>
-      <div className="settings-container-wf">
+      <div
+        className={
+          checkboxUpdateComplete && dropdownUpdateComplete ? "" : "hidden-wf"
+        }
+      >
         <div className="box-container-wf">
           <div className="box-wf">
             <h4>Settings</h4>

@@ -10,6 +10,8 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 import { GENERATE_AGORA_TOKEN } from "../utils/mutations.js";
 
+import LoadingSpinner from "../components/LoadingSpinner/index.jsx";
+
 const VideoChat = () => {
   // Get user profile
   const userProfile = AuthService.getProfile();
@@ -100,32 +102,20 @@ const VideoChat = () => {
       {videoCall ? (
         <div className="box-container-wf">
           <div className="box-wf video-chat-player-box-wf">
-          <h4 className="video-channel-title-wf">Streaming Channel: {channelName}</h4>
-            <div
-              id="video-chat-overlay-spinner-wf"
-              className={showOverlaySpinner ? "" : "hidden-wf"}
-            >
-              <div className="video-chat-spinner-container-wf">
-                <div className="preloader-wrapper big active">
-                  <div className="spinner-layer">
-                    <div className="circle-clipper left">
-                      <div className="circle"></div>
-                    </div>
-                    <div className="gap-patch">
-                      <div className="circle"></div>
-                    </div>
-                    <div className="circle-clipper right">
-                      <div className="circle"></div>
-                    </div>
-                  </div>
-                </div>
+            <h4 className="video-channel-title-wf">
+              Streaming Channel: {channelName}
+            </h4>
+            <div className={showOverlaySpinner ? "" : "hidden-wf"}>
+              <div id="video-chat-overlay-spinner-wf">
+                <LoadingSpinner />
               </div>
             </div>
-            
-            <div className="video-main-wf">
-              <div className="video-outer-container-wf">
-                <div className="video-container-wf">
-                  <AgoraUIKit rtcProps={rtcProps} callbacks={callbacks} />
+            <div className={showOverlaySpinner ? "hidden-wf" : ""}>
+              <div className="video-main-wf">
+                <div className="video-outer-container-wf">
+                  <div className="video-container-wf">
+                    <AgoraUIKit rtcProps={rtcProps} callbacks={callbacks} />
+                  </div>
                 </div>
               </div>
             </div>
