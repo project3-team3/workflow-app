@@ -11,6 +11,7 @@ import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 import { GENERATE_AGORA_TOKEN } from "../utils/mutations.js";
 
 import LoadingSpinner from "../components/LoadingSpinner/index.jsx";
+import PopUpModal from "../components/PopUpModal/index.jsx";
 
 const VideoChat = () => {
   // Get user profile
@@ -23,6 +24,16 @@ const VideoChat = () => {
   const [generateAgoraToken] = useMutation(GENERATE_AGORA_TOKEN);
 
   const [generatedToken, setGeneratedToken] = useState("");
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   const handleJoinButtonClick = async () => {
     try {
@@ -143,7 +154,7 @@ const VideoChat = () => {
                 onClick={() =>
                   channelName
                     ? handleJoinButtonClick()
-                    : alert("Please enter Channel Name")
+                    : openModal()
                 }
               >
                 Join
@@ -152,6 +163,10 @@ const VideoChat = () => {
           </div>
         </div>
       )}
+      <PopUpModal isOpen={isModalOpen} onClose={closeModal}>
+        <h2>Error</h2>
+        <p>Please enter a name for the channel you'd like to join.</p>
+      </PopUpModal>
     </div>
   );
 };

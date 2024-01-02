@@ -1,8 +1,10 @@
 import AuthService from "../utils/auth.js";
 import { useQuery } from "@apollo/client";
+import { useState } from "react";
 // import ChatComponent from "../components/ChatComponent/ChatComponent.jsx";
 import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 import BackButton from "../components/BackButton";
+import PopUpModal from "../components/PopUpModal/index.jsx";
 
 const Chat = () => {
   const userProfile = AuthService.getProfile();

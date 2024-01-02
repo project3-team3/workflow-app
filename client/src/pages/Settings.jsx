@@ -13,16 +13,6 @@ import LoadingSpinner from "../components/LoadingSpinner/index.jsx";
 const Settings = (props) => {
   console.log("*** NEW RENDER ***");
 
-  // TODO: Remove these test variables after testing is done
-  const [checkboxUpdateHookFirstRun, setCheckboxUpdateHookFirstRun] =
-    useState(true);
-  const [dropdownUpdateHookFirstRun, setDropdownUpdateHookFirstRun] =
-    useState(true);
-  const [colorThemeUpdateHookFirstRun, setColorThemeUpdateHookFirstRun] =
-    useState(true);
-  const [settingsUpdateHookFirstRun, setSettingsUpdateHookFirstRun] =
-    useState(true);
-
   const [userSettings, setUserSettings] = useState(null);
   const [checkboxUpdateComplete, setCheckboxUpdateComplete] = useState(false);
   const [dropdownUpdateComplete, setDropdownUpdateComplete] = useState(false);
@@ -45,7 +35,6 @@ const Settings = (props) => {
     document
       .getElementById("pwa-install-button")
       .addEventListener("click", () => {
-        // TODO: Change this to a modal
         deferredPrompt.prompt();
 
         deferredPrompt.userChoice.then((choiceResult) => {
@@ -75,7 +64,6 @@ const Settings = (props) => {
   }
 
   function updateColorThemeDropdown() {
-    // TODO: Add logic to update the dropdown to match the current color theme
     console.log(
       "[UPDATECOLORTHEMEDROPDOWN]: Function triggered. Update color theme dropdown here!"
     );
@@ -124,13 +112,6 @@ const Settings = (props) => {
   });
 
   useEffect(() => {
-    settingsUpdateHookFirstRun
-      ? console.log(
-          "[SETTINGS UPDATE USEEFFECT]: useEffect triggered (First run trigger)."
-        )
-      : console.log(
-          "[SETTINGS UPDATE USEEFFECT]: either loading or data has changed."
-        );
     console.log(
       "[SETTINGS UPDATE USEEFFECT]: loading:",
       loading,
@@ -152,19 +133,9 @@ const Settings = (props) => {
         data
       );
     }
-    // Remove this after testing is done
-    setSettingsUpdateHookFirstRun(false);
   }, [loading, data]);
 
   useEffect(() => {
-    checkboxUpdateHookFirstRun
-      ? console.log(
-          "[CHECKBOX UPDATE USEEFFECT]: useEffect triggered (First run trigger)."
-        )
-      : console.log(
-          "[CHECKBOX UPDATE USEEFFECT]: Widget useEffect triggered (isLoaded value has changed)."
-        );
-
     // Set widget checkboxes to match user settings after component mounts
     if (data?.getUserSettings && data.getUserSettings.widgets) {
       console.log(
@@ -178,18 +149,9 @@ const Settings = (props) => {
         "[CHECKBOX UPDATE USEEFFECT]: No user settings found. Skipping update..."
       );
     }
-    // TODO: Remove this after testing is done
-    setCheckboxUpdateHookFirstRun(false);
   }, [userSettings]);
 
   useEffect(() => {
-    dropdownUpdateHookFirstRun
-      ? console.log(
-          "[DROPDOWN UPDATE USEEFFECT]: useEffect triggered (First run trigger)."
-        )
-      : console.log(
-          "[DROPDOWN UPDATE USEEFFECT]: Color Theme Dropdown useEffect triggered (isLoaded value has changed)."
-        );
     // Set widget checkboxes to match user settings after component mounts
     if (data?.getUserSettings && data.getUserSettings.currentTheme) {
       console.log(
@@ -203,18 +165,9 @@ const Settings = (props) => {
         "[DROPDOWN UPDATE USEEFFECT]: No user settings found. Skipping update..."
       );
     }
-    // TODO: Remove this after testing is done
-    setDropdownUpdateHookFirstRun(false);
   }, [userSettings]);
 
   useEffect(() => {
-    colorThemeUpdateHookFirstRun
-      ? console.log(
-          "[COLOR THEME UPDATE USEEFFECT]: useEffect triggered (First run trigger)."
-        )
-      : console.log(
-          "[COLOR THEME UPDATE USEEFFECT]: useEffect triggered (currentMode value has changed). Updating color theme..."
-        );
     console.log("[COLOR THEME UPDATE USEEFFECT]: currentMode:", currentMode);
     console.log(
       "[COLOR THEME UPDATE USEEFFECT]: <html> element applied class:",
@@ -258,8 +211,6 @@ const Settings = (props) => {
         "[COLOR THEME UPDATE USEEFFECT]: No value currently assigned to currentMode.  No need for updating."
       );
     }
-    // Remove this after testing is done
-    setColorThemeUpdateHookFirstRun(false);
   }, [currentMode]);
 
   // Handle widget checkbox changes

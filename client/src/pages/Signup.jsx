@@ -6,10 +6,22 @@ import { ADD_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
+import PopUpModal from "../components/PopUpModal/index.jsx";
+
 // Import default layout for new users
 import { defaultLayout } from "../components/WidgetGrid/index.jsx";
 
 const Signup = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   // Set default widget statuses for new users
   const defaultWidgets = [
     {
@@ -72,6 +84,10 @@ const Signup = () => {
     });
   };
 
+  const handleSignupError = () => {
+    openModal();
+  };
+
   // Handle the form submission
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -94,11 +110,12 @@ const Signup = () => {
 
       const { user, token } = userData.addUser;
 
-      console.log('Stored Token:', token);
+      console.log("Stored Token:", token);
 
       Auth.login(token);
     } catch (e) {
       console.error(e);
+      handleSignupError(e);
     }
   };
 
@@ -172,14 +189,16 @@ const Signup = () => {
               </div>
             </form>
           )}
-
-          {error && (
-            <div className="error-message-wf login-signup-error-wf">
-              {getErrorMessage(error)}
-            </div>
-          )}
         </div>
       </div>
+      <PopUpModal isOpen={isModalOpen} onClose={closeModal}>
+        {error && (
+          <>
+            <h2>Error</h2>
+            <p>{getErrorMessage(error)}</p>
+          </>
+        )}
+      </PopUpModal>
     </div>
   );
 };

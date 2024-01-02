@@ -6,9 +6,21 @@ import { LOGIN_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
+import PopUpModal from "../components/PopUpModal/index.jsx";
+
 const Login = (props) => {
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   // Update the form state when the user types into the input fields
   const handleChange = (event) => {
@@ -18,6 +30,10 @@ const Login = (props) => {
       ...formState,
       [name]: value,
     });
+  };
+
+  const handleLoginError = () => {
+    openModal();
   };
 
   // Handle the form submission
@@ -32,6 +48,7 @@ const Login = (props) => {
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
+      handleLoginError(e);
     }
 
     // Clear the form values
@@ -91,14 +108,16 @@ const Login = (props) => {
               </div>
             </form>
           )}
-
-          {error && (
-            <div className="error-message-wf login-signup-error-wf">
-              {getErrorMessage(error)}
-            </div>
-          )}
         </div>
       </div>
+      <PopUpModal isOpen={isModalOpen} onClose={closeModal}>
+        {error && (
+          <>
+            <h2>Error</h2>
+            <p>{getErrorMessage(error)}</p>
+          </>
+        )}
+      </PopUpModal>
     </div>
   );
 };
