@@ -123,10 +123,24 @@ const Signup = () => {
   const getErrorMessage = (error) => {
     if (
       error.message.includes(
+        "Path `username` is required"
+      )
+    ) {
+      return "Please enter a username.";
+    } else if (
+      error.message.includes(
         "E11000 duplicate key error collection: workflow-db.users index: username_1 dup key"
       )
     ) {
       return "This username is already taken, please choose a different one.";
+    } else if (
+      error.message.includes("Path `email` is required")
+    ) {
+      return "Please enter an e-mail address.";
+    } else if (
+      error.message.includes("This field must contain a valid e-mail address")
+    ) {
+      return "Invalid e-mail address. Please try again.";
     } else if (
       error.message.includes(
         "E11000 duplicate key error collection: workflow-db.users index: email_1 dup key"
@@ -134,10 +148,15 @@ const Signup = () => {
     ) {
       return "There is already an account for that e-mail address, please log in instead.";
     } else if (
+      error.message.includes("Path `password` is required")
+    ) {
+      return "Please enter a password.";
+    } else if (
       error.message.includes("is shorter than the minimum allowed length (8)")
     ) {
       return "Your password must be at least 8 characters long.";
     } else {
+      console.log(error);
       return "An error occurred. Please try again.";
     }
   };
@@ -153,7 +172,7 @@ const Signup = () => {
               <Link to="/">back to the homepage.</Link>
             </p>
           ) : (
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={handleFormSubmit} noValidate>
               <div className="login-signup-inner-container-wf">
                 <input
                   className="input-field input-wf"
