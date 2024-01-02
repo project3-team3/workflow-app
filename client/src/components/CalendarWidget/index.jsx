@@ -10,10 +10,12 @@ const CalendarWidget = () => {
     // Find and select the dynamically created elements with class react-calendar__navigation and react-calendar__month-view__weekdays
     const navigationEl = document.querySelector(".react-calendar__navigation");
     const daysEl = document.querySelector(".react-calendar__month-view__days");
+    const daybtnEl = document.querySelector(".react-calendar__month-view__days__day");
 
     // Add the class widget-prevent-drag-wf to the elements to prevent dragging when clicked
     navigationEl.classList.add("widget-prevent-drag-wf");
     daysEl.classList.add("widget-prevent-drag-wf");
+    daybtnEl.classList.add("widget-prevent-drag-wf");
   }, []);
 
   return (

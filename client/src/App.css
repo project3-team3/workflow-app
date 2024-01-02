@@ -13,7 +13,7 @@
   --error-text-color: rgba(252, 63, 56, 1);
   --box-border-color: rgba(49, 67, 94, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
-  --inset-box-shadow-color: rgb(3, 1, 1);
+  --inset-box-shadow-color: rgba(0, 0, 0, 1);
   --inset-box-shadow-raise: rgba(255, 255, 255, 0.5);
   --textbox-background-color: rgba(250, 249, 246, 1);
   --input-border-color: rgba(52, 73, 102, 1);
@@ -21,28 +21,31 @@
   --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(0, 194, 203, 1);
   --sidenav-hover-color: rgba(76, 106, 148, 1);
-  --widget-resize-handle-color: rgba(0, 0, 0, 0.3);
-  --clock-background-color: rgba(53, 73, 94, 1);
+  --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
+  --clock-background-color: rgba(49, 67, 94, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
-  --calendar-background-color: rgba(250, 249, 246, 1);
-  --calendar-disabled-area-color: rgba(250, 249, 246, 0.5);
-  --calendar-day-color: rgba(13, 24, 33, 1);
-  --calendar-weekend-day-color: rgba(183, 0, 0, 1);
-  --calendar-disabled-day-color: rgba(173, 184, 193, 1);
-  --file-management-background-color: rgba(197, 198, 149, 1);
-  --file-management-drop-zone-color: rgba(177, 178, 129, 1);
-  --sticky-note-background-color: rgba(153, 250, 255, 1);
-  --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --calendar-background-color: rgba(51, 65, 65, 1);
+  --calendar-disabled-area-color: rgba(124, 80, 113, 0.5);
+  --calendar-weekday-color: rgba(240, 239, 236, 1);
+  --calendar-day-color: rgba(250, 249, 246, 1);
+  --calendar-weekend-day-color: rgba(210, 114, 130, 1);
+  --calendar-disabled-day-color: rgba(250, 249, 246, 0.5);
+  --file-management-background-color: rgba(71, 85, 85, 1);
+  --file-management-drop-zone-color: rgba(96, 110, 110, 1);
+  --notepad-background-color: rgba(176, 190, 190, 1);
+  --sticky-note-background-color: rgba(214, 215, 116, 1);
+  --sticky-note-placeholder-text-color: rgba(166, 180, 180, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
-  --schedule-background-color: rgba(238, 225, 179, 1);
-  --schedule-darker-background-color: rgba(198, 174, 128, 1);
-  --kanban-board-background-color: rgba(213, 202, 214, 1);
-  --kanban-board-darker-background-color: rgba(192, 174, 194, 1);
+  --schedule-background-color: rgba(42, 77, 20, 1);
+  --schedule-darker-background-color: rgba(72, 97, 50, 1);
+  --kanban-board-background-color: rgba(72, 97, 50, 1);
+  --kanban-board-darker-background-color: rgba(42, 77, 20, 1);
   --kanban-column-heading-color: rgba(49, 67, 94, 1);
-  --meditation-background-color: rgba(250, 249, 246, 1);
-  --inspiring-quote-background-color: rgba(255, 207, 173, 1);
-  --balance-tip-background-color: rgba(227, 200, 181, 1);
+  --meditation-background-color: rgba(96, 110, 110, 1);
+  --inspiring-quote-background-color: rgba(158, 98, 64, 1);
+  --balance-tip-background-color: rgba(138, 78, 44, 1);
   --video-chat-screen-border: rgba(250, 249, 246, 1);
+  --video-chat-button: rgba(0, 194, 203, 1);
 }
 
 .default-mode-wf {
@@ -69,27 +72,30 @@
   --sidenav-disabled-text-color: rgba(0, 194, 203, 1);
   --sidenav-hover-color: rgba(76, 106, 148, 1);
   --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
-  --clock-background-color: rgba(53, 73, 94, 1);
+  --clock-background-color: rgba(49, 67, 94, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
-  --calendar-background-color: rgba(250, 249, 246, 1);
-  --calendar-disabled-area-color: rgba(250, 249, 246, 0.5);
-  --calendar-day-color: rgba(13, 24, 33, 1);
-  --calendar-weekend-day-color: rgba(143, 0, 0, 1);
-  --calendar-disabled-day-color: rgba(173, 184, 193, 1);
-  --file-management-background-color: rgba(197, 198, 149, 1);
-  --file-management-drop-zone-color: rgba(177, 178, 129, 1);
-  --sticky-note-background-color: rgba(153, 250, 255, 1);
-  --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --calendar-background-color: rgba(51, 65, 65, 1);
+  --calendar-disabled-area-color: rgba(124, 80, 113, 0.5);
+  --calendar-weekday-color: rgba(240, 239, 236, 1);
+  --calendar-day-color: rgba(250, 249, 246, 1);
+  --calendar-weekend-day-color: rgba(210, 114, 130, 1);
+  --calendar-disabled-day-color: rgba(250, 249, 246, 0.5);
+  --file-management-background-color: rgba(71, 85, 85, 1);
+  --file-management-drop-zone-color: rgba(96, 110, 110, 1);
+  --notepad-background-color: rgba(176, 190, 190, 1);
+  --sticky-note-background-color: rgba(214, 215, 116, 1);
+  --sticky-note-placeholder-text-color: rgba(166, 180, 180, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
-  --schedule-background-color: rgba(238, 225, 179, 1);
-  --schedule-darker-background-color: rgba(198, 174, 128, 1);
-  --kanban-board-background-color: rgba(213, 202, 214, 1);
-  --kanban-board-darker-background-color: rgba(192, 174, 194, 1);
+  --schedule-background-color: rgba(42, 77, 20, 1);
+  --schedule-darker-background-color: rgba(72, 97, 50, 1);
+  --kanban-board-background-color: rgba(72, 97, 50, 1);
+  --kanban-board-darker-background-color: rgba(42, 77, 20, 1);
   --kanban-column-heading-color: rgba(49, 67, 94, 1);
-  --meditation-background-color: rgba(250, 249, 246, 1);
-  --inspiring-quote-background-color: rgba(255, 207, 173, 1);
-  --balance-tip-background-color: rgba(227, 200, 181, 1);
+  --meditation-background-color: rgba(96, 110, 110, 1);
+  --inspiring-quote-background-color: rgba(158, 98, 64, 1);
+  --balance-tip-background-color: rgba(138, 78, 44, 1);
   --video-chat-screen-border: rgba(250, 249, 246, 1);
+  --video-chat-button: rgba(0, 194, 203, 1);
 }
 
 .blue-mode-wf {
@@ -103,7 +109,7 @@
   --main-text-color: rgba(250, 249, 246, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
   --secondary-text-color: rgba(13, 24, 33, 1);
-  --main-text-light-on-dark-color: rgba(49, 67, 94, 1);
+  --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
   --error-text-color: rgba(252, 63, 56, 1);
   --box-border-color: rgba(49, 67, 94, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
@@ -116,27 +122,30 @@
   --sidenav-disabled-text-color: rgba(250, 249, 246, 1);
   --sidenav-hover-color: rgba(107, 137, 179, 1);
   --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
-  --clock-background-color: rgba(0, 194, 203, 1);
+  --clock-background-color: rgba(0, 164, 173, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
-  --calendar-background-color: rgba(250, 249, 246, 1);
+  --calendar-background-color: rgba(166, 180, 180, 1);;
   --calendar-disabled-area-color: rgba(250, 249, 246, 0.5);
+  --calendar-weekday-color: rgba(13, 24, 33, 1);
   --calendar-day-color: rgba(13, 24, 33, 1);
   --calendar-weekend-day-color: rgba(143, 0, 0, 1);
-  --calendar-disabled-day-color: rgba(173, 184, 193, 1);
-  --file-management-background-color: rgba(197, 198, 149, 1);
-  --file-management-drop-zone-color: rgba(177, 178, 129, 1);
-  --sticky-note-background-color: rgba(153, 250, 255, 1);
+  --calendar-disabled-day-color: rgba(250, 249, 246, 1);
+  --file-management-background-color: rgba(71, 85, 85, 1);
+  --file-management-drop-zone-color: rgba(96, 110, 110, 1);
+  --notepad-background-color: rgba(176, 190, 190, 1);
+  --sticky-note-background-color: rgba(113, 210, 220, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
-  --schedule-background-color: rgba(238, 225, 179, 1);
-  --schedule-darker-background-color: rgba(198, 174, 128, 1);
-  --kanban-board-background-color: rgba(213, 202, 214, 1);
-  --kanban-board-darker-background-color: rgba(192, 174, 194, 1);
+  --schedule-background-color: rgba(42, 77, 20, 1);
+  --schedule-darker-background-color: rgba(72, 97, 50, 1);
+  --kanban-board-background-color: rgba(72, 97, 50, 1);
+  --kanban-board-darker-background-color: rgba(42, 77, 20, 1);
   --kanban-column-heading-color: rgba(49, 67, 94, 1);
-  --meditation-background-color: rgba(250, 249, 246, 1);
-  --inspiring-quote-background-color: rgba(255, 207, 173, 1);
-  --balance-tip-background-color: rgba(227, 200, 181, 1);
+  --meditation-background-color: rgba(146, 160, 160, 1);
+  --inspiring-quote-background-color: rgba(87, 117, 159, 1);
+  --balance-tip-background-color: rgba(77, 107, 149, 1);
   --video-chat-screen-border: rgba(250, 249, 246, 1);
+  --video-chat-button: rgba(53, 73, 94, 1);
 }
 
 .white-mode-wf {
@@ -147,7 +156,7 @@
   --light-accent-color: rgba(76, 106, 148, 1);
   --light-accent-transparent: rgba(76, 106, 148, 0);
   --lighter-accent-color: rgba(107, 137, 179, 1);
-  --main-text-color: rgba(49, 67, 94, 1);
+  --main-text-color: rgba(19, 37, 64, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
   --secondary-text-color: rgba(13, 24, 33, 1);
   --main-text-light-on-dark-color: rgba(49, 67, 94, 1);
@@ -167,23 +176,26 @@
   --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(250, 249, 246, 1);
   --calendar-disabled-area-color: rgba(250, 249, 246, 0.5);
+  --calendar-weekday-color: rgba(49, 67, 94, 1);
   --calendar-day-color: rgba(13, 24, 33, 1);
   --calendar-weekend-day-color: rgba(143, 0, 0, 1);
   --calendar-disabled-day-color: rgba(173, 184, 193, 1);
-  --file-management-background-color: rgba(197, 198, 149, 1);
-  --file-management-drop-zone-color: rgba(177, 178, 129, 1);
+  --file-management-background-color: rgba(178, 165, 119, 1);
+  --file-management-drop-zone-color: rgba(198, 185, 139, 1);
+  --notepad-background-color: rgba(250, 249, 246, 1);
   --sticky-note-background-color: rgba(153, 250, 255, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
-  --schedule-background-color: rgba(238, 225, 179, 1);
-  --schedule-darker-background-color: rgba(198, 174, 128, 1);
-  --kanban-board-background-color: rgba(164, 140, 166, 1);
-  --kanban-board-darker-background-color: rgba(136, 105, 140, 1);
+  --schedule-background-color: rgba(198, 185, 139, 1);
+  --schedule-darker-background-color: rgba(168, 155, 109, 1);
+  --kanban-board-background-color: rgba(168, 155, 109, 1);
+  --kanban-board-darker-background-color: rgba(198, 185, 139, 1);
   --kanban-column-heading-color: rgba(250, 249, 246, 1);
   --meditation-background-color: rgba(250, 249, 246, 1);
-  --inspiring-quote-background-color: rgba(255, 207, 173, 1);
-  --balance-tip-background-color: rgba(227, 200, 181, 1);
-  --video-chat-screen-border: rgba(49, 67, 94, 1);
+  --inspiring-quote-background-color: rgba(167, 140, 121, 1);
+  --balance-tip-background-color: rgba(187, 160, 141, 1);
+  --video-chat-screen-border: rgba(250, 249, 246, 1);
+  --video-chat-button: rgba(53, 73, 94, 1);
 }
 
 .dark-mode-wf {
@@ -194,42 +206,45 @@
   --light-accent-color: rgba(102, 102, 106, 1);
   --light-accent-transparent: rgba(76, 106, 148, 0);
   --lighter-accent-color: rgba(132, 132, 136, 1);
-  --main-text-color: rgba(250, 249, 246, 1);
+  --main-text-color: rgba(220, 219, 216, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
   --secondary-text-color: rgba(13, 24, 33, 1);
-  --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
+  --main-text-light-on-dark-color: rgba(220, 219, 216, 1);
   --error-text-color: rgba(252, 63, 56, 1);
   --box-border-color: rgba(15, 15, 15, 1);
   --box-shadow-color: rgba(105, 105, 105, 0.1);
   --inset-box-shadow-color: rgba(0, 0, 0, 1);
   --inset-box-shadow-raise: rgba(255, 255, 255, 0.5);
-  --textbox-background-color: rgba(82, 82, 86, 1);
+  --textbox-background-color: rgba(112, 112, 112, 1);
   --input-border-color: rgba(45, 45, 48, 1);
   --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(172, 172, 176, 1);
   --sidenav-hover-color: rgba(172, 172, 176, 1);
   --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
-  --clock-background-color: rgba(53, 73, 94, 1);
+  --clock-background-color: rgba(51, 51, 51, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
-  --calendar-background-color: rgba(92, 92, 96, 1);
+  --calendar-background-color: rgba(51, 51, 51, 1);
   --calendar-disabled-area-color: rgba(62, 62, 66, 0.5);
+  --calendar-weekday-color: rgba(250, 249, 246, 1);
   --calendar-day-color: rgba(250, 249, 246, 1);
   --calendar-weekend-day-color: rgb(228, 43, 43);
   --calendar-disabled-day-color: rgba(173, 184, 193, 1);
-  --file-management-background-color: rgba(79, 80, 43, 1);
-  --file-management-drop-zone-color: rgba(177, 178, 129, 1);
-  --sticky-note-background-color: rgba(172, 172, 176, 1);
+  --file-management-background-color: rgba(51, 51, 51, 1);
+  --file-management-drop-zone-color: rgba(91, 91, 91, 1);
+  --notepad-background-color: rgba(132, 132, 132, 1);
+  --sticky-note-background-color: rgba(132, 132, 132, 1);
   --sticky-note-placeholder-text-color: rgba(102, 102, 106, 1);
   --sticky-note-text-color: rgba(13, 24, 33, 1);
-  --schedule-background-color: rgba(133, 111, 30, 1);
-  --schedule-darker-background-color: rgba(83, 69, 19, 1);
-  --kanban-board-background-color: rgba(136, 105, 140, 1);
-  --kanban-board-darker-background-color: rgba(90, 70, 93, 1);
+  --schedule-background-color: rgba(51, 51, 51, 1);
+  --schedule-darker-background-color: rgba(31, 31, 31, 1);
+  --kanban-board-background-color: rgba(51, 51, 51, 1);
+  --kanban-board-darker-background-color: rgba(31, 31, 31, 1);
   --kanban-column-heading-color: rgba(250, 249, 246, 1);
-  --meditation-background-color: rgba(71, 71, 71, 1);
-  --inspiring-quote-background-color: rgba(102, 43, 0, 1);
-  --balance-tip-background-color: rgba(99, 99, 105, 1);
+  --meditation-background-color: rgba(51, 51, 51, 1);
+  --inspiring-quote-background-color: rgba(51, 51, 51, 1);
+  --balance-tip-background-color: rgba(51, 51, 51, 1);
   --video-chat-screen-border: rgba(250, 249, 246, 1);
+  --video-chat-button: rgba(25, 25, 25, 1);
 }
 
 /* General rules */
@@ -691,7 +706,6 @@ html {
 /* Calendar widget rules */
 .custom-calendar {
   background-color: var(--calendar-background-color);
-  color: var(--darkest-accent-color);
   font-weight: bold;
   height: 100%;
   width: 100%;
@@ -726,14 +740,30 @@ html {
   background: none;
 }
 
-.react-calendar__navigation button:disabled {
-  background-color: var(--calendar-disabled-area-color);
+.react-calendar__navigation button {
+  background-color: var(--calendar-background-color);
+}
+
+.react-calendar__navigation button:active {
+  background-color: var(--calendar-background-color);
+}
+
+.react-calendar__navigation button:focus {
+  background-color: var(--calendar-background-color);
 }
 
 .react-calendar__navigation__label__labelText,
 .react-calendar__navigation__arrow {
   font-weight: bold;
   color: var(--calendar-day-color);
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  color: var(--calendar-weekday-color);
+}
+
+.react-calendar__month-view__weekdays__weekday > abbr {
+  text-decoration: none;
 }
 
 .react-calendar__month-view__weekdays {
@@ -746,6 +776,18 @@ html {
 
 .react-calendar__month-view__days__day {
   color: var(--calendar-day-color);
+}
+
+.react-calendar__month-view__days__day:active {
+  background-color: var(--main-text-color);
+  color: var(--secondary-text-color);
+  border-radius: 50px;
+}
+
+.react-calendar__month-view__days__day:focus {
+  background-color: var(--main-text-color);
+  color: var(--secondary-text-color);
+  border-radius: 50px;
 }
 
 .react-calendar__month-view__weekdays__weekday {
@@ -765,8 +807,56 @@ html {
   color: var(--calendar-weekend-day-color);
 }
 
+.react-calendar__year-view__months__month {
+  color: var(--calendar-day-color);
+}
+
+.react-calendar__year-view__months__month:active {
+  background-color: var(--main-text-color);
+  color: var(--secondary-text-color);
+  border-radius: 50px;
+}
+
+.react-calendar__year-view__months__month:focus {
+  background-color: var(--main-text-color);
+  color: var(--secondary-text-color);
+  border-radius: 50px;
+}
+
 .react-calendar__month-view__days__day--neighboringMonth {
   color: var(--calendar-disabled-day-color);
+}
+
+.react-calendar__decade-view__years__year {
+  color: var(--calendar-day-color);
+}
+
+.react-calendar__decade-view__years__year:active {
+  background-color: var(--main-text-color);
+  color: var(--secondary-text-color);
+  border-radius: 50px;
+}
+
+.react-calendar__decade-view__years__year:focus {
+  background-color: var(--main-text-color);
+  color: var(--secondary-text-color);
+  border-radius: 50px;
+}
+
+.react-calendar__century-view__decades__decade {
+  color: var(--calendar-day-color);
+}
+
+.react-calendar__century-view__decades__decade:active {
+  background-color: var(--main-text-color);
+  color: var(--secondary-text-color);
+  border-radius: 50px;
+}
+
+.react-calendar__century-view__decades__decade:focus {
+  background-color: var(--main-text-color);
+  color: var(--secondary-text-color);
+  border-radius: 50px;
 }
 
 .react-calendar__year-view .react-calendar__tile,
@@ -790,26 +880,26 @@ html {
 }
 
 .react-calendar__tile--now {
-  background: var(--main-background-color);
+  background: var(--calendar-disabled-day-color);
+  color: var(--secondary-text-color);
   border-radius: 50px;
-  color: var(--main-text-color);
 }
 
 .react-calendar__tile--hasActive {
-  background: var(--light-accent-color);
+  background: var(--calendar-disabled-day-color);
   border-radius: 50px;
-  color: var(--main-text-color);
+  color: var(--secondary-text-color);
 }
 
 .react-calendar__tile--active {
-  background: var(--light-accent-color);
+  background: var(--calendar-disabled-day-color);
   border-radius: 50px;
-  color: var(--main-text-color);
+  color: var(--secondary-text-color);
 }
 
 /* Notepad Widget rules */
 .notepad-widget {
-  background-color: var(--textbox-background-color);
+  background-color: var(--notepad-background-color);
   border-radius: 20px;
   overflow: auto;
 }
@@ -822,9 +912,13 @@ html {
   resize: vertical;
   outline: none;
   font-size: 20px;
-  color: var(--darkest-accent-color);
+  color: var(--secondary-text-color);
   border: none;
   resize: none;
+}
+
+.notepad-textarea::placeholder {
+  color: var(--notepad-placeholder-text-color);
 }
 
 .notepad-textarea::-webkit-scrollbar {
@@ -881,14 +975,14 @@ html {
 .schedule-widget {
   border-radius: 20px;
   background-color: var(--schedule-background-color);
-  color: var(--darkest-accent-color);
+  color: var(--main-text-light-on-dark-color);
   padding: 25px;
   overflow: auto;
 }
 
 .schedule-widget h4 {
   margin-bottom: 20px;
-  color: var(--darkest-accent-color);
+  color: var(--main-text-light-on-dark-color);
 }
 
 .event-icons {
@@ -912,7 +1006,7 @@ html {
   justify-content: space-between;
   align-items: center;
   background-color: var(--schedule-background-color);
-  border: 1px solid var(--darker-accent-color);
+  border: 1px solid var(--main-text-color);
 }
 
 .event.completed {
@@ -933,9 +1027,9 @@ html {
   flex-direction: column;
 }
 
-.new-event h4 {
+.new-event h6 {
   margin-bottom: 12px;
-  color: var(--darker-accent-color);
+  color: var(--main-text-color);
 }
 
 .schedule-dropdown-container-wf {
@@ -945,7 +1039,7 @@ html {
 }
 
 .schedule-dropdown-wf {
-  color: var(--darkest-accent-color);
+  color: var(--secondary-text-color);
   font-family: "Lexend", sans-serif;
   background-color: var(--textbox-background-color) !important;
   border: 1px solid var(--input-border-color) !important;
@@ -957,10 +1051,6 @@ html {
   width: 27% !important;
   box-shadow: inset 1px 1px 3px var(--inset-box-shadow-color),
     inset -1px -1px 3px var(--inset-box-shadow-raise) !important;
-}
-
-.schedule-dropdown-disabled-wf {
-  color: var(--input-placeholder-color) !important;
 }
 
 .schedule-input-wf {
@@ -980,7 +1070,7 @@ html {
 .file-management-widget {
   border-radius: 20px;
   background-color: var(--file-management-background-color);
-  color: var(--darkest-accent-color);
+  color: var(--secondary-text-color);
   border: 1px solid var(--file-management-background-color);
   overflow-y: auto;
 }
@@ -989,7 +1079,7 @@ html {
   font-size: 24px;
   margin-bottom: 4%;
   margin-left: 5%;
-  color: var(--darkest-accent-color);
+  color: var(--main-text-light-on-dark-color);
   text-align: left;
 }
 
@@ -1023,6 +1113,15 @@ html {
   > .uppy-Root
   > .uppy-Dashboard
   > .uppy-Dashboard-inner
+  > .uppy-Dashboard-innerWrap {
+  border-radius: 15px;
+}
+
+.drag-drop-wf
+  > .uppy-Container
+  > .uppy-Root
+  > .uppy-Dashboard
+  > .uppy-Dashboard-inner
   > .uppy-Dashboard-innerWrap
   > .uppy-Dashboard-AddFiles {
   border: none;
@@ -1049,7 +1148,21 @@ html {
   > .uppy-Dashboard-AddFiles-title
   button {
   text-decoration: none;
-  color: var(--light-accent-color);
+  color: var(--secondary-text-color);
+}
+
+.drag-drop-wf
+  > .uppy-Container
+  > .uppy-Root
+  > .uppy-Dashboard
+  > .uppy-Dashboard-inner
+  > .uppy-Dashboard-innerWrap
+  > .uppy-Dashboard-AddFiles
+  > .uppy-Dashboard-AddFiles-title
+  button:hover {
+  text-decoration: none;
+  background-color: transparent;
+  color: var(--secondary-text-color);
 }
 
 .drag-drop-wf
@@ -1063,7 +1176,7 @@ html {
   button:active {
   text-decoration: none;
   background-color: transparent;
-  color: var(--light-accent-color);
+  color: var(--secondary-text-color);
 }
 
 .drag-drop-wf
@@ -1077,16 +1190,20 @@ html {
   button:focus {
   text-decoration: none;
   background-color: transparent;
-  color: var(--light-accent-color);
+  color: var(--secondary-text-color);
+}
+
+.uppy-Dashboard-AddFiles-title {
+  color: var(--main-text-light-on-dark-color) !important;
 }
 
 .uppy-DashboardContent-back {
-  color: var(--dark-accent-color) !important;
+  color: var(--main-text-light-on-dark-color) !important;
   font-size: 14px !important;
 }
 
 .uppy-DashboardContent-title {
-  color: var(--secondary-text-color) !important;
+  color: var(--main-text-light-on-dark-color) !important;
   font-size: 14px !important;
 }
 
@@ -1105,11 +1222,11 @@ html {
 }
 
 .uppy-Dashboard-Item-fileInfo {
-  color: var(--secondary-text-color) !important;
+  color: var(--main-text-light-on-dark-color) !important;
 }
 
 .uppy-c-icon {
-  color: var(--dark-accent-color) !important;
+  color: var(--secondary-text-color) !important;
 }
 
 .uppy-Dashboard-Item-name {
@@ -1118,7 +1235,7 @@ html {
 
 .uppy-Dashboard-Item-statusSize {
   font-size: 13px !important;
-  color: var(--dark-accent-color) !important;
+  color: var(--secondary-text-color) !important;
 }
 
 .uppy-StatusBar {
@@ -1209,7 +1326,8 @@ html {
   margin-left: 5%;
   margin-right: 7%;
   margin-top: 3%;
-  border: 1px solid var(--darker-accent-color);
+  border: 1px solid var(--main-text-color);
+  color: var(--main-text-light-on-dark-color);
   border-radius: 15px;
   padding: 4% 4% 0 4%;
 }
@@ -1226,7 +1344,7 @@ html {
 }
 
 .download-list-wf a {
-  color: var(--light-accent-color);
+  color: var(--secondary-text-color);
 }
 
 .download-list-wf i {
@@ -1247,7 +1365,7 @@ html {
 .kanban-board h4 {
   text-align: left;
   margin-bottom: 20px;
-  color: var(--darkest-accent-color);
+  color: var(--main-text-light-on-dark-color);
 }
 
 .kanban-top-row-wf {
@@ -1274,7 +1392,7 @@ html {
 
 .modal-replacer-content-wf .kanban-textbox-wf {
   flex-grow: 1;
-  color: var(--darkest-accent-color);
+  color: var(--secondary-text-color);
   font-family: "Lexend", sans-serif;
   background-color: var(--textbox-background-color) !important;
   border: 1px solid var(--input-border-color) !important;
@@ -1291,7 +1409,7 @@ html {
 
 .modal-replacer-content-wf .kanban-dropdown-wf {
   flex-grow: 0.5;
-  color: var(--darkest-accent-color);
+  color: var(--secondary-text-color);
   font-family: "Lexend", sans-serif;
   background-color: var(--textbox-background-color) !important;
   border: 1px solid var(--input-border-color) !important;
@@ -1339,7 +1457,7 @@ html {
 h2 {
   font-size: 20px;
   margin-bottom: 15px;
-  color: var(--kanban-column-heading-color);
+  color: var(--main-text-light-on-dark-color);
   text-align: center;
 }
 
@@ -1349,7 +1467,7 @@ h2 {
 
 .task-card {
   background-color: var(--textbox-background-color);
-  color: var(--darkest-accent-color);
+  color: var(--secondary-text-color);
   padding-left: 20px;
   padding-right: 17px;
   padding-top: 1px;
@@ -1394,7 +1512,7 @@ h2 {
   width: 90%;
   border-radius: 20px;
   background-color: var(--meditation-background-color);
-  color: var(--darkest-accent-color);
+  color: var(--main-text-light-on-dark-color);
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -1410,22 +1528,20 @@ h2 {
   width: 90%;
   height: 50%;
   align-self: center;
-  background-color: var(--meditation-background-color) !important;
 }
 
 .meditation-dropdown {
   margin-top: 9px;
   width: 90%;
   align-self: center;
-  background-color: var(--meditation-background-color);
 }
 
 .meditation-dropdown select {
   padding-left: 10px;
   height: 2.5em;
   border-radius: 10px;
-  background-color: var(--meditation-background-color);
-  color: var(--darkest-accent-color);
+  background-color: var(--textbox-background-color);
+  color: var(--secondary-text-color);
   box-shadow: inset 1px 1px 3px var(--inset-box-shadow-color),
     inset -1px -1px 3px var(--inset-box-shadow-raise) !important;
 }
@@ -1438,7 +1554,7 @@ h2 {
 .inspiring-quote-widget {
   border-radius: 20px;
   background-color: var(--inspiring-quote-background-color);
-  color: var(--darkest-accent-color);
+  color: var(--main-text-light-on-dark-color);
   padding: 0px 28px;
   display: flex;
   align-items: center;
@@ -1461,7 +1577,7 @@ h2 {
 .balance-tip-widget {
   border-radius: 20px;
   background-color: var(--balance-tip-background-color);
-  color: var(--darkest-accent-color);
+  color: var(--main-text-light-on-dark-color);
   padding: 20px 30px;
   display: flex;
 }
@@ -1476,7 +1592,7 @@ h2 {
 .balance-tip-widget h2 {
   margin: 0px;
   text-align: left;
-  color: var(--darkest-accent-color);
+  color: var(--main-text-light-on-dark-color);
 }
 
 .balance-tip-random {
@@ -1681,7 +1797,7 @@ h2 {
 .video-container-wf > div > div:nth-child(2) > div:nth-child(3) {
   border: none !important;
   border-radius: 10px !important;
-  background-color: var(--main-background-color) !important;
+  background-color: var(--video-chat-button) !important;
   box-shadow: inset 0.9px 0.9px 10px -4px var(--inset-box-shadow-raise),
     inset -2px -2px 7px var(--inset-box-shadow-color);
   width: 80px !important;
@@ -1703,7 +1819,7 @@ h2 {
 .video-container-wf > div > div:nth-child(2) > div > div {
   border: none !important;
   border-radius: 10px !important;
-  background-color: var(--main-background-color) !important;
+  background-color: var(--video-chat-button) !important;
   box-shadow: inset 0.9px 0.9px 10px -4px var(--inset-box-shadow-raise),
     inset -2px -2px 7px var(--inset-box-shadow-color);
   width: 80px !important;
