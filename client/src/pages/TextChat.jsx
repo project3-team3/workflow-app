@@ -10,14 +10,21 @@ import {
   Window,
 } from "stream-chat-react";
 import AuthService from "../utils/auth.js";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER_SETTINGS } from "../utils/queries.js";
+import { GENERATE_STREAM_TOKEN } from "../utils/mutations.js";
 
 import "stream-chat-react/dist/css/v2/index.css";
 
 const TextChat = () => {
+  console.log("[TextChat.jsx]: *** NEW RENDER ***");
+
   // Get user profile
   const userProfile = AuthService.getProfile();
+
+  const [generateStreamToken] = useMutation(GENERATE_STREAM_TOKEN);
+
+  // TODO: Add state variable for user input box
 
   // Get user settings
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
@@ -42,27 +49,34 @@ const TextChat = () => {
 
   setMode(colorTheme);
 
-  const userId = "billowing-dream-4";
-  const userName = "billowing";
+  const userId = userProfile.username || userProfile.user.username;
+  const username = userProfile.username || userProfile.user.username;
   const user = {
     id: userId,
-    name: userName,
-    image: `https://getstream.io/random_png/?id=${userId}&name=${userName}`,
+    name: username,
+    image: `https://getstream.io/random_png/?id=${userId}&name=${username}`,
   };
 
-  const apiKey = "dz5f4d5kzrue";
-  const userToken =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYmlsbG93aW5nLWRyZWFtLTQiLCJleHAiOjE3MDQyNjY5Mjd9.pQhdC2PyaxM9HrbYjxmgeH8RlxIV42t6wQbOpKbjIUI";
+  console.log("[TextChat.jsx]: user:", user);
+
+  const apiKey = "dz5f4d5kzrue"; // API Key not secret
+  // const userToken = "fictional-user-token"; // TODO: Remove this after testing and uncomment below
+
+  const userToken = generateStreamToken(userId);
+  console.log("[TextChat.jsx]: userToken:", userToken);
 
   const chatClient = new StreamChat(apiKey);
   chatClient.connectUser(user, userToken);
+  console.log("[TextChat.jsx]: Connected to Chat?");
 
-  const channel = chatClient.channel("messaging", "custom_channel_id", {
+  // TODO: Replace "workflow_test" with user input
+  const channel = chatClient.channel("messaging", "workflow_test", {
     image: "https://www.drupal.org/files/project-images/react.png",
-    name: "Talk about React",
+    name: "Workflow ROCKING channel",
     members: [userId],
   });
 
+  // TODO: Add input box in the same model as Video Chat, ask for channel name
   return (
     <Chat client={chatClient} theme="str-chat__theme-light">
       <Channel channel={channel}>

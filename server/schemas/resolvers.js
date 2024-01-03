@@ -7,6 +7,7 @@ const {
   generatePresignedUrl,
   deleteFile,
 } = require("../utils/awsS3.js");
+const { generateStreamToken } = require("../utils/streamAuth.js");
 
 const resolvers = {
   Query: {
@@ -49,20 +50,13 @@ const resolvers = {
       }
     },
     getFileList: async (_, { username }) => {
-      console.log("[resolvers.js]: In getFileList(). username:", username);
       // Fetch file list from S3 for the specified username
       const fileList = await fetchFileList(username);
-      console.log("[resolvers.js]: fileList obtained?", fileList);
       return fileList;
     },
     generatePresignedUrl: async (_, { username, fileName }) => {
-      console.log(
-        "[resolvers.js]: In generatePresignedUrl(). username/fileName:",
-        `${username}/${fileName}`
-      );
       try {
         const url = await generatePresignedUrl(username, fileName);
-        console.log("[resolvers.js]: url obtained?", url);
         return url;
       } catch (error) {
         console.error("Error generating pre-signed URL:", error);
@@ -345,7 +339,7 @@ const resolvers = {
     // Generate an Agora RTC token for Video Chat
     generateAgoraToken: async (__, { userChannelName, userUid }) => {
       try {
-        const token = generateRtcToken(userChannelName, userUid);
+        const token = await generateRtcToken(userChannelName, userUid);
 
         return { token };
       } catch (error) {
@@ -354,12 +348,20 @@ const resolvers = {
       }
     },
     // Delete a file from S3
-    deleteFile: async (_, { username, fileName }) => {
-      console.log(
-        "[resolvers.js]: In deleteFile(). username/fileName:",
-        `${username}/${fileName}`
-      );
+    deleteFile: async (__, { username, fileName }) => {
       return deleteFile(username, fileName);
+    },
+    // Generate a Stream token for Text Chat
+    generateStreamToken: async (__, { username }) => {
+      console.log("[resolvers.js] In generateStreamToken. username:", username)
+      try {
+        const token = await generateStreamToken(username);
+        console.log("[resolvers.js] Generated Stream token? token:", token)
+        return token;
+      } catch (error) {
+        console.error("Error generating Stream token:", error);
+        throw error;
+      }
     },
   },
 };

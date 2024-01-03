@@ -121,11 +121,7 @@ const Signup = () => {
 
   // Generate relevant error messages for user
   const getErrorMessage = (error) => {
-    if (
-      error.message.includes(
-        "Path `username` is required"
-      )
-    ) {
+    if (error.message.includes("Path `username` is required")) {
       return "Please enter a username.";
     } else if (
       error.message.includes(
@@ -133,9 +129,7 @@ const Signup = () => {
       )
     ) {
       return "This username is already taken, please choose a different one.";
-    } else if (
-      error.message.includes("Path `email` is required")
-    ) {
+    } else if (error.message.includes("Path `email` is required")) {
       return "Please enter an e-mail address.";
     } else if (
       error.message.includes("This field must contain a valid e-mail address")
@@ -147,9 +141,7 @@ const Signup = () => {
       )
     ) {
       return "There is already an account for that e-mail address, please log in instead.";
-    } else if (
-      error.message.includes("Path `password` is required")
-    ) {
+    } else if (error.message.includes("Path `password` is required")) {
       return "Please enter a password.";
     } else if (
       error.message.includes("is shorter than the minimum allowed length (8)")
@@ -168,8 +160,7 @@ const Signup = () => {
         <div>
           {data ? (
             <p>
-              Success! You may now head{" "}
-              <Link to="/">back to the homepage.</Link>
+              <p>Signup successful. Redirecting to your dashboard...</p>
             </p>
           ) : (
             <form onSubmit={handleFormSubmit} noValidate>

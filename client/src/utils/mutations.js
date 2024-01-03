@@ -205,3 +205,11 @@ export const DELETE_FILE = gql`
     deleteFile(username: $username, fileName: $fileName)
   }
 `;
+
+export const GENERATE_STREAM_TOKEN = gql`
+  mutation generateStreamToken($username: String!) {
+    generateStreamToken(username: $username) {
+      token
+    }
+  }
+`;

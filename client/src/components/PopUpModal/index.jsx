@@ -15,7 +15,7 @@ const PopUpModal = ({ isOpen, onClose, modalType = "confirm", children }) => {
             {/* Display buttons according to modal type */}
             {modalType === "confirm" ? (
               <button
-                className="waves-effect waves-light btn button-wf dark-button-wf modal-button-wf widget-prevent-drag-wf"
+                className="waves-effect waves-light btn button-wf modal-button-wf widget-prevent-drag-wf"
                 onClick={onClose}
               >
                 Ok
@@ -23,13 +23,13 @@ const PopUpModal = ({ isOpen, onClose, modalType = "confirm", children }) => {
             ) : modalType === "choice" ? (
               <div>
                 <button
-                  className="waves-effect waves-light btn button-wf dark-button-wf modal-button-wf widget-prevent-drag-wf"
+                  className="waves-effect waves-light btn button-wf modal-button-wf widget-prevent-drag-wf"
                   onClick={() => handleButtonClick(true)}
                 >
                   Ok
                 </button>
                 <button
-                  className="waves-effect waves-light btn button-wf dark-button-wf modal-button-wf widget-prevent-drag-wf"
+                  className="waves-effect waves-light btn button-wf modal-button-wf widget-prevent-drag-wf"
                   onClick={() => handleButtonClick(false)}
                 >
                   Cancel

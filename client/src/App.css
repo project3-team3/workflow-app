@@ -1,64 +1,4 @@
-:root {
-  --main-background-color: rgba(0, 194, 203, 1);
-  --darkest-accent-color: rgba(49, 67, 94, 1);
-  --darker-accent-color: rgba(53, 73, 94, 1);
-  --dark-accent-color: rgba(52, 73, 102, 1);
-  --light-accent-color: rgba(76, 106, 148, 1);
-  --light-accent-transparent: rgba(76, 106, 148, 0);
-  --lighter-accent-color: rgba(107, 137, 179, 1);
-  --main-text-color: rgba(250, 249, 246, 1);
-  --main-text-transparent: rgba(250, 249, 246, 0);
-  --box-background-color: rgba(52, 73, 102, 1);
-  --button-text-color: rgba(250, 249, 246, 1);
-  --button-hover-color: rgba(107, 137, 179, 1);
-  --button-focus-color: rgba(76, 106, 148, 1);
-  --button-focus-text-color: rgba(250, 249, 246, 1);
-  --secondary-button-color: rgba(250, 249, 246, 1);
-  --secondary-button-text-color: rgba(25, 25, 25, 1);
-  --secondary-text-color: rgba(250, 249, 246, 1);
-  --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
-  --error-text-color: rgba(252, 63, 56, 1);
-  --box-border-color: rgba(49, 67, 94, 1);
-  --box-shadow-color: rgba(0, 0, 0, 0.5);
-  --inset-box-shadow-color: rgba(0, 0, 0, 1);
-  --inset-box-shadow-raise: rgba(255, 255, 255, 0.5);
-  --textbox-background-color: rgba(250, 249, 246, 1);
-  --input-border-color: rgba(52, 73, 102, 1);
-  --input-placeholder-color: rgba(0, 0, 0, 0.42);
-  --checkbox-border-color: rgba(250, 249, 246, 1);
-  --sidenav-disabled-text-color: rgba(0, 194, 203, 1);
-  --sidenav-hover-color: rgba(76, 106, 148, 1);
-  --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
-  --clock-background-color: rgba(49, 67, 94, 1);
-  --clock-face-color: rgba(250, 249, 246, 1);
-  --calendar-background-color: rgba(51, 65, 65, 1);
-  --calendar-disabled-area-color: rgba(124, 80, 113, 0.5);
-  --calendar-weekday-color: rgba(240, 239, 236, 1);
-  --calendar-day-color: rgba(250, 249, 246, 1);
-  --calendar-weekend-day-color: rgba(210, 114, 130, 1);
-  --calendar-disabled-day-color: rgba(250, 249, 246, 0.5);
-  --file-management-background-color: rgba(71, 85, 85, 1);
-  --file-management-drop-zone-color: rgba(96, 110, 110, 1);
-  --notepad-background-color: rgba(176, 190, 190, 1);
-  --sticky-note-background-color: rgba(214, 215, 116, 1);
-  --sticky-note-placeholder-text-color: rgba(166, 180, 180, 1);
-  --sticky-note-text-color: rgba(49, 67, 94, 1);
-  --schedule-background-color: rgba(42, 77, 20, 1);
-  --schedule-darker-background-color: rgba(72, 97, 50, 1);
-  --kanban-board-background-color: rgba(72, 97, 50, 1);
-  --kanban-board-darker-background-color: rgba(42, 77, 20, 1);
-  --kanban-column-heading-color: rgba(49, 67, 94, 1);
-  --meditation-background-color: rgba(96, 110, 110, 1);
-  --meditation-text-color: rgba(250, 249, 246, 1);
-  --inspiring-quote-background-color: rgba(158, 98, 64, 1);
-  --inspiring-quote-text-color: rgba(250, 249, 246, 1);
-  --balance-tip-background-color: rgba(138, 78, 44, 1);
-  --balance-tip-text-color: rgba(250, 249, 246, 1);
-  --support-text-color: rgba(250, 249, 246, 1);
-  --video-chat-screen-border: rgba(250, 249, 246, 1);
-  --video-chat-button: rgba(0, 194, 203, 1);
-}
-
+:root,
 .default-mode-wf {
   --main-background-color: rgba(0, 194, 203, 1);
   --darkest-accent-color: rgba(49, 67, 94, 1);
@@ -69,6 +9,7 @@
   --lighter-accent-color: rgba(107, 137, 179, 1);
   --main-text-color: rgba(250, 249, 246, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
+  --link-text-color: rgba(76, 106, 148, 1);
   --box-background-color: rgba(52, 73, 102, 1);
   --button-text-color: rgba(250, 249, 246, 1);
   --button-hover-color: rgba(107, 137, 179, 1);
@@ -89,6 +30,8 @@
   --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(0, 194, 203, 1);
   --sidenav-hover-color: rgba(76, 106, 148, 1);
+  --welcome-text-color: rgba(250, 249, 246, 1);
+  --flow-text-color: rgba(76, 106, 148, 1);
   --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
   --clock-background-color: rgba(49, 67, 94, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
@@ -100,6 +43,7 @@
   --calendar-disabled-day-color: rgba(250, 249, 246, 0.5);
   --file-management-background-color: rgba(71, 85, 85, 1);
   --file-management-drop-zone-color: rgba(96, 110, 110, 1);
+  --file-management-link-text-color: rgba(32, 32, 36, 1);
   --notepad-background-color: rgba(176, 190, 190, 1);
   --sticky-note-background-color: rgba(214, 215, 116, 1);
   --sticky-note-placeholder-text-color: rgba(166, 180, 180, 1);
@@ -111,9 +55,10 @@
   --kanban-column-heading-color: rgba(49, 67, 94, 1);
   --meditation-background-color: rgba(96, 110, 110, 1);
   --meditation-text-color: rgba(250, 249, 246, 1);
-  --inspiring-quote-background-color: rgba(98, 99, 0, 1);
+  --meditation-dropdown-color: rgba(250, 249, 246, 1);
+  --inspiring-quote-background-color: rgba(0, 114, 123, 1);
   --inspiring-quote-text-color: rgba(250, 249, 246, 1);
-  --balance-tip-background-color: rgba(98, 99, 0, 1);
+  --balance-tip-background-color: rgba(0, 114, 123, 1);
   --balance-tip-text-color: rgba(250, 249, 246, 1);
   --support-text-color: rgba(250, 249, 246, 1);
   --video-chat-screen-border: rgba(250, 249, 246, 1);
@@ -130,6 +75,7 @@
   --lighter-accent-color: rgba(107, 137, 179, 1);
   --main-text-color: rgba(250, 249, 246, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
+  --link-text-color: rgba(0, 194, 203, 1);
   --box-background-color: rgba(0, 194, 203, 1);
   --button-text-color: rgba(250, 249, 246, 1);
   --button-hover-color: rgba(107, 137, 179, 1);
@@ -150,6 +96,8 @@
   --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(250, 249, 246, 1);
   --sidenav-hover-color: rgba(107, 137, 179, 1);
+  --welcome-text-color: rgba(250, 249, 246, 1);
+  --flow-text-color: rgba(0, 194, 203, 1);
   --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
   --clock-background-color: rgba(0, 164, 173, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
@@ -161,6 +109,7 @@
   --calendar-disabled-day-color: rgba(250, 249, 246, 0.5);
   --file-management-background-color: rgba(45, 75, 120, 1);
   --file-management-drop-zone-color: rgba(75, 105, 150, 1);
+  --file-management-link-text-color: rgba(13, 24, 33, 1);
   --notepad-background-color: rgba(176, 190, 190, 1);
   --sticky-note-background-color: rgba(113, 210, 220, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
@@ -172,6 +121,7 @@
   --kanban-column-heading-color: rgba(49, 67, 94, 1);
   --meditation-background-color: rgba(45, 75, 120, 1);
   --meditation-text-color: rgba(250, 249, 246, 1);
+  --meditation-dropdown-color: rgba(250, 249, 246, 1);
   --inspiring-quote-background-color: rgba(87, 117, 159, 1);
   --inspiring-quote-text-color: rgba(250, 249, 246, 1);
   --balance-tip-background-color: rgba(77, 107, 149, 1);
@@ -179,6 +129,72 @@
   --support-text-color: rgba(250, 249, 246, 1);
   --video-chat-screen-border: rgba(250, 249, 246, 1);
   --video-chat-button: rgba(53, 73, 94, 1);
+}
+
+.beige-mode-wf {
+  --main-background-color: rgba(249, 224, 217, 1);
+  --darkest-accent-color: rgba(33, 13, 24, 1);
+  --darker-accent-color: rgba(53, 33, 44, 1);
+  --dark-accent-color: rgba(125, 97, 103, 1);
+  --light-accent-color: rgba(155, 127, 133, 1);
+  --light-accent-transparent: rgba(76, 106, 148, 0);
+  --lighter-accent-color: rgba(185, 157, 163, 1);
+  --main-text-color: rgba(255, 244, 233, 1);
+  --main-text-transparent: rgba(250, 249, 246, 0);
+  --link-text-color: rgba(132, 137, 74, 1);
+  --box-background-color: rgba(93, 73, 84, 1);
+  --button-text-color: rgba(13, 24, 33, 1);
+  --button-hover-color: rgba(230, 219, 208, 1);
+  --button-focus-color: rgba(172, 166, 108, 1);
+  --button-focus-text-color: rgba(255, 244, 233, 1);
+  --secondary-button-color: rgba(165, 143, 121, 1);
+  --secondary-button-text-color: rgba(255, 244, 233, 1);
+  --secondary-text-color: rgba(53, 33, 44, 1);
+  --main-text-light-on-dark-color: rgba(255, 244, 233, 1);
+  --error-text-color: rgba(252, 63, 56, 1);
+  --box-border-color: rgba(53, 33, 44, 1);
+  --box-shadow-color: rgba(0, 0, 0, 0.5);
+  --inset-box-shadow-color: rgba(0, 0, 0, 1);
+  --inset-box-shadow-raise: rgba(255, 255, 255, 1);
+  --textbox-background-color: rgba(230, 219, 208, 1);
+  --input-border-color: rgba(45, 45, 48, 1);
+  --input-placeholder-color: rgba(0, 0, 0, 0.62);
+  --checkbox-border-color: rgba(255, 244, 233, 1);
+  --sidenav-disabled-text-color: rgba(255, 244, 233, 1);
+  --sidenav-hover-color: rgba(155, 127, 133, 1);
+  --welcome-text-color: rgba(53, 33, 44, 1);
+  --flow-text-color: rgba(132, 137, 74, 1);
+  --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
+  --clock-background-color: rgba(125, 97, 103, 1);
+  --clock-face-color: rgba(255, 244, 233, 1);
+  --calendar-background-color: rgba(110, 99, 88, 1);;
+  --calendar-disabled-area-color: rgba(250, 249, 246, 0.5);
+  --calendar-weekday-color: rgba(223, 203, 214, 1);
+  --calendar-day-color: rgba(255, 244, 233, 1);
+  --calendar-weekend-day-color: rgba(113, 0, 0, 1);
+  --calendar-disabled-day-color: rgba(183, 163, 174, 0.7);
+  --file-management-background-color: rgba(140, 129, 118, 1);
+  --file-management-drop-zone-color: rgba(110, 99, 88, 1);
+  --file-management-link-text-color: rgba(32, 37, 0, 1);
+  --notepad-background-color: rgba(255, 230, 223, 1);
+  --sticky-note-background-color: rgba(183, 163, 174, 1);
+  --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --sticky-note-text-color: rgba(53, 33, 44, 1);
+  --schedule-background-color: rgba(117, 79, 91, 1);
+  --schedule-darker-background-color: rgba(102, 64, 76, 1);
+  --kanban-board-background-color: rgba(180, 169, 158, 1);
+  --kanban-board-darker-background-color: rgba(140, 129, 118, 1);
+  --kanban-column-heading-color: rgba(49, 67, 94, 1);
+  --meditation-background-color: rgba(213, 193, 204, 1);
+  --meditation-text-color: rgba(53, 33, 44, 1);
+  --meditation-dropdown-color: rgba(53, 33, 44, 1);
+  --inspiring-quote-background-color: rgba(63, 43, 54, 1);
+  --inspiring-quote-text-color: rgba(255, 244, 233, 1);
+  --balance-tip-background-color: rgba(87, 49, 61, 1);
+  --balance-tip-text-color: rgba(255, 244, 233, 1);
+  --support-text-color: rgba(16, 0, 0, 1);
+  --video-chat-screen-border: rgba(249, 224, 217, 1);
+  --video-chat-button: rgba(117, 79, 91, 1);
 }
 
 .white-mode-wf {
@@ -191,6 +207,7 @@
   --lighter-accent-color: rgba(107, 137, 179, 1);
   --main-text-color: rgba(250, 249, 246, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
+  --link-text-color: rgba(221, 1, 0, 1);
   --box-background-color: rgba(221, 1, 0, 1);
   --button-text-color: rgba(13, 24, 33, 1);
   --button-hover-color: rgba(250, 201, 1, 1);
@@ -201,16 +218,18 @@
   --secondary-text-color: rgba(13, 24, 33, 1);
   --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
   --error-text-color: rgba(252, 63, 56, 1);
-  --box-border-color: rgba(0, 184, 193, 1);
+  --box-border-color: rgba(161, 1, 0, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
   --inset-box-shadow-color: rgba(0, 0, 0, 1);
   --inset-box-shadow-raise: rgba(255, 255, 255, 1);
-  --textbox-background-color: rgba(241, 238, 229, 1);
+  --textbox-background-color: rgba(240, 239, 236, 1);
   --input-border-color: rgba(45, 45, 48, 1);
   --input-placeholder-color: rgba(0, 0, 0, 0.42);
   --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(250, 249, 246, 1);
   --sidenav-hover-color: rgba(250, 249, 246, 1);
+  --welcome-text-color: rgba(13, 24, 33, 1);
+  --flow-text-color: rgba(34, 80, 149, 1);
   --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
   --clock-background-color: rgba(221, 1, 0, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
@@ -221,11 +240,12 @@
   --calendar-weekend-day-color: rgba(143, 0, 0, 1);
   --calendar-disabled-day-color: rgba(173, 184, 193, 1);
   --file-management-background-color: rgba(221, 1, 0, 1);
-  --file-management-drop-zone-color: rgba(166, 0, 0, 1);
+  --file-management-drop-zone-color: rgba(181, 15, 15, 1);
+  --file-management-link-text-color: rgba(13, 24, 33, 1);
   --notepad-background-color: rgba(250, 249, 246, 1);
   --sticky-note-background-color: rgba(250, 201, 1, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
-  --sticky-note-text-color: rgba(49, 67, 94, 1);
+  --sticky-note-text-color: rgba(13, 24, 33, 1);
   --schedule-background-color: rgba(34, 80, 149, 1);
   --schedule-darker-background-color: rgba(14, 60, 129, 1);
   --kanban-board-background-color: rgba(34, 80, 149, 1);
@@ -233,13 +253,80 @@
   --kanban-column-heading-color: rgba(250, 249, 246, 1);
   --meditation-background-color: rgba(250, 249, 246, 1);
   --meditation-text-color: rgba(13, 24, 33, 1);
+  --meditation-dropdown-color: rgba(13, 24, 33, 1);
   --inspiring-quote-background-color: rgba(250, 201, 1, 1);
   --inspiring-quote-text-color: rgba(13, 24, 33, 1);
   --balance-tip-background-color: rgba(250, 201, 1, 1);
   --balance-tip-text-color: rgba(13, 24, 33, 1);
   --support-text-color: rgba(13, 24, 33, 1);
-  --video-chat-screen-border: rgba(250, 249, 246, 1);
-  --video-chat-button: rgba(53, 73, 94, 1);
+  --video-chat-screen-border: rgba(13, 24, 33, 1);
+  --video-chat-button: rgba(34, 80, 149, 1);
+}
+
+.brown-mode-wf {
+  --main-background-color: rgba(232, 226, 168, 1);
+  --darkest-accent-color: rgba(62, 12, 4, 1);
+  --darker-accent-color: rgba(92, 42, 34, 1);
+  --dark-accent-color: rgba(122, 45, 33, 1);
+  --light-accent-color: rgba(172, 166, 108, 1);
+  --light-accent-transparent: rgba(76, 106, 148, 0);
+  --lighter-accent-color: rgba(202, 196, 138, 1);
+  --main-text-color: rgba(16, 0, 0, 1);
+  --main-text-transparent: rgba(250, 249, 246, 0);
+  --link-text-color: rgba(165, 106, 67, 1);
+  --box-background-color: rgba(125, 103, 81, 1);
+  --button-text-color: rgba(13, 24, 33, 1);
+  --button-hover-color: rgba(202, 196, 138, 1);
+  --button-focus-color: rgba(172, 166, 108, 1);
+  --button-focus-text-color: rgba(250, 249, 246, 1);
+  --secondary-button-color: rgba(105, 83, 61, 1);
+  --secondary-button-text-color: rgba(250, 249, 246, 1);
+  --secondary-text-color: rgba(13, 24, 33, 1);
+  --main-text-light-on-dark-color: rgba(255, 248, 235, 1);
+  --error-text-color: rgba(252, 63, 56, 1);
+  --box-border-color: rgba(16, 0, 0, 1);
+  --box-shadow-color: rgba(0, 0, 0, 0.5);
+  --inset-box-shadow-color: rgba(0, 0, 0, 1);
+  --inset-box-shadow-raise: rgba(255, 255, 255, 1);
+  --textbox-background-color: rgba(255, 248, 208, 1);
+  --input-border-color: rgba(45, 45, 48, 1);
+  --input-placeholder-color: rgba(0, 0, 0, 0.62);
+  --checkbox-border-color: rgba(255, 248, 208, 1);
+  --sidenav-disabled-text-color: rgba(250, 249, 246, 1);
+  --sidenav-hover-color: rgba(217, 174, 129, 1);
+  --welcome-text-color: rgba(16, 0, 0, 1);
+  --flow-text-color: rgba(172, 166, 108, 1);
+  --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
+  --clock-background-color: rgba(92, 42, 34, 1);
+  --clock-face-color: rgba(215, 196, 163, 1);
+  --calendar-background-color: rgba(165, 106, 67, 1);
+  --calendar-disabled-area-color: rgba(250, 249, 246, 0.5);
+  --calendar-weekday-color: rgba(232, 226, 168, 1);
+  --calendar-day-color: rgba(13, 24, 33, 1);
+  --calendar-weekend-day-color: rgba(113, 0, 0, 1);
+  --calendar-disabled-day-color: rgba(232, 226, 168, 0.5);
+  --file-management-background-color: rgba(165, 106, 67, 1);
+  --file-management-drop-zone-color: rgba(135, 76, 37, 1);
+  --file-management-link-text-color: rgba(13, 24, 33, 1);
+  --notepad-background-color: rgba(255, 248, 208, 1);
+  --sticky-note-background-color: rgba(215, 196, 163, 1);
+  --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --sticky-note-text-color: rgba(49, 67, 94, 1);
+  --schedule-background-color: rgba(105, 83, 61, 1);
+  --schedule-darker-background-color: rgba(85, 63, 41, 1);
+  --kanban-board-background-color: rgba(85, 63, 41, 1);
+  --kanban-board-darker-background-color: rgba(105, 83, 61, 1);
+  --kanban-column-heading-color: rgba(49, 67, 94, 1);
+  --meditation-background-color: rgba(217, 174, 129, 1);
+  --meditation-text-color: rgba(92, 42, 34, 1);
+  --meditation-dropdown-color: rgba(92, 42, 34, 1);
+  --inspiring-quote-background-color: rgba(92, 42, 34, 1);
+  --inspiring-quote-text-color: rgba(255, 248, 235, 1);
+  --balance-tip-background-color: rgba(92, 42, 34, 1);
+  --balance-tip-text-color: rgba(255, 248, 235, 1);
+  --support-text-color: rgba(16, 0, 0, 1);
+  --video-chat-screen-border: rgba(92, 42, 34, 1);
+  --video-chat-button: rgba(92, 42, 34, 1);
 }
 
 .green-mode-wf {
@@ -252,12 +339,13 @@
   --lighter-accent-color: rgba(149, 198, 35, 1);
   --main-text-color: rgba(239, 231, 218, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
+  --link-text-color: rgba(149, 198, 35, 1);
   --box-background-color: rgba(229, 88, 18, 1);
   --button-text-color: rgba(239, 231, 218, 1);
   --button-hover-color: rgba(149, 198, 35, 1);
   --button-focus-color: rgba(59, 78, 0, 1);
   --button-focus-text-color: rgba(250, 249, 246, 1);
-  --secondary-button-color: rgba(250, 249, 246, 1);
+  --secondary-button-color: rgba(225, 218, 205, 1);
   --secondary-button-text-color: rgba(16, 0, 0, 1);
   --secondary-text-color: rgba(0, 8, 8, 1);
   --main-text-light-on-dark-color: rgba(239, 231, 218, 1);
@@ -272,6 +360,8 @@
   --checkbox-border-color: rgba(255, 248, 208, 1);
   --sidenav-disabled-text-color: rgba(239, 231, 218, 1);
   --sidenav-hover-color: rgba(217, 174, 129, 1);
+  --welcome-text-color: rgba(239, 231, 218, 1);
+  --flow-text-color: rgba(149, 198, 35, 1);
   --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
   --clock-background-color: rgba(0, 38, 38, 1);
   --clock-face-color: rgba(239, 231, 218, 1);
@@ -283,6 +373,7 @@
   --calendar-disabled-day-color: rgba(232, 226, 168, 0.5);
   --file-management-background-color: rgba(80, 80, 57, 1);
   --file-management-drop-zone-color: rgba(50, 50, 27, 1);
+  --file-management-link-text-color: rgba(194, 96, 10, 1);
   --notepad-background-color: rgba(239, 231, 218, 1);
   --sticky-note-background-color: rgba(149, 198, 35, 1);
   --sticky-note-placeholder-text-color: rgba(119, 168, 5, 1);
@@ -294,6 +385,7 @@
   --kanban-column-heading-color: rgba(255, 248, 235, 1);
   --meditation-background-color: rgba(225, 218, 205, 1);
   --meditation-text-color: rgba(92, 42, 34, 1);
+  --meditation-dropdown-color: rgba(92, 42, 34, 1);
   --inspiring-quote-background-color: rgba(59, 78, 0, 1);
   --inspiring-quote-text-color: rgba(255, 248, 235, 1);
   --balance-tip-background-color: rgba(59, 78, 0, 1);
@@ -313,10 +405,11 @@
   --lighter-accent-color: rgba(235, 157, 231, 1);
   --main-text-color: rgba(255, 245, 255, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
+  --link-text-color: rgba(205, 127, 201, 1);
   --box-background-color: rgba(215, 0, 112, 1);
   --button-text-color: rgba(255, 245, 255, 1);
   --button-hover-color: rgba(155, 77, 151, 1);
-  --button-focus-color: rgba(59, 78, 0, 1);
+  --button-focus-color: rgba(235, 157, 231, 1);
   --button-focus-text-color: rgba(255, 245, 255, 1);
   --secondary-button-color: rgba(255, 245, 255, 1);
   --secondary-button-text-color: rgba(16, 0, 0, 1);
@@ -333,6 +426,8 @@
   --checkbox-border-color: rgba(255, 245, 255, 1);
   --sidenav-disabled-text-color: rgba(255, 245, 255, 1);
   --sidenav-hover-color: rgba(0, 53, 169, 1);
+  --welcome-text-color: rgba(255, 245, 255, 1);
+  --flow-text-color: rgba(205, 127, 201, 1);
   --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
   --clock-background-color: rgba(155, 77, 151, 1);
   --clock-face-color: rgba(255, 245, 255, 1);
@@ -344,6 +439,7 @@
   --calendar-disabled-day-color: rgba(0, 97, 180, 0.5);
   --file-management-background-color: rgba(14, 117, 210, 1);
   --file-management-drop-zone-color: rgba(0, 97, 180, 1);
+  --file-management-link-text-color: rgba(215, 137, 211, 1);
   --notepad-background-color: rgba(255, 245, 255, 1);
   --sticky-note-background-color: rgba(255, 95, 207, 1);
   --sticky-note-placeholder-text-color: rgba(215, 55, 167, 1);
@@ -355,6 +451,7 @@
   --kanban-column-heading-color: rgba(255, 245, 255, 1);
   --meditation-background-color: rgba(255, 245, 255, 1);
   --meditation-text-color: rgba(10, 0, 10, 1);
+  --meditation-dropdown-color: rgba(10, 0, 10, 1);
   --inspiring-quote-background-color: rgba(85, 7, 71, 1);
   --inspiring-quote-text-color: rgba(255, 245, 255, 1);
   --balance-tip-background-color: rgba(85, 7, 71, 1);
@@ -364,65 +461,70 @@
   --video-chat-button: rgba(0, 53, 169, 1);
 }
 
-.brown-mode-wf {
-  --main-background-color: rgba(232, 226, 168, 1);
-  --darkest-accent-color: rgba(62, 12, 4, 1);
-  --darker-accent-color: rgba(92, 42, 34, 1);
-  --dark-accent-color: rgba(122, 45, 33, 1);
-  --light-accent-color: rgba(172, 166, 108, 1);
+.rainbow-mode-wf {
+  --main-background-color: rgba(255, 202, 58, 1);
+  --darkest-accent-color: rgba(195, 29, 64, 1);
+  --darker-accent-color: rgba(80, 80, 80, 1);
+  --dark-accent-color: rgba(255, 89, 94, 1);
+  --light-accent-color: rgba(255, 119, 124, 1);
   --light-accent-transparent: rgba(76, 106, 148, 0);
-  --lighter-accent-color: rgba(202, 196, 138, 1);
-  --main-text-color: rgba(16, 0, 0, 1);
+  --lighter-accent-color: rgba(225, 172, 28, 1);
+  --main-text-color: rgba(255, 255, 255, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
-  --box-background-color: rgba(125, 103, 81, 1);
+  --link-text-color: rgba(25, 130, 196, 1);
+  --box-background-color: rgba(25, 130, 196, 1);
   --button-text-color: rgba(13, 24, 33, 1);
-  --button-hover-color: rgba(202, 196, 138, 1);
-  --button-focus-color: rgba(172, 166, 108, 1);
+  --button-hover-color: rgba(255, 232, 88, 1);
+  --button-focus-color: rgba(255, 89, 94, 1);
   --button-focus-text-color: rgba(250, 249, 246, 1);
-  --secondary-button-color: rgba(250, 249, 246, 1);
-  --secondary-button-text-color: rgba(16, 0, 0, 1);
+  --secondary-button-color: rgba(13, 24, 33, 1);
+  --secondary-button-text-color: rgba(255, 255, 255, 1);
   --secondary-text-color: rgba(13, 24, 33, 1);
-  --main-text-light-on-dark-color: rgba(255, 248, 235, 1);
+  --main-text-light-on-dark-color: rgba(255, 255, 255, 1);
   --error-text-color: rgba(252, 63, 56, 1);
-  --box-border-color: rgba(16, 0, 0, 1);
+  --box-border-color: rgba(161, 1, 0, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
   --inset-box-shadow-color: rgba(0, 0, 0, 1);
   --inset-box-shadow-raise: rgba(255, 255, 255, 1);
-  --textbox-background-color: rgba(255, 248, 208, 1);
+  --textbox-background-color: rgba(255, 255, 255, 1);
   --input-border-color: rgba(45, 45, 48, 1);
-  --input-placeholder-color: rgba(0, 0, 0, 0.62);
-  --checkbox-border-color: rgba(255, 248, 208, 1);
-  --sidenav-disabled-text-color: rgba(250, 249, 246, 1);
-  --sidenav-hover-color: rgba(217, 174, 129, 1);
+  --input-placeholder-color: rgba(0, 0, 0, 0.42);
+  --checkbox-border-color: rgba(255, 255, 255, 1);
+  --sidenav-disabled-text-color: rgba(255, 255, 255, 1);
+  --sidenav-hover-color: rgba(255, 232, 88, 1);
+  --welcome-text-color: rgba(13, 24, 33, 1);
+  --flow-text-color: rgba(138, 201, 38, 1);
   --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
-  --clock-background-color: rgba(92, 42, 34, 1);
-  --clock-face-color: rgba(215, 196, 163, 1);
-  --calendar-background-color: rgba(165, 106, 67, 1);
+  --clock-background-color: rgba(25, 130, 196, 1);
+  --clock-face-color: rgba(255, 255, 255, 1);
+  --calendar-background-color: rgba(255, 255, 255, 1);
   --calendar-disabled-area-color: rgba(250, 249, 246, 0.5);
-  --calendar-weekday-color: rgba(232, 226, 168, 1);
+  --calendar-weekday-color: rgba(25, 130, 196, 1);
   --calendar-day-color: rgba(13, 24, 33, 1);
-  --calendar-weekend-day-color: rgba(113, 0, 0, 1);
-  --calendar-disabled-day-color: rgba(232, 226, 168, 0.5);
-  --file-management-background-color: rgba(165, 106, 67, 1);
-  --file-management-drop-zone-color: rgba(135, 76, 37, 1);
-  --notepad-background-color: rgba(255, 248, 208, 1);
-  --sticky-note-background-color: rgba(215, 196, 163, 1);
-  --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
-  --sticky-note-text-color: rgba(49, 67, 94, 1);
-  --schedule-background-color: rgba(105, 83, 61, 1);
-  --schedule-darker-background-color: rgba(85, 63, 41, 1);
-  --kanban-board-background-color: rgba(85, 63, 41, 1);
-  --kanban-board-darker-background-color: rgba(105, 83, 61, 1);
-  --kanban-column-heading-color: rgba(49, 67, 94, 1);
-  --meditation-background-color: rgba(217, 174, 129, 1);
-  --meditation-text-color: rgba(92, 42, 34, 1);
-  --inspiring-quote-background-color: rgba(92, 42, 34, 1);
-  --inspiring-quote-text-color: rgba(255, 248, 235, 1);
-  --balance-tip-background-color: rgba(92, 42, 34, 1);
-  --balance-tip-text-color: rgba(255, 248, 235, 1);
-  --support-text-color: rgba(16, 0, 0, 1);
-  --video-chat-screen-border: rgba(92, 42, 34, 1);
-  --video-chat-button: rgba(92, 42, 34, 1);
+  --calendar-weekend-day-color: rgba(195, 29, 64, 1);
+  --calendar-disabled-day-color: rgba(173, 184, 193, 1);
+  --file-management-background-color: rgba(235, 69, 74, 1);
+  --file-management-drop-zone-color: rgba(205, 39, 44, 1);
+  --file-management-link-text-color: rgba(13, 24, 33, 1);
+  --notepad-background-color: rgba(255, 255, 255, 1);
+  --sticky-note-background-color: rgba(138, 201, 38, 1);
+  --sticky-note-placeholder-text-color: rgba(108, 171, 8, 1);
+  --sticky-note-text-color: rgba(13, 24, 33, 1);
+  --schedule-background-color: rgba(70, 176, 28, 1);
+  --schedule-darker-background-color: rgba(40, 146, 0, 1);
+  --kanban-board-background-color: rgba(40, 146, 0, 1);
+  --kanban-board-darker-background-color: rgba(70, 176, 28, 1);
+  --kanban-column-heading-color: rgba(255, 255, 255, 1);
+  --meditation-background-color: rgba(25, 130, 196, 1);
+  --meditation-text-color: rgba(255, 255, 255, 1);
+  --meditation-dropdown-color: rgba(13, 24, 33, 1);
+  --inspiring-quote-background-color: rgba(106, 76, 147, 1);
+  --inspiring-quote-text-color: rgba(255, 255, 255, 1);
+  --balance-tip-background-color: rgba(106, 76, 147, 1);
+  --balance-tip-text-color: rgba(255, 255, 255, 1);
+  --support-text-color: rgba(13, 24, 33, 1);
+  --video-chat-screen-border: rgba(255, 232, 88, 1);
+  --video-chat-button: rgba(255, 89, 94, 1);
 }
 
 .dark-mode-wf {
@@ -435,6 +537,7 @@
   --lighter-accent-color: rgba(132, 132, 136, 1);
   --main-text-color: rgba(220, 219, 216, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
+  --link-text-color: rgba(122, 122, 126, 1);
   --box-background-color: rgba(45, 45, 48, 1);
   --button-text-color: rgba(220, 219, 216, 1);
   --button-hover-color: rgba(132, 132, 136, 1);
@@ -454,6 +557,8 @@
   --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(172, 172, 176, 1);
   --sidenav-hover-color: rgba(172, 172, 176, 1);
+  --flow-text-color: rgba(132, 132, 136, 1);
+  --welcome-text-color: rgba(220, 219, 216, 1);
   --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
   --clock-background-color: rgba(51, 51, 51, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
@@ -465,6 +570,7 @@
   --calendar-disabled-day-color: rgba(173, 184, 193, 1);
   --file-management-background-color: rgba(51, 51, 51, 1);
   --file-management-drop-zone-color: rgba(91, 91, 91, 1);
+  --file-management-link-text-color: rgba(32, 32, 36, 1);
   --notepad-background-color: rgba(132, 132, 132, 1);
   --sticky-note-background-color: rgba(132, 132, 132, 1);
   --sticky-note-placeholder-text-color: rgba(102, 102, 106, 1);
@@ -476,6 +582,7 @@
   --kanban-column-heading-color: rgba(250, 249, 246, 1);
   --meditation-background-color: rgba(51, 51, 51, 1);
   --meditation-text-color: rgba(220, 219, 216, 1);
+  --meditation-dropdown-color: rgba(220, 219, 216, 1);
   --inspiring-quote-background-color: rgba(51, 51, 51, 1);
   --inspiring-quote-text-color: rgba(250, 249, 246, 1);
   --balance-tip-background-color: rgba(51, 51, 51, 1);
@@ -541,14 +648,6 @@ html {
     inset -2px -2px 7px var(--inset-box-shadow-color);
 }
 
-.dark-button-wf {
-  background-color: var(--darkest-accent-color);
-}
-
-.dark-button-wf:focus {
-  background-color: var(--darkest-accent-color);
-}
-
 .input-wf {
   color: var(--darkest-accent-color);
   font-family: "Lexend", sans-serif;
@@ -600,6 +699,7 @@ html {
 
 .modal-wf {
   background: var(--main-background-color);
+  color: var(--support-text-color);
   padding: 30px 45px;
   border-radius: 20px;
   width: auto;
@@ -613,6 +713,7 @@ html {
 
 .modal-wf h2 {
   margin-top: 0px;
+  color: var(--support-text-color);
 }
 
 .modal-wf p {
@@ -620,6 +721,8 @@ html {
 }
 
 .modal-button-wf {
+  background-color: var(--secondary-button-color);
+  color: var(--secondary-button-text-color);
   margin: 0px 5px;
 }
 
@@ -743,7 +846,7 @@ html {
 }
 
 .welcome-wf h1 {
-  color: var(--main-text-color);
+  color: var(--welcome-text-color);
   margin-top: 9vh;
   margin-bottom: 10vh;
 }
@@ -765,11 +868,11 @@ html {
 }
 
 #flow-span-wf.active {
-  color: var(--light-accent-color);
+  color: var(--flow-text-color);
 }
 
 #flow-span-wf.regular {
-  color: var(--main-text-color);
+  color: var(--welcome-text-color);
 }
 
 .welcome-p-separator-wf {
@@ -785,7 +888,7 @@ html {
 }
 
 .blurb-text-wf.fade-in-wf {
-  color: var(--main-text-color);
+  color: var(--welcome-text-color);
 }
 
 .blurb-link1-wf a,
@@ -796,7 +899,7 @@ html {
 
 .blurb-link1-wf.fade-in-link-wf a,
 .blurb-link2-wf.fade-in-link-wf a {
-  color: var(--dark-accent-color);
+  color: var(--link-text-color);
 }
 
 /* Login and signup page rules */
@@ -1404,7 +1507,7 @@ html {
   > .uppy-Dashboard-AddFiles-title
   button {
   text-decoration: none;
-  color: var(--secondary-text-color);
+  color: var(--file-management-link-text-color);
 }
 
 .drag-drop-wf
@@ -1418,7 +1521,8 @@ html {
   button:hover {
   text-decoration: none;
   background-color: transparent;
-  color: var(--secondary-text-color);
+  color: var(--file-management-link-text-color);
+  filter: brightness(130%);
 }
 
 .drag-drop-wf
@@ -1817,7 +1921,7 @@ h2 {
   height: 2.5em;
   border-radius: 10px;
   background-color: var(--textbox-background-color);
-  color: var(--meditation-text-color);
+  color: var(--meditation-dropdown-color);
   box-shadow: inset 1px 1px 3px var(--inset-box-shadow-color),
     inset -1px -1px 3px var(--inset-box-shadow-raise) !important;
 }
@@ -2200,11 +2304,12 @@ h2 {
   flex-direction: column;
   align-items: left;
   justify-content: left;
+  color: var(--support-text-color);
 }
 
 .error-back-btn-wf {
   margin-top: 20px;
-  background-color: var(--dark-accent-color);
+  background-color: var(--secondary-button-color);
   align-self: flex-start;
 }
 
@@ -2286,8 +2391,20 @@ h2 {
     font-size: 30px;
   }
 
-  .navbar-right-container-wf {
-    display: none;
+  .loggedin-text-wf {
+    font-size: 13px;
+    text-wrap: wrap;
+    margin-right: 10px;
+  }
+
+  .navbar-right-container-wf > li > a {
+    font-size: 13px;
+    margin-right: 5px !important;
+    margin-left: 10px !important;
+  }
+
+  .login-button-wf {
+    font-size: 0.8em;
   }
 
   .brandname-wf {
@@ -2657,6 +2774,37 @@ h2 {
 }
 
 @media screen and (max-width: 450px) {
+  .brandname-wf {
+    font-size: 15px;
+  }
+
+  .navbar-logo-wf {
+    height: 1.8em;
+  }
+
+  nav .sidenav-trigger {
+    margin: 0px 8px !important;
+  }
+
+  .loggedin-text-wf {
+    display: none;
+  }
+
+  .navbar-right-container-wf {
+    margin-right: 8px;
+  }
+
+  .navbar-right-container-wf > li > a {
+    font-size: 11px;
+    margin-right: 3px !important;
+    margin-left: 7px !important;
+    padding: 0px 10px;
+  }
+
+  .login-button-wf {
+    font-size: 0.75em;
+  }
+
   .clock-digital-container-wf {
     padding: 0 20%;
     padding-top: 7%;
