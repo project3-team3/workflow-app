@@ -11,8 +11,11 @@ import {
 } from "stream-chat-react";
 import AuthService from "../utils/auth.js";
 import { useQuery, useMutation } from "@apollo/client";
+import { useState, useEffect } from "react";
 import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 import { GENERATE_STREAM_TOKEN } from "../utils/mutations.js";
+
+import LoadingSpinner from "../components/LoadingSpinner/index.jsx";
 
 import "stream-chat-react/dist/css/v2/index.css";
 
@@ -22,9 +25,78 @@ const TextChat = () => {
   // Get user profile
   const userProfile = AuthService.getProfile();
 
+  const [chatClient, setChatClient] = useState(null);
+  const [channel, setChannel] = useState(null);
+  const [channelName, setChannelName] = useState("");
+  const [userReady, setUserReady] = useState(false);
+  const [activeChat, setActiveChat] = useState(false);
   const [generateStreamToken] = useMutation(GENERATE_STREAM_TOKEN);
 
   // TODO: Add state variable for user input box
+
+  const userId = userProfile.username || userProfile.user.username;
+  const username = userProfile.username || userProfile.user.username;
+  const user = {
+    id: userId,
+    name: username,
+    image: `https://getstream.io/random_png/?id=${userId}&name=${username}`,
+  };
+
+  console.log("[TextChat.jsx]: user:", user);
+
+  const apiKey = "dz5f4d5kzrue"; // API Key not secret
+
+  useEffect(() => {
+    const generateTokenAndConnect = async () => {
+      console.log(
+        "[TextChat.jsx]: About to run generateStreamToken mutation..."
+      );
+      const tokenPromise = generateStreamToken({
+        variables: { username: userId },
+      });
+
+      tokenPromise
+        .then((data) => {
+          console.log("[TextChat.jsx]: data:", data);
+          const userToken = data.data.generateStreamToken;
+          console.log("[TextChat.jsx]: userToken:", userToken);
+          return userToken;
+        })
+        .then((userToken) => {
+          const client = new StreamChat(apiKey);
+          client.connectUser(user, userToken);
+          console.log("[TextChat.jsx]: Connected to Chat?");
+          return client;
+        })
+        .then((client) => {
+          const userChannel = client.channel(
+            "messaging",
+            `workflow-wf-${channelName}`,
+            {
+              name: channelName,
+              members: [userId],
+            }
+          );
+          setChatClient(client);
+          console.log("[TextChat.jsx]: userChannel:", userChannel);
+          return userChannel;
+        })
+        .then((userChannel) => {
+          setChannel(userChannel);
+          console.log("[TextChat.jsx]: userChannel:", userChannel);
+        })
+        .then(() => {
+          setActiveChat(true);
+        })
+        .catch((error) => {
+          console.error("[TextChat.jsx]: Error:", error);
+        });
+    };
+
+    if (userReady) {
+      generateTokenAndConnect();
+    }
+  }, [userReady]);
 
   // Get user settings
   const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
@@ -49,45 +121,65 @@ const TextChat = () => {
 
   setMode(colorTheme);
 
-  const userId = userProfile.username || userProfile.user.username;
-  const username = userProfile.username || userProfile.user.username;
-  const user = {
-    id: userId,
-    name: username,
-    image: `https://getstream.io/random_png/?id=${userId}&name=${username}`,
+  const handleJoinButtonClick = () => {
+    setUserReady(true);
   };
-
-  console.log("[TextChat.jsx]: user:", user);
-
-  const apiKey = "dz5f4d5kzrue"; // API Key not secret
-  // const userToken = "fictional-user-token"; // TODO: Remove this after testing and uncomment below
-
-  const userToken = generateStreamToken(userId);
-  console.log("[TextChat.jsx]: userToken:", userToken);
-
-  const chatClient = new StreamChat(apiKey);
-  chatClient.connectUser(user, userToken);
-  console.log("[TextChat.jsx]: Connected to Chat?");
-
-  // TODO: Replace "workflow_test" with user input
-  const channel = chatClient.channel("messaging", "workflow_test", {
-    image: "https://www.drupal.org/files/project-images/react.png",
-    name: "Workflow ROCKING channel",
-    members: [userId],
-  });
 
   // TODO: Add input box in the same model as Video Chat, ask for channel name
   return (
-    <Chat client={chatClient} theme="str-chat__theme-light">
-      <Channel channel={channel}>
-        <Window>
-          <ChannelHeader />
-          <MessageList />
-          <MessageInput />
-        </Window>
-        <Thread />
-      </Channel>
-    </Chat>
+    <>
+      {activeChat ? (
+        !chatClient || !channel ? (
+          <LoadingSpinner />
+        ) : (
+          <div className="box-container-wf">
+            <div className="box-wf video-chat-player-box-wf">
+              <Chat client={chatClient}>
+                <Channel channel={channel}>
+                  <Window>
+                    <ChannelHeader />
+                    <MessageList />
+                    <MessageInput />
+                  </Window>
+                  <Thread />
+                </Channel>
+              </Chat>
+            </div>
+          </div>
+        )
+      ) : (
+        <>
+          {" "}
+          <div className="box-container-wf">
+            <div className="box-wf text-chat-input-box-wf">
+              <h4>Workflow Text Chat</h4>
+              <p>
+                Please enter the name of the channel you'd like to join. If the
+                channel does not exist, a new one will be created.
+              </p>
+              <input
+                id="channel"
+                type="text"
+                className="input-wf text-chat-input-wf"
+                value={channelName}
+                onChange={(e) => setChannelName(e.target.value)}
+                placeholder="Channel name"
+              />
+              <div className="text-chat-button-container-wf">
+                <button
+                  className="waves-effect waves-light btn button-wf"
+                  onClick={() =>
+                    channelName ? handleJoinButtonClick() : openModal()
+                  }
+                >
+                  Join
+                </button>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+    </>
   );
 };
 

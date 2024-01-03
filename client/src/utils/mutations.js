@@ -208,8 +208,6 @@ export const DELETE_FILE = gql`
 
 export const GENERATE_STREAM_TOKEN = gql`
   mutation generateStreamToken($username: String!) {
-    generateStreamToken(username: $username) {
-      token
-    }
+    generateStreamToken(username: $username)
   }
 `;

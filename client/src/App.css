@@ -178,7 +178,7 @@
   --file-management-link-text-color: rgba(32, 37, 0, 1);
   --notepad-background-color: rgba(255, 230, 223, 1);
   --sticky-note-background-color: rgba(183, 163, 174, 1);
-  --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --sticky-note-placeholder-text-color: rgba(153, 133, 144, 1);
   --sticky-note-text-color: rgba(53, 33, 44, 1);
   --schedule-background-color: rgba(117, 79, 91, 1);
   --schedule-darker-background-color: rgba(102, 64, 76, 1);
@@ -202,7 +202,7 @@
   --darkest-accent-color: rgba(49, 67, 94, 1);
   --darker-accent-color: rgba(53, 73, 94, 1);
   --dark-accent-color: rgba(13, 24, 33, 1);
-  --light-accent-color: rgba(76, 106, 148, 1);
+  --light-accent-color: rgba(34, 80, 149, 1);
   --light-accent-transparent: rgba(76, 106, 148, 0);
   --lighter-accent-color: rgba(107, 137, 179, 1);
   --main-text-color: rgba(250, 249, 246, 1);
@@ -477,7 +477,7 @@
   --button-hover-color: rgba(255, 232, 88, 1);
   --button-focus-color: rgba(255, 89, 94, 1);
   --button-focus-text-color: rgba(250, 249, 246, 1);
-  --secondary-button-color: rgba(13, 24, 33, 1);
+  --secondary-button-color: rgba(25, 130, 196, 1);
   --secondary-button-text-color: rgba(255, 255, 255, 1);
   --secondary-text-color: rgba(13, 24, 33, 1);
   --main-text-light-on-dark-color: rgba(255, 255, 255, 1);
@@ -491,7 +491,7 @@
   --input-placeholder-color: rgba(0, 0, 0, 0.42);
   --checkbox-border-color: rgba(255, 255, 255, 1);
   --sidenav-disabled-text-color: rgba(255, 255, 255, 1);
-  --sidenav-hover-color: rgba(255, 232, 88, 1);
+  --sidenav-hover-color: rgba(25, 130, 196, 1);
   --welcome-text-color: rgba(13, 24, 33, 1);
   --flow-text-color: rgba(138, 201, 38, 1);
   --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
@@ -1982,106 +1982,116 @@ h2 {
 }
 
 /* Chat page rules */
-.chat-container-wf {
+.text-chat-input-box-wf {
+  align-items: center;
+}
+
+.text-chat-input-wf {
+  width: 60% !important;
+}
+
+.text-chat-button-container-wf {
+  margin-top: 20px;
   display: flex;
-  height: 85vh;
+  justify-content: center;
 }
 
-.chat-sidebar-wf {
-  position: fixed;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  overflow-y: hidden;
-  width: 12%;
-  background-color: var(--dark-accent-color);
-  color: var(--main-text-color);
+.str-chat-channel {
+  background-color: var(--box-background-color) !important;
 }
 
-.chat-display {
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  width: 88%;
+.str-chat__header-livestream {
+  background-color: var(--box-background-color) !important;
 }
 
-.message-container-wf {
-  flex-grow: 1;
-  flex-shrink: 1;
-  width: 94%;
-  margin-top: 25px;
-  margin-bottom: 15px;
-  margin-left: 15px;
-  background-color: var(--main-text-color);
-  border: 1px solid var(--dark-accent-color);
-  border-radius: 10px;
-  overflow-y: auto;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+.str-chat__avatar {
+  display: none !important;
 }
 
-.message-container-wf::-webkit-scrollbar {
-  width: 8px;
-  background-color: var(--dark-accent-color);
+.str-chat__header-livestream-left > p {
+  color: var(--main-text-color) !important;
+  font-family: "Lexend", sans-serif !important;
+  font-weight: normal !important;
 }
 
-.message-container-wf::-webkit-scrollbar-track {
-  background-color: var(--light-accent-color);
-  border-radius: 8px;
+.str-chat__header-livestream-left--title {
+  font-size: 30px !important;
+  min-height: 2em !important;
+  padding-top: 2vh !important;
+  padding-bottom: 0px !important;
+  margin-top: 2vh !important;
 }
 
-.chat-bottom-container-wf {
-  width: 92%;
-  margin-left: 15px;
+.str-chat__header-livestream-left--title:before {
+  content: "Channel: ";
 }
 
-.text-half-size-wf {
-  width: 50% !important;
-  margin-top: 0px !important;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5) !important;
+.str-chat__main-panel-inner {
+  margin: 3vh 0px;
+  height: 55vh !important;
 }
 
-.box-shadow-wf {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5) !important;
+.str-chat__list {
+  background-color: var(--light-accent-color) !important;
+  border-radius: 20px !important;
+  border: 1px solid var(--main-text-color) !important;
+  box-shadow: 10px 10px 10px var(--box-shadow-color) !important;
+  width: 95% !important;
 }
 
-.chat-lower-form-wf {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
+.str-chat__empty-channel {
+  background-color: var(--box-background-color) !important;
 }
 
-.chat-button-wf {
-  background-color: var(--dark-accent-color);
+.str-chat__empty-channel > p {
+  color: var(--main-text-color) !important;
 }
 
-.chat-button-wf:hover {
-  background-color: var(--light-accent-color);
+.str-chat__ul {
+  background-color: var(--light-accent-color) !important;
 }
 
-.form-join-button-wf {
-  max-width: 75px;
+.str-chat__message-bubble {
+  background-color: var(--textbox-background-color) !important;
 }
 
-.sidebar-inner-container-wf {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin: 0px 20px;
+.str-chat__message-text-inner > div > p {
+  font-family: "Lexend", sans-serif !important;
+  color: var(--secondary-text-color) !important;
 }
 
-.user-list-wf {
-  margin-top: 12vh;
-  flex-grow: 0.5;
+.str-chat__date-separator-date {
+  color: var(--main-text-color) !important;
+  font-family: "Lexend", sans-serif !important;
 }
 
-.active-users-heading-wf {
-  color: var(--main-text-color);
-  text-align: left;
+.str-chat__date-separator-line {
+  background-color: var(--main-text-color) !important;
 }
 
-.available-rooms-heading-wf {
-  color: var(--main-text-color);
-  text-align: left;
+.str-chat__message .str-chat__message-status svg,
+.str-chat__quoted-message-preview .str-chat__message-status svg,
+.str-chat__message-simple-status > svg {
+  display: none !important;
+}
+
+.str-chat__message-simple-timestamp {
+  color: var(--main-text-color) !important;
+  font-family: "Lexend", sans-serif !important;
+}
+
+.str-chat__message-input {
+  background-color: var(--box-background-color) !important;
+  margin-bottom: 2vh;
+}
+
+.str-chat__message-textarea-container {
+  border-color: var(--main-text-color) !important;
+}
+
+.rta__textarea {
+  color: var(--main-text-color) !important;
+  font-family: "Lexend", sans-serif !important;
 }
 
 /* Video Chat page rules */
@@ -2307,9 +2317,15 @@ h2 {
   color: var(--support-text-color);
 }
 
+.error-page-wf h1 {
+  margin-left: -0.7%;
+}
+
 .error-back-btn-wf {
+  margin-left: -0.2%;
   margin-top: 20px;
   background-color: var(--secondary-button-color);
+  color: var(--secondary-button-text-color);
   align-self: flex-start;
 }
 

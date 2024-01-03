@@ -339,7 +339,7 @@ const resolvers = {
     // Generate an Agora RTC token for Video Chat
     generateAgoraToken: async (__, { userChannelName, userUid }) => {
       try {
-        const token = await generateRtcToken(userChannelName, userUid);
+        const token = generateRtcToken(userChannelName, userUid);
 
         return { token };
       } catch (error) {

@@ -1,10 +1,13 @@
+const StreamChat = require("stream-chat").StreamChat;
 const path = require("path");
 const dotenv = require("dotenv").config({
   path: path.resolve(__dirname, "../../.env"),
 });
 
+console.log("[streamAuth.js]: Hello, am I running?");
+
 const generateStreamToken = async (username) => {
-  console.log("[streamAuth.js] In generateStreamToken. username:", username);
+  console.log("[streamAuth.js]: In generateStreamToken. username:", username);
 
   // Define values.
   const api_key = process.env.STREAM_API_KEY;
@@ -23,15 +26,15 @@ const generateStreamToken = async (username) => {
   // Initialize a Server Client
   const serverClient = StreamChat.getInstance(api_key, api_secret);
 
-  console.log("[streamAuth.js] Server initialized?", serverClient);
+  console.log("[streamAuth.js]: Server initialized?", serverClient);
 
   try {
     // Create User Token
     const token = serverClient.createToken(user_id);
-    console.log("[streamAuth.js] Token generated?", token);
+    console.log("[streamAuth.js]: Token generated?", token);
     return token;
   } catch (error) {
-    console.error("Error generating Stream token:", error);
+    console.error("[streamAuth.js]: Error generating Stream token:", error);
     throw error;
   }
 };

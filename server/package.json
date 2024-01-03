@@ -19,6 +19,7 @@
     "graphql": "^16.8.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^7.0.2",
+    "stream-chat": "^8.14.4",
     "transloadit": "^3.0.2"
   },
   "devDependencies": {
