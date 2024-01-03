@@ -1,3 +1,4 @@
+// User settings page
 import { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 
@@ -11,8 +12,6 @@ import AuthService from "../utils/auth.js";
 import LoadingSpinner from "../components/LoadingSpinner/index.jsx";
 
 const Settings = (props) => {
-  console.log("*** NEW RENDER ***");
-
   const [userSettings, setUserSettings] = useState(null);
   const [checkboxUpdateComplete, setCheckboxUpdateComplete] = useState(false);
   const [dropdownUpdateComplete, setDropdownUpdateComplete] = useState(false);
@@ -37,59 +36,32 @@ const Settings = (props) => {
       .addEventListener("click", () => {
         deferredPrompt.prompt();
 
-        deferredPrompt.userChoice.then((choiceResult) => {
-          if (choiceResult.outcome === "accepted") {
-            console.log("User accepted the install prompt");
-          } else {
-            console.log("User dismissed the install prompt");
-          }
-
+        deferredPrompt.userChoice.then(() => {
           deferredPrompt = null;
         });
       });
   }
 
+  // Update color theme
   function updateColorTheme(mode) {
-    console.log("[UPDATECOLORTHEME]: Updating color theme to:", mode);
     const htmlElement = document.querySelector("html");
 
     htmlElement.className = "";
     htmlElement.classList.add(mode);
-    console.log(
-      "[UPDATECOLORTHEME]: Updating <html> element applied class:",
-      htmlElement.classList
-    );
-
-    console.log("[UPDATECOLORTHEME]: Setting currentMode to:", mode);
   }
 
+  // Update color theme dropdown
   function updateColorThemeDropdown() {
-    console.log(
-      "[UPDATECOLORTHEMEDROPDOWN]: Function triggered. Update color theme dropdown here!"
-    );
     setCurrentMode(data.getUserSettings.currentTheme);
   }
 
+  // Update widget checkboxes
   function updateCheckboxStatuses() {
     const checkboxes = document.querySelectorAll(".checkbox-item-wf");
-    console.log("[UPDATECHECKBOXSTATUSES]: checkboxes:", checkboxes);
 
     userSettings.widgets.forEach((widget) => {
       const checkbox = Array.from(checkboxes).find(
         (checkbox) => checkbox.id === widget.name
-      );
-
-      console.log("[UPDATECHECKBOXSTATUSES]: Checking", checkbox.id + "...");
-      console.log(
-        "[UPDATECHECKBOXSTATUSES]: Checkbox status:",
-        checkbox.active
-      );
-      console.log("[UPDATECHECKBOXSTATUSES]: Widget status:", widget.active);
-      console.log(
-        "[UPDATECHECKBOXSTATUSES]:",
-        checkbox.checked === widget.active
-          ? "Checkbox status matches widget status. No need for updating,"
-          : "Checkbox status does not match widget status. Value needs updating."
       );
 
       if (checkbox) {
@@ -112,75 +84,29 @@ const Settings = (props) => {
   });
 
   useEffect(() => {
-    console.log(
-      "[SETTINGS UPDATE USEEFFECT]: loading:",
-      loading,
-      "data:",
-      data
-    );
     if (!loading && data) {
       // Update user settings and current theme after component mounts
-      console.log(
-        "[SETTINGS UPDATE USEEFFECT]: Updating userSettings to:",
-        data.getUserSettings
-      );
       setUserSettings(data.getUserSettings || null);
-    } else {
-      console.log(
-        "[SETTINGS UPDATE USEEFFECT]: Still loading, no data obtained. Skipping update... loading:",
-        loading,
-        "data:",
-        data
-      );
     }
   }, [loading, data]);
 
   useEffect(() => {
     // Set widget checkboxes to match user settings after component mounts
     if (data?.getUserSettings && data.getUserSettings.widgets) {
-      console.log(
-        "[CHECKBOX UPDATE USEEFFECT]: User settings found! Updating checkbox statuses..."
-      );
-
       updateCheckboxStatuses();
       setCheckboxUpdateComplete(true);
-    } else {
-      console.log(
-        "[CHECKBOX UPDATE USEEFFECT]: No user settings found. Skipping update..."
-      );
     }
   }, [userSettings]);
 
   useEffect(() => {
-    // Set widget checkboxes to match user settings after component mounts
+    // Set color theme dropdown to match user settings after component mounts
     if (data?.getUserSettings && data.getUserSettings.currentTheme) {
-      console.log(
-        "[DROPDOWN UPDATE USEEFFECT]: User settings found! Updating dropdown..."
-      );
-
       updateColorThemeDropdown();
       setDropdownUpdateComplete(true);
-    } else {
-      console.log(
-        "[DROPDOWN UPDATE USEEFFECT]: No user settings found. Skipping update..."
-      );
     }
   }, [userSettings]);
 
   useEffect(() => {
-    console.log("[COLOR THEME UPDATE USEEFFECT]: currentMode:", currentMode);
-    console.log(
-      "[COLOR THEME UPDATE USEEFFECT]: <html> element applied class:",
-      document.querySelector("html").classList
-    );
-    if (currentMode) {
-      console.log(
-        "[COLOR THEME UPDATE USEEFFECT]:",
-        currentMode === document.querySelector("html").classList[0]
-          ? "currentMode matches <html> element applied class. No need for updating."
-          : "currentMode does not match <html> element applied class. Value needs updating."
-      );
-    }
     // Set color theme to match user settings when a new theme is selected by the user
     if (currentMode) {
       const userId = userProfile._id || userProfile.user._id;
@@ -192,24 +118,14 @@ const Settings = (props) => {
         variables: { userId, currentTheme: currentMode },
       })
         .then((result) => {
-          console.log(
-            "[COLOR THEME UPDATE USEEFFECT]: Mutation result:",
-            result
-          );
+          console.log("Mutation result:", result);
         })
         .catch((error) => {
-          console.error(
-            "[COLOR THEME UPDATE USEEFFECT]: Mutation error:",
-            error
-          );
+          console.error("Mutation error:", error);
         });
 
       // Store theme preference in localStorage
       localStorage.setItem("colorTheme", currentMode);
-    } else {
-      console.log(
-        "[COLOR THEME UPDATE USEEFFECT]: No value currently assigned to currentMode.  No need for updating."
-      );
     }
   }, [currentMode]);
 
@@ -218,27 +134,9 @@ const Settings = (props) => {
     const userId = userProfile._id || userProfile.user._id;
     const widgetName = e.target.id;
     const widgetStatus = e.target.checked;
-    console.log(
-      "[HANDLEWIDGETCHANGE]: Widget checkbox change detected (",
-      widgetName,
-      "=",
-      widgetStatus,
-      "). Updating widget status in User Settings..."
-    );
 
     const newWidgets = userSettings.widgets.map((item) => {
       if (item.name === widgetName) {
-        console.log(
-          "[HANDLEWIDGETCHANGE]:",
-          widgetName + "'s widget status is",
-          item.active + "."
-        );
-        console.log(
-          "[HANDLEWIDGETCHANGE]:",
-          widgetStatus === item.active
-            ? "Checkbox status matches widget status. No need for updating,"
-            : "Checkbox status does not match widget status. Value needs updating."
-        );
         return {
           ...item,
           active: widgetStatus,
@@ -248,16 +146,12 @@ const Settings = (props) => {
       }
     });
 
+    // Remove __typename property from each widget object
     const newWidgetsFormatted = newWidgets.map(
       ({ __typename, ...rest }) => rest
     );
 
     const newWidgetsString = JSON.stringify(newWidgetsFormatted);
-
-    console.log(
-      "[HANDLEWIDGETCHANGE]: New widgets (user settings object):",
-      newWidgetsFormatted
-    );
 
     // Update user settings with new widget settings
     updateWidgetSettings({

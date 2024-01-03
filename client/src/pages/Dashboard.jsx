@@ -1,20 +1,20 @@
 // Main dashboard page
-import ReactDOM from 'react-dom/client';
+import ReactDOM from "react-dom/client";
 import { useQuery } from "@apollo/client";
 import React, { useState } from "react";
 import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 
 import AuthService from "../utils/auth.js";
-import Auth from "../utils/auth.js";
 
 import LoadingSpinner from "../components/LoadingSpinner/index.jsx";
 import WidgetGrid from "../components/WidgetGrid";
 import PopUpModal from "../components/PopUpModal";
 
 const Home = () => {
-  const [isModalOpen, setModalOpen] = useState(false);
-  
+
+  // Open the modal dialog box for the File Manager component
   const openModal = async () => {
+    // Wait for the user to make a choice before proceeding
     return new Promise((resolve) => {
       const modalRoot = document.getElementById("modal-root-wf");
       const modalContainer = document.createElement("div");
@@ -26,7 +26,7 @@ const Home = () => {
         resolve(choice);
       };
 
-      // Render the modal with the provided content
+      // Render the modal dialog box
       const modalComponent = (
         <PopUpModal isOpen={true} onClose={closeModal} modalType="choice">
           <h2>Delete File</h2>

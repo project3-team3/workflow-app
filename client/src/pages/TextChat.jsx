@@ -1,3 +1,4 @@
+// Text Chat page
 import { StreamChat } from "stream-chat";
 import {
   Chat,
@@ -8,10 +9,39 @@ import {
   Thread,
   Window,
 } from "stream-chat-react";
+import AuthService from "../utils/auth.js";
+import { useQuery } from "@apollo/client";
+import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 
 import "stream-chat-react/dist/css/v2/index.css";
 
 const TextChat = () => {
+  // Get user profile
+  const userProfile = AuthService.getProfile();
+
+  // Get user settings
+  const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
+    variables: { userId: userProfile._id || userProfile.user._id },
+  });
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  // Get user's current theme
+  const colorTheme = data.getUserSettings.currentTheme || "default-wf";
+
+  // Set the color theme
+  const setMode = (mode) => {
+    const htmlElement = document.querySelector("html");
+    htmlElement.className = "";
+    htmlElement.classList.add(mode);
+
+    // Store theme preference in localStorage
+    localStorage.setItem("colorTheme", mode);
+  };
+
+  setMode(colorTheme);
+
   const userId = "billowing-dream-4";
   const userName = "billowing";
   const user = {

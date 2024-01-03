@@ -1,3 +1,4 @@
+// typeDefs.js
 const typeDefs = `
   type Quote {
     _id: ID

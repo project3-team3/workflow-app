@@ -54,7 +54,6 @@ const VideoChat = () => {
       setVideoCall(true);
     } catch (error) {
       console.error("Error generating Agora token:", error.message);
-      // Handle error (e.g., show an error message to the user)
     }
   };
 
@@ -73,8 +72,6 @@ const VideoChat = () => {
   };
 
   useEffect(() => {
-    console.log("useEffect triggered!");
-    console.log("showOverlaySpinner:", showOverlaySpinner);
     // Set 3s timeout for overlay spinner to disappear
     if (showOverlaySpinner) {
       const timeoutId = setTimeout(() => {

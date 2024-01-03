@@ -16,12 +16,14 @@ const server = new ApolloServer({
   resolvers,
 });
 
+// Initialize Apollo Server
 const startApolloServer = async () => {
   await server.start();
 
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
 
+  // Set up middleware for handling GraphQL requests
   app.use(
     "/graphql",
     expressMiddleware(server, {
@@ -37,6 +39,7 @@ const startApolloServer = async () => {
     });
   }
 
+  // Start express server
   db.once("open", () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);

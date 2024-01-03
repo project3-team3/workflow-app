@@ -1,8 +1,8 @@
 // Message Modal Window component
 const PopUpModal = ({ isOpen, onClose, modalType = "confirm", children }) => {
+
+  // Pass user's choice back to the parent component
   const handleButtonClick = (choice) => {
-    console.log("[PopUpModal.jsx]: handleButtonClick called. choice:", choice);
-    console.log("[PopUpModal.jsx]: Calling onClose (= closeModal):", onClose);
     onClose && onClose(choice);
   };
 
@@ -12,6 +12,7 @@ const PopUpModal = ({ isOpen, onClose, modalType = "confirm", children }) => {
         <div className="modal-overlay-wf">
           <div className="modal-wf">
             {children}
+            {/* Display buttons according to modal type */}
             {modalType === "confirm" ? (
               <button
                 className="waves-effect waves-light btn button-wf dark-button-wf modal-button-wf widget-prevent-drag-wf"

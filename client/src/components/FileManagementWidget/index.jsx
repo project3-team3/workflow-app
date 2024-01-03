@@ -12,19 +12,15 @@ import "@uppy/core/dist/style.min.css";
 import "@uppy/dashboard/dist/style.min.css";
 
 const FileManagementWidget = ({ openModal }) => {
-  console.log("[FileManagementWidget.jsx]: *** NEW RENDER ***");
+  // Get the Apollo Client instance
   const client = useApolloClient();
 
+  // Get the user profile
   const userProfile = AuthService.getProfile();
-  console.log(
-    "[FileManagementWidget.jsx]: username obtained?",
-    userProfile?.username || userProfile?.user?.username
-  );
 
   const [loading, setLoading] = useState(true);
 
-  console.log("[FileManagementWidget.jsx]: Starting query for file list...");
-  // Use the useQuery hook to fetch the file list
+  // Get the user's file list from AWS S3
   const {
     loading: listLoading,
     error: listError,
@@ -41,45 +37,18 @@ const FileManagementWidget = ({ openModal }) => {
   const [deleteFileMutation] = useMutation(DELETE_FILE);
 
   useEffect(() => {
-    console.log("[FileManagementWidget.jsx]: In listData useEffect hook");
-    console.log("[FileManagementWidget.jsx]: listData obtained?", listData);
     // Update the local state with the file list when data is available
     if (listData?.getFileList && Array.isArray(listData.getFileList)) {
-      console.log(
-        "[FileManagementWidget.jsx]: listData has data, updating fileList..."
-      );
-      // Update the local state with the file list when data is available
       setFileList(listData.getFileList);
-      console.log(
-        "[FileManagementWidget.jsx]: File list updated?",
-        listData.getFileList
-      );
     }
   }, [listData]);
 
   useEffect(() => {
-    console.log(
-      "[FileManagementWidget.jsx]: In fileList useEffect hook. fileList:",
-      fileList
-    );
-    console.log("[FileManagementWidget.jsx]: listLoading?", listLoading);
-    if (listLoading) {
-      console.log("[FileManagementWidget.jsx]: Still loading file list...");
-      // You can render a loading state here if needed
-      return;
-    }
-
-    // Fetch download URLs for each file in the file list
+    // Get download URLs for each file in the file list
     const fetchDownloadUrls = async () => {
-      console.log(
-        "[FileManagementWidget.jsx]: fileList has data, fetching URLs..."
-      );
       const urls = {};
       for (const fileName of fileList) {
         try {
-          console.log(
-            `[FileManagementWidget.jsx]: Fetching presigned URL for ${fileName}...`
-          );
           const { data } = await client.query({
             query: GET_PRESIGNED_URL,
             variables: {
@@ -87,15 +56,9 @@ const FileManagementWidget = ({ openModal }) => {
               fileName,
             },
           });
-          console.log(
-            `[FileManagementWidget.jsx]: Presigned URL for ${fileName} obtained?`,
-            data.generatePresignedUrl
-          );
           urls[fileName] = data.generatePresignedUrl;
-          console.log(`[FileManagementWidget.jsx]: Current URL list:`, urls);
         } catch (error) {
           console.error(`Error fetching presigned URL for ${fileName}:`, error);
-          // Handle error as needed
         }
       }
       setDownloadUrls(urls);
@@ -110,7 +73,6 @@ const FileManagementWidget = ({ openModal }) => {
 
   const handleDeleteFile = async (fileName) => {
     try {
-      console.log(`[FileManagementWidget.jsx]: In handleDeleteFile. Deleting file ${fileName}...`);
       // Send a request to the server to delete the file
       const response = await deleteFileMutation({
         variables: {
@@ -118,29 +80,26 @@ const FileManagementWidget = ({ openModal }) => {
           fileName,
         },
       });
-  
-      // Handle the response accordingly
-      console.log("[FileManagementWidget.jsx]: File deleted successfully:", response);
-      
-      // Optionally, update the local file list state to reflect the deletion
-      setFileList((prevFileList) => prevFileList.filter((name) => name !== fileName));
+
+      // Update the local file list state to reflect the deletion
+      setFileList((prevFileList) =>
+        prevFileList.filter((name) => name !== fileName)
+      );
     } catch (error) {
       console.error("[FileManagementWidget.jsx]: Error deleting file:", error);
-      // Handle error as needed
     }
   };
 
   const handleDeleteFileModal = async (fileName) => {
-    console.log(`[FileManagementWidget.jsx]: Delete button clicked. In handleDeleteFileModal. fileName: ${fileName}.`);
+    // Open modal in Dashboard component, wait for user to confirm
     const userChoice = await openModal();
     if (userChoice) {
-      console.log(`[FileManagementWidget.jsx]: User agreed to deletion (userChoice: ${userChoice}). Deleting file ${fileName}...)`);
+      // If user confirms, delete the file
       handleDeleteFile(fileName);
-    } else {
-      console.log(`[FileManagementWidget.jsx]: User declined to deletion (userChoice: ${userChoice}). Skipping deletion of file ${fileName}...`);
     }
   };
 
+  // Initialize Uppy uploader interface
   const [uppy] = useState(
     new Uppy({
       restrictions: {
@@ -178,8 +137,13 @@ const FileManagementWidget = ({ openModal }) => {
         },
       })
       .on("upload-success", (file, response) => {
-        console.log("File uploaded successfully:", file);
-        console.log("Transloadit response:", response);
+        try {
+          // Update the local file list state to include the newly uploaded file
+          const newFileName = file.data.name;
+          setFileList((prevFileList) => [...prevFileList, newFileName]);
+        } catch (error) {
+          console.error("Error handling file upload:", error);
+        }
       })
   );
 

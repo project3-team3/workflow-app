@@ -1,3 +1,4 @@
+// resolvers.js
 const { User, UserSettings, Quote, BalanceTip } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 const generateRtcToken = require("../utils/agoraTokenGen.js");

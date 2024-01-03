@@ -21,7 +21,6 @@ const ClockWidget = () => {
   const userSettings = data?.getUserSettings;
 
   if (!userSettings) {
-    // Handle the case where userSettings is undefined or null
     console.error("User settings not found in query result.");
     return <p>Error loading user settings. Please try again later.</p>;
   }

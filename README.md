@@ -66,11 +66,11 @@ Workflow prioritizes user customization with adaptable color schemes, providing 
 
 ## Installation
 
-Access the app directly through [here](<https://workflow-oj8s.onrender.com/>). A local version can be installed by clicking the "install" icon at the right end of your address bar (in Google Chrome).
+Access the app directly through [here](<https://workflow-oj8s.onrender.com/>). A local version can be installed by clicking the "install" icon at the right end of your address bar (in Google Chrome), or by clicking the "Install" button at the bottom of the Settings page.
 
 ## Usage
 
-Once logged in to the application, all widgets are accessible through the main dashboard (Widgets can be added and removed at the Settings page). Video chat and text chat functionalities are accessed via the sidenav bar (burger menu at top left corner). Color schemes can be changed through the Setting page.
+Once logged in to the application, all widgets are accessible through the main dashboard (Widgets can be added and removed at the Settings page). Video chat and text chat functionalities are accessed via the sidenav bar (burger menu at top left corner). Color schemes can be changed through the Settings page.
 
 ## Credits
 

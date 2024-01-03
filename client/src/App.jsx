@@ -1,3 +1,4 @@
+// Main React component for the application
 import "./App.css";
 import {
   ApolloClient,
