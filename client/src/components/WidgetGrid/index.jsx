@@ -1,4 +1,5 @@
 // Main component for the Widget Grid
+import React from "react";
 import { Responsive, WidthProvider } from "react-grid-layout";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER_SETTINGS } from "../../utils/queries.js";
@@ -331,7 +332,7 @@ export const defaultLayout = {
   ],
 };
 
-const WidgetGrid = () => {
+const WidgetGrid = React.memo(({ openModal }) => {
   // Get the user profile
   const userProfile = AuthService.getProfile();
 
@@ -423,7 +424,7 @@ const WidgetGrid = () => {
           } else if (widget.name === "filemanagement") {
             return (
               <div key={widget.name} className="widget-wf widget-box-shadow-wf">
-                <FileManagementWidget />
+                <FileManagementWidget openModal={openModal} />
               </div>
             );
           } else if (widget.name === "notepad") {
@@ -474,6 +475,6 @@ const WidgetGrid = () => {
       })}
     </ResponsiveGridLayout>
   );
-};
+});
 
 export default WidgetGrid;

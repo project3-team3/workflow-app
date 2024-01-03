@@ -89,6 +89,8 @@ Once logged in to the application, all widgets are accessible through the main d
 - Meditation Music
     - <http://pixabay.com>
 
+Additionally, a large part of the research for this project was done through the websites Stack Overflow (<https://stackoverflow.com/>), W3 Schools (<https://www.w3schools.com/>) and ChatGPT (<https://chat.openai.com/>), and as such sections of code may have been adapted from examples and suggestions offered in those sites.
+
 ## Contribute
 
 Feel free to fork this repository, check our [current issues page](<https://github.com/project3-team3/workflow-app/issues>) or contact us to request/propose new features.

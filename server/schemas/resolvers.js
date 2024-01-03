@@ -1,7 +1,11 @@
 const { User, UserSettings, Quote, BalanceTip } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 const generateRtcToken = require("../utils/agoraTokenGen.js");
-const { fetchFileList, generatePresignedUrl } = require("../utils/awsS3.js");
+const {
+  fetchFileList,
+  generatePresignedUrl,
+  deleteFile,
+} = require("../utils/awsS3.js");
 
 const resolvers = {
   Query: {
@@ -68,7 +72,10 @@ const resolvers = {
 
   Mutation: {
     // Create a new user
-    addUser: async (__, { username, email, password, gridLayout, widgets, agoraUid }) => {
+    addUser: async (
+      __,
+      { username, email, password, gridLayout, widgets, agoraUid }
+    ) => {
       try {
         // Create a new UserSettings field with default values
         const userSettings = await UserSettings.create({
@@ -86,7 +93,14 @@ const resolvers = {
 
         const token = signToken(user);
 
-        return { token, user: { _id: user._id, username: user.username, agoraUid: user.agoraUid } };
+        return {
+          token,
+          user: {
+            _id: user._id,
+            username: user.username,
+            agoraUid: user.agoraUid,
+          },
+        };
       } catch (error) {
         console.error("Server Error:", error);
         throw error;
@@ -108,7 +122,14 @@ const resolvers = {
 
       const token = signToken(user);
 
-      return { token, user: { _id: user._id, username: user.username, agoraUid: user.agoraUid } };
+      return {
+        token,
+        user: {
+          _id: user._id,
+          username: user.username,
+          agoraUid: user.agoraUid,
+        },
+      };
     },
     // Save new grid layout to user settings
     updateGridSettings: async (__, { userId, layouts }) => {
@@ -330,6 +351,14 @@ const resolvers = {
         console.error("Error generating RTC token:", error.message);
         throw error;
       }
+    },
+    // Delete a file from S3
+    deleteFile: async (_, { username, fileName }) => {
+      console.log(
+        "[resolvers.js]: In deleteFile(). username/fileName:",
+        `${username}/${fileName}`
+      );
+      return deleteFile(username, fileName);
     },
   },
 };

@@ -13,6 +13,7 @@ const fetchFileList = async (username) => {
   });
 
   const s3 = new AWS.S3();
+  
   const params = {
     Bucket: process.env.AMAZON_S3_BUCKET,
     Prefix: `${username}/`,
@@ -63,4 +64,33 @@ const generatePresignedUrl = async (username, fileName) => {
   }
 };
 
-module.exports = { fetchFileList, generatePresignedUrl };
+const deleteFile = async (username, fileName) => {
+  console.log(
+    "[awsS3.js]: In deleteFile(). username/fileName: ",
+    `${username}/${fileName}`
+  );
+
+  AWS.config.update({
+    accessKeyId: process.env.AMAZON_S3_IAM_ACCESS_KEY,
+    secretAccessKey: process.env.AMAZON_S3_IAM_SECRET_ACCESS_KEY,
+    region: process.env.AWS_REGION,
+  });
+
+  const s3 = new AWS.S3();
+
+  const params = {
+    Bucket: process.env.AMAZON_S3_BUCKET,
+    Key: `${username}/${fileName}`,
+  };
+
+  try {
+    await s3.deleteObject(params).promise();
+    console.log("[awsS3.js]: file deleted?");
+    return true;
+  } catch (error) {
+    console.error("[awsS3.js]: Error deleting file from S3:", error);
+    throw error;
+  }
+};
+
+module.exports = { fetchFileList, generatePresignedUrl, deleteFile };

@@ -198,3 +198,9 @@ export const GENERATE_AGORA_TOKEN = gql`
     }
   }
 `;
+
+export const DELETE_FILE = gql`
+  mutation DeleteFile($username: String!, $fileName: String!) {
+    deleteFile(username: $username, fileName: $fileName)
+  }
+`;

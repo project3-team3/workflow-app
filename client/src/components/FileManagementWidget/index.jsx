@@ -1,16 +1,18 @@
 // File Management Widget component
-import { useState, useEffect } from "react";
-import { useQuery, useApolloClient } from "@apollo/client";
+import React, { useState, useEffect } from "react";
+import { useQuery, useApolloClient, useMutation } from "@apollo/client";
 import { Uppy } from "@uppy/core";
 import { Dashboard } from "@uppy/react";
 import Transloadit from "@uppy/transloadit";
 import AuthService from "../../utils/auth.js";
 import { GET_FILE_LIST, GET_PRESIGNED_URL } from "../../utils/queries.js";
+import { DELETE_FILE } from "../../utils/mutations.js";
 
 import "@uppy/core/dist/style.min.css";
 import "@uppy/dashboard/dist/style.min.css";
 
-const FileManagementWidget = () => {
+const FileManagementWidget = ({ openModal }) => {
+  console.log("[FileManagementWidget.jsx]: *** NEW RENDER ***");
   const client = useApolloClient();
 
   const userProfile = AuthService.getProfile();
@@ -35,6 +37,8 @@ const FileManagementWidget = () => {
 
   const [fileList, setFileList] = useState([]);
   const [downloadUrls, setDownloadUrls] = useState({});
+
+  const [deleteFileMutation] = useMutation(DELETE_FILE);
 
   useEffect(() => {
     console.log("[FileManagementWidget.jsx]: In listData useEffect hook");
@@ -104,6 +108,39 @@ const FileManagementWidget = () => {
     }
   }, [fileList]);
 
+  const handleDeleteFile = async (fileName) => {
+    try {
+      console.log(`[FileManagementWidget.jsx]: In handleDeleteFile. Deleting file ${fileName}...`);
+      // Send a request to the server to delete the file
+      const response = await deleteFileMutation({
+        variables: {
+          username: userProfile?.username || userProfile?.user?.username,
+          fileName,
+        },
+      });
+  
+      // Handle the response accordingly
+      console.log("[FileManagementWidget.jsx]: File deleted successfully:", response);
+      
+      // Optionally, update the local file list state to reflect the deletion
+      setFileList((prevFileList) => prevFileList.filter((name) => name !== fileName));
+    } catch (error) {
+      console.error("[FileManagementWidget.jsx]: Error deleting file:", error);
+      // Handle error as needed
+    }
+  };
+
+  const handleDeleteFileModal = async (fileName) => {
+    console.log(`[FileManagementWidget.jsx]: Delete button clicked. In handleDeleteFileModal. fileName: ${fileName}.`);
+    const userChoice = await openModal();
+    if (userChoice) {
+      console.log(`[FileManagementWidget.jsx]: User agreed to deletion (userChoice: ${userChoice}). Deleting file ${fileName}...)`);
+      handleDeleteFile(fileName);
+    } else {
+      console.log(`[FileManagementWidget.jsx]: User declined to deletion (userChoice: ${userChoice}). Skipping deletion of file ${fileName}...`);
+    }
+  };
+
   const [uppy] = useState(
     new Uppy({
       restrictions: {
@@ -162,34 +199,46 @@ const FileManagementWidget = () => {
         )}
       </div>
       {fileList.length > 0 && (
-      <div className="download-list-wf">
-        <p>Your Files</p>
-        <ul>
-          {fileList.map((fileName) => (
-            <div className="download-item-container-wf" key={fileName}>
-              <li>
+        <div className="download-list-wf">
+          <p>Your Files</p>
+          <div className="download-file-list-wf">
+            {fileList.map((fileName) => (
+              <div className="download-item-container-wf" key={fileName}>
                 {downloadUrls[fileName] ? (
-                  // Add a link or button to download the file
                   <a
                     href={downloadUrls[fileName]}
+                    className="widget-prevent-drag-wf"
                     download
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <i className="material-icons">cloud_download</i>
+                    <i className="material-icons">file_download</i>
                   </a>
                 ) : (
-                  "Fetching URL..."
+                  <i className="material-icons">hourglass_empty</i>
                 )}
-                {fileName}
-              </li>
-            </div>
-          ))}
-        </ul>
-      </div>
-    )}
-  </div>
-);
-}
+                <div className="download-file-name-wf">{fileName}</div>
+                {downloadUrls[fileName] ? (
+                  <a
+                    className="widget-prevent-drag-wf"
+                    onClick={() => handleDeleteFileModal(fileName)}
+                  >
+                    <i className="material-icons delete-icon-wf">
+                      delete_forever
+                    </i>
+                  </a>
+                ) : (
+                  <i className="material-icons delete-icon-wf">
+                    hourglass_empty
+                  </i>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default FileManagementWidget;

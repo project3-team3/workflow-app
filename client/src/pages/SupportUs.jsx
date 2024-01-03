@@ -60,7 +60,8 @@ const SupportUs = () => {
           </p>
           <button
             onClick={handleDonateClick}
-            className="waves-effect waves-light btn support-btn-wf button-wf"
+            id="support-btn-wf"
+            className="waves-effect waves-light btn button-wf"
           >
             Donate
           </button>

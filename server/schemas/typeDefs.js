@@ -101,6 +101,7 @@ const typeDefs = `
     updateScheduleSettings(userId: ID!, scheduleEvents: String!): UserSettings
     updateKanbanSettings(userId: ID!, kanbanTasks: String!): UserSettings
     generateAgoraToken(userChannelName: String!, userUid: Int!): AgoraToken
+    deleteFile(username: String!, fileName: String!): Boolean
   }
 `;
 

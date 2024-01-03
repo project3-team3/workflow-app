@@ -8,7 +8,14 @@
   --lighter-accent-color: rgba(107, 137, 179, 1);
   --main-text-color: rgba(250, 249, 246, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
-  --secondary-text-color: rgba(13, 24, 33, 1);
+  --box-background-color: rgba(52, 73, 102, 1);
+  --button-text-color: rgba(250, 249, 246, 1);
+  --button-hover-color: rgba(107, 137, 179, 1);
+  --button-focus-color: rgba(76, 106, 148, 1);
+  --button-focus-text-color: rgba(250, 249, 246, 1);
+  --secondary-button-color: rgba(250, 249, 246, 1);
+  --secondary-button-text-color: rgba(25, 25, 25, 1);
+  --secondary-text-color: rgba(250, 249, 246, 1);
   --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
   --error-text-color: rgba(252, 63, 56, 1);
   --box-border-color: rgba(49, 67, 94, 1);
@@ -42,8 +49,12 @@
   --kanban-board-darker-background-color: rgba(42, 77, 20, 1);
   --kanban-column-heading-color: rgba(49, 67, 94, 1);
   --meditation-background-color: rgba(96, 110, 110, 1);
+  --meditation-text-color: rgba(250, 249, 246, 1);
   --inspiring-quote-background-color: rgba(158, 98, 64, 1);
+  --inspiring-quote-text-color: rgba(250, 249, 246, 1);
   --balance-tip-background-color: rgba(138, 78, 44, 1);
+  --balance-tip-text-color: rgba(250, 249, 246, 1);
+  --support-text-color: rgba(250, 249, 246, 1);
   --video-chat-screen-border: rgba(250, 249, 246, 1);
   --video-chat-button: rgba(0, 194, 203, 1);
 }
@@ -58,13 +69,20 @@
   --lighter-accent-color: rgba(107, 137, 179, 1);
   --main-text-color: rgba(250, 249, 246, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
+  --box-background-color: rgba(52, 73, 102, 1);
+  --button-text-color: rgba(250, 249, 246, 1);
+  --button-hover-color: rgba(107, 137, 179, 1);
+  --button-focus-color: rgba(76, 106, 148, 1);
+  --button-focus-text-color: rgba(250, 249, 246, 1);
+  --secondary-button-color: rgba(52, 73, 102, 1);
+  --secondary-button-text-color: rgba(250, 249, 246, 1);
   --secondary-text-color: rgba(13, 24, 33, 1);
   --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
   --error-text-color: rgba(252, 63, 56, 1);
   --box-border-color: rgba(49, 67, 94, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
   --inset-box-shadow-color: rgba(0, 0, 0, 1);
-  --inset-box-shadow-raise: rgba(255, 255, 255, 0.5);
+  --inset-box-shadow-raise: rgba(250, 249, 246, 0.5);
   --textbox-background-color: rgba(250, 249, 246, 1);
   --input-border-color: rgba(52, 73, 102, 1);
   --input-placeholder-color: rgba(0, 0, 0, 0.42);
@@ -74,7 +92,7 @@
   --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
   --clock-background-color: rgba(49, 67, 94, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
-  --calendar-background-color: rgba(51, 65, 65, 1);
+  --calendar-background-color: rgba(71, 85, 85, 1);
   --calendar-disabled-area-color: rgba(124, 80, 113, 0.5);
   --calendar-weekday-color: rgba(240, 239, 236, 1);
   --calendar-day-color: rgba(250, 249, 246, 1);
@@ -86,14 +104,18 @@
   --sticky-note-background-color: rgba(214, 215, 116, 1);
   --sticky-note-placeholder-text-color: rgba(166, 180, 180, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
-  --schedule-background-color: rgba(42, 77, 20, 1);
-  --schedule-darker-background-color: rgba(72, 97, 50, 1);
-  --kanban-board-background-color: rgba(72, 97, 50, 1);
-  --kanban-board-darker-background-color: rgba(42, 77, 20, 1);
+  --schedule-background-color: rgba(49, 67, 94, 1);
+  --schedule-darker-background-color: rgba(24, 42, 69, 1);
+  --kanban-board-background-color: rgba(49, 67, 94, 1);
+  --kanban-board-darker-background-color: rgba(24, 42, 69, 1);
   --kanban-column-heading-color: rgba(49, 67, 94, 1);
   --meditation-background-color: rgba(96, 110, 110, 1);
-  --inspiring-quote-background-color: rgba(158, 98, 64, 1);
-  --balance-tip-background-color: rgba(138, 78, 44, 1);
+  --meditation-text-color: rgba(250, 249, 246, 1);
+  --inspiring-quote-background-color: rgba(98, 99, 0, 1);
+  --inspiring-quote-text-color: rgba(250, 249, 246, 1);
+  --balance-tip-background-color: rgba(98, 99, 0, 1);
+  --balance-tip-text-color: rgba(250, 249, 246, 1);
+  --support-text-color: rgba(250, 249, 246, 1);
   --video-chat-screen-border: rgba(250, 249, 246, 1);
   --video-chat-button: rgba(0, 194, 203, 1);
 }
@@ -108,6 +130,13 @@
   --lighter-accent-color: rgba(107, 137, 179, 1);
   --main-text-color: rgba(250, 249, 246, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
+  --box-background-color: rgba(0, 194, 203, 1);
+  --button-text-color: rgba(250, 249, 246, 1);
+  --button-hover-color: rgba(107, 137, 179, 1);
+  --button-focus-color: rgba(76, 106, 148, 1);
+  --button-focus-text-color: rgba(250, 249, 246, 1);
+  --secondary-button-color: rgba(250, 249, 246, 1);
+  --secondary-button-text-color: rgba(53, 73, 94, 1);
   --secondary-text-color: rgba(13, 24, 33, 1);
   --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
   --error-text-color: rgba(252, 63, 56, 1);
@@ -124,26 +153,30 @@
   --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
   --clock-background-color: rgba(0, 164, 173, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
-  --calendar-background-color: rgba(166, 180, 180, 1);;
+  --calendar-background-color: rgba(45, 75, 120, 1);
   --calendar-disabled-area-color: rgba(250, 249, 246, 0.5);
-  --calendar-weekday-color: rgba(13, 24, 33, 1);
-  --calendar-day-color: rgba(13, 24, 33, 1);
-  --calendar-weekend-day-color: rgba(143, 0, 0, 1);
-  --calendar-disabled-day-color: rgba(250, 249, 246, 1);
-  --file-management-background-color: rgba(71, 85, 85, 1);
-  --file-management-drop-zone-color: rgba(96, 110, 110, 1);
+  --calendar-weekday-color: rgba(210, 209, 206, 1);
+  --calendar-day-color: rgba(250, 249, 246, 1);
+  --calendar-weekend-day-color: rgba(113, 0, 0, 1);
+  --calendar-disabled-day-color: rgba(250, 249, 246, 0.5);
+  --file-management-background-color: rgba(45, 75, 120, 1);
+  --file-management-drop-zone-color: rgba(75, 105, 150, 1);
   --notepad-background-color: rgba(176, 190, 190, 1);
   --sticky-note-background-color: rgba(113, 210, 220, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
-  --schedule-background-color: rgba(42, 77, 20, 1);
-  --schedule-darker-background-color: rgba(72, 97, 50, 1);
-  --kanban-board-background-color: rgba(72, 97, 50, 1);
-  --kanban-board-darker-background-color: rgba(42, 77, 20, 1);
+  --schedule-background-color: rgba(0, 164, 173, 1);
+  --schedule-darker-background-color: rgba(0, 134, 143, 1);
+  --kanban-board-background-color: rgba(0, 134, 143, 1);
+  --kanban-board-darker-background-color: rgba(0, 164, 173, 1);
   --kanban-column-heading-color: rgba(49, 67, 94, 1);
-  --meditation-background-color: rgba(146, 160, 160, 1);
+  --meditation-background-color: rgba(45, 75, 120, 1);
+  --meditation-text-color: rgba(250, 249, 246, 1);
   --inspiring-quote-background-color: rgba(87, 117, 159, 1);
+  --inspiring-quote-text-color: rgba(250, 249, 246, 1);
   --balance-tip-background-color: rgba(77, 107, 149, 1);
+  --balance-tip-text-color: rgba(250, 249, 246, 1);
+  --support-text-color: rgba(250, 249, 246, 1);
   --video-chat-screen-border: rgba(250, 249, 246, 1);
   --video-chat-button: rgba(53, 73, 94, 1);
 }
@@ -152,14 +185,21 @@
   --main-background-color: rgba(250, 249, 246, 1);
   --darkest-accent-color: rgba(49, 67, 94, 1);
   --darker-accent-color: rgba(53, 73, 94, 1);
-  --dark-accent-color: rgba(0, 194, 203, 1);
+  --dark-accent-color: rgba(13, 24, 33, 1);
   --light-accent-color: rgba(76, 106, 148, 1);
   --light-accent-transparent: rgba(76, 106, 148, 0);
   --lighter-accent-color: rgba(107, 137, 179, 1);
-  --main-text-color: rgba(19, 37, 64, 1);
+  --main-text-color: rgba(250, 249, 246, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
+  --box-background-color: rgba(221, 1, 0, 1);
+  --button-text-color: rgba(13, 24, 33, 1);
+  --button-hover-color: rgba(250, 201, 1, 1);
+  --button-focus-color: rgba(34, 80, 149, 1);
+  --button-focus-text-color: rgba(250, 249, 246, 1);
+  --secondary-button-color: rgba(13, 24, 33, 1);
+  --secondary-button-text-color: rgba(250, 249, 246, 1);
   --secondary-text-color: rgba(13, 24, 33, 1);
-  --main-text-light-on-dark-color: rgba(49, 67, 94, 1);
+  --main-text-light-on-dark-color: rgba(250, 249, 246, 1);
   --error-text-color: rgba(252, 63, 56, 1);
   --box-border-color: rgba(0, 184, 193, 1);
   --box-shadow-color: rgba(0, 0, 0, 0.5);
@@ -168,11 +208,11 @@
   --textbox-background-color: rgba(241, 238, 229, 1);
   --input-border-color: rgba(45, 45, 48, 1);
   --input-placeholder-color: rgba(0, 0, 0, 0.42);
-  --checkbox-border-color: rgba(49, 67, 94, 1);
+  --checkbox-border-color: rgba(250, 249, 246, 1);
   --sidenav-disabled-text-color: rgba(250, 249, 246, 1);
   --sidenav-hover-color: rgba(250, 249, 246, 1);
   --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
-  --clock-background-color: rgba(0, 194, 203, 1);
+  --clock-background-color: rgba(221, 1, 0, 1);
   --clock-face-color: rgba(250, 249, 246, 1);
   --calendar-background-color: rgba(250, 249, 246, 1);
   --calendar-disabled-area-color: rgba(250, 249, 246, 0.5);
@@ -180,20 +220,24 @@
   --calendar-day-color: rgba(13, 24, 33, 1);
   --calendar-weekend-day-color: rgba(143, 0, 0, 1);
   --calendar-disabled-day-color: rgba(173, 184, 193, 1);
-  --file-management-background-color: rgba(178, 165, 119, 1);
-  --file-management-drop-zone-color: rgba(198, 185, 139, 1);
+  --file-management-background-color: rgba(221, 1, 0, 1);
+  --file-management-drop-zone-color: rgba(166, 0, 0, 1);
   --notepad-background-color: rgba(250, 249, 246, 1);
-  --sticky-note-background-color: rgba(153, 250, 255, 1);
+  --sticky-note-background-color: rgba(250, 201, 1, 1);
   --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
   --sticky-note-text-color: rgba(49, 67, 94, 1);
-  --schedule-background-color: rgba(198, 185, 139, 1);
-  --schedule-darker-background-color: rgba(168, 155, 109, 1);
-  --kanban-board-background-color: rgba(168, 155, 109, 1);
-  --kanban-board-darker-background-color: rgba(198, 185, 139, 1);
+  --schedule-background-color: rgba(34, 80, 149, 1);
+  --schedule-darker-background-color: rgba(14, 60, 129, 1);
+  --kanban-board-background-color: rgba(34, 80, 149, 1);
+  --kanban-board-darker-background-color: rgba(14, 60, 129, 1);
   --kanban-column-heading-color: rgba(250, 249, 246, 1);
   --meditation-background-color: rgba(250, 249, 246, 1);
-  --inspiring-quote-background-color: rgba(167, 140, 121, 1);
-  --balance-tip-background-color: rgba(187, 160, 141, 1);
+  --meditation-text-color: rgba(13, 24, 33, 1);
+  --inspiring-quote-background-color: rgba(250, 201, 1, 1);
+  --inspiring-quote-text-color: rgba(13, 24, 33, 1);
+  --balance-tip-background-color: rgba(250, 201, 1, 1);
+  --balance-tip-text-color: rgba(13, 24, 33, 1);
+  --support-text-color: rgba(13, 24, 33, 1);
   --video-chat-screen-border: rgba(250, 249, 246, 1);
   --video-chat-button: rgba(53, 73, 94, 1);
 }
@@ -208,6 +252,13 @@
   --lighter-accent-color: rgba(132, 132, 136, 1);
   --main-text-color: rgba(220, 219, 216, 1);
   --main-text-transparent: rgba(250, 249, 246, 0);
+  --box-background-color: rgba(45, 45, 48, 1);
+  --button-text-color: rgba(220, 219, 216, 1);
+  --button-hover-color: rgba(132, 132, 136, 1);
+  --button-focus-color: rgba(102, 102, 106, 1);
+  --button-focus-text-color: rgba(220, 219, 216, 1);
+  --secondary-button-color: rgba(250, 249, 246, 1);
+  --secondary-button-text-color: rgba(25, 25, 25, 1);
   --secondary-text-color: rgba(13, 24, 33, 1);
   --main-text-light-on-dark-color: rgba(220, 219, 216, 1);
   --error-text-color: rgba(252, 63, 56, 1);
@@ -241,8 +292,12 @@
   --kanban-board-darker-background-color: rgba(31, 31, 31, 1);
   --kanban-column-heading-color: rgba(250, 249, 246, 1);
   --meditation-background-color: rgba(51, 51, 51, 1);
+  --meditation-text-color: rgba(220, 219, 216, 1);
   --inspiring-quote-background-color: rgba(51, 51, 51, 1);
+  --inspiring-quote-text-color: rgba(250, 249, 246, 1);
   --balance-tip-background-color: rgba(51, 51, 51, 1);
+  --balance-tip-text-color: rgba(220, 219, 216, 1);
+  --support-text-color: rgba(220, 219, 216, 1);
   --video-chat-screen-border: rgba(250, 249, 246, 1);
   --video-chat-button: rgba(25, 25, 25, 1);
 }
@@ -269,18 +324,20 @@ html {
   display: flex;
   flex-direction: column;
   width: 40%;
-  background-color: var(--dark-accent-color);
+  background-color: var(--box-background-color);
   color: var(--main-text-color);
   text-align: center;
   border: 1px solid var(--box-border-color);
   border-radius: 20px;
   padding: 40px 40px 60px 40px;
-  box-shadow: 5px 5px 10px var(--box-shadow-color);
+  box-shadow: 5px 5px 10px var(--box-shadow-color),
+              inset 3px 3px 10px -2px var(--inset-box-shadow-raise),
+              inset -3px -3px 7px -1px var(--inset-box-shadow-color);
 }
 
 .button-wf {
   background-color: var(--main-background-color);
-  color: var(--main-text-color);
+  color: var(--button-text-color);
   font-weight: bold;
   border-radius: 10px;
   box-shadow: inset 0.9px 0.9px 10px -4px var(--inset-box-shadow-raise),
@@ -288,13 +345,15 @@ html {
 }
 
 .button-wf:hover {
-  background-color: var(--lighter-accent-color);
+  background-color: var(--button-hover-color);
   box-shadow: inset 0.5px 0.5px 10px -4px var(--inset-box-shadow-raise),
     inset -2px -2px 7px var(--inset-box-shadow-color);
 }
 
-.button-wf:focus {
-  background-color: var(--light-accent-color);
+.button-wf:focus,
+.button-wf:active {
+  background-color: var(--button-focus-color);
+  color: var(--button-focus-text-color);
   box-shadow: inset 0.5px 0.5px 10px -4px var(--inset-box-shadow-raise),
     inset -2px -2px 7px var(--inset-box-shadow-color);
 }
@@ -364,7 +423,9 @@ html {
   min-width: 20%;
   z-index: 1001;
   text-align: center;
-  box-shadow: 10px 10px 7px 5px var(--box-shadow-color);
+  box-shadow: 10px 10px 7px 5px var(--box-shadow-color),
+              inset 3px 3px 10px -2px var(--inset-box-shadow-raise),
+              inset -3px -3px 7px -1px var(--inset-box-shadow-color);
 }
 
 .modal-wf h2 {
@@ -608,12 +669,12 @@ html {
 }
 
 .widget-box-shadow-wf {
-  box-shadow: 10px 10px 7px 5px var(--box-shadow-color);
+  box-shadow: 5px 5px 7px 5px var(--box-shadow-color);
   transition: box-shadow 0.5s, transform 0.3s ease-in-out;
 }
 
 .widget-box-shadow-wf:hover {
-  box-shadow: 10px 10px 7px 0px var(--box-shadow-color);
+  box-shadow: 5px 5px 7px 1px var(--box-shadow-color);
   transform: scale(0.98);
 }
 
@@ -634,7 +695,7 @@ html {
   border-radius: 18px;
   overflow: hidden;
   box-shadow: inset 3px 3px 10px -2px var(--inset-box-shadow-raise),
-    inset -3px -3px 7px -1px var(--inset-box-shadow-color);
+              inset -3px -3px 7px -1px var(--inset-box-shadow-color);
 }
 
 /* Clock widget rules */
@@ -1337,9 +1398,14 @@ html {
   margin: 0;
 }
 
+.download-file-list-wf {
+  margin-top: 2%;
+}
+
 .download-item-container-wf {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 3%;
 }
 
@@ -1350,7 +1416,22 @@ html {
 .download-list-wf i {
   vertical-align: middle;
   margin-right: 8px;
-  margin-top: -3px;
+}
+
+.download-file-name-wf {
+  display: inline-block;
+  flex-grow: 1;
+  vertical-align: middle;
+  font-size: 13px;
+  white-space: nowrap; /* Prevent file name from wrapping */
+  overflow-x: hidden;    /* Hide overflowed content */
+  text-overflow: ellipsis; /* Display an ellipsis (...) for overflowed content */
+  margin-right: 8px; /* Adjust the margin as needed */
+  max-width: 70%; /* Adjust the max-width as needed */
+}
+
+.delete-icon-wf {
+  cursor: pointer;
 }
 
 /* To Do List Widget rules */
@@ -1512,7 +1593,7 @@ h2 {
   width: 90%;
   border-radius: 20px;
   background-color: var(--meditation-background-color);
-  color: var(--main-text-light-on-dark-color);
+  color: var(--meditation-text-color);
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -1541,7 +1622,7 @@ h2 {
   height: 2.5em;
   border-radius: 10px;
   background-color: var(--textbox-background-color);
-  color: var(--secondary-text-color);
+  color: var(--meditation-text-color);
   box-shadow: inset 1px 1px 3px var(--inset-box-shadow-color),
     inset -1px -1px 3px var(--inset-box-shadow-raise) !important;
 }
@@ -1554,7 +1635,7 @@ h2 {
 .inspiring-quote-widget {
   border-radius: 20px;
   background-color: var(--inspiring-quote-background-color);
-  color: var(--main-text-light-on-dark-color);
+  color: var(--inspiring-quote-text-color);
   padding: 0px 28px;
   display: flex;
   align-items: center;
@@ -1577,7 +1658,7 @@ h2 {
 .balance-tip-widget {
   border-radius: 20px;
   background-color: var(--balance-tip-background-color);
-  color: var(--main-text-light-on-dark-color);
+  color: var(--balance-tip-text-color);
   padding: 20px 30px;
   display: flex;
 }
@@ -1592,7 +1673,7 @@ h2 {
 .balance-tip-widget h2 {
   margin: 0px;
   text-align: left;
-  color: var(--main-text-light-on-dark-color);
+  color: var(--balance-tip-text-color);
 }
 
 .balance-tip-random {
@@ -1845,6 +1926,8 @@ h2 {
 }
 
 .settings-dropdown-wf {
+  width: 70%;
+  align-self: center;
   border-color: var(--dark-accent-color);
   border-radius: 10px;
   height: 2.5em;
@@ -1880,6 +1963,10 @@ h2 {
   border-bottom: 2px solid var(--checkbox-border-color);
 }
 
+#pwa-install-wf {
+  display: none;
+}
+
 /* Support Us page rules */
 .support-wf {
   margin-top: 14vh;
@@ -1888,23 +1975,27 @@ h2 {
 
 .support-wf h1 {
   margin-top: 7vh;
+  color: var(--support-text-color);
 }
 
 .support-blurb-text-wf {
   font-size: 18px;
-  color: var(--main-text-color);
+  color: var(--support-text-color);
   width: 61%;
   margin-top: 7vh;
+  margin-bottom: 7vh;
 }
 
-.support-btn-wf {
-  margin-top: 20px;
-  background-color: var(--dark-accent-color);
-  margin-top: 7vh;
+.support-wf > button {
+  background-color: var(--secondary-button-color);
+  color: var(--secondary-button-text-color) !important;
 }
 
-#pwa-install-wf {
-  display: none;
+.support-wf > button:hover,
+.support-wf > button:active,
+.support-wf > button:focus {
+  background-color: var(--secondary-button-text-color);
+  color: var(--secondary-button-color) !important;
 }
 
 /* Error page rules */

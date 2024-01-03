@@ -295,10 +295,10 @@ const Settings = (props) => {
               value={currentMode}
               onChange={(e) => setCurrentMode(e.target.value)}
             >
-              <option value="default-mode-wf">Default Mode</option>
-              <option value="blue-mode-wf">Blue Mode</option>
-              <option value="white-mode-wf">Light Mode</option>
-              <option value="dark-mode-wf">Dark Mode</option>
+              <option value="default-mode-wf">Default</option>
+              <option value="blue-mode-wf">Aqua</option>
+              <option value="white-mode-wf">Mondrian</option>
+              <option value="dark-mode-wf">Dark</option>
             </select>
             <br />
             <p className="settings-header-wf">Active Widgets</p>
