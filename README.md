@@ -24,6 +24,7 @@
 <img alt="Vite" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/vite-grey?style=for-the-badge&logo=vite&logoColor=646CFF">
 <img alt="ESLint" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/ESLint-grey?style=for-the-badge&logo=eslint&logoColor=4B32C3">
 <img alt="AWS" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/AWS-grey?style=for-the-badge&logo=amazon-aws&logoColor=4B32C3">
+<img alt="Stream" style="margin-right: 1%; margin-bottom: 1%" src="https://img.shields.io/badge/stream-grey?style=for-the-badge&logo=streamlit&logoColor=008CDD">
 
 
 </div>
