@@ -110,7 +110,9 @@ Feel free to fork this repository, check our [current issues page](<https://gith
 - Expandable/Single page Widgets
 - More color schemes
 - Customizable fonts
+- Profile pages/pictures
 - Inbox/Notification Center
+- Stats page with personalized work/life balance tips
 
 ## License
 

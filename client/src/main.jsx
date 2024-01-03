@@ -9,7 +9,7 @@ import Dashboard from './pages/Dashboard';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import ErrorPage from './pages/ErrorPage';
-import Chat from './pages/Chat';
+import TextChat from './pages/TextChat';
 import VideoChat from './pages/VideoChat';
 import Settings from './pages/Settings';
 import SupportUs from './pages/SupportUs';
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <Signup />
       }, {
         path: '/chat',
-        element: <Chat />
+        element: <TextChat />
       }, {
         path: '/videochat',
         element: <VideoChat />

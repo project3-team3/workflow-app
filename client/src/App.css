@@ -242,6 +242,189 @@
   --video-chat-button: rgba(53, 73, 94, 1);
 }
 
+.green-mode-wf {
+  --main-background-color: rgba(14, 71, 73, 1);
+  --darkest-accent-color: rgba(0, 8, 8, 1);
+  --darker-accent-color: rgba(0, 38, 38, 1);
+  --dark-accent-color: rgba(229, 88, 18, 1);
+  --light-accent-color: rgba(172, 166, 108, 1);
+  --light-accent-transparent: rgba(76, 106, 148, 0);
+  --lighter-accent-color: rgba(149, 198, 35, 1);
+  --main-text-color: rgba(239, 231, 218, 1);
+  --main-text-transparent: rgba(250, 249, 246, 0);
+  --box-background-color: rgba(229, 88, 18, 1);
+  --button-text-color: rgba(239, 231, 218, 1);
+  --button-hover-color: rgba(149, 198, 35, 1);
+  --button-focus-color: rgba(59, 78, 0, 1);
+  --button-focus-text-color: rgba(250, 249, 246, 1);
+  --secondary-button-color: rgba(250, 249, 246, 1);
+  --secondary-button-text-color: rgba(16, 0, 0, 1);
+  --secondary-text-color: rgba(0, 8, 8, 1);
+  --main-text-light-on-dark-color: rgba(239, 231, 218, 1);
+  --error-text-color: rgba(252, 63, 56, 1);
+  --box-border-color: rgba(0, 38, 38, 1);
+  --box-shadow-color: rgba(0, 0, 0, 0.5);
+  --inset-box-shadow-color: rgba(0, 0, 0, 1);
+  --inset-box-shadow-raise: rgba(255, 255, 255, 1);
+  --textbox-background-color: rgba(239, 231, 218, 1);
+  --input-border-color: rgba(45, 45, 48, 1);
+  --input-placeholder-color: rgba(0, 0, 0, 0.62);
+  --checkbox-border-color: rgba(255, 248, 208, 1);
+  --sidenav-disabled-text-color: rgba(239, 231, 218, 1);
+  --sidenav-hover-color: rgba(217, 174, 129, 1);
+  --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
+  --clock-background-color: rgba(0, 38, 38, 1);
+  --clock-face-color: rgba(239, 231, 218, 1);
+  --calendar-background-color: rgba(80, 80, 57, 1);
+  --calendar-disabled-area-color: rgba(250, 249, 246, 0.5);
+  --calendar-weekday-color: rgba(239, 231, 218, 1);
+  --calendar-day-color: rgba(255, 248, 235, 1);
+  --calendar-weekend-day-color: rgba(73, 0, 0, 1);
+  --calendar-disabled-day-color: rgba(232, 226, 168, 0.5);
+  --file-management-background-color: rgba(80, 80, 57, 1);
+  --file-management-drop-zone-color: rgba(50, 50, 27, 1);
+  --notepad-background-color: rgba(239, 231, 218, 1);
+  --sticky-note-background-color: rgba(149, 198, 35, 1);
+  --sticky-note-placeholder-text-color: rgba(119, 168, 5, 1);
+  --sticky-note-text-color: rgba(49, 67, 94, 1);
+  --schedule-background-color: rgba(254, 166, 43, 1);
+  --schedule-darker-background-color: rgba(187, 97, 2, 1);
+  --kanban-board-background-color: rgba(187, 97, 2, 1);
+  --kanban-board-darker-background-color: rgba(254, 166, 43, 1);
+  --kanban-column-heading-color: rgba(255, 248, 235, 1);
+  --meditation-background-color: rgba(225, 218, 205, 1);
+  --meditation-text-color: rgba(92, 42, 34, 1);
+  --inspiring-quote-background-color: rgba(59, 78, 0, 1);
+  --inspiring-quote-text-color: rgba(255, 248, 235, 1);
+  --balance-tip-background-color: rgba(59, 78, 0, 1);
+  --balance-tip-text-color: rgba(255, 248, 235, 1);
+  --support-text-color: rgba(239, 231, 218, 1);
+  --video-chat-screen-border: rgba(14, 71, 73, 1);
+  --video-chat-button: rgba(14, 71, 73, 1);
+}
+
+.purple-mode-wf {
+  --main-background-color: rgba(0, 53, 169, 1);
+  --darkest-accent-color: rgba(10, 0, 10, 1);
+  --darker-accent-color: rgba(85, 7, 71, 1);
+  --dark-accent-color: rgba(215, 0, 112, 1);
+  --light-accent-color: rgba(155, 77, 151, 1);
+  --light-accent-transparent: rgba(76, 106, 148, 0);
+  --lighter-accent-color: rgba(235, 157, 231, 1);
+  --main-text-color: rgba(255, 245, 255, 1);
+  --main-text-transparent: rgba(250, 249, 246, 0);
+  --box-background-color: rgba(215, 0, 112, 1);
+  --button-text-color: rgba(255, 245, 255, 1);
+  --button-hover-color: rgba(155, 77, 151, 1);
+  --button-focus-color: rgba(59, 78, 0, 1);
+  --button-focus-text-color: rgba(255, 245, 255, 1);
+  --secondary-button-color: rgba(255, 245, 255, 1);
+  --secondary-button-text-color: rgba(16, 0, 0, 1);
+  --secondary-text-color: rgba(10, 0, 10, 1);
+  --main-text-light-on-dark-color: rgba(255, 245, 255, 1);
+  --error-text-color: rgba(252, 63, 56, 1);
+  --box-border-color: rgba(10, 0, 10, 1);
+  --box-shadow-color: rgba(0, 0, 0, 0.5);
+  --inset-box-shadow-color: rgba(0, 0, 0, 1);
+  --inset-box-shadow-raise: rgba(255, 255, 255, 1);
+  --textbox-background-color: rgba(255, 245, 255, 1);
+  --input-border-color: rgba(10, 0, 10, 1);
+  --input-placeholder-color: rgba(0, 0, 0, 0.62);
+  --checkbox-border-color: rgba(255, 245, 255, 1);
+  --sidenav-disabled-text-color: rgba(255, 245, 255, 1);
+  --sidenav-hover-color: rgba(0, 53, 169, 1);
+  --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
+  --clock-background-color: rgba(155, 77, 151, 1);
+  --clock-face-color: rgba(255, 245, 255, 1);
+  --calendar-background-color: rgba(14, 117, 210, 1);
+  --calendar-disabled-area-color: rgba(250, 249, 246, 0.5);
+  --calendar-weekday-color: rgba(255, 245, 255, 1);
+  --calendar-day-color: rgba(255, 245, 255, 1);
+  --calendar-weekend-day-color: rgba(73, 0, 0, 1);
+  --calendar-disabled-day-color: rgba(0, 97, 180, 0.5);
+  --file-management-background-color: rgba(14, 117, 210, 1);
+  --file-management-drop-zone-color: rgba(0, 97, 180, 1);
+  --notepad-background-color: rgba(255, 245, 255, 1);
+  --sticky-note-background-color: rgba(255, 95, 207, 1);
+  --sticky-note-placeholder-text-color: rgba(215, 55, 167, 1);
+  --sticky-note-text-color: rgba(10, 0, 10, 1);
+  --schedule-background-color: rgba(85, 138, 254, 1);
+  --schedule-darker-background-color: rgba(55, 108, 224, 1);
+  --kanban-board-background-color: rgba(155, 77, 151, 1);
+  --kanban-board-darker-background-color: rgba(125, 47, 121, 1);
+  --kanban-column-heading-color: rgba(255, 245, 255, 1);
+  --meditation-background-color: rgba(255, 245, 255, 1);
+  --meditation-text-color: rgba(10, 0, 10, 1);
+  --inspiring-quote-background-color: rgba(85, 7, 71, 1);
+  --inspiring-quote-text-color: rgba(255, 245, 255, 1);
+  --balance-tip-background-color: rgba(85, 7, 71, 1);
+  --balance-tip-text-color: rgba(255, 245, 255, 1);
+  --support-text-color: rgba(255, 245, 255, 1);
+  --video-chat-screen-border: rgba(155, 77, 151, 1);
+  --video-chat-button: rgba(0, 53, 169, 1);
+}
+
+.brown-mode-wf {
+  --main-background-color: rgba(232, 226, 168, 1);
+  --darkest-accent-color: rgba(62, 12, 4, 1);
+  --darker-accent-color: rgba(92, 42, 34, 1);
+  --dark-accent-color: rgba(122, 45, 33, 1);
+  --light-accent-color: rgba(172, 166, 108, 1);
+  --light-accent-transparent: rgba(76, 106, 148, 0);
+  --lighter-accent-color: rgba(202, 196, 138, 1);
+  --main-text-color: rgba(16, 0, 0, 1);
+  --main-text-transparent: rgba(250, 249, 246, 0);
+  --box-background-color: rgba(125, 103, 81, 1);
+  --button-text-color: rgba(13, 24, 33, 1);
+  --button-hover-color: rgba(202, 196, 138, 1);
+  --button-focus-color: rgba(172, 166, 108, 1);
+  --button-focus-text-color: rgba(250, 249, 246, 1);
+  --secondary-button-color: rgba(250, 249, 246, 1);
+  --secondary-button-text-color: rgba(16, 0, 0, 1);
+  --secondary-text-color: rgba(13, 24, 33, 1);
+  --main-text-light-on-dark-color: rgba(255, 248, 235, 1);
+  --error-text-color: rgba(252, 63, 56, 1);
+  --box-border-color: rgba(16, 0, 0, 1);
+  --box-shadow-color: rgba(0, 0, 0, 0.5);
+  --inset-box-shadow-color: rgba(0, 0, 0, 1);
+  --inset-box-shadow-raise: rgba(255, 255, 255, 1);
+  --textbox-background-color: rgba(255, 248, 208, 1);
+  --input-border-color: rgba(45, 45, 48, 1);
+  --input-placeholder-color: rgba(0, 0, 0, 0.62);
+  --checkbox-border-color: rgba(255, 248, 208, 1);
+  --sidenav-disabled-text-color: rgba(250, 249, 246, 1);
+  --sidenav-hover-color: rgba(217, 174, 129, 1);
+  --widget-resize-handle-color: rgba(0, 0, 0, 0.35);
+  --clock-background-color: rgba(92, 42, 34, 1);
+  --clock-face-color: rgba(215, 196, 163, 1);
+  --calendar-background-color: rgba(165, 106, 67, 1);
+  --calendar-disabled-area-color: rgba(250, 249, 246, 0.5);
+  --calendar-weekday-color: rgba(232, 226, 168, 1);
+  --calendar-day-color: rgba(13, 24, 33, 1);
+  --calendar-weekend-day-color: rgba(113, 0, 0, 1);
+  --calendar-disabled-day-color: rgba(232, 226, 168, 0.5);
+  --file-management-background-color: rgba(165, 106, 67, 1);
+  --file-management-drop-zone-color: rgba(135, 76, 37, 1);
+  --notepad-background-color: rgba(255, 248, 208, 1);
+  --sticky-note-background-color: rgba(215, 196, 163, 1);
+  --sticky-note-placeholder-text-color: rgba(134, 158, 193, 1);
+  --sticky-note-text-color: rgba(49, 67, 94, 1);
+  --schedule-background-color: rgba(105, 83, 61, 1);
+  --schedule-darker-background-color: rgba(85, 63, 41, 1);
+  --kanban-board-background-color: rgba(85, 63, 41, 1);
+  --kanban-board-darker-background-color: rgba(105, 83, 61, 1);
+  --kanban-column-heading-color: rgba(49, 67, 94, 1);
+  --meditation-background-color: rgba(217, 174, 129, 1);
+  --meditation-text-color: rgba(92, 42, 34, 1);
+  --inspiring-quote-background-color: rgba(92, 42, 34, 1);
+  --inspiring-quote-text-color: rgba(255, 248, 235, 1);
+  --balance-tip-background-color: rgba(92, 42, 34, 1);
+  --balance-tip-text-color: rgba(255, 248, 235, 1);
+  --support-text-color: rgba(16, 0, 0, 1);
+  --video-chat-screen-border: rgba(92, 42, 34, 1);
+  --video-chat-button: rgba(92, 42, 34, 1);
+}
+
 .dark-mode-wf {
   --main-background-color: rgba(25, 25, 25, 1);
   --darkest-accent-color: rgba(250, 249, 246, 1);
@@ -669,12 +852,12 @@ html {
 }
 
 .widget-box-shadow-wf {
-  box-shadow: 5px 5px 7px 5px var(--box-shadow-color);
+  box-shadow: 6px 6px 7px 5px var(--box-shadow-color);
   transition: box-shadow 0.5s, transform 0.3s ease-in-out;
 }
 
 .widget-box-shadow-wf:hover {
-  box-shadow: 5px 5px 7px 1px var(--box-shadow-color);
+  box-shadow: 6px 6px 7px 1px var(--box-shadow-color);
   transform: scale(0.98);
 }
 
@@ -762,6 +945,18 @@ html {
 
 .clock-switch-wf label .lever {
   margin: 0 8px;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+  background-color: var(--darker-accent-color);
+}
+
+.switch label .lever:before {
+  background-color: var(--main-background-color);
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+  background-color: var(--main-background-color);
 }
 
 /* Calendar widget rules */
@@ -1090,7 +1285,7 @@ html {
 
 .new-event h6 {
   margin-bottom: 12px;
-  color: var(--main-text-color);
+  color: var(--main-text-light-on-dark-color);
 }
 
 .schedule-dropdown-container-wf {
@@ -1812,7 +2007,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--dark-accent-color);
+  background-color: var(--box-background-color);
 }
 
 .video-main-wf {
@@ -1871,7 +2066,7 @@ h2 {
 }
 
 .video-container-wf > div > div:nth-child(2) {
-  background-color: var(--dark-accent-color) !important;
+  background-color: var(--box-background-color) !important;
   width: 50% !important;
 }
 

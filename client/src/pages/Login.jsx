@@ -75,10 +75,7 @@ const Login = (props) => {
         <h4>Log In</h4>
         <div>
           {data ? (
-            <p>
-              Success! You may now head{" "}
-              <Link to="/">back to the homepage.</Link>
-            </p>
+            <p>Login successful. Redirecting to your dashboard...</p>
           ) : (
             <form onSubmit={handleFormSubmit}>
               <div className="login-signup-inner-container-wf">
