@@ -2,9 +2,8 @@
 const { GraphQLError } = require('graphql');
 const jwt = require('jsonwebtoken');
 
-// TODO: Remove default secret and expiration prior to deployment
-const secret = process.env.JWT_SECRET || 'defaultSecret';
-const expiration = process.env.JWT_EXPIRATION || '2h';
+const secret = process.env.JWT_SECRET;
+const expiration = process.env.JWT_EXPIRATION;
 
 module.exports = {
   UserNotFoundError: new GraphQLError('Username not found. Please sign up to create a new account.', {

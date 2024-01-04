@@ -47,6 +47,7 @@ const NotepadWidget = () => {
     <div className="notepad-widget widget-content-wf">
       <textarea
         className="notepad-textarea"
+        contenteditable="true"
         value={text}
         onChange={handleTextChange}
         placeholder="Add your notes here..."
