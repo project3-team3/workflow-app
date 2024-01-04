@@ -16,7 +16,6 @@ const typeDefs = `
     username: String!
     email: String!
     settings: UserSettings
-    agoraUid: Int!
   }
 
   type GridItem {
@@ -88,7 +87,7 @@ const typeDefs = `
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!, gridLayout: String!, widgets: String!, agoraUid: Int!): Auth
+    addUser(username: String!, email: String!, password: String!, gridLayout: String!, widgets: String!): Auth
     login(username: String!, password: String!): Auth
     updateGridSettings(userId: ID!, layouts: String!): UserSettings
     updateClockSettings(userId: ID!, isAnalog: Boolean!): UserSettings

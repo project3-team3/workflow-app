@@ -8,20 +8,18 @@ export const LOGIN_USER = gql`
       user {
         _id
         username
-        agoraUid
       }
     }
   }
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!, $gridLayout: String!, $widgets: String!, $agoraUid: Int!) {
-    addUser(username: $username, email: $email, password: $password, gridLayout: $gridLayout, widgets: $widgets, agoraUid: $agoraUid) {
+  mutation addUser($username: String!, $email: String!, $password: String!, $gridLayout: String!, $widgets: String!) {
+    addUser(username: $username, email: $email, password: $password, gridLayout: $gridLayout, widgets: $widgets) {
       token
       user {
         _id
         username
-        agoraUid
       }
     }
   }

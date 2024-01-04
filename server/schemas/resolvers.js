@@ -63,7 +63,7 @@ const resolvers = {
     // Create a new user
     addUser: async (
       __,
-      { username, email, password, gridLayout, widgets, agoraUid }
+      { username, email, password, gridLayout, widgets }
     ) => {
       try {
         // Create a new UserSettings field with default values
@@ -77,7 +77,6 @@ const resolvers = {
           email,
           password,
           settings: userSettings._id,
-          agoraUid: agoraUid,
         });
 
         const token = signToken(user);
@@ -87,7 +86,6 @@ const resolvers = {
           user: {
             _id: user._id,
             username: user.username,
-            agoraUid: user.agoraUid,
           },
         };
       } catch (error) {

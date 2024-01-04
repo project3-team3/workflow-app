@@ -40,9 +40,8 @@ const VideoChat = () => {
       setShowOverlaySpinner(true);
 
       // Request Agora token
-      // NOTE: "userUid" is set to 0 for now because Agora requires a unique 10-digit UID,
-      // however GraphQL is unable to work with numbers that large. Setting it to 0 prompts
-      // Agora to create a unique ID for the user for this session.
+      // NOTE: "userUid" is set to 0 because Agora requires a unique int 10-digit UID; However, GraphQL is unable to work with numbers that large.
+      // Setting it to 0 prompts Agora to create a unique ID for the user for this session.
       const { data } = await generateAgoraToken({
         variables: { userChannelName: channelName, userUid: 0 },
       });
@@ -149,9 +148,7 @@ const VideoChat = () => {
               <button
                 className="waves-effect waves-light btn button-wf video-player-button-wf"
                 onClick={() =>
-                  channelName
-                    ? handleJoinButtonClick()
-                    : openModal()
+                  channelName ? handleJoinButtonClick() : openModal()
                 }
               >
                 Join

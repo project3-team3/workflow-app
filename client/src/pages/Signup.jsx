@@ -1,6 +1,5 @@
 // Signup page
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 
@@ -93,10 +92,6 @@ const Signup = () => {
     event.preventDefault();
 
     try {
-      // Generate a random 10-digit Agora UID for Video Chat
-      const min = 1000000000;
-      const max = 2147483647;
-      const agoraUid = Math.floor(Math.random() * (max - min + 1)) + min;
 
       // Add new user to database with default layout and widgets
       const { data: userData } = await addUser({
@@ -104,13 +99,10 @@ const Signup = () => {
           ...formState,
           gridLayout: JSON.stringify(defaultLayout),
           widgets: JSON.stringify(defaultWidgets),
-          agoraUid: agoraUid,
         },
       });
 
       const { user, token } = userData.addUser;
-
-      console.log("Stored Token:", token);
 
       Auth.login(token);
     } catch (e) {
