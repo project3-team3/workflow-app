@@ -1282,6 +1282,8 @@ html {
   color: var(--secondary-text-color);
   border: none;
   resize: none;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 16px;
 }
 
 .notepad-textarea::placeholder {

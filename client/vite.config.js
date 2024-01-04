@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { VitePWA } from 'vite-plugin-pwa';
+import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -23,6 +23,24 @@ export default defineConfig({
             src: "/android-chrome-512x512.png",
             sizes: "512x512",
             type: "image/png",
+          },
+        ],
+      },
+      workbox: {
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/your-api-domain\.com\/graphql/,
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "api-cache",
+            },
+          },
+          {
+            urlPattern: /\.(mp3|ogg)$/,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "audio-cache",
+            },
           },
         ],
       },
