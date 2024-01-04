@@ -371,7 +371,6 @@ const WidgetGrid = React.memo(({ openModal }) => {
 
   if (!userSettings) {
     // Handle the case where userSettings is undefined or null
-    console.error("No settings found for this user.");
     return <p>No settings found for this user.</p>;
   }
 

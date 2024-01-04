@@ -42,6 +42,13 @@ export default defineConfig({
               cacheName: "audio-cache",
             },
           },
+          {
+            urlPattern: /\.(css|woff|woff2|ttf|otf)$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'css-font-cache',
+            },
+          },
         ],
       },
     }),
