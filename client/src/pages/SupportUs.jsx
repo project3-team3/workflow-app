@@ -1,13 +1,34 @@
 // Donation page
-import { useEffect } from "react";
-import useTheme from "../utils/useTheme.js";
+import AuthService from "../utils/auth.js";
+import { useQuery } from "@apollo/client";
+import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 
 const SupportUs = () => {
-  const { updateTheme } = useTheme();
+  // Get user profile
+  const userProfile = AuthService.getProfile();
 
-  useEffect(() => {
-    updateTheme();
-  }, [updateTheme]);
+  // Get user settings
+  const { loading, error, data } = useQuery(QUERY_USER_SETTINGS, {
+    variables: { userId: userProfile._id || userProfile.user._id },
+  });
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  // Get user's current theme
+  const colorTheme = data.getUserSettings.currentTheme || "default-wf";
+
+  // Set the color theme
+  const setMode = (mode) => {
+    const htmlElement = document.querySelector("html");
+    htmlElement.className = "";
+    htmlElement.classList.add(mode);
+
+    // Store theme preference in localStorage
+    localStorage.setItem("colorTheme", mode);
+  };
+
+  setMode(colorTheme);
 
   // Send user to Stripe payment page
   const handleDonateClick = () => {
@@ -18,11 +39,19 @@ const SupportUs = () => {
     <div className="container">
       <div className="admin-message-wf">
         <div className="support-wf">
-          <img
-            className="logo-welcome-wf"
-            src="/tea_cup.png"
-            alt="Buy us a Cup of Tea"
-          />
+          {colorTheme === "white-mode-wf" ? (
+            <img
+              className="logo-welcome-wf"
+              src="/tea_cup_dark.png"
+              alt="Buy us a Cup of Tea"
+            />
+          ) : (
+            <img
+              className="logo-welcome-wf"
+              src="/tea_cup.png"
+              alt="Buy us a Cup of Tea"
+            />
+          )}
           <h1>Support Us</h1>
           <p className="support-blurb-text-wf container">
             Found the perfect harmony in Workflow? Support our mission by buying
