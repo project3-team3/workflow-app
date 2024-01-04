@@ -78,9 +78,6 @@ const typeDefs = `
   }
 
   type Query {
-    quotes: [Quote]
-    balancetips: [BalanceTip]
-    users: [User]
     user(username: String!): User
     getUserSettings(userId: ID!): UserSettings
     randomQuote: Quote

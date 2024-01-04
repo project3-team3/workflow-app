@@ -16,12 +16,12 @@ import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 import { GENERATE_STREAM_TOKEN } from "../utils/mutations.js";
 
 import LoadingSpinner from "../components/LoadingSpinner/index.jsx";
+import PopUpModal from "../components/PopUpModal/index.jsx";
 
+// Import Stream Ui CSS rules
 import "stream-chat-react/dist/css/v2/index.css";
 
 const TextChat = () => {
-  console.log("[TextChat.jsx]: *** NEW RENDER ***");
-
   // Get user profile
   const userProfile = AuthService.getProfile();
 
@@ -30,42 +30,41 @@ const TextChat = () => {
   const [channelName, setChannelName] = useState("");
   const [userReady, setUserReady] = useState(false);
   const [activeChat, setActiveChat] = useState(false);
-  const [generateStreamToken] = useMutation(GENERATE_STREAM_TOKEN);
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  // TODO: Add state variable for user input box
-
-  const userId = userProfile.username || userProfile.user.username;
-  const username = userProfile.username || userProfile.user.username;
-  const user = {
-    id: userId,
-    name: username,
-    image: `https://getstream.io/random_png/?id=${userId}&name=${username}`,
+  const openModal = () => {
+    setModalOpen(true);
   };
 
-  console.log("[TextChat.jsx]: user:", user);
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const [generateStreamToken] = useMutation(GENERATE_STREAM_TOKEN);
+
+  const user = {
+    id: userProfile.username || userProfile.user.username,
+    name: userProfile.username || userProfile.user.username,
+  };
 
   const apiKey = "dz5f4d5kzrue"; // API Key not secret
 
   useEffect(() => {
     const generateTokenAndConnect = async () => {
-      console.log(
-        "[TextChat.jsx]: About to run generateStreamToken mutation..."
-      );
+      // Generate Stream Authenticated Token
       const tokenPromise = generateStreamToken({
-        variables: { username: userId },
+        variables: { username: user.id },
       });
 
+      // Connect to Stream Chat Client
       tokenPromise
         .then((data) => {
-          console.log("[TextChat.jsx]: data:", data);
           const userToken = data.data.generateStreamToken;
-          console.log("[TextChat.jsx]: userToken:", userToken);
           return userToken;
         })
         .then((userToken) => {
           const client = new StreamChat(apiKey);
           client.connectUser(user, userToken);
-          console.log("[TextChat.jsx]: Connected to Chat?");
           return client;
         })
         .then((client) => {
@@ -74,22 +73,20 @@ const TextChat = () => {
             `workflow-wf-${channelName}`,
             {
               name: channelName,
-              members: [userId],
+              members: [user.id],
             }
           );
           setChatClient(client);
-          console.log("[TextChat.jsx]: userChannel:", userChannel);
           return userChannel;
         })
         .then((userChannel) => {
           setChannel(userChannel);
-          console.log("[TextChat.jsx]: userChannel:", userChannel);
         })
         .then(() => {
           setActiveChat(true);
         })
         .catch((error) => {
-          console.error("[TextChat.jsx]: Error:", error);
+          console.error("Error creating channel:", error);
         });
     };
 
@@ -121,11 +118,11 @@ const TextChat = () => {
 
   setMode(colorTheme);
 
+  // Handle join button click
   const handleJoinButtonClick = () => {
     setUserReady(true);
   };
 
-  // TODO: Add input box in the same model as Video Chat, ask for channel name
   return (
     <>
       {activeChat ? (
@@ -179,6 +176,10 @@ const TextChat = () => {
           </div>
         </>
       )}
+      <PopUpModal isOpen={isModalOpen} onClose={closeModal}>
+        <h2>Error</h2>
+        <p>Please enter a name for the channel you'd like to join.</p>
+      </PopUpModal>
     </>
   );
 };

@@ -86,31 +86,12 @@ export const QUERY_USER_SETTINGS = gql`
   }
 `;
 
-export const QUERY_QUOTES = gql`
-  query getQuotes {
-    quotes {
-      _id
-      quoteText
-      quoteBy
-    }
-  }
-`;
-
 export const QUERY_RANDOM_QUOTE = gql`
   query getRandomQuote {
     randomQuote {
       _id
       quoteText
       quoteBy
-    }
-  }
-`;
-
-export const QUERY_TIPS = gql`
-  query getTips {
-    tips {
-      _id
-      tipText
     }
   }
 `;

@@ -15,12 +15,6 @@ const resolvers = {
     user: async (__, { username }) => {
       return User.findOne({ username }).populate("settings.gridLayout");
     },
-    quotes: async () => {
-      return Quote.find().populate("quotes");
-    },
-    balancetips: async () => {
-      return BalanceTip.find().populate("balancetips");
-    },
     // Queries for random quotes and tips
     randomQuote: async () => {
       const quotes = await Quote.find();
@@ -136,15 +130,11 @@ const resolvers = {
         }
 
         const parsedLayouts = JSON.parse(layouts);
-
         const userSettings = await UserSettings.findById(user.settings);
-
         userSettings.gridLayout = parsedLayouts;
 
         await userSettings.save();
-
         user.settings = userSettings;
-
         await user.save();
 
         return user.settings;
@@ -163,13 +153,10 @@ const resolvers = {
         }
 
         const userSettings = await UserSettings.findById(user.settings);
-
         userSettings.isAnalog = isAnalog;
 
         await userSettings.save();
-
         user.settings = userSettings;
-
         await user.save();
 
         return user.settings;
@@ -188,13 +175,10 @@ const resolvers = {
         }
 
         const userSettings = await UserSettings.findById(user.settings);
-
         userSettings.stickyText = stickyText;
 
         await userSettings.save();
-
         user.settings = userSettings;
-
         await user.save();
 
         return user.settings;
@@ -213,13 +197,10 @@ const resolvers = {
         }
 
         const userSettings = await UserSettings.findById(user.settings);
-
         userSettings.notepadText = notepadText;
 
         await userSettings.save();
-
         user.settings = userSettings;
-
         await user.save();
 
         return user.settings;
@@ -238,13 +219,10 @@ const resolvers = {
         }
 
         const userSettings = await UserSettings.findById(user.settings);
-
         userSettings.currentTheme = currentTheme;
 
         await userSettings.save();
-
         user.settings = userSettings;
-
         await user.save();
 
         return user.settings;
@@ -263,18 +241,12 @@ const resolvers = {
         }
 
         const parsedWidgets = JSON.parse(widgets);
-
         const userSettings = await UserSettings.findById(user.settings);
-
         userSettings.widgets = parsedWidgets;
 
         await userSettings.save();
-
         user.settings = userSettings;
-
         await user.save();
-
-        const newUserSettings = await UserSettings.findById(user.settings);
 
         return user.settings;
       } catch (error) {
@@ -292,15 +264,11 @@ const resolvers = {
         }
 
         const parsedScheduleEvents = JSON.parse(scheduleEvents);
-
         const userSettings = await UserSettings.findById(user.settings);
-
         userSettings.scheduleEvents = parsedScheduleEvents;
 
         await userSettings.save();
-
         user.settings = userSettings;
-
         await user.save();
 
         return user.settings;
@@ -309,7 +277,7 @@ const resolvers = {
         throw new Error("Error updating user settings");
       }
     },
-    // Save kanban tasks to user settings
+    // Save Kanban tasks to user settings
     updateKanbanSettings: async (__, { userId, kanbanTasks }) => {
       try {
         const user = await User.findById(userId);
@@ -319,15 +287,11 @@ const resolvers = {
         }
 
         const parsedKanbanTasks = JSON.parse(kanbanTasks);
-
         const userSettings = await UserSettings.findById(user.settings);
-
         userSettings.kanbanTasks = parsedKanbanTasks;
 
         await userSettings.save();
-
         user.settings = userSettings;
-
         await user.save();
 
         return user.settings;
@@ -335,6 +299,10 @@ const resolvers = {
         console.error("Error updating user settings:", error);
         throw new Error("Error updating user settings");
       }
+    },
+    // Delete a file from S3
+    deleteFile: async (__, { username, fileName }) => {
+      return deleteFile(username, fileName);
     },
     // Generate an Agora RTC token for Video Chat
     generateAgoraToken: async (__, { userChannelName, userUid }) => {
@@ -347,16 +315,10 @@ const resolvers = {
         throw error;
       }
     },
-    // Delete a file from S3
-    deleteFile: async (__, { username, fileName }) => {
-      return deleteFile(username, fileName);
-    },
     // Generate a Stream token for Text Chat
     generateStreamToken: async (__, { username }) => {
-      console.log("[resolvers.js] In generateStreamToken. username:", username)
       try {
         const token = await generateStreamToken(username);
-        console.log("[resolvers.js] Generated Stream token? token:", token)
         return token;
       } catch (error) {
         console.error("Error generating Stream token:", error);
