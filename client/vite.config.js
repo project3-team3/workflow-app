@@ -27,6 +27,7 @@ export default defineConfig({
         ],
       },
       includeAssets: [
+        "/normalize.css",
         "/error",
       ],
       workbox: {
