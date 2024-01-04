@@ -22,6 +22,26 @@ import PopUpModal from "../components/PopUpModal/index.jsx";
 import "stream-chat-react/dist/css/v2/index.css";
 
 const TextChat = () => {
+  // Check if the user is online
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    // Update online status when it changes
+    const handleOnlineStatusChange = () => {
+      setIsOnline(navigator.onLine);
+    };
+
+    // Add event listeners for online/offline status
+    window.addEventListener('online', handleOnlineStatusChange);
+    window.addEventListener('offline', handleOnlineStatusChange);
+
+    return () => {
+      // Remove event listeners when the component unmounts
+      window.removeEventListener('online', handleOnlineStatusChange);
+      window.removeEventListener('offline', handleOnlineStatusChange);
+    };
+  }, []);
+
   // Get user profile
   const userProfile = AuthService.getProfile();
 
@@ -150,6 +170,8 @@ const TextChat = () => {
           <div className="box-container-wf">
             <div className="box-wf text-chat-input-box-wf">
               <h4>Workflow Text Chat</h4>
+              {isOnline ? (
+                <>
               <p>
                 Please enter the name of the channel you'd like to join. If the
                 channel does not exist, a new one will be created.
@@ -172,6 +194,11 @@ const TextChat = () => {
                   Join
                 </button>
               </div>
+              </>) : (
+                <div className="chat-offline-message-wf">
+                  <p>You're offline. Please reconnect to use the text chat feature.</p>
+                </div>
+              )}
             </div>
           </div>
         </>

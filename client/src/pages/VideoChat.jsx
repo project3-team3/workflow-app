@@ -14,6 +14,26 @@ import LoadingSpinner from "../components/LoadingSpinner/index.jsx";
 import PopUpModal from "../components/PopUpModal/index.jsx";
 
 const VideoChat = () => {
+  // Check if the user is online
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    // Update online status when it changes
+    const handleOnlineStatusChange = () => {
+      setIsOnline(navigator.onLine);
+    };
+
+    // Add event listeners for online/offline status
+    window.addEventListener("online", handleOnlineStatusChange);
+    window.addEventListener("offline", handleOnlineStatusChange);
+
+    return () => {
+      // Remove event listeners when the component unmounts
+      window.removeEventListener("online", handleOnlineStatusChange);
+      window.removeEventListener("offline", handleOnlineStatusChange);
+    };
+  }, []);
+
   // Get user profile
   const userProfile = AuthService.getProfile();
 
@@ -132,28 +152,38 @@ const VideoChat = () => {
         <div className="box-container-wf">
           <div className="box-wf video-chat-input-box-wf">
             <h4>Workflow Video Chat</h4>
-            <p>
-              Please enter the name of the channel you'd like to join. If the
-              channel does not exist, a new one will be created.
-            </p>
-            <input
-              id="channel"
-              type="text"
-              className="input-wf video-player-input-wf"
-              value={channelName}
-              onChange={(e) => setChannelName(e.target.value)}
-              placeholder="Channel name"
-            />
-            <div className="video-player-button-container-wf">
-              <button
-                className="waves-effect waves-light btn button-wf video-player-button-wf"
-                onClick={() =>
-                  channelName ? handleJoinButtonClick() : openModal()
-                }
-              >
-                Join
-              </button>
-            </div>
+            {isOnline ? (
+              <>
+                <p>
+                  Please enter the name of the channel you'd like to join. If
+                  the channel does not exist, a new one will be created.
+                </p>
+                <input
+                  id="channel"
+                  type="text"
+                  className="input-wf video-player-input-wf"
+                  value={channelName}
+                  onChange={(e) => setChannelName(e.target.value)}
+                  placeholder="Channel name"
+                />
+                <div className="video-player-button-container-wf">
+                  <button
+                    className="waves-effect waves-light btn button-wf video-player-button-wf"
+                    onClick={() =>
+                      channelName ? handleJoinButtonClick() : openModal()
+                    }
+                  >
+                    Join
+                  </button>
+                </div>
+              </>
+            ) : (
+              <div className="chat-offline-message-wf">
+                <p>
+                  You're offline. Please reconnect to use the video chat feature.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       )}

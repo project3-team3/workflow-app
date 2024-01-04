@@ -12,6 +12,26 @@ import "@uppy/core/dist/style.min.css";
 import "@uppy/dashboard/dist/style.min.css";
 
 const FileManagementWidget = ({ openModal }) => {
+  // Check if the user is online
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    // Update online status when it changes
+    const handleOnlineStatusChange = () => {
+      setIsOnline(navigator.onLine);
+    };
+
+    // Add event listeners for online/offline status
+    window.addEventListener("online", handleOnlineStatusChange);
+    window.addEventListener("offline", handleOnlineStatusChange);
+
+    return () => {
+      // Remove event listeners when the component unmounts
+      window.removeEventListener("online", handleOnlineStatusChange);
+      window.removeEventListener("offline", handleOnlineStatusChange);
+    };
+  }, []);
+
   // Get the Apollo Client instance
   const client = useApolloClient();
 
@@ -150,55 +170,63 @@ const FileManagementWidget = ({ openModal }) => {
   return (
     <div className="file-management-widget widget-content-wf">
       <h2>File Manager</h2>
-      <div className="drag-drop-wf widget-prevent-drag-wf">
-        {uppy && (
-          <>
-            <Dashboard
-              id="Dashboard"
-              target="drag-drop-wf"
-              uppy={uppy}
-              height="100%"
-            />
-          </>
-        )}
-      </div>
-      {fileList.length > 0 && (
-        <div className="download-list-wf">
-          <p>Your Files</p>
-          <div className="download-file-list-wf">
-            {fileList.map((fileName) => (
-              <div className="download-item-container-wf" key={fileName}>
-                {downloadUrls[fileName] ? (
-                  <a
-                    href={downloadUrls[fileName]}
-                    className="widget-prevent-drag-wf"
-                    download
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="material-icons">file_download</i>
-                  </a>
-                ) : (
-                  <i className="material-icons">hourglass_empty</i>
-                )}
-                <div className="download-file-name-wf">{fileName}</div>
-                {downloadUrls[fileName] ? (
-                  <a
-                    className="widget-prevent-drag-wf"
-                    onClick={() => handleDeleteFileModal(fileName)}
-                  >
-                    <i className="material-icons delete-icon-wf">
-                      delete_forever
-                    </i>
-                  </a>
-                ) : (
-                  <i className="material-icons delete-icon-wf">
-                    hourglass_empty
-                  </i>
-                )}
-              </div>
-            ))}
+      {isOnline ? (
+        <>
+          <div className="drag-drop-wf widget-prevent-drag-wf">
+            {uppy && (
+              <>
+                <Dashboard
+                  id="Dashboard"
+                  target="drag-drop-wf"
+                  uppy={uppy}
+                  height="100%"
+                />
+              </>
+            )}
           </div>
+          {fileList.length > 0 && (
+            <div className="download-list-wf">
+              <p>Your Files</p>
+              <div className="download-file-list-wf">
+                {fileList.map((fileName) => (
+                  <div className="download-item-container-wf" key={fileName}>
+                    {downloadUrls[fileName] ? (
+                      <a
+                        href={downloadUrls[fileName]}
+                        className="widget-prevent-drag-wf"
+                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i className="material-icons">file_download</i>
+                      </a>
+                    ) : (
+                      <i className="material-icons">hourglass_empty</i>
+                    )}
+                    <div className="download-file-name-wf">{fileName}</div>
+                    {downloadUrls[fileName] ? (
+                      <a
+                        className="widget-prevent-drag-wf"
+                        onClick={() => handleDeleteFileModal(fileName)}
+                      >
+                        <i className="material-icons delete-icon-wf">
+                          delete_forever
+                        </i>
+                      </a>
+                    ) : (
+                      <i className="material-icons delete-icon-wf">
+                        hourglass_empty
+                      </i>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </>
+      ) : (
+        <div className="file-manager-offline-message-wf">
+          <p>You're offline. Please reconnect to see/upload files.</p>
         </div>
       )}
     </div>

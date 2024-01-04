@@ -1744,6 +1744,14 @@ html {
   cursor: pointer;
 }
 
+.file-manager-offline-message-wf {
+  margin: 0 5%;
+  padding: 5%;
+  color: var(--main-text-light-on-dark-color);
+  border: 1px dashed var(--textbox-background-color);
+  border-radius: 15px;
+}
+
 /* To Do List Widget rules */
 .kanban-board {
   background-color: var(--kanban-board-background-color);
@@ -2355,7 +2363,7 @@ h2 {
 
 /* Footer rules */
 .copyright-wf {
-  color: var(--secondary-text-color);
+  color: var(--welcome-text-color);
   text-align: right;
   margin-top: 20px;
   margin-bottom: 20px;
