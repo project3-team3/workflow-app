@@ -114,7 +114,6 @@ const resolvers = {
         user: {
           _id: user._id,
           username: user.username,
-          agoraUid: user.agoraUid,
         },
       };
     },

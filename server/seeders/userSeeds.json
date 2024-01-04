@@ -2,61 +2,51 @@
   {
     "username": "admin",
     "email": "kristbg@yahoo.com.br",
-    "password": "WorkflowAdmin@1213",
-    "agoraUid": 1234567890
+    "password": "WorkflowAdmin@1213"
   },
   {
     "username": "ghopper",
     "email": "ghopper@techfriends.dev",
-    "password": "password02",
-    "agoraUid": 2345678901
+    "password": "password02"
   },
   {
     "username": "ltorvalds",
     "email": "ltorvalds@techfriends.dev",
-    "password": "password03",
-    "agoraUid": 3456789012
+    "password": "password03"
   },
   {
     "username": "alovelace",
     "email": "alovelace@techfriends.dev",
-    "password": "password04",
-    "agoraUid": 4567890123
+    "password": "password04"
   },
   {
     "username": "aturing",
     "email": "aturing@techfriends.dev",
-    "password": "password05",
-    "agoraUid": 5678901234
+    "password": "password05"
   },
   {
     "username": "mhamilton",
     "email": "mhamilton@techfriends.dev",
-    "password": "password06",
-    "agoraUid": 6789012345
+    "password": "password06"
   },
   {
     "username": "tbernerslee",
     "email": "tbernerslee@techfriends.dev",
-    "password": "password07",
-    "agoraUid": 7890123456
+    "password": "password07"
   },
   {
     "username": "sgoldwasser",
     "email": "sgoldwasser@techfriends.dev",
-    "password": "password08",
-    "agoraUid": 8901234567
+    "password": "password08"
   },
   {
     "username": "jmccarthy",
     "email": "jmccarthy@techfriends.dev",
-    "password": "password09",
-    "agoraUid": 9012345678
+    "password": "password09"
   },
   {
     "username": "bliskov",
     "email": "bliskov@techfriends.dev",
-    "password": "password10",
-    "agoraUid": 1234567891
+    "password": "password10"
   }
 ]
