@@ -55,7 +55,7 @@
   --kanban-column-heading-color: rgba(49, 67, 94, 1);
   --meditation-background-color: rgba(96, 110, 110, 1);
   --meditation-text-color: rgba(250, 249, 246, 1);
-  --meditation-dropdown-color: rgba(250, 249, 246, 1);
+  --meditation-dropdown-color: rgba(13, 24, 33, 1);
   --inspiring-quote-background-color: rgba(0, 114, 123, 1);
   --inspiring-quote-text-color: rgba(250, 249, 246, 1);
   --balance-tip-background-color: rgba(0, 114, 123, 1);
@@ -763,6 +763,7 @@ html {
   margin-bottom: 10px;
   margin-top: 12px;
   max-width: 2.5em;
+  fill: var(--main-text-color);
 }
 
 .brandname-wf {
@@ -814,11 +815,12 @@ html {
 }
 
 .logo-wf {
-  height: 2.5em;
+  height: 2.7em;
   margin-left: 27px;
   margin-bottom: 10px;
   margin-top: 10px;
   max-width: 2.5em;
+  fill: var(--main-text-light-on-dark-color);
 }
 
 .sidenav-username-wf {
@@ -838,6 +840,7 @@ html {
 /* Welcome page rules */
 .logo-welcome-wf {
   height: 7em;
+  fill: var(--welcome-text-color);
 }
 
 .welcome-wf {
@@ -1699,6 +1702,7 @@ html {
 
 .download-file-list-wf {
   margin-top: 2%;
+  padding-bottom: 2%;
 }
 
 .download-item-container-wf {
@@ -2055,6 +2059,11 @@ h2 {
   background-color: var(--textbox-background-color) !important;
 }
 
+.str-chat__message-simple-name {
+  color: var(--main-text-color) !important;
+  font-family: "Lexend", sans-serif !important;
+}
+
 .str-chat__message-text-inner > div > p {
   font-family: "Lexend", sans-serif !important;
   color: var(--secondary-text-color) !important;
@@ -2335,6 +2344,7 @@ h2 {
 
 /* Footer rules */
 .copyright-wf {
+  color: var(--secondary-text-color);
   text-align: right;
   margin-top: 20px;
   margin-bottom: 20px;

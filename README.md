@@ -61,7 +61,7 @@ Workflow prioritizes user customization with adaptable color schemes, providing 
     - Notepad
 - Video Chat
 - Text Chat
-- Four color schemes to choose from
+- Eight additional color schemes to choose from
 - Option to remove/add widgets as desired
 
 ## Installation

@@ -193,7 +193,7 @@ const Settings = (props) => {
               <option value="blue-mode-wf">Aqua</option>
               <option value="beige-mode-wf">Dulcet</option>
               <option value="white-mode-wf">Mondrian</option>
-              <option value="brown-mode-wf">Lignus</option>
+              <option value="brown-mode-wf">Ligneous</option>
               <option value="green-mode-wf">Kumquat</option>
               <option value="purple-mode-wf">Spectrum</option>
               <option value="rainbow-mode-wf">Retinicide</option>
