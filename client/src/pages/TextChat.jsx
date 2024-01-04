@@ -120,7 +120,6 @@ const TextChat = () => {
     variables: { userId: userProfile._id || userProfile.user._id },
   });
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   // Get user's current theme
