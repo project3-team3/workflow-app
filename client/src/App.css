@@ -731,6 +731,19 @@ html {
   margin: 0px 5px;
 }
 
+.offline-message-container-wf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  width: 100vw;
+}
+
+.offline-message-wf {
+  vertical-align: middle;
+  text-align: center;
+}
+
 /* Main page side scroll bar rules */
 ::-webkit-scrollbar {
   width: 12px;

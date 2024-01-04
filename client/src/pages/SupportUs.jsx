@@ -1,9 +1,30 @@
 // Donation page
 import AuthService from "../utils/auth.js";
+import { useState, useEffect } from 'react';
 import { useQuery } from "@apollo/client";
 import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 
 const SupportUs = () => {
+  // Check if the user is online
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    // Update online status when it changes
+    const handleOnlineStatusChange = () => {
+      setIsOnline(navigator.onLine);
+    };
+
+    // Add event listeners for online/offline status
+    window.addEventListener("online", handleOnlineStatusChange);
+    window.addEventListener("offline", handleOnlineStatusChange);
+
+    return () => {
+      // Remove event listeners when the component unmounts
+      window.removeEventListener("online", handleOnlineStatusChange);
+      window.removeEventListener("offline", handleOnlineStatusChange);
+    };
+  }, []);
+
   // Get user profile
   const userProfile = AuthService.getProfile();
 
@@ -35,7 +56,7 @@ const SupportUs = () => {
     window.open("https://donate.stripe.com/00gaEI7Dsakm8ZWbII", "_blank");
   };
 
-  return (
+  return isOnline ? (
     <div className="container">
       <div className="admin-message-wf">
         <div className="support-wf">
@@ -66,6 +87,14 @@ const SupportUs = () => {
           >
             Donate
           </button>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div className="container">
+      <div className="admin-message-wf">
+        <div className="support-wf">
+          <p>You're offline. Please reconnect to use this feature.</p>
         </div>
       </div>
     </div>
