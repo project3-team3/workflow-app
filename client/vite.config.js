@@ -49,6 +49,20 @@ export default defineConfig({
               cacheName: 'css-font-cache',
             },
           },
+          {
+            urlPattern: /\.js$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'js-cache',
+            },
+          },
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/icon/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'material-icons-cache',
+            },
+          },
         ],
       },
     }),
