@@ -2,11 +2,13 @@
 import { useQuery } from "@apollo/client";
 import { QUERY_RANDOM_QUOTE } from "../../utils/queries.js";
 
+import LoadingSpinner from "../LoadingSpinner/index.jsx";
+
 const InspiringQuoteWidget = () => {
   // Get a random quote from the database
   const { loading, error, data } = useQuery(QUERY_RANDOM_QUOTE);
 
-  if (loading) return "Loading...";
+  if (loading) return <LoadingSpinner />;
   if (error) return `Error fetching random quote: ${error.message}`;
 
   const quote = data.randomQuote.quoteText;
