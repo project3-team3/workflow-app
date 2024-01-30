@@ -2,6 +2,10 @@
   "name": "workflow",
   "version": "1.0.0",
   "description": "A productivity app with an emphasis on keeping a healthy work/life balance.",
+  "engines": {
+    "node": "18.17.1",
+    "npm": "9.6.7"
+  },
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
