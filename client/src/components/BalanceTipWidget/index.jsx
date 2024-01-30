@@ -2,11 +2,13 @@
 import { useQuery } from "@apollo/client";
 import { QUERY_RANDOM_TIP } from "../../utils/queries.js";
 
+import LoadingSpinner from "../LoadingSpinner/index.jsx";
+
 const BalanceTipWidget = () => {
   // Get a random tip from the database
   const { loading, error, data } = useQuery(QUERY_RANDOM_TIP);
 
-  if (loading) return "Loading...";
+  if (loading) return <LoadingSpinner />;
   if (error) return `Error fetching random tip: ${error.message}`;
 
   const balanceTip = data.randomTip.tipText;

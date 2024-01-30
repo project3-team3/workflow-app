@@ -43,6 +43,9 @@ const router = createBrowserRouter([
       }, {
         path: '/supportus',
         element: <SupportUs />
+      }, {
+        path: '/error',
+        element: <ErrorPage />
       }
     ]
   },

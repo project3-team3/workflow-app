@@ -12,6 +12,26 @@ import AuthService from "../utils/auth.js";
 import LoadingSpinner from "../components/LoadingSpinner/index.jsx";
 
 const Settings = (props) => {
+  // Check if the user is online
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    // Update online status when it changes
+    const handleOnlineStatusChange = () => {
+      setIsOnline(navigator.onLine);
+    };
+
+    // Add event listeners for online/offline status
+    window.addEventListener("online", handleOnlineStatusChange);
+    window.addEventListener("offline", handleOnlineStatusChange);
+
+    return () => {
+      // Remove event listeners when the component unmounts
+      window.removeEventListener("online", handleOnlineStatusChange);
+      window.removeEventListener("offline", handleOnlineStatusChange);
+    };
+  }, []);
+
   const [userSettings, setUserSettings] = useState(null);
   const [checkboxUpdateComplete, setCheckboxUpdateComplete] = useState(false);
   const [dropdownUpdateComplete, setDropdownUpdateComplete] = useState(false);
@@ -168,166 +188,181 @@ const Settings = (props) => {
 
   return (
     <>
-      <div
-        className={
-          checkboxUpdateComplete && dropdownUpdateComplete ? "hidden-wf" : ""
-        }
-      >
-        <LoadingSpinner />
-      </div>
-      <div
-        className={
-          checkboxUpdateComplete && dropdownUpdateComplete ? "" : "hidden-wf"
-        }
-      >
+      {isOnline ? (
+        <>
+          <div
+            className={
+              checkboxUpdateComplete && dropdownUpdateComplete
+                ? "hidden-wf"
+                : ""
+            }
+          >
+            <LoadingSpinner />
+          </div>
+          <div
+            className={
+              checkboxUpdateComplete && dropdownUpdateComplete
+                ? ""
+                : "hidden-wf"
+            }
+          >
+            <div className="box-container-wf">
+              <div className="box-wf">
+                <h4>Settings</h4>
+                <p className="settings-header-wf">Color Scheme</p>
+                <select
+                  className="browser-default settings-dropdown-wf"
+                  value={currentMode}
+                  onChange={(e) => setCurrentMode(e.target.value)}
+                >
+                  <option value="default-mode-wf">Default</option>
+                  <option value="blue-mode-wf">Aqua</option>
+                  <option value="beige-mode-wf">Dulcet</option>
+                  <option value="white-mode-wf">Mondrian</option>
+                  <option value="brown-mode-wf">Ligneous</option>
+                  <option value="green-mode-wf">Kumquat</option>
+                  <option value="purple-mode-wf">Spectrum</option>
+                  <option value="rainbow-mode-wf">Retinicide</option>
+                  <option value="dark-mode-wf">Dark</option>
+                </select>
+                <br />
+                <p className="settings-header-wf">Active Widgets</p>
+                <form action="#">
+                  <div className="checkbox-container-wf">
+                    <p>
+                      <label htmlFor="calendar">
+                        <input
+                          type="checkbox"
+                          id="calendar"
+                          className="checkbox-item-wf"
+                          onChange={handleWidgetChange}
+                        />
+                        <span>Calendar</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label htmlFor="clock">
+                        <input
+                          type="checkbox"
+                          id="clock"
+                          className="checkbox-item-wf"
+                          onChange={handleWidgetChange}
+                        />
+                        <span>Clock</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label htmlFor="filemanagement">
+                        <input
+                          type="checkbox"
+                          id="filemanagement"
+                          className="checkbox-item-wf"
+                          onChange={handleWidgetChange}
+                        />
+                        <span>File Manager</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label htmlFor="notepad">
+                        <input
+                          type="checkbox"
+                          id="notepad"
+                          className="checkbox-item-wf"
+                          onChange={handleWidgetChange}
+                        />
+                        <span>Notepad</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label htmlFor="schedule">
+                        <input
+                          type="checkbox"
+                          id="schedule"
+                          className="checkbox-item-wf"
+                          onChange={handleWidgetChange}
+                        />
+                        <span>Daily Schedule</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label htmlFor="stickynote">
+                        <input
+                          type="checkbox"
+                          id="stickynote"
+                          className="checkbox-item-wf"
+                          onChange={handleWidgetChange}
+                        />
+                        <span>Sticky Notes</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label htmlFor="todolist">
+                        <input
+                          type="checkbox"
+                          id="todolist"
+                          className="checkbox-item-wf"
+                          onChange={handleWidgetChange}
+                        />
+                        <span>Kanban Board</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label htmlFor="meditation">
+                        <input
+                          type="checkbox"
+                          id="meditation"
+                          className="checkbox-item-wf"
+                          onChange={handleWidgetChange}
+                        />
+                        <span>Meditation</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label htmlFor="inspiringquote">
+                        <input
+                          type="checkbox"
+                          id="inspiringquote"
+                          className="checkbox-item-wf"
+                          onChange={handleWidgetChange}
+                        />
+                        <span>Inspirational Quotes</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label htmlFor="balancetip">
+                        <input
+                          type="checkbox"
+                          id="balancetip"
+                          className="checkbox-item-wf"
+                          onChange={handleWidgetChange}
+                        />
+                        <span>Work/Life Balance Tips</span>
+                      </label>
+                    </p>
+                  </div>
+                </form>
+                <br />
+                <div id="pwa-install-wf">
+                  <p className="settings-header-wf">Install Workflow</p>
+                  <button
+                    id="pwa-install-button"
+                    className="waves-effect waves-light btn install-button-wf button-wf"
+                  >
+                    Install
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
         <div className="box-container-wf">
           <div className="box-wf">
             <h4>Settings</h4>
-            <p className="settings-header-wf">Color Scheme</p>
-            <select
-              className="browser-default settings-dropdown-wf"
-              value={currentMode}
-              onChange={(e) => setCurrentMode(e.target.value)}
-            >
-              <option value="default-mode-wf">Default</option>
-              <option value="blue-mode-wf">Aqua</option>
-              <option value="beige-mode-wf">Dulcet</option>
-              <option value="white-mode-wf">Mondrian</option>
-              <option value="brown-mode-wf">Ligneous</option>
-              <option value="green-mode-wf">Kumquat</option>
-              <option value="purple-mode-wf">Spectrum</option>
-              <option value="rainbow-mode-wf">Retinicide</option>
-              <option value="dark-mode-wf">Dark</option>
-            </select>
-            <br />
-            <p className="settings-header-wf">Active Widgets</p>
-            <form action="#">
-              <div className="checkbox-container-wf">
-                <p>
-                  <label htmlFor="calendar">
-                    <input
-                      type="checkbox"
-                      id="calendar"
-                      className="checkbox-item-wf"
-                      onChange={handleWidgetChange}
-                    />
-                    <span>Calendar</span>
-                  </label>
-                </p>
-                <p>
-                  <label htmlFor="clock">
-                    <input
-                      type="checkbox"
-                      id="clock"
-                      className="checkbox-item-wf"
-                      onChange={handleWidgetChange}
-                    />
-                    <span>Clock</span>
-                  </label>
-                </p>
-                <p>
-                  <label htmlFor="filemanagement">
-                    <input
-                      type="checkbox"
-                      id="filemanagement"
-                      className="checkbox-item-wf"
-                      onChange={handleWidgetChange}
-                    />
-                    <span>File Manager</span>
-                  </label>
-                </p>
-                <p>
-                  <label htmlFor="notepad">
-                    <input
-                      type="checkbox"
-                      id="notepad"
-                      className="checkbox-item-wf"
-                      onChange={handleWidgetChange}
-                    />
-                    <span>Notepad</span>
-                  </label>
-                </p>
-                <p>
-                  <label htmlFor="schedule">
-                    <input
-                      type="checkbox"
-                      id="schedule"
-                      className="checkbox-item-wf"
-                      onChange={handleWidgetChange}
-                    />
-                    <span>Daily Schedule</span>
-                  </label>
-                </p>
-                <p>
-                  <label htmlFor="stickynote">
-                    <input
-                      type="checkbox"
-                      id="stickynote"
-                      className="checkbox-item-wf"
-                      onChange={handleWidgetChange}
-                    />
-                    <span>Sticky Notes</span>
-                  </label>
-                </p>
-                <p>
-                  <label htmlFor="todolist">
-                    <input
-                      type="checkbox"
-                      id="todolist"
-                      className="checkbox-item-wf"
-                      onChange={handleWidgetChange}
-                    />
-                    <span>Kanban Board</span>
-                  </label>
-                </p>
-                <p>
-                  <label htmlFor="meditation">
-                    <input
-                      type="checkbox"
-                      id="meditation"
-                      className="checkbox-item-wf"
-                      onChange={handleWidgetChange}
-                    />
-                    <span>Meditation</span>
-                  </label>
-                </p>
-                <p>
-                  <label htmlFor="inspiringquote">
-                    <input
-                      type="checkbox"
-                      id="inspiringquote"
-                      className="checkbox-item-wf"
-                      onChange={handleWidgetChange}
-                    />
-                    <span>Inspirational Quotes</span>
-                  </label>
-                </p>
-                <p>
-                  <label htmlFor="balancetip">
-                    <input
-                      type="checkbox"
-                      id="balancetip"
-                      className="checkbox-item-wf"
-                      onChange={handleWidgetChange}
-                    />
-                    <span>Work/Life Balance Tips</span>
-                  </label>
-                </p>
-              </div>
-            </form>
-            <br />
-            <div id="pwa-install-wf">
-              <p className="settings-header-wf">Install Workflow</p>
-              <button
-                id="pwa-install-button"
-                className="waves-effect waves-light btn install-button-wf button-wf"
-              >
-                Install
-              </button>
-            </div>
+            <p>You're offline. Please reconnect to change your settings.</p>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

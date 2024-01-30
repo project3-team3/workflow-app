@@ -673,7 +673,7 @@ html {
 
 .spinner-container-wf {
   width: 100vw;
-  height: 80vh;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -729,6 +729,19 @@ html {
   background-color: var(--secondary-button-color);
   color: var(--secondary-button-text-color);
   margin: 0px 5px;
+}
+
+.offline-message-container-wf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  width: 100vw;
+}
+
+.offline-message-wf {
+  vertical-align: middle;
+  text-align: center;
 }
 
 /* Main page side scroll bar rules */

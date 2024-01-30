@@ -32,13 +32,13 @@ const TextChat = () => {
     };
 
     // Add event listeners for online/offline status
-    window.addEventListener('online', handleOnlineStatusChange);
-    window.addEventListener('offline', handleOnlineStatusChange);
+    window.addEventListener("online", handleOnlineStatusChange);
+    window.addEventListener("offline", handleOnlineStatusChange);
 
     return () => {
       // Remove event listeners when the component unmounts
-      window.removeEventListener('online', handleOnlineStatusChange);
-      window.removeEventListener('offline', handleOnlineStatusChange);
+      window.removeEventListener("online", handleOnlineStatusChange);
+      window.removeEventListener("offline", handleOnlineStatusChange);
     };
   }, []);
 
@@ -120,7 +120,7 @@ const TextChat = () => {
     variables: { userId: userProfile._id || userProfile.user._id },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingSpinner />;
   if (error) return <p>Error: {error.message}</p>;
 
   // Get user's current theme
@@ -145,68 +145,73 @@ const TextChat = () => {
 
   return (
     <>
-      {activeChat ? (
-        !chatClient || !channel ? (
-          <LoadingSpinner />
-        ) : (
-          <div className="box-container-wf">
-            <div className="box-wf video-chat-player-box-wf">
-              <Chat client={chatClient}>
-                <Channel channel={channel}>
-                  <Window>
-                    <ChannelHeader />
-                    <MessageList />
-                    <MessageInput />
-                  </Window>
-                  <Thread />
-                </Channel>
-              </Chat>
-            </div>
-          </div>
-        )
-      ) : (
+      {isOnline ? (
         <>
-          {" "}
-          <div className="box-container-wf">
-            <div className="box-wf text-chat-input-box-wf">
-              <h4>Workflow Text Chat</h4>
-              {isOnline ? (
-                <>
-              <p>
-                Please enter the name of the channel you'd like to join. If the
-                channel does not exist, a new one will be created.
-              </p>
-              <input
-                id="channel"
-                type="text"
-                className="input-wf text-chat-input-wf"
-                value={channelName}
-                onChange={(e) => setChannelName(e.target.value)}
-                placeholder="Channel name"
-              />
-              <div className="text-chat-button-container-wf">
-                <button
-                  className="waves-effect waves-light btn button-wf"
-                  onClick={() =>
-                    channelName ? handleJoinButtonClick() : openModal()
-                  }
-                >
-                  Join
-                </button>
-              </div>
-              </>) : (
-                <div className="chat-offline-message-wf">
-                  <p>You're offline. Please reconnect to use the text chat feature.</p>
+          {activeChat ? (
+            !chatClient || !channel ? (
+              <LoadingSpinner />
+            ) : (
+              <div className="box-container-wf">
+                <div className="box-wf video-chat-player-box-wf">
+                  <Chat client={chatClient}>
+                    <Channel channel={channel}>
+                      <Window>
+                        <ChannelHeader />
+                        <MessageList />
+                        <MessageInput />
+                      </Window>
+                      <Thread />
+                    </Channel>
+                  </Chat>
                 </div>
-              )}
-            </div>
-          </div>
+              </div>
+            )
+          ) : (
+            <>
+              <div className="box-container-wf">
+                <div className="box-wf text-chat-input-box-wf">
+                  <h4>Workflow Text Chat</h4>
+                  <p>
+                    Please enter the name of the channel you'd like to join. If
+                    the channel does not exist, a new one will be created.
+                  </p>
+                  <input
+                    id="channel"
+                    type="text"
+                    className="input-wf text-chat-input-wf"
+                    value={channelName}
+                    onChange={(e) => setChannelName(e.target.value)}
+                    placeholder="Channel name"
+                  />
+                  <div className="text-chat-button-container-wf">
+                    <button
+                      className="waves-effect waves-light btn button-wf"
+                      onClick={() =>
+                        channelName ? handleJoinButtonClick() : openModal()
+                      }
+                    >
+                      Join
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+          <PopUpModal isOpen={isModalOpen} onClose={closeModal}>
+            <h2>Error</h2>
+            <p>Please enter a name for the channel you'd like to join.</p>
+          </PopUpModal>
         </>
+      ) : (
+        <div className="box-container-wf">
+          <div className="box-wf text-chat-input-box-wf">
+            <h4>Workflow Text Chat</h4>
+            <p>
+              You're offline. Please reconnect to use the text chat feature.
+            </p>
+          </div>
+        </div>
       )}
-      <PopUpModal isOpen={isModalOpen} onClose={closeModal}>
-        <h2>Error</h2>
-        <p>Please enter a name for the channel you'd like to join.</p>
-      </PopUpModal>
     </>
   );
 };

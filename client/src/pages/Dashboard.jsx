@@ -1,7 +1,7 @@
 // Main dashboard page
 import ReactDOM from "react-dom/client";
 import { useQuery } from "@apollo/client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { QUERY_USER_SETTINGS } from "../utils/queries.js";
 
 import AuthService from "../utils/auth.js";
@@ -11,6 +11,25 @@ import WidgetGrid from "../components/WidgetGrid";
 import PopUpModal from "../components/PopUpModal";
 
 const Home = () => {
+  // Check if the user is online
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    // Update online status when it changes
+    const handleOnlineStatusChange = () => {
+      setIsOnline(navigator.onLine);
+    };
+
+    // Add event listeners for online/offline status
+    window.addEventListener("online", handleOnlineStatusChange);
+    window.addEventListener("offline", handleOnlineStatusChange);
+
+    return () => {
+      // Remove event listeners when the component unmounts
+      window.removeEventListener("online", handleOnlineStatusChange);
+      window.removeEventListener("offline", handleOnlineStatusChange);
+    };
+  }, []);
 
   // Open the modal dialog box for the File Manager component
   const openModal = async () => {
@@ -66,7 +85,7 @@ const Home = () => {
     setMode(colorTheme);
   }
 
-  return (
+  return isOnline ? (
     <div id="modal-root-wf">
       <div className={loading ? "" : "hidden-wf"}>
         <LoadingSpinner />
@@ -79,6 +98,12 @@ const Home = () => {
           </div>
         </div>
       </div>
+    </div>
+  ) : (
+    <div className="offline-message-container-wf">
+      <p className="offline-message-wf">
+        You're offline. Please reconnect to use the dashboard.
+      </p>
     </div>
   );
 };

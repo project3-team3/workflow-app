@@ -26,6 +26,10 @@ export default defineConfig({
           },
         ],
       },
+      includeAssets: [
+        "/normalize.css",
+        "/error",
+      ],
       workbox: {
         runtimeCaching: [
           {
@@ -44,9 +48,23 @@ export default defineConfig({
           },
           {
             urlPattern: /\.(css|woff|woff2|ttf|otf)$/,
-            handler: 'CacheFirst',
+            handler: "CacheFirst",
             options: {
-              cacheName: 'css-font-cache',
+              cacheName: "css-font-cache",
+            },
+          },
+          {
+            urlPattern: /\.js$/,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "js-cache",
+            },
+          },
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/icon/,
+            handler: "StaleWhileRevalidate",
+            options: {
+              cacheName: "material-icons-cache",
             },
           },
         ],
