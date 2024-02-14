@@ -66,7 +66,7 @@ Workflow prioritizes user customization with adaptable color schemes, providing 
 
 ## Installation
 
-Access the app directly through [here](<https://workflow-oj8s.onrender.com/>). A local version can be installed by clicking the "install" icon at the right end of your address bar (in Google Chrome), or by clicking the "Install" button at the bottom of the Settings page.
+Access the app directly through [here](<https://shrouded-reef-15269-7fdf3ccd76bb.herokuapp.com/>). A local version can be installed by clicking the "install" icon at the right end of your address bar (in Google Chrome), or by clicking the "Install" button at the bottom of the Settings page.
 
 ## Usage
 
