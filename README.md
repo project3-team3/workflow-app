@@ -120,7 +120,7 @@ This project is licensed under the [MIT](/LICENSE) License.
 
 ## Contact
 
-This project was created by the [Workflow Team](<https://github.com/project3-team3>) ([Chris Godinho](<https://github.com/chris-godinho>), [Katrina Sarmiento](<https://github.com/KitSarmiento>), [Yves Harry Deslouches](<https://github.com/YvesHarry>) and [Junior Poku](<https://github.com/Junya-jp>)).
+This project was created by the [Workflow Team](<https://github.com/project3-team3>) ([Chris Godinho](<https://github.com/chris-godinho>) and [Katrina Sarmiento](<https://github.com/KitSarmiento>)).
 
 ## Support Us
 
